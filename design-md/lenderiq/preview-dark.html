@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LenderIQ - Design System Preview (Dark)</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; color: #FFFFFF; background: #030224; line-height: 1.5; }
+
+  .preview-section { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+  .preview-section + .preview-section { border-top: 1px solid rgba(255,255,255,0.1); }
+  .section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.5); letter-spacing: 1px; margin-bottom: 24px; }
+
+  /* Nav Preview */
+  .nav-preview { background: #000A4E; padding: 0 32px; height: 70px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .nav-logo { color: #fff; font-size: 20px; font-weight: 700; }
+  .nav-cta { background: #FFC124; color: #000A4E; padding: 8px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; border: none; cursor: pointer; }
+
+  /* Color Swatches */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .swatch { border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+  .swatch-color { height: 64px; }
+  .swatch-info { padding: 10px 12px; }
+  .swatch-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .swatch-hex { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  /* Typography */
+  .type-row { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: baseline; gap: 24px; }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta { flex-shrink: 0; width: 180px; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .type-sample { flex: 1; color: #fff; }
+
+  /* Buttons */
+  .button-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 16px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; font-family: 'Figtree', sans-serif; font-weight: 600; border: none; cursor: pointer; transition: all 150ms ease; text-decoration: none; border-radius: 8px; }
+  .btn-sm { padding: 8px 16px; font-size: 14px; }
+  .btn-md { padding: 12px 24px; font-size: 16px; }
+  .btn-lg { padding: 16px 32px; font-size: 18px; }
+  .btn-primary { background: #FFC124; color: #000A4E; }
+  .btn-blue { background: #0B69F5; color: #fff; }
+  .btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+  .btn-ghost { background: transparent; color: #7BBDFF; padding-left: 0; padding-right: 0; }
+  .btn-disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; }
+  .card-header { height: 120px; display: flex; align-items: center; justify-content: center; }
+  .card-header-navy { background: linear-gradient(180deg, #000731 0%, #0B1340 100%); }
+  .card-header-premover { background: linear-gradient(180deg, rgba(244,249,255,0.1) 76%, rgba(214,215,250,0.15) 100%); }
+  .card-header-refi { background: linear-gradient(180deg, rgba(244,249,255,0.1) 76%, rgba(216,243,234,0.15) 100%); }
+  .card-body { padding: 24px; }
+  .card-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .card-desc { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+  /* Inputs */
+  .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .input-group { display: flex; flex-direction: column; gap: 6px; }
+  .input-label { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); }
+  .input-field { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; height: 48px; padding: 0 16px; font-size: 16px; font-family: 'Figtree', sans-serif; color: #fff; outline: none; transition: all 150ms ease; }
+  .input-field::placeholder { color: rgba(255,255,255,0.4); }
+  .input-field-focus { border-color: #0389FF; box-shadow: 0 0 0 3px rgba(11,105,245,0.25); }
+  .input-field-error { border-color: #FF1010; }
+  .input-helper { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .input-error { font-size: 12px; color: #FF1010; }
+
+  /* Badges */
+  .badge-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .badge { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Figtree', sans-serif; font-weight: 700; white-space: nowrap; }
+  .badge-score-high { background: rgba(21,216,93,0.3); color: #4ade80; padding: 6px 10px; font-size: 11px; }
+  .badge-score-med { background: rgba(93,216,21,0.3); color: #a3e635; padding: 6px 10px; font-size: 11px; }
+  .badge-score-low { background: rgba(244,195,18,0.25); color: #fbbf24; padding: 6px 10px; font-size: 11px; }
+  .badge-label { background: rgba(255,255,255,0.1); color: #fff; padding: 8px 12px; font-size: 11px; font-weight: 600; }
+  .badge-lost { background: rgba(239,68,68,0.15); color: #f87171; padding: 6px 12px; font-size: 11px; }
+  .badge-refi { background: rgba(16,185,129,0.15); color: #34d399; padding: 6px 12px; font-size: 11px; }
+  .badge-bundle { background: rgba(245,158,11,0.15); color: #fbbf24; padding: 6px 12px; font-size: 11px; }
+
+  /* Spacing */
+  .spacing-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .spacing-bar { height: 24px; background: #0B69F5; border-radius: 4px; opacity: 0.6; }
+  .spacing-label { font-size: 12px; color: rgba(255,255,255,0.5); width: 80px; flex-shrink: 0; }
+  .spacing-value { font-size: 12px; color: rgba(255,255,255,0.6); width: 40px; }
+
+  /* Radius */
+  .radius-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+  .radius-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .radius-box { width: 64px; height: 64px; background: rgba(11,105,245,0.15); border: 2px solid #0B69F5; }
+  .radius-name { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .radius-val { font-size: 11px; font-weight: 600; color: #fff; }
+
+  /* Shadows */
+  .shadow-grid { display: flex; flex-wrap: wrap; gap: 24px; }
+  .shadow-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .shadow-box { width: 100px; height: 80px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; }
+  .shadow-name { font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; }
+
+  /* Gradients */
+  .gradient-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .gradient-item { border-radius: 12px; height: 80px; display: flex; align-items: flex-end; padding: 10px; border: 1px solid rgba(255,255,255,0.1); }
+  .gradient-name { font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 6px; background: rgba(0,0,0,0.6); color: #fff; }
+
+  /* Hero Preview */
+  .hero-preview { background: linear-gradient(180deg, #000A4E 0%, #000731 100%); border-radius: 16px; padding: 48px 40px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); }
+  .hero-headline { font-size: 48px; font-weight: 800; line-height: 110%; letter-spacing: -1.5px; color: #fff; margin-bottom: 16px; }
+  .hero-subtext { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 24px; max-width: 500px; }
+
+  @media (max-width: 768px) {
+    .preview-section { padding: 32px 16px; }
+    .hero-headline { font-size: 32px; }
+    .type-row { flex-direction: column; gap: 8px; }
+    .type-meta { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav-preview">
+  <div class="nav-logo">LenderIQ</div>
+  <button class="nav-cta">Get Your Report</button>
+</nav>
+
+<!-- Hero Preview -->
+<div class="preview-section" style="padding-top: 32px;">
+  <p class="section-label">Hero Section</p>
+  <div class="hero-preview">
+    <div class="hero-headline">Discover Your Hidden Revenue Opportunities</div>
+    <div class="hero-subtext">Get a comprehensive production report with competitor analysis, lost deal insights, and refinance opportunities.</div>
+    <div class="button-row">
+      <button class="btn btn-primary btn-lg">Get Your Free Report</button>
+      <button class="btn btn-secondary btn-lg">Learn More</button>
+    </div>
+  </div>
+</div>
+
+<!-- Color Palette -->
+<div class="preview-section">
+  <p class="section-label">Color Palette</p>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Brand Primary</p>
+  <div class="swatch-grid" style="margin-bottom:24px;">
+    <div class="swatch"><div class="swatch-color" style="background:#000A4E;"></div><div class="swatch-info"><div class="swatch-name">Navy Deep</div><div class="swatch-hex">#000A4E</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#000731;"></div><div class="swatch-info"><div class="swatch-name">Navy Darker</div><div class="swatch-hex">#000731</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0389FF;"></div><div class="swatch-info"><div class="swatch-name">Blue Main</div><div class="swatch-hex">#0389FF</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0B69F5;"></div><div class="swatch-info"><div class="swatch-name">Blue 5</div><div class="swatch-hex">#0B69F5</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#7BBDFF;"></div><div class="swatch-info"><div class="swatch-name">Blue Light</div><div class="swatch-hex">#7BBDFF</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFC124;"></div><div class="swatch-info"><div class="swatch-name">Yellow Gold</div><div class="swatch-hex">#FFC124</div></div></div>
+  </div>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Neutrals</p>
+  <div class="swatch-grid" style="margin-bottom:24px;">
+    <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F4F8F9;"></div><div class="swatch-info"><div class="swatch-name">Off-White</div><div class="swatch-hex">#F4F8F9</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#EDF6FF;"></div><div class="swatch-info"><div class="swatch-name">Ice Blue</div><div class="swatch-hex">#EDF6FF</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#DAE1E6;"></div><div class="swatch-info"><div class="swatch-name">Pale Sky Blue</div><div class="swatch-hex">#DAE1E6</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#BBC5D8;"></div><div class="swatch-info"><div class="swatch-name">Silver Blue</div><div class="swatch-hex">#BBC5D8</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#8194AA;"></div><div class="swatch-info"><div class="swatch-name">Grey Blue</div><div class="swatch-hex">#8194AA</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#78899C;"></div><div class="swatch-info"><div class="swatch-name">Steel</div><div class="swatch-hex">#78899C</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#536880;"></div><div class="swatch-info"><div class="swatch-name">Slate</div><div class="swatch-hex">#536880</div></div></div>
+  </div>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Text</p>
+  <div class="swatch-grid" style="margin-bottom:24px;">
+    <div class="swatch"><div class="swatch-color" style="background:#17191C;"></div><div class="swatch-info"><div class="swatch-name">Primary</div><div class="swatch-hex">#17191C</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0D121A;"></div><div class="swatch-info"><div class="swatch-name">Primary 90</div><div class="swatch-hex">#0D121A</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#303841;"></div><div class="swatch-info"><div class="swatch-name">Secondary</div><div class="swatch-hex">#303841</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#18173B;"></div><div class="swatch-info"><div class="swatch-name">Tertiary</div><div class="swatch-hex">#18173B</div></div></div>
+  </div>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Semantic</p>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#009D5C;"></div><div class="swatch-info"><div class="swatch-name">Success</div><div class="swatch-hex">#009D5C</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FF1010;"></div><div class="swatch-info"><div class="swatch-name">Danger</div><div class="swatch-hex">#FF1010</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#B87203;"></div><div class="swatch-info"><div class="swatch-name">Warning</div><div class="swatch-hex">#B87203</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#EF4444;"></div><div class="swatch-info"><div class="swatch-name">Lost Red</div><div class="swatch-hex">#EF4444</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#10B981;"></div><div class="swatch-info"><div class="swatch-name">Refi Green</div><div class="swatch-hex">#10B981</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F59E0B;"></div><div class="swatch-info"><div class="swatch-name">Bundle Gold</div><div class="swatch-hex">#F59E0B</div></div></div>
+  </div>
+</div>
+
+<!-- Typography -->
+<div class="preview-section">
+  <p class="section-label">Typography Scale</p>
+  <div class="type-row">
+    <div class="type-meta">H1 — 64px / 800<br>-1.5px tracking</div>
+    <div class="type-sample" style="font-size:48px; font-weight:800; line-height:110%; letter-spacing:-1.5px;">Display Heading</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">H2 — 56px / 800<br>-1px tracking</div>
+    <div class="type-sample" style="font-size:42px; font-weight:800; line-height:110%; letter-spacing:-1px;">Section Heading</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">H3 — 38px / 800<br>-1px tracking</div>
+    <div class="type-sample" style="font-size:38px; font-weight:800; line-height:130%; letter-spacing:-1px;">Feature Title</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">H4 — 24px / 800<br>-0.5px tracking</div>
+    <div class="type-sample" style="font-size:24px; font-weight:800; line-height:140%; letter-spacing:-0.5px;">Card Heading</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">H5 — 16px / 600</div>
+    <div class="type-sample" style="font-size:16px; font-weight:600; line-height:24px;">Small Heading</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Body Large — 20px / 400</div>
+    <div class="type-sample" style="font-size:20px; font-weight:400; line-height:1.6; color:rgba(255,255,255,0.8);">Lead paragraph text for hero sections and introductions.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Body Medium — 16px / 400</div>
+    <div class="type-sample" style="font-size:16px; font-weight:400; line-height:28px; color:rgba(255,255,255,0.8);">Standard body text used throughout the application for descriptions and content.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Body Small — 14px / 400</div>
+    <div class="type-sample" style="font-size:14px; font-weight:400; line-height:20px; color:rgba(255,255,255,0.6);">Metadata, captions, and helper text for supporting information.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Body XS — 12px / 400</div>
+    <div class="type-sample" style="font-size:12px; font-weight:400; line-height:18px; color:rgba(255,255,255,0.5);">Fine print, timestamps, and minimal labels.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Label — 14px / 700<br>UPPERCASE</div>
+    <div class="type-sample" style="font-size:14px; font-weight:700; line-height:20px; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.6);">Section Label</div>
+  </div>
+</div>
+
+<!-- Buttons -->
+<div class="preview-section">
+  <p class="section-label">Buttons</p>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Primary (Yellow CTA)</p>
+  <div class="button-row">
+    <button class="btn btn-primary btn-sm">Small</button>
+    <button class="btn btn-primary btn-md">Medium</button>
+    <button class="btn btn-primary btn-lg">Large</button>
+    <button class="btn btn-primary btn-md btn-disabled" disabled>Disabled</button>
+  </div>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Primary Blue</p>
+  <div class="button-row">
+    <button class="btn btn-blue btn-sm">Small</button>
+    <button class="btn btn-blue btn-md">Medium</button>
+    <button class="btn btn-blue btn-lg">Large</button>
+    <button class="btn btn-blue btn-md btn-disabled" disabled>Disabled</button>
+  </div>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Secondary & Ghost</p>
+  <div class="button-row">
+    <button class="btn btn-secondary btn-sm">Small</button>
+    <button class="btn btn-secondary btn-md">Medium</button>
+    <button class="btn btn-secondary btn-lg">Large</button>
+    <button class="btn btn-ghost btn-md">Ghost Link</button>
+  </div>
+</div>
+
+<!-- Cards -->
+<div class="preview-section">
+  <p class="section-label">Cards</p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">Default Card</div>
+        <div class="card-desc">Standard card with translucent surface and subtle border on dark background.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header card-header-navy"><span style="color:#fff; font-size:14px; font-weight:600;">Navy Header</span></div>
+      <div class="card-body">
+        <div class="card-title">Header Card</div>
+        <div class="card-desc">Card with navy gradient header for primary content sections.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header card-header-premover"></div>
+      <div class="card-body">
+        <div class="card-title">Gradient Card</div>
+        <div class="card-desc">Translucent gradient headers adapted for dark surfaces.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form Elements -->
+<div class="preview-section">
+  <p class="section-label">Form Elements</p>
+  <div class="input-grid">
+    <div class="input-group">
+      <label class="input-label">Default Input</label>
+      <input class="input-field" type="text" placeholder="Enter your NMLS ID">
+      <span class="input-helper">Your unique NMLS identifier</span>
+    </div>
+    <div class="input-group">
+      <label class="input-label">Focused Input</label>
+      <input class="input-field input-field-focus" type="text" placeholder="Click to focus">
+    </div>
+    <div class="input-group">
+      <label class="input-label">Error State</label>
+      <input class="input-field input-field-error" type="text" value="abc123">
+      <span class="input-error">Please enter a valid NMLS ID</span>
+    </div>
+  </div>
+</div>
+
+<!-- Badges -->
+<div class="preview-section">
+  <p class="section-label">Badges</p>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Score Badges</p>
+  <div class="badge-row" style="margin-bottom:16px;">
+    <span class="badge badge-score-high">92</span>
+    <span class="badge badge-score-high">High</span>
+    <span class="badge badge-score-med">75</span>
+    <span class="badge badge-score-med">Medium</span>
+    <span class="badge badge-score-low">43</span>
+    <span class="badge badge-score-low">Low</span>
+  </div>
+
+  <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:rgba(255,255,255,0.6);">Label & Semantic Badges</p>
+  <div class="badge-row">
+    <span class="badge badge-label">Premium</span>
+    <span class="badge badge-lost">Lost Deal</span>
+    <span class="badge badge-refi">Refinance</span>
+    <span class="badge badge-bundle">Bundle</span>
+  </div>
+</div>
+
+<!-- Spacing Scale -->
+<div class="preview-section">
+  <p class="section-label">Spacing Scale</p>
+  <div class="spacing-row"><span class="spacing-label">xs</span><div class="spacing-bar" style="width:4px;"></div><span class="spacing-value">4px</span></div>
+  <div class="spacing-row"><span class="spacing-label">sm</span><div class="spacing-bar" style="width:8px;"></div><span class="spacing-value">8px</span></div>
+  <div class="spacing-row"><span class="spacing-label">md</span><div class="spacing-bar" style="width:12px;"></div><span class="spacing-value">12px</span></div>
+  <div class="spacing-row"><span class="spacing-label">lg</span><div class="spacing-bar" style="width:16px;"></div><span class="spacing-value">16px</span></div>
+  <div class="spacing-row"><span class="spacing-label">xl</span><div class="spacing-bar" style="width:20px;"></div><span class="spacing-value">20px</span></div>
+  <div class="spacing-row"><span class="spacing-label">2xl</span><div class="spacing-bar" style="width:24px;"></div><span class="spacing-value">24px</span></div>
+  <div class="spacing-row"><span class="spacing-label">3xl</span><div class="spacing-bar" style="width:32px;"></div><span class="spacing-value">32px</span></div>
+  <div class="spacing-row"><span class="spacing-label">4xl</span><div class="spacing-bar" style="width:48px;"></div><span class="spacing-value">48px</span></div>
+  <div class="spacing-row"><span class="spacing-label">5xl</span><div class="spacing-bar" style="width:64px;"></div><span class="spacing-value">64px</span></div>
+  <div class="spacing-row"><span class="spacing-label">6xl</span><div class="spacing-bar" style="width:80px;"></div><span class="spacing-value">80px</span></div>
+  <div class="spacing-row"><span class="spacing-label">7xl</span><div class="spacing-bar" style="width:120px;"></div><span class="spacing-value">120px</span></div>
+</div>
+
+<!-- Border Radius -->
+<div class="preview-section">
+  <p class="section-label">Border Radius</p>
+  <div class="radius-grid">
+    <div class="radius-item"><div class="radius-box" style="border-radius:4px;"></div><div class="radius-name">xs</div><div class="radius-val">4px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:6px;"></div><div class="radius-name">sm</div><div class="radius-val">6px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:8px;"></div><div class="radius-name">md</div><div class="radius-val">8px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:12px;"></div><div class="radius-name">lg</div><div class="radius-val">12px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:16px;"></div><div class="radius-name">xl</div><div class="radius-val">16px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:9999px;"></div><div class="radius-name">full</div><div class="radius-val">9999px</div></div>
+  </div>
+</div>
+
+<!-- Elevation -->
+<div class="preview-section">
+  <p class="section-label">Elevation / Shadows</p>
+  <div class="shadow-grid">
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 1px 1px rgba(0,0,0,0.2);"></div><div class="shadow-name">XS</div></div>
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 1px 2px rgba(0,0,0,0.15);"></div><div class="shadow-name">SM</div></div>
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 3px 20px rgba(0,0,0,0.2), 0px 0px 3px rgba(0,0,0,0.1);"></div><div class="shadow-name">MD</div></div>
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 5px 11px rgba(0,0,0,0.25);"></div><div class="shadow-name">LG</div></div>
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 13px 27px rgba(0,0,0,0.3);"></div><div class="shadow-name">XL</div></div>
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 0px 0px 1px rgba(255,255,255,0.1), 0px 1px 1px rgba(0,0,0,0.2), 0px 5px 11px rgba(0,0,0,0.25);"></div><div class="shadow-name">Card</div></div>
+    <div class="shadow-item"><div class="shadow-box" style="box-shadow:0px 24px 68px rgba(0,0,0,0.2), 0px 4px 6px rgba(0,0,0,0.15);"></div><div class="shadow-name">Float</div></div>
+  </div>
+</div>
+
+<!-- Gradients -->
+<div class="preview-section">
+  <p class="section-label">Gradients</p>
+  <div class="gradient-grid">
+    <div class="gradient-item" style="background:linear-gradient(180deg, #000A4E 0%, #000731 100%);"><span class="gradient-name">Hero</span></div>
+    <div class="gradient-item" style="background:linear-gradient(180deg, rgba(255,255,255,0.05) 1.65%, rgba(237,246,255,0.1) 100%);"><span class="gradient-name">Feature BG</span></div>
+    <div class="gradient-item" style="background:linear-gradient(180deg, rgba(244,249,255,0.1) 76%, rgba(214,215,250,0.15) 100%);"><span class="gradient-name">Premover</span></div>
+    <div class="gradient-item" style="background:linear-gradient(180deg, rgba(244,249,255,0.1) 76%, rgba(216,243,234,0.15) 100%);"><span class="gradient-name">Refi</span></div>
+    <div class="gradient-item" style="background:linear-gradient(180deg, rgba(244,249,255,0.1) 76%, rgba(247,230,207,0.15) 100%);"><span class="gradient-name">Buyer</span></div>
+    <div class="gradient-item" style="background:linear-gradient(120deg, rgba(235,255,218,0.1) 7%, rgba(214,235,255,0.1) 93%);"><span class="gradient-name">Savings</span></div>
+  </div>
+</div>
+
+</body>
+</html>
