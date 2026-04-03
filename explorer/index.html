@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Design MD Browser</title>
+    <meta name="description" content="Browse 50+ DESIGN.md systems in a searchable grid, view full markdown, and copy instantly." />
+    <meta property="og:title" content="Design.md Explorer" />
+    <meta property="og:description" content="Browse 50+ DESIGN.md systems in a searchable grid, view full markdown, and copy instantly." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Design.md Explorer" />
+    <meta name="twitter:description" content="Browse 50+ DESIGN.md systems in a searchable grid, view full markdown, and copy instantly." />
+    <meta name="twitter:image" content="/social-preview.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-gradient" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">VoltAgent / awesome-design-md</p>
+          <h1>Design.md Explorer</h1>
+          <p class="subtitle">Browse site-inspired design systems, inspect their markdown, and copy in one click.</p>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="filters">
+        <input id="searchInput" type="search" placeholder="Search sites..." autocomplete="off" />
+        <div class="preview-mode" role="group" aria-label="Preview mode">
+          <button id="lightModeBtn" class="mode-btn is-active" type="button">Light previews</button>
+          <button id="darkModeBtn" class="mode-btn" type="button">Dark previews</button>
+        </div>
+      </section>
+
+      <p id="countLabel" class="count-label" aria-live="polite"></p>
+
+      <section id="grid" class="grid" aria-label="Design sites"></section>
+    </main>
+
+    <dialog id="mdDialog" class="md-dialog">
+      <article class="dialog-card">
+        <header class="dialog-header">
+          <div>
+            <p id="dialogSiteSlug" class="dialog-slug"></p>
+            <h2 id="dialogTitle"></h2>
+          </div>
+          <button id="closeDialogBtn" class="ghost-btn" type="button">Close</button>
+        </header>
+
+        <div class="dialog-actions">
+          <a id="openWebsiteLink" class="ghost-btn" target="_blank" rel="noreferrer">Open Website</a>
+          <a id="openPreviewLink" class="ghost-btn" target="_blank" rel="noreferrer">Open Preview HTML</a>
+          <a id="openGithubLink" class="ghost-btn" target="_blank" rel="noreferrer">Open GitHub Folder</a>
+          <button id="copyMdBtn" class="primary-btn" type="button">Copy DESIGN.md</button>
+        </div>
+
+        <pre id="mdText" class="md-text"></pre>
+      </article>
+    </dialog>
+
+    <template id="siteCardTemplate">
+      <article class="site-card">
+        <button class="card-btn" type="button">
+          <div class="preview-frame">
+            <img class="preview-image" alt="" loading="lazy" />
+          </div>
+          <div class="card-footer">
+            <h3 class="site-name"></h3>
+            <p class="site-url"></p>
+          </div>
+        </button>
+      </article>
+    </template>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

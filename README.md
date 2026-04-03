@@ -76,6 +76,18 @@ Each site includes:
 1. Copy a site's `DESIGN.md` into your project root
 2. Tell your AI agent to use it.
 
+## Frontend Explorer
+
+Browse the full collection with the hosted UI:
+
+- https://designmdexplorer.vercel.app/
+
+Run it locally:
+
+1. `cd explorer`
+2. `python3 -m http.server 5173`
+3. Open `http://localhost:5173`
+
 ## Collection
 
 ### AI & Machine Learning
