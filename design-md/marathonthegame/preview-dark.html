@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Preview: Marathon (Dark Variant)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brand Colors */
+    --marathon-lime: #c2fe0b;
+    --marathon-lime-alt: #ccff00;
+    --cyan: #01ffff;
+    --alert-red: #ff0d1a;
+    --tactical-green: #59b41d;
+    
+    /* Background Surfaces */
+    --void-black: #0a0a0b;
+    --deep-space: #0d0d0e;
+    --dark-surface: #141415;
+    --mid-dark: #1a1a1c;
+    --deep-navy: #29324f;
+    
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-tertiary: #737373;
+    --text-muted: #525252;
+    
+    /* Borders */
+    --border-subtle: rgba(255,255,255,0.05);
+    --border-standard: rgba(255,255,255,0.1);
+    --border-lime: rgba(194,254,11,0.3);
+    --border-cyan: rgba(1,255,255,0.3);
+    
+    /* Shadows */
+    --shadow-heavy: rgba(0,0,0,0.5) 0px 8px 24px;
+    --shadow-medium: rgba(0,0,0,0.3) 0px 8px 8px;
+    --glow-lime: rgba(194,254,11,0.2);
+    --glow-cyan: rgba(1,255,255,0.2);
+    
+    /* Typography */
+    --font-condensed: 'Inter', Impact, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body { 
+    background: var(--void-black); 
+    color: var(--text-primary); 
+    font-family: var(--font-condensed); 
+    font-size: 16px; 
+    font-weight: 400; 
+    line-height: 1.50; 
+    -webkit-font-smoothing: antialiased; 
+  }
+
+  /* NAV */
+  .nav { 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 16px 32px; 
+    background: rgba(10,10,11,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .nav-brand { 
+    font-size: 18px; 
+    font-weight: 900; 
+    color: var(--marathon-lime); 
+    text-decoration: none; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: var(--text-secondary); 
+    text-decoration: none; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s; 
+  }
+  .nav-links a:hover { color: var(--marathon-lime); }
+  .nav-cta { 
+    display: inline-block; 
+    background: var(--marathon-lime); 
+    color: var(--void-black); 
+    padding: 10px 24px; 
+    border: none;
+    font-family: var(--font-condensed);
+    font-size: 14px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none; 
+    cursor: pointer;
+  }
+  .nav-cta:hover { 
+    background: #d4ff4d;
+    box-shadow: 0 0 20px var(--glow-lime);
+  }
+
+  /* HERO */
+  .hero { 
+    padding: 120px 32px 100px; 
+    text-align: center; 
+    background: var(--void-black);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .hero h1 { 
+    font-size: 72px; 
+    font-weight: 900; 
+    line-height: 0.90;
+    letter-spacing: -2px;
+    color: var(--marathon-lime);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--text-primary); }
+  .hero p { 
+    font-size: 16px; 
+    color: var(--text-secondary); 
+    max-width: 600px; 
+    margin: 0 auto 40px; 
+    line-height: 1.60;
+  }
+  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  
+  .btn-lime { 
+    display: inline-block; 
+    background: var(--marathon-lime); 
+    color: var(--void-black); 
+    padding: 14px 32px; 
+    border: none;
+    font-family: var(--font-condensed);
+    font-size: 14px; 
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none; 
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-lime:hover { 
+    background: #d4ff4d;
+    box-shadow: 0 0 30px var(--glow-lime);
+  }
+  
+  .btn-dark { 
+    display: inline-block; 
+    background: var(--mid-dark); 
+    color: var(--text-primary); 
+    padding: 14px 24px; 
+    border: 1px solid var(--border-standard);
+    font-family: var(--font-condensed);
+    font-size: 14px; 
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none; 
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-dark:hover { 
+    border-color: var(--marathon-lime);
+    color: var(--marathon-lime);
+  }
+  
+  .btn-ghost {
+    display: inline-block;
+    background: transparent;
+    color: var(--marathon-lime);
+    padding: 12px 20px;
+    border: 1px solid var(--border-lime);
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover {
+    background: rgba(194,254,11,0.1);
+  }
+  
+  .btn-cyan {
+    display: inline-block;
+    background: var(--cyan);
+    color: var(--void-black);
+    padding: 12px 24px;
+    border: none;
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .section { padding: 64px 32px; max-width: 1200px; margin: 0 auto; }
+  .section-label { 
+    font-family: var(--font-mono); 
+    font-size: 12px; 
+    font-weight: 500;
+    color: var(--text-tertiary); 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    margin-bottom: 8px; 
+  }
+  .section-title { 
+    font-size: 36px; 
+    font-weight: 800; 
+    line-height: 1.10;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px; 
+  }
+  .section-divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+  /* COLORS */
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .color-swatch { border-radius: 8px; overflow: hidden; background: var(--dark-surface); border: 1px solid var(--border-subtle); }
+  .color-swatch-block { height: 72px; width: 100%; }
+  .color-swatch-info { padding: 12px; }
+  .color-swatch-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .color-swatch-hex { font-size: 11px; color: var(--text-tertiary); font-family: var(--font-mono); }
+  .color-swatch-role { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+  .color-group-label { 
+    font-size: 12px; 
+    font-weight: 600; 
+    color: var(--text-tertiary); 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 28px 0 12px; 
+  }
+
+  /* TYPOGRAPHY */
+  .type-sample { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border-subtle); }
+  .type-sample:last-child { border-bottom: none; }
+  .type-meta { 
+    font-family: var(--font-mono); 
+    font-size: 11px; 
+    color: var(--text-tertiary); 
+    margin-top: 8px; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* BUTTONS */
+  .button-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .button-item { text-align: center; }
+  .button-label { 
+    font-size: 10px; 
+    color: var(--text-tertiary); 
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .card { 
+    background: var(--dark-surface); 
+    border-radius: 8px; 
+    padding: 24px; 
+    border: 1px solid var(--border-subtle);
+    transition: all 0.2s;
+  }
+  .card:hover { 
+    border-color: var(--border-lime);
+    box-shadow: var(--shadow-medium);
+  }
+  .card h3 { 
+    font-size: 20px; 
+    font-weight: 700; 
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .card p { 
+    font-size: 14px; 
+    color: var(--text-secondary); 
+    line-height: 1.50;
+  }
+  
+  .card-featured {
+    background: var(--deep-space);
+    border: 1px solid var(--border-lime);
+    box-shadow: 0 0 20px var(--glow-lime);
+  }
+  
+  .card-tactical {
+    background: rgba(20,20,21,0.8);
+    border-left: 3px solid var(--marathon-lime);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .badge-lime {
+    background: rgba(194,254,11,0.15);
+    color: var(--marathon-lime);
+    border: 1px solid var(--border-lime);
+  }
+  .badge-cyan {
+    background: rgba(1,255,255,0.1);
+    color: var(--cyan);
+    border: 1px solid var(--border-cyan);
+  }
+  .badge-red {
+    background: rgba(255,13,26,0.1);
+    color: var(--alert-red);
+    border: 1px solid rgba(255,13,26,0.3);
+  }
+
+  /* FORMS */
+  .form-group { margin-bottom: 20px; max-width: 400px; }
+  .form-label { 
+    display: block; 
+    font-size: 12px; 
+    font-weight: 600; 
+    color: var(--text-primary); 
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .form-input {
+    width: 100%; 
+    background: var(--dark-surface); 
+    color: var(--text-primary);
+    border: 1px solid var(--border-standard); 
+    padding: 12px 16px; 
+    border-radius: 4px;
+    font-family: var(--font-condensed); 
+    font-size: 14px; 
+    outline: none;
+    transition: all 0.2s;
+  }
+  .form-input:focus { 
+    border-color: var(--marathon-lime); 
+    box-shadow: 0 0 0 2px var(--glow-lime);
+  }
+  .form-input--focus { 
+    border-color: var(--marathon-lime); 
+    box-shadow: 0 0 0 2px var(--glow-lime);
+  }
+  .form-input--error { 
+    border-color: var(--alert-red); 
+    box-shadow: 0 0 0 2px rgba(255,13,26,0.2);
+  }
+  .form-state-label { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
+
+  /* SPACING */
+  .spacing-row { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .spacing-item { text-align: center; }
+  .spacing-block { background: var(--marathon-lime); border-radius: 2px; margin-bottom: 6px; height: 28px; }
+  .spacing-value { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); }
+
+  /* RADIUS */
+  .radius-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .radius-item { text-align: center; }
+  .radius-box { 
+    width: 60px; 
+    height: 60px; 
+    background: var(--mid-dark); 
+    border: 1px solid var(--border-standard); 
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--text-tertiary);
+  }
+  .radius-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); }
+
+  /* ELEVATION */
+  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .elevation-card { 
+    background: var(--dark-surface); 
+    border-radius: 8px; 
+    padding: 20px; 
+    text-align: center;
+    border: 1px solid var(--border-subtle);
+  }
+  .elevation-label { 
+    font-size: 14px; 
+    font-weight: 600; 
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .elevation-desc { 
+    font-size: 10px; 
+    color: var(--text-tertiary); 
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer { 
+    padding: 32px; 
+    text-align: center; 
+    border-top: 1px solid var(--border-subtle); 
+    font-size: 12px; 
+    color: var(--text-tertiary); 
+  }
+  .footer a { color: var(--marathon-lime); text-decoration: none; }
+
+  @media (max-width: 768px) { 
+    .nav-links { display: none; } 
+    .section { padding: 48px 20px; } 
+    .card-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="#">MARATHON</a>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#buttons">Buttons</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#forms">Forms</a></li>
+  </ul>
+  <a class="nav-cta" href="#">DEPLOY</a>
+</nav>
+
+<section class="hero">
+  <h1>MARATHON <span>DESIGN SYSTEM</span></h1>
+  <p>A dark, industrial-military design system inspired by the survival extraction FPS. Deep void blacks, toxic lime accents, and tactical HUD aesthetics.</p>
+  <div class="hero-buttons">
+    <a class="btn-lime" href="#">ENTER TAU CETI IV</a>
+    <a class="btn-dark" href="#">WATCH TRAILER</a>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="colors">
+  <div class="section-label">01 / Colors</div>
+  <h2 class="section-title">Color Palette</h2>
+  
+  <div class="color-group-label">Brand Colors</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#c2fe0b"></div><div class="color-swatch-info"><div class="color-swatch-name">Marathon Lime</div><div class="color-swatch-hex">#c2fe0b</div><div class="color-swatch-role">Primary brand accent</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#ccff00"></div><div class="color-swatch-info"><div class="color-swatch-name">Lime Alt</div><div class="color-swatch-hex">#ccff00</div><div class="color-swatch-role">Alternate accent</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#01ffff"></div><div class="color-swatch-info"><div class="color-swatch-name">Cyan</div><div class="color-swatch-hex">#01ffff</div><div class="color-swatch-role">Secondary sci-fi accent</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#ff0d1a"></div><div class="color-swatch-info"><div class="color-swatch-name">Alert Red</div><div class="color-swatch-hex">#ff0d1a</div><div class="color-swatch-role">Danger/warning</div></div></div>
+  </div>
+  
+  <div class="color-group-label">Background Surfaces</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#0a0a0b"></div><div class="color-swatch-info"><div class="color-swatch-name">Void Black</div><div class="color-swatch-hex">#0a0a0b</div><div class="color-swatch-role">Page background</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#0d0d0e"></div><div class="color-swatch-info"><div class="color-swatch-name">Deep Space</div><div class="color-swatch-hex">#0d0d0e</div><div class="color-swatch-role">Secondary surface</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#141415"></div><div class="color-swatch-info"><div class="color-swatch-name">Dark Surface</div><div class="color-swatch-hex">#141415</div><div class="color-swatch-role">Cards, containers</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#1a1a1c"></div><div class="color-swatch-info"><div class="color-swatch-name">Mid Dark</div><div class="color-swatch-hex">#1a1a1c</div><div class="color-swatch-role">Elevated surfaces</div></div></div>
+  </div>
+  
+  <div class="color-group-label">Text Colors</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#ffffff"></div><div class="color-swatch-info"><div class="color-swatch-name">Primary</div><div class="color-swatch-hex">#ffffff</div><div class="color-swatch-role">Headings, labels</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#b3b3b3"></div><div class="color-swatch-info"><div class="color-swatch-name">Secondary</div><div class="color-swatch-hex">#b3b3b3</div><div class="color-swatch-role">Body text</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#737373"></div><div class="color-swatch-info"><div class="color-swatch-name">Tertiary</div><div class="color-swatch-hex">#737373</div><div class="color-swatch-role">Metadata</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#525252"></div><div class="color-swatch-info"><div class="color-swatch-name">Muted</div><div class="color-swatch-hex">#525252</div><div class="color-swatch-role">Disabled states</div></div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="typography">
+  <div class="section-label">02 / Typography</div>
+  <h2 class="section-title">Typography Scale</h2>
+  <div class="type-sample"><div style="font-size:72px; font-weight:900; line-height:0.90; letter-spacing:-2px; text-transform:uppercase; color:var(--marathon-lime);">Display Hero</div><div class="type-meta">Display — 72px / 900 / -2px / Uppercase</div></div>
+  <div class="type-sample"><div style="font-size:48px; font-weight:800; line-height:1.00; letter-spacing:-1px; text-transform:uppercase;">Section Title</div><div class="type-meta">Section — 48px / 800 / -1px / Uppercase</div></div>
+  <div class="type-sample"><div style="font-size:28px; font-weight:700; line-height:1.20; letter-spacing:-0.3px; text-transform:uppercase;">Heading 2</div><div class="type-meta">Heading — 28px / 700 / -0.3px / Uppercase</div></div>
+  <div class="type-sample"><div style="font-size:16px; font-weight:400; line-height:1.50; color:var(--text-secondary);">Body text — Standard reading text in the Marathon design system. Used for descriptions and content.</div><div class="type-meta">Body — 16px / 400 / Normal</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-mono); font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:1px; color:var(--marathon-lime);">Technical Label</div><div class="type-meta">Mono Label — 12px / 500 / Uppercase / +1px</div></div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="buttons">
+  <div class="section-label">03 / Buttons</div>
+  <h2 class="section-title">Button Variants</h2>
+  <div class="button-row">
+    <div class="button-item"><button class="btn-lime">Primary Lime</button><div class="button-label">Primary CTA</div></div>
+    <div class="button-item"><button class="btn-dark">Secondary Dark</button><div class="button-label">Secondary</div></div>
+    <div class="button-item"><button class="btn-ghost">Ghost Button</button><div class="button-label">Tertiary</div></div>
+    <div class="button-item"><button class="btn-cyan">Cyan Accent</button><div class="button-label">Data Action</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="cards">
+  <div class="section-label">04 / Cards</div>
+  <h2 class="section-title">Card Components</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="badge badge-lime" style="margin-bottom:12px;">FEATURED</div>
+      <h3>Dark Card</h3>
+      <p>Standard card component with dark surface background and subtle borders.</p>
+    </div>
+    <div class="card card-featured">
+      <div class="badge badge-cyan" style="margin-bottom:12px;">PRIORITY</div>
+      <h3>Featured Card</h3>
+      <p>Highlighted card with lime border and glow effect for important content.</p>
+    </div>
+    <div class="card card-tactical">
+      <div class="badge badge-red" style="margin-bottom:12px;">ALERT</div>
+      <h3>Tactical Panel</h3>
+      <p>Left-bordered panel style for alerts and tactical information blocks.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="forms">
+  <div class="section-label">05 / Forms</div>
+  <h2 class="section-title">Form Components</h2>
+  <div class="form-group">
+    <label class="form-label">Runner ID</label>
+    <input type="text" class="form-input" placeholder="Enter identification">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Active State</label>
+    <input type="text" class="form-input form-input--focus" value="FOCUSED INPUT">
+    <div class="form-state-label">Lime border with glow</div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">Error State</label>
+    <input type="text" class="form-input form-input--error" value="INVALID DATA">
+    <div class="form-state-label">Red alert indicator</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="spacing">
+  <div class="section-label">06 / Spacing</div>
+  <h2 class="section-title">Spacing Scale</h2>
+  <div class="spacing-row">
+    <div class="spacing-item"><div class="spacing-block" style="width:4px; height:4px;"></div><div class="spacing-value">4px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:8px; height:8px;"></div><div class="spacing-value">8px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:12px; height:12px;"></div><div class="spacing-value">12px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:16px; height:16px;"></div><div class="spacing-value">16px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:24px; height:24px;"></div><div class="spacing-value">24px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:32px; height:32px;"></div><div class="spacing-value">32px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:48px; height:48px;"></div><div class="spacing-value">48px</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:64px; height:64px;"></div><div class="spacing-value">64px</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="radius">
+  <div class="section-label">07 / Border Radius</div>
+  <h2 class="section-title">Radius Scale</h2>
+  <div class="radius-row">
+    <div class="radius-item"><div class="radius-box" style="border-radius:0px;">0</div><div class="radius-label">0px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:2px;"></div><div class="radius-label">2px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:4px;"></div><div class="radius-label">4px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:8px;"></div><div class="radius-label">8px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:12px;"></div><div class="radius-label">12px</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:9999px;"></div><div class="radius-label">9999px</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="elevation">
+  <div class="section-label">08 / Elevation</div>
+  <h2 class="section-title">Shadow System</h2>
+  <div class="elevation-grid">
+    <div class="elevation-card" style="box-shadow:none;">
+      <div class="elevation-label">Flat</div>
+      <div class="elevation-desc">Level 0</div>
+    </div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0.3) 0px 8px 8px;">
+      <div class="elevation-label">Elevated</div>
+      <div class="elevation-desc">Level 2</div>
+    </div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0.5) 0px 8px 24px;">
+      <div class="elevation-label">Dialog</div>
+      <div class="elevation-desc">Level 3</div>
+    </div>
+    <div class="elevation-card" style="box-shadow:0 0 20px rgba(194,254,11,0.2); border-color:rgba(194,254,11,0.3);">
+      <div class="elevation-label" style="color:var(--marathon-lime);">Glow</div>
+      <div class="elevation-desc">Lime Accent</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Design system extracted from <a href="https://marathonthegame.com" target="_blank">marathonthegame.com</a></p>
+  <p style="margin-top:8px; font-size:10px; color:var(--text-muted);">Not affiliated with Bungie. For educational purposes.</p>
+</footer>
+
+</body>
+</html>
