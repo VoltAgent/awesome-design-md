@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Preview: Elastic UI (Light)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0B64DD; --accent: #BC1E70; --accent-secondary: #008B87;
+    --success: #008A5E; --warning: #FACB3D; --danger: #C61E25; --risk: #ED6723;
+    --assistance: #8144CC; --neutral-blue: #1C8CB5;
+    --full-shade: #07101F; --darkest-shade: #2B394F; --dark-shade: #5A6D8C;
+    --medium-shade: #8E9FBC; --light-shade: #CAD3E2; --lightest-shade: #ECF1F9;
+    --empty-shade: #FFFFFF; --page-bg: #F6F9FC;
+    --text-heading: #111C2C; --text-paragraph: #1D2A3E; --text-subdued: #516381;
+    --text-disabled: #798EAF; --text-link: #1750BA;
+    --border-base: #E3E8F2; --border-plain: #CAD3E2; --border-prominent: #A2B1C9;
+    --focus-ring: #1750BA;
+    --bg-primary-base: #F1F6FF; --bg-accent-base: #FFF0F8; --bg-success-base: #E9FFF7;
+    --bg-warning-base: #FFF7E2; --bg-danger-base: #FFF3F1; --bg-risk-base: #FFF3E3;
+    --bg-assistance-base: #F7F2FF;
+    --bg-primary-light: #D9E8FF; --bg-accent-light: #FDDDE9; --bg-success-light: #C9F3E3;
+    --bg-warning-light: #FDE9B5; --bg-danger-light: #FDDDD8;
+    --border-primary: #BFDBFF; --border-accent: #FFC7DB; --border-success: #AEE8D2;
+    --border-warning: #FCD883; --border-danger: #FFC9C2; --border-assistance: #E2D3FE;
+    --text-primary-ctx: #1750BA; --text-accent-ctx: #A11262; --text-success-ctx: #09724D;
+    --text-warning-ctx: #6A4906; --text-danger-ctx: #A71627; --text-assistance-ctx: #6B3C9F;
+    --shadow-color: #2B394F;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: 'Roboto Mono', Consolas, Menlo, Courier, monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--page-bg); color:var(--text-paragraph); font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.5; font-feature-settings:'calt' 1, 'kern' 1, 'liga' 1; -webkit-font-smoothing:antialiased; }
+
+  .nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:48px; background:var(--empty-shade); border-bottom:1px solid var(--border-base); }
+  .nav-brand { font-size:16px; font-weight:600; color:var(--text-heading); text-decoration:none; display:flex; align-items:center; gap:8px; }
+  .nav-brand span { color:var(--primary); }
+  .nav-links { display:flex; gap:24px; list-style:none; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text-subdued); text-decoration:none; transition:color 0.15s; }
+  .nav-links a:hover { color:var(--primary); }
+  .nav-cta { display:inline-flex; align-items:center; background:var(--primary); color:var(--empty-shade); padding:0 16px; height:32px; border-radius:4px; font-size:14px; font-weight:500; text-decoration:none; border:none; }
+
+  .hero { padding:64px 32px; background:var(--empty-shade); text-align:center; border-bottom:1px solid var(--border-base); }
+  .hero h1 { font-size:30px; font-weight:600; line-height:1.3; color:var(--text-heading); margin-bottom:12px; }
+  .hero h1 span { color:var(--primary); }
+  .hero p { font-size:16px; font-weight:400; line-height:1.5; color:var(--text-subdued); max-width:560px; margin:0 auto 24px; }
+  .hero-buttons { display:flex; gap:12px; justify-content:center; }
+  .btn-primary { display:inline-flex; align-items:center; justify-content:center; background:var(--primary); color:var(--empty-shade); padding:0 24px; height:40px; border-radius:4px; border:none; font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; transition:background 0.1s; }
+  .btn-secondary { display:inline-flex; align-items:center; justify-content:center; background:transparent; color:var(--primary); padding:0 24px; height:40px; border-radius:4px; border:1px solid var(--primary); font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; }
+
+  .section { padding:48px 32px; max-width:1100px; margin:0 auto; }
+  .section-label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-subdued); margin-bottom:8px; }
+  .section-title { font-size:24px; font-weight:600; line-height:1.3; color:var(--text-heading); margin-bottom:24px; }
+  .section-divider { border:none; border-top:1px solid var(--border-base); margin:0; }
+
+  .color-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(140px,1fr)); gap:12px; margin-bottom:24px; }
+  .color-swatch { border-radius:4px; overflow:hidden; border:1px solid var(--border-base); background:var(--empty-shade); }
+  .color-swatch-block { height:64px; width:100%; }
+  .color-swatch-info { padding:8px 10px; }
+  .color-swatch-name { font-size:12px; font-weight:600; color:var(--text-heading); margin-bottom:2px; }
+  .color-swatch-hex { font-size:11px; color:var(--text-subdued); font-family:var(--font-mono); }
+  .color-swatch-role { font-size:10px; color:var(--text-subdued); margin-top:2px; }
+  .color-group-label { font-size:14px; font-weight:600; color:var(--text-heading); margin:24px 0 10px; }
+
+  .type-sample { margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border-base); }
+  .type-sample:last-child { border-bottom:none; }
+  .type-meta { font-family:var(--font-mono); font-size:11px; color:var(--text-subdued); margin-top:4px; }
+
+  .button-row { display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+  .button-item { text-align:center; }
+  .button-label { font-size:11px; font-weight:500; color:var(--text-subdued); margin-top:6px; }
+  .btn-danger { display:inline-flex; align-items:center; justify-content:center; background:var(--danger); color:var(--empty-shade); padding:0 24px; height:40px; border-radius:4px; border:none; font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; }
+  .btn-success { display:inline-flex; align-items:center; justify-content:center; background:var(--success); color:var(--empty-shade); padding:0 24px; height:40px; border-radius:4px; border:none; font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; }
+  .btn-warning { display:inline-flex; align-items:center; justify-content:center; background:var(--warning); color:var(--full-shade); padding:0 24px; height:40px; border-radius:4px; border:none; font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; }
+  .btn-accent { display:inline-flex; align-items:center; justify-content:center; background:var(--accent); color:var(--empty-shade); padding:0 24px; height:40px; border-radius:4px; border:none; font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; }
+  .btn-text { display:inline-flex; align-items:center; justify-content:center; background:transparent; color:var(--primary); padding:0 16px; height:40px; border-radius:4px; border:none; font-family:var(--font-sans); font-size:14px; font-weight:500; text-decoration:none; cursor:pointer; }
+  .btn-text:hover { text-decoration:underline; }
+  .btn-small { height:32px; padding:0 16px; font-size:13px; }
+  .btn-xsmall { height:24px; padding:0 12px; font-size:12px; }
+  .btn-disabled { opacity:1; background:var(--lightest-shade); color:var(--text-disabled); cursor:not-allowed; border:none; }
+
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:16px; }
+  .card { background:var(--empty-shade); border:1px solid var(--border-base); border-radius:4px; padding:16px; }
+  .card h3 { font-size:16px; font-weight:600; color:var(--text-heading); margin-bottom:8px; }
+  .card p { font-size:14px; font-weight:400; color:var(--text-subdued); line-height:1.5; }
+  .card-elevated { box-shadow:0 2px 4px rgba(43,57,79,0.12); border-color:transparent; }
+  .card-subdued { background:var(--page-bg); }
+  .card-primary { background:var(--bg-primary-base); border-color:var(--border-primary); }
+
+  .badge { display:inline-flex; align-items:center; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:500; }
+  .badge-primary { background:var(--bg-primary-base); color:var(--text-primary-ctx); }
+  .badge-success { background:var(--bg-success-base); color:var(--text-success-ctx); }
+  .badge-danger { background:var(--bg-danger-base); color:var(--text-danger-ctx); }
+  .badge-warning { background:var(--bg-warning-base); color:var(--text-warning-ctx); }
+  .badge-accent { background:var(--bg-accent-base); color:var(--text-accent-ctx); }
+  .badge-assistance { background:var(--bg-assistance-base); color:var(--text-assistance-ctx); }
+  .badge-filled-primary { background:var(--primary); color:var(--empty-shade); }
+  .badge-filled-danger { background:var(--danger); color:var(--empty-shade); }
+
+  .form-group { margin-bottom:16px; max-width:400px; }
+  .form-label { display:block; font-size:12px; font-weight:600; color:var(--text-heading); margin-bottom:4px; }
+  .form-input { width:100%; background:var(--empty-shade); color:var(--text-paragraph); border:1px solid var(--border-plain); padding:0 12px; height:40px; border-radius:4px; font-family:var(--font-sans); font-size:14px; font-weight:400; outline:none; transition:border-color 0.15s; }
+  .form-input:focus { border-color:var(--border-plain); border-bottom:2px solid var(--primary); }
+  .form-input--focus { border-color:var(--border-plain); border-bottom:2px solid var(--primary); }
+  .form-input--error { border-color:var(--danger); }
+  .form-helper { font-size:12px; color:var(--text-subdued); margin-top:4px; }
+  .form-helper--error { color:var(--text-danger-ctx); }
+  .form-textarea { width:100%; min-height:80px; background:var(--empty-shade); color:var(--text-paragraph); border:1px solid var(--border-plain); padding:8px 12px; border-radius:4px; font-family:var(--font-sans); font-size:14px; font-weight:400; resize:vertical; outline:none; }
+  .form-state-label { font-size:10px; color:var(--text-subdued); margin-top:4px; }
+
+  .spacing-row { display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+  .spacing-box { background:var(--bg-primary-light); border:1px solid var(--border-primary); border-radius:4px; display:flex; align-items:center; justify-content:center; }
+  .spacing-label { font-family:var(--font-mono); font-size:11px; color:var(--text-primary-ctx); font-weight:500; }
+
+  .elevation-row { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:20px; }
+  .elevation-box { width:120px; height:80px; background:var(--empty-shade); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-subdued); font-family:var(--font-mono); }
+  .elevation-flat { border:1px solid var(--border-base); }
+  .elevation-xs { box-shadow:0 1px 2px rgba(43,57,79,0.12); }
+  .elevation-s { box-shadow:0 2px 4px rgba(43,57,79,0.12); }
+  .elevation-m { box-shadow:0 6px 12px rgba(43,57,79,0.12); }
+  .elevation-l { box-shadow:0 10px 20px rgba(43,57,79,0.12); }
+  .elevation-xl { box-shadow:0 16px 32px rgba(43,57,79,0.16); }
+
+  .alert { padding:16px; border-radius:4px; margin-bottom:12px; border:1px solid; }
+  .alert-title { font-size:14px; font-weight:600; margin-bottom:4px; }
+  .alert-body { font-size:14px; font-weight:400; }
+  .alert-primary { background:var(--bg-primary-base); border-color:var(--border-primary); }
+  .alert-primary .alert-title { color:var(--text-primary-ctx); }
+  .alert-success { background:var(--bg-success-base); border-color:var(--border-success); }
+  .alert-success .alert-title { color:var(--text-success-ctx); }
+  .alert-warning { background:var(--bg-warning-base); border-color:var(--border-warning); }
+  .alert-warning .alert-title { color:var(--text-warning-ctx); }
+  .alert-danger { background:var(--bg-danger-base); border-color:var(--border-danger); }
+  .alert-danger .alert-title { color:var(--text-danger-ctx); }
+
+  .focus-demo { display:inline-flex; align-items:center; justify-content:center; padding:0 24px; height:40px; border-radius:4px; background:var(--empty-shade); border:1px solid var(--border-plain); font-family:var(--font-sans); font-size:14px; color:var(--text-paragraph); outline:2px solid var(--focus-ring); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a class="nav-brand" href="#">Elastic <span>UI</span></a>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#forms">Forms</a></li>
+  </ul>
+  <a class="nav-cta" href="#">GitHub</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Elastic <span>UI Framework</span></h1>
+  <p>A design system for building consistent, accessible interfaces across the Elastic ecosystem. Built with React, themed with Borealis.</p>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="#">Get started</a>
+    <a class="btn-secondary" href="#">View components</a>
+  </div>
+</section>
+
+<!-- Color Palette -->
+<section class="section" id="colors">
+  <div class="section-label">Color Palette</div>
+  <h2 class="section-title">Brand & Semantic Colors</h2>
+
+  <div class="color-group-label">Brand</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#0B64DD"></div><div class="color-swatch-info"><div class="color-swatch-name">Primary</div><div class="color-swatch-hex">#0B64DD</div><div class="color-swatch-role">Brand blue</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#BC1E70"></div><div class="color-swatch-info"><div class="color-swatch-name">Accent</div><div class="color-swatch-hex">#BC1E70</div><div class="color-swatch-role">Pink accent</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#008B87"></div><div class="color-swatch-info"><div class="color-swatch-name">Accent Secondary</div><div class="color-swatch-hex">#008B87</div><div class="color-swatch-role">Teal accent</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#1C8CB5"></div><div class="color-swatch-info"><div class="color-swatch-name">Neutral</div><div class="color-swatch-hex">#1C8CB5</div><div class="color-swatch-role">Informational</div></div></div>
+  </div>
+
+  <div class="color-group-label">Semantic</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#008A5E"></div><div class="color-swatch-info"><div class="color-swatch-name">Success</div><div class="color-swatch-hex">#008A5E</div><div class="color-swatch-role">Positive</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#FACB3D"></div><div class="color-swatch-info"><div class="color-swatch-name">Warning</div><div class="color-swatch-hex">#FACB3D</div><div class="color-swatch-role">Caution</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#ED6723"></div><div class="color-swatch-info"><div class="color-swatch-name">Risk</div><div class="color-swatch-hex">#ED6723</div><div class="color-swatch-role">Elevated concern</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#C61E25"></div><div class="color-swatch-info"><div class="color-swatch-name">Danger</div><div class="color-swatch-hex">#C61E25</div><div class="color-swatch-role">Error / destructive</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#8144CC"></div><div class="color-swatch-info"><div class="color-swatch-name">Assistance</div><div class="color-swatch-hex">#8144CC</div><div class="color-swatch-role">AI / help</div></div></div>
+  </div>
+
+  <div class="color-group-label">Neutral Scale</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#07101F"></div><div class="color-swatch-info"><div class="color-swatch-name">Full Shade</div><div class="color-swatch-hex">#07101F</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#2B394F"></div><div class="color-swatch-info"><div class="color-swatch-name">Darkest</div><div class="color-swatch-hex">#2B394F</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#5A6D8C"></div><div class="color-swatch-info"><div class="color-swatch-name">Dark</div><div class="color-swatch-hex">#5A6D8C</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#8E9FBC"></div><div class="color-swatch-info"><div class="color-swatch-name">Medium</div><div class="color-swatch-hex">#8E9FBC</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#CAD3E2"></div><div class="color-swatch-info"><div class="color-swatch-name">Light</div><div class="color-swatch-hex">#CAD3E2</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#ECF1F9"></div><div class="color-swatch-info"><div class="color-swatch-name">Lightest</div><div class="color-swatch-hex">#ECF1F9</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#FFFFFF; border-bottom:1px solid #E3E8F2"></div><div class="color-swatch-info"><div class="color-swatch-name">Empty</div><div class="color-swatch-hex">#FFFFFF</div></div></div>
+  </div>
+
+  <div class="color-group-label">Text</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#111C2C"></div><div class="color-swatch-info"><div class="color-swatch-name">Heading</div><div class="color-swatch-hex">#111C2C</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#1D2A3E"></div><div class="color-swatch-info"><div class="color-swatch-name">Paragraph</div><div class="color-swatch-hex">#1D2A3E</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#516381"></div><div class="color-swatch-info"><div class="color-swatch-name">Subdued</div><div class="color-swatch-hex">#516381</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#798EAF"></div><div class="color-swatch-info"><div class="color-swatch-name">Disabled</div><div class="color-swatch-hex">#798EAF</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#1750BA"></div><div class="color-swatch-info"><div class="color-swatch-name">Link</div><div class="color-swatch-hex">#1750BA</div></div></div>
+  </div>
+
+  <div class="color-group-label">Backgrounds</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#F6F9FC; border-bottom:1px solid #E3E8F2"></div><div class="color-swatch-info"><div class="color-swatch-name">Page</div><div class="color-swatch-hex">#F6F9FC</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#F1F6FF"></div><div class="color-swatch-info"><div class="color-swatch-name">Primary Base</div><div class="color-swatch-hex">#F1F6FF</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#E9FFF7"></div><div class="color-swatch-info"><div class="color-swatch-name">Success Base</div><div class="color-swatch-hex">#E9FFF7</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#FFF7E2"></div><div class="color-swatch-info"><div class="color-swatch-name">Warning Base</div><div class="color-swatch-hex">#FFF7E2</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#FFF3F1"></div><div class="color-swatch-info"><div class="color-swatch-name">Danger Base</div><div class="color-swatch-hex">#FFF3F1</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#F7F2FF"></div><div class="color-swatch-info"><div class="color-swatch-name">Assistance Base</div><div class="color-swatch-hex">#F7F2FF</div></div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Typography -->
+<section class="section" id="typography">
+  <div class="section-label">Typography</div>
+  <h2 class="section-title">Type Scale & Hierarchy</h2>
+
+  <div class="type-sample">
+    <div style="font-size:30px; font-weight:600; line-height:1.3; color:var(--text-heading);">Title Large (30px)</div>
+    <div class="type-meta">Inter / 30px / weight 600 / line-height 2.571rem</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:24px; font-weight:600; line-height:1.3; color:var(--text-heading);">Title Medium (24px)</div>
+    <div class="type-meta">Inter / 24px / weight 600 / line-height 2rem</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:20px; font-weight:600; line-height:1.3; color:var(--text-heading);">Title Small (20px)</div>
+    <div class="type-meta">Inter / 20px / weight 600 / line-height 1.714rem</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:16px; font-weight:600; line-height:1.5; color:var(--text-heading);">Title XS (16px)</div>
+    <div class="type-meta">Inter / 16px / weight 600 / line-height 1.714rem</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:14px; font-weight:600; line-height:1.5; color:var(--text-heading);">Title XXS (14px)</div>
+    <div class="type-meta">Inter / 14px / weight 600 / line-height 1.429rem</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:16px; font-weight:400; line-height:1.5; color:var(--text-paragraph);">Body text at 16px. The quick brown fox jumps over the lazy dog. Elastic UI uses Inter with contextual alternates, kerning, and ligatures enabled.</div>
+    <div class="type-meta">Inter / 16px / weight 400 / line-height 1.5</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:14px; font-weight:400; line-height:1.5; color:var(--text-paragraph);">Default body text at 14px. Components and documentation content render at this size by default, providing a compact but readable baseline for data-dense interfaces.</div>
+    <div class="type-meta">Inter / 14px / weight 400 / line-height 1.5 (body default)</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-size:12px; font-weight:400; line-height:1.5; color:var(--text-subdued);">Small body text at 12px for captions and metadata</div>
+    <div class="type-meta">Inter / 12px / weight 400 / line-height 1.5</div>
+  </div>
+  <div class="type-sample">
+    <div style="font-family:var(--font-mono); font-size:14px; font-weight:400; line-height:1.5; color:var(--text-paragraph); background:var(--lightest-shade); padding:8px 12px; border-radius:4px;">const theme = useEuiTheme();</div>
+    <div class="type-meta">Roboto Mono / 14px / weight 400 / code blocks</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Buttons -->
+<section class="section" id="components">
+  <div class="section-label">Components</div>
+  <h2 class="section-title">Buttons</h2>
+
+  <div class="color-group-label">Semantic variants</div>
+  <div class="button-row" style="margin-bottom:24px;">
+    <div class="button-item"><button class="btn-primary">Primary</button><div class="button-label">Primary</div></div>
+    <div class="button-item"><button class="btn-secondary">Secondary</button><div class="button-label">Secondary</div></div>
+    <div class="button-item"><button class="btn-danger">Danger</button><div class="button-label">Danger</div></div>
+    <div class="button-item"><button class="btn-success">Success</button><div class="button-label">Success</div></div>
+    <div class="button-item"><button class="btn-warning">Warning</button><div class="button-label">Warning</div></div>
+    <div class="button-item"><button class="btn-accent">Accent</button><div class="button-label">Accent</div></div>
+    <div class="button-item"><button class="btn-text">Text link</button><div class="button-label">Text</div></div>
+  </div>
+
+  <div class="color-group-label">Sizes</div>
+  <div class="button-row" style="margin-bottom:24px;">
+    <div class="button-item"><button class="btn-primary">Standard (40px)</button><div class="button-label">Standard</div></div>
+    <div class="button-item"><button class="btn-primary btn-small">Small (32px)</button><div class="button-label">Small</div></div>
+    <div class="button-item"><button class="btn-primary btn-xsmall">XSmall (24px)</button><div class="button-label">Extra small</div></div>
+  </div>
+
+  <div class="color-group-label">States</div>
+  <div class="button-row">
+    <div class="button-item"><button class="btn-primary">Enabled</button><div class="button-label">Enabled</div></div>
+    <div class="button-item"><button class="btn-primary btn-disabled" disabled>Disabled</button><div class="button-label">Disabled</div></div>
+    <div class="button-item"><div class="focus-demo">Focus ring</div><div class="button-label">Focus (2px #1750BA)</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Badges -->
+<section class="section">
+  <h2 class="section-title">Badges</h2>
+
+  <div class="color-group-label">Base tier (pastel)</div>
+  <div class="button-row" style="margin-bottom:24px;">
+    <span class="badge badge-primary">Primary</span>
+    <span class="badge badge-success">Success</span>
+    <span class="badge badge-warning">Warning</span>
+    <span class="badge badge-danger">Danger</span>
+    <span class="badge badge-accent">Accent</span>
+    <span class="badge badge-assistance">Assistance</span>
+  </div>
+
+  <div class="color-group-label">Filled tier (solid)</div>
+  <div class="button-row">
+    <span class="badge badge-filled-primary">Primary</span>
+    <span class="badge badge-filled-danger">Danger</span>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Cards -->
+<section class="section">
+  <h2 class="section-title">Cards & Panels</h2>
+  <div class="card-grid">
+    <div class="card">
+      <span class="badge badge-primary" style="margin-bottom:12px;">Base</span>
+      <h3>Plain Card</h3>
+      <p>Default card with 1px border on #E3E8F2, white background, 4px radius, 16px padding. The foundational surface for content grouping.</p>
+    </div>
+    <div class="card card-elevated">
+      <span class="badge badge-success" style="margin-bottom:12px;">Elevated</span>
+      <h3>Elevated Card</h3>
+      <p>Card with blue-gray shadow (0 2px 4px rgba(43,57,79,0.12)) and transparent border. Used for interactive or prominent surfaces.</p>
+    </div>
+    <div class="card card-subdued">
+      <span class="badge badge-assistance" style="margin-bottom:12px;">Subdued</span>
+      <h3>Subdued Card</h3>
+      <p>Background matches page (#F6F9FC) for recessed, secondary content. Maintains the same border and radius.</p>
+    </div>
+    <div class="card card-primary">
+      <span class="badge badge-filled-primary" style="margin-bottom:12px;">Semantic</span>
+      <h3>Primary Panel</h3>
+      <p>Semantic background (#F1F6FF) with matching border (#BFDBFF). Used for contextual callouts and highlighted content areas.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Alerts -->
+<section class="section">
+  <h2 class="section-title">Alerts & Callouts</h2>
+  <div class="alert alert-primary">
+    <div class="alert-title">Information</div>
+    <div class="alert-body">This is an informational callout using the primary base background tier (#F1F6FF).</div>
+  </div>
+  <div class="alert alert-success">
+    <div class="alert-title">Success</div>
+    <div class="alert-body">Operation completed successfully. Green base tier (#E9FFF7) with matching border.</div>
+  </div>
+  <div class="alert alert-warning">
+    <div class="alert-title">Warning</div>
+    <div class="alert-body">Please review before proceeding. Warning base tier (#FFF7E2) with yellow border.</div>
+  </div>
+  <div class="alert alert-danger">
+    <div class="alert-title">Error</div>
+    <div class="alert-body">Something went wrong. Danger base tier (#FFF3F1) with red border.</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Forms -->
+<section class="section" id="forms">
+  <h2 class="section-title">Form Elements</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+    <div>
+      <div class="form-group">
+        <label class="form-label">Default input</label>
+        <input class="form-input" type="text" placeholder="Placeholder text">
+        <div class="form-helper">Helper text appears here</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Focus state</label>
+        <input class="form-input form-input--focus" type="text" value="Active input">
+        <div class="form-state-label">Focus: bottom-border 2px solid #0B64DD</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Error state</label>
+        <input class="form-input form-input--error" type="text" value="Invalid value">
+        <div class="form-helper form-helper--error">This field is required</div>
+      </div>
+    </div>
+    <div>
+      <div class="form-group">
+        <label class="form-label">Textarea</label>
+        <textarea class="form-textarea" placeholder="Enter description..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Disabled input</label>
+        <input class="form-input" type="text" value="Disabled" disabled style="background:var(--lightest-shade); color:var(--text-disabled); cursor:not-allowed;">
+        <div class="form-state-label">Disabled: #ECF1F9 bg, #798EAF text</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Spacing -->
+<section class="section">
+  <h2 class="section-title">Spacing Scale</h2>
+  <div class="spacing-row">
+    <div style="text-align:center;"><div class="spacing-box" style="width:4px; height:4px;"></div><div class="spacing-label" style="margin-top:6px;">4</div></div>
+    <div style="text-align:center;"><div class="spacing-box" style="width:8px; height:8px;"></div><div class="spacing-label" style="margin-top:6px;">8</div></div>
+    <div style="text-align:center;"><div class="spacing-box" style="width:12px; height:12px;"></div><div class="spacing-label" style="margin-top:6px;">12</div></div>
+    <div style="text-align:center;"><div class="spacing-box" style="width:16px; height:16px;"></div><div class="spacing-label" style="margin-top:6px;">16</div></div>
+    <div style="text-align:center;"><div class="spacing-box" style="width:24px; height:24px;"></div><div class="spacing-label" style="margin-top:6px;">24</div></div>
+    <div style="text-align:center;"><div class="spacing-box" style="width:32px; height:32px;"></div><div class="spacing-label" style="margin-top:6px;">32</div></div>
+    <div style="text-align:center;"><div class="spacing-box" style="width:40px; height:40px;"></div><div class="spacing-label" style="margin-top:6px;">40</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Elevation -->
+<section class="section">
+  <h2 class="section-title">Elevation & Depth</h2>
+  <div class="elevation-row">
+    <div>
+      <div class="elevation-box elevation-flat">Flat</div>
+      <div class="spacing-label" style="text-align:center; margin-top:8px;">Flat</div>
+    </div>
+    <div>
+      <div class="elevation-box elevation-xs">XS</div>
+      <div class="spacing-label" style="text-align:center; margin-top:8px;">XS</div>
+    </div>
+    <div>
+      <div class="elevation-box elevation-s">S</div>
+      <div class="spacing-label" style="text-align:center; margin-top:8px;">S</div>
+    </div>
+    <div>
+      <div class="elevation-box elevation-m">M</div>
+      <div class="spacing-label" style="text-align:center; margin-top:8px;">M</div>
+    </div>
+    <div>
+      <div class="elevation-box elevation-l">L</div>
+      <div class="spacing-label" style="text-align:center; margin-top:8px;">L</div>
+    </div>
+    <div>
+      <div class="elevation-box elevation-xl">XL</div>
+      <div class="spacing-label" style="text-align:center; margin-top:8px;">XL</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
