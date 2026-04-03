@@ -1,0 +1,8 @@
+{
+  "name": "awesome-design-md",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:index": "node scripts/generate-design-data.mjs"
+  }
+}

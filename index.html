@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<title>awesome-design-md index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="https://api.iconify.design/carbon:ibm-engineering-systems-design-rhapsody.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./design-data.js"></script>
+<style>
+  :root {
+    --bg: #1f2228;
+    --surface: rgba(255, 255, 255, 0.03);
+    --surface-hover: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.20);
+    --chrome-bg: rgba(31, 34, 40, 0.9);
+    --sticky-bg: linear-gradient(180deg, rgba(31, 34, 40, 0.98) 80%, rgba(31, 34, 40, 0));
+    --preview-canvas: #111319;
+    --label-bg: rgba(31, 34, 40, 0.78);
+    --label-border: rgba(255, 255, 255, 0.18);
+    --label-text: rgba(255, 255, 255, 0.75);
+    --text: rgba(255, 255, 255, 1);
+    --text-secondary: rgba(255, 255, 255, 0.72);
+    --text-muted: rgba(255, 255, 255, 0.52);
+    --text-disabled: rgba(255, 255, 255, 0.32);
+    --selection-bg: rgba(255, 255, 255, 0.18);
+    --selection-text: #ffffff;
+    --font-display: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius: 0px;
+    --container: 1440px;
+    --preview-scale: 0.72;
+  }
+
+  body[data-theme="light"] {
+    --bg: #f5f3ef;
+    --surface: rgba(31, 34, 40, 0.03);
+    --surface-hover: rgba(31, 34, 40, 0.06);
+    --border: rgba(31, 34, 40, 0.10);
+    --border-strong: rgba(31, 34, 40, 0.20);
+    --chrome-bg: rgba(245, 243, 239, 0.88);
+    --sticky-bg: linear-gradient(180deg, rgba(245, 243, 239, 0.98) 80%, rgba(245, 243, 239, 0));
+    --preview-canvas: #ece7df;
+    --label-bg: rgba(245, 243, 239, 0.82);
+    --label-border: rgba(31, 34, 40, 0.14);
+    --label-text: rgba(31, 34, 40, 0.72);
+    --text: #1f2228;
+    --text-secondary: rgba(31, 34, 40, 0.72);
+    --text-muted: rgba(31, 34, 40, 0.52);
+    --text-disabled: rgba(31, 34, 40, 0.32);
+    --selection-bg: rgba(31, 34, 40, 0.14);
+    --selection-text: #1f2228;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  ::selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+  }
+
+  .shell {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px 48px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(14px);
+    background: var(--chrome-bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .brand-mark {
+    width: 20px;
+    height: 20px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .topbar-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .topbar-meta a {
+    color: var(--text-secondary);
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding: 96px 0 56px;
+    display: grid;
+    gap: clamp(32px, 4vw, 64px);
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 420px);
+    align-items: start;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+    display: grid;
+    gap: 22px;
+  }
+
+  .hero-side {
+    display: grid;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    margin: 0;
+    max-width: 10ch;
+    font-family: var(--font-display);
+    font-size: clamp(44px, 7vw, 94px);
+    line-height: 0.95;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .hero p {
+    margin: 0;
+    max-width: 58ch;
+    color: var(--text-secondary);
+    font-size: 17px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-self: start;
+    width: 100%;
+  }
+
+  .hero-panel {
+    margin-top: 2px;
+  }
+
+  .hero-panel-label {
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  .stat {
+    padding: 14px 0 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  .stat span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  .controls {
+    position: sticky;
+    top: 61px;
+    z-index: 15;
+    display: grid;
+    gap: 14px;
+    padding: 18px 0 16px;
+    background: var(--sticky-bg);
+  }
+
+  .controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search {
+    flex: 1 1 320px;
+    min-width: 220px;
+    border: 1px solid var(--border-strong);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text);
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .search::placeholder {
+    color: var(--text-disabled);
+  }
+
+  .search:focus {
+    border-color: rgba(255, 255, 255, 0.34);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .result-count {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chip {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .chip:hover {
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+
+  .chip.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 0 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .section-head p {
+    margin: 0;
+    color: var(--text-secondary);
+    max-width: 62ch;
+    font-size: 14px;
+  }
+
+  .collection-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 26px 0 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .collection-copy h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .collection-copy p {
+    margin: 8px 0 0;
+    color: var(--text-secondary);
+    max-width: 62ch;
+    font-size: 14px;
+  }
+
+  .preview-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .switch-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .switch-track {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    border: 1px solid var(--border-strong);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: var(--text);
+    transition: transform 0.18s ease;
+  }
+
+  .switch-input:checked + .switch-track .switch-thumb {
+    transform: translateX(20px);
+  }
+
+  .switch-input:focus-visible + .switch-track {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+    padding-bottom: 24px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+    transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
+    transform: translateY(-1px);
+  }
+
+  .preview-shell {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-bottom: 1px solid var(--border);
+    background: var(--preview-canvas);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .preview-shell::after {
+    content: attr(data-preview-label);
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 2;
+    padding: 6px 8px;
+    border: 1px solid var(--label-border);
+    background: var(--label-bg);
+    color: var(--label-text);
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .preview-frame {
+    display: block;
+    width: calc(100% / var(--preview-scale));
+    height: calc(100% / var(--preview-scale));
+    border: 0;
+    background: var(--preview-canvas);
+    transform: scale(var(--preview-scale));
+    transform-origin: top left;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .card-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .card-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.05;
+  }
+
+  .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-strong);
+    padding: 9px 11px;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .card-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.34);
+  }
+
+  .empty-state {
+    display: none;
+    padding: 28px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--surface);
+  }
+
+  .footer {
+    margin-top: 18px;
+    padding: 26px 0 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  @media (max-width: 980px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+      justify-self: start;
+      max-width: 100%;
+    }
+
+    .hero-side {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .shell,
+    .topbar-inner {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .hero {
+      padding-top: 56px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero h1 {
+      max-width: 12ch;
+    }
+
+    .controls {
+      top: 55px;
+    }
+
+    .section-head {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <img class="brand-mark" src="https://api.iconify.design/carbon:ibm-engineering-systems-design-rhapsody.svg" alt="">
+      <span>awesome-design-md</span>
+    </a>
+    <div class="topbar-actions">
+      <label class="theme-toggle" for="themeToggle">
+        <span id="themeLabel">Dark</span>
+        <span class="switch">
+          <input id="themeToggle" class="switch-input" type="checkbox" role="switch" aria-label="Toggle light mode">
+          <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        </span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main class="shell" id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">All design systems in one stark, scrollable index.</h1>
+    </div>
+
+    <div class="hero-side">
+      <div class="hero-actions">
+        <a class="card-link" href="#collection">Browse the collection</a>
+        <a class="card-link" href="https://github.com/VoltAgent/awesome-design-md" target="_blank" rel="noreferrer">Open repository</a>
+      </div>
+
+      <div class="hero-panel" aria-label="Collection summary">
+        <div class="hero-panel-label">Collection summary</div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong id="designCount">54</strong>
+            <span>design systems</span>
+          </div>
+          <div class="stat">
+            <strong id="categoryCount">6</strong>
+            <span>categories</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>static HTML</span>
+          </div>
+          <div class="stat">
+            <strong>Live</strong>
+            <span>iframe previews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="controls" aria-label="Search and filter">
+    <div class="controls-row">
+      <input id="searchInput" class="search" type="search" placeholder="Search design, slug, or category" autocomplete="off">
+      <div class="result-count" id="resultCount">54 / 54 visible</div>
+    </div>
+    <div class="chips" id="categoryChips" role="tablist" aria-label="Categories"></div>
+  </section>
+
+  <section id="collection">
+    <div class="collection-header">
+      <div class="collection-copy">
+      </div>
+
+      <div class="preview-toggle" aria-label="Preview mode switch">
+        <span id="previewModeLabel">preview</span>
+        <label class="switch">
+          <input id="previewModeSwitch" class="switch-input" type="checkbox" role="switch" aria-label="Toggle preview dark mode">
+          <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="grid" id="cardGrid"></div>
+    <div class="empty-state" id="emptyState">No matches. Try a different search term or clear the active category.</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="README.md">README</a>
+      <a href="CONTRIBUTING.md">Contributing</a>
+      <a href="LICENSE">License</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  const designIndex = window.__DESIGN_INDEX__ || { categories: [], designs: [] };
+  const categoryGroups = designIndex.categories || [];
+  const designs = designIndex.designs || [];
+
+  const categoryState = { active: 'All' };
+  const searchInput = document.getElementById('searchInput');
+  const cardGrid = document.getElementById('cardGrid');
+  const categoryChips = document.getElementById('categoryChips');
+  const resultCount = document.getElementById('resultCount');
+  const emptyState = document.getElementById('emptyState');
+  const designCount = document.getElementById('designCount');
+  const categoryCount = document.getElementById('categoryCount');
+  const previewModeSwitch = document.getElementById('previewModeSwitch');
+  const previewModeLabel = document.getElementById('previewModeLabel');
+  const themeToggle = document.getElementById('themeToggle');
+  const themeLabel = document.getElementById('themeLabel');
+
+  const previewState = { mode: 'light' };
+  const themeState = { value: 'dark' };
+
+  const storedTheme = window.localStorage.getItem('awesome-design-md-theme');
+  const preferredLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  themeState.value = storedTheme === 'light' || (!storedTheme && preferredLight) ? 'light' : 'dark';
+  document.body.dataset.theme = themeState.value;
+  themeToggle.checked = themeState.value === 'light';
+  themeLabel.textContent = themeState.value === 'light' ? 'Light' : 'Dark';
+
+  designCount.textContent = String(designs.length);
+  categoryCount.textContent = String(categoryGroups.length);
+
+  const chips = [
+    { label: 'All', value: 'All' },
+    ...categoryGroups.map((group) => ({ label: `${group.label} (${group.items.length})`, value: group.label }))
+  ];
+
+  function escapeHtml(value) {
+    return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  function matchDesign(design, query) {
+    if (!query) return true;
+    const haystack = `${design.name} ${design.slug} ${design.category}`.toLowerCase();
+    return haystack.includes(query);
+  }
+
+  function renderChips() {
+    categoryChips.innerHTML = chips.map((chip) => `
+      <button
+        class="chip ${chip.value === categoryState.active ? 'is-active' : ''}"
+        type="button"
+        data-value="${escapeHtml(chip.value)}"
+        aria-pressed="${chip.value === categoryState.active ? 'true' : 'false'}"
+      >
+        ${escapeHtml(chip.label)}
+      </button>
+    `).join('');
+
+    categoryChips.querySelectorAll('.chip').forEach((button) => {
+      button.addEventListener('click', () => {
+        categoryState.active = button.dataset.value || 'All';
+        render();
+      });
+    });
+  }
+
+  function renderCards(list) {
+    const isDarkMode = previewState.mode === 'dark';
+    const previewLabel = isDarkMode ? 'preview-dark.html' : 'preview.html';
+
+    cardGrid.innerHTML = list.map((design) => `
+      <article class="card" data-slug="${escapeHtml(design.slug)}" data-name="${escapeHtml(design.name)}" data-category="${escapeHtml(design.category)}">
+        <div class="preview-shell" data-preview-label="${escapeHtml(previewLabel)}">
+          <iframe
+            class="preview-frame"
+            title="${escapeHtml(design.name)} preview"
+            src="${escapeHtml(isDarkMode ? design.previewDark : design.preview)}"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          ></iframe>
+        </div>
+        <div class="card-body">
+          <div class="card-kicker">
+            <span>${escapeHtml(design.category)}</span>
+            <span>${escapeHtml(design.slug)}</span>
+          </div>
+          <h3 class="card-title">${escapeHtml(design.name)}</h3>
+          <div class="card-links">
+            <a class="card-link" href="${escapeHtml(design.preview)}" target="_blank" rel="noreferrer">Open preview</a>
+            <a class="card-link" href="${escapeHtml(design.previewDark)}" target="_blank" rel="noreferrer">Dark preview</a>
+            <a class="card-link" href="${escapeHtml(design.designMd)}" target="_blank" rel="noreferrer">DESIGN.md</a>
+          </div>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  function render() {
+    const query = searchInput.value.trim().toLowerCase();
+    const filtered = designs.filter((design) => {
+      const categoryOk = categoryState.active === 'All' || design.category === categoryState.active;
+      return categoryOk && matchDesign(design, query);
+    });
+
+    renderChips();
+    renderCards(filtered);
+
+    resultCount.textContent = `${filtered.length} / ${designs.length} visible`;
+    emptyState.style.display = filtered.length ? 'none' : 'block';
+    previewModeLabel.textContent = previewState.mode === 'dark' ? 'preview-dark' : 'preview';
+    previewModeSwitch.checked = previewState.mode === 'dark';
+  }
+
+  themeToggle.addEventListener('change', () => {
+    themeState.value = themeToggle.checked ? 'light' : 'dark';
+    document.body.dataset.theme = themeState.value;
+    themeLabel.textContent = themeState.value === 'light' ? 'Light' : 'Dark';
+    window.localStorage.setItem('awesome-design-md-theme', themeState.value);
+  });
+
+  previewModeSwitch.addEventListener('change', () => {
+    previewState.mode = previewModeSwitch.checked ? 'dark' : 'light';
+    render();
+  });
+
+  searchInput.addEventListener('input', render);
+
+  renderChips();
+  renderCards(designs);
+  render();
+</script>
+</body>
+</html>
