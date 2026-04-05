@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import { readdir, readFile, copyFile, access } from "node:fs/promises";
+import { readdir, copyFile, access } from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { exec } from "node:child_process";
 import { platform } from "node:os";
-import searchPrompt from "@inquirer/search";
+import * as p from "@clack/prompts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const designsDir = resolve(__dirname, "..", "design-md");
@@ -68,85 +68,114 @@ const LABELS = {
   zapier: "Zapier",
 };
 
+function openInBrowser(filePath) {
+  const cmd =
+    platform() === "darwin"
+      ? "open"
+      : platform() === "win32"
+        ? "start"
+        : "xdg-open";
+  exec(`${cmd} "${filePath}"`);
+}
+
 async function main() {
-  console.log("\n  awesome-design-md\n");
-  console.log("  Pick a design system and copy its DESIGN.md to your project.\n");
+  p.intro("awesome-design-md");
 
   const dirs = (await readdir(designsDir, { withFileTypes: true }))
     .filter((d) => d.isDirectory())
     .map((d) => d.name)
     .sort();
 
-  const choices = dirs.map((dir) => ({
-    name: LABELS[dir] || dir,
+  const options = dirs.map((dir) => ({
+    label: LABELS[dir] || dir,
     value: dir,
   }));
 
-  const selected = await searchPrompt({
-    message: "Search and select a design:",
-    source: (input) => {
-      if (!input) return choices;
-      const term = input.toLowerCase();
-      return choices.filter(
-        (c) =>
-          c.name.toLowerCase().includes(term) ||
-          c.value.toLowerCase().includes(term)
-      );
-    },
-  });
+  let selected;
+
+  // Selection loop — pick, preview, pick again
+  while (true) {
+    selected = await p.select({
+      message: "Select a design system",
+      options,
+    });
+
+    if (p.isCancel(selected)) {
+      p.cancel("Cancelled.");
+      process.exit(0);
+    }
+
+    const action = await p.select({
+      message: `${LABELS[selected] || selected} selected`,
+      options: [
+        { label: "Preview in browser", value: "preview" },
+        { label: "Copy DESIGN.md to project", value: "copy" },
+        { label: "Go back and pick another", value: "back" },
+      ],
+    });
+
+    if (p.isCancel(action)) {
+      p.cancel("Cancelled.");
+      process.exit(0);
+    }
+
+    if (action === "preview") {
+      const previewPath = join(designsDir, selected, "preview.html");
+      openInBrowser(previewPath);
+      p.log.info(`Opened ${LABELS[selected] || selected} preview in browser.`);
+
+      const next = await p.select({
+        message: "What next?",
+        options: [
+          { label: "Copy this DESIGN.md to project", value: "copy" },
+          { label: "Go back and pick another", value: "back" },
+        ],
+      });
+
+      if (p.isCancel(next)) {
+        p.cancel("Cancelled.");
+        process.exit(0);
+      }
+
+      if (next === "back") continue;
+      // next === "copy", fall through
+    } else if (action === "back") {
+      continue;
+    }
+
+    // Copy
+    break;
+  }
 
   const srcDesign = join(designsDir, selected, "DESIGN.md");
   const destDesign = join(cwd, "DESIGN.md");
 
-  // Preview in browser
-  const { default: confirm } = await import("@inquirer/confirm");
-  const wantPreview = await confirm({
-    message: "Open preview in browser before copying?",
-    default: true,
-  });
-
-  if (wantPreview) {
-    const { default: selectPrompt } = await import("@inquirer/select");
-    const theme = await selectPrompt({
-      message: "Which theme?",
-      choices: [
-        { name: "Light", value: "preview.html" },
-        { name: "Dark", value: "preview-dark.html" },
-      ],
-    });
-    const previewPath = join(designsDir, selected, theme);
-    const openCmd =
-      platform() === "darwin"
-        ? "open"
-        : platform() === "win32"
-          ? "start"
-          : "xdg-open";
-    exec(`${openCmd} "${previewPath}"`);
-    console.log(`\n  Opened ${LABELS[selected] || selected} preview in browser.`);
-  }
-
   // Check if DESIGN.md already exists
   try {
     await access(destDesign);
-    const overwrite = await confirm({
+    const overwrite = await p.confirm({
       message: "DESIGN.md already exists. Overwrite?",
-      default: false,
+      initialValue: false,
     });
-    if (!overwrite) {
-      console.log("\n  Cancelled. No files were changed.\n");
+
+    if (p.isCancel(overwrite) || !overwrite) {
+      p.cancel("No files were changed.");
       process.exit(0);
     }
   } catch {
     // File doesn't exist, proceed
   }
 
+  const s = p.spinner();
+  s.start("Copying DESIGN.md");
   await copyFile(srcDesign, destDesign);
-  console.log(`\n  Copied ${LABELS[selected] || selected} DESIGN.md to your project root.`);
-  console.log("  Tell your AI agent: \"build me a page using DESIGN.md\"\n");
+  s.stop(`Copied ${LABELS[selected] || selected} DESIGN.md`);
+
+  p.outro('Done! Tell your AI agent: "build me a page using DESIGN.md"');
 }
 
 main().catch((err) => {
-  if (err.name === "ExitPromptError") {
+  if (err.message?.includes("cancelled")) {
     process.exit(0);
   }
   console.error(err);

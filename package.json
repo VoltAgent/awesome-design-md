@@ -1,6 +1,6 @@
 {
   "name": "awesome-design-md",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Pick a DESIGN.md from curated collection and copy it to your project",
   "bin": {
     "awesome-design-md": "./bin/cli.mjs"
@@ -23,9 +23,7 @@
     "url": "https://github.com/VoltAgent/awesome-design-md"
   },
   "dependencies": {
-    "@inquirer/confirm": "^6.0.10",
-    "@inquirer/search": "^3.0.0",
-    "@inquirer/select": "^4.0.0"
+    "@clack/prompts": "^1.2.0"
   },
   "engines": {
     "node": ">=18"
