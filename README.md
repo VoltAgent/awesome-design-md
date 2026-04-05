@@ -155,6 +155,17 @@ Each site includes:
 
 
 
+## Preview Index
+
+Generate a root `index.html` that links to every site's `preview.html` and `preview-dark.html`:
+
+```bash
+node scripts/build-index.js
+```
+
+The script scans `design-md/*/` for preview files and writes a browsable, alphabetically-sorted index to `index.html` at the repo root. Re-run it any time a new design directory is added.
+
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.

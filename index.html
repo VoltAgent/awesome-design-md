@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awesome Design MD — Preview Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #0b0b0f;
+    --card-border: #2a2a38;
+    --page-text: #eef0f6;
+    --page-muted: #9397a8;
+    --accent: #7c8cff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--page-bg); color: var(--page-text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { min-height: 100vh; line-height: 1.5; }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 64px 24px 96px; }
+  header.page-head { margin-bottom: 48px; }
+  h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .lede { color: var(--page-muted); font-size: 17px; max-width: 680px; }
+  .meta { color: var(--page-muted); font-size: 13px; margin-top: 16px; font-variant-numeric: tabular-nums; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .card { background: transparent; border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; transition: border-color 0.15s, transform 0.15s; display: flex; flex-direction: column; }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .card-head { padding: 16px 18px 14px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--card-border); }
+  .card-title { font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+  .card-slug { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: var(--page-muted); }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; }
+  .half { position: relative; padding: 16px 14px 14px; text-decoration: none; min-height: 180px; display: flex; flex-direction: column; gap: 10px; transition: filter 0.15s; font-family: 'Inter', sans-serif; }
+  .half:hover { filter: brightness(1.08) saturate(1.1); }
+  .half-missing { cursor: default; opacity: 0.55; }
+
+  .half-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .half-empty { font-size: 12px; font-style: italic; }
+
+  .swatches { display: flex; gap: 5px; flex-wrap: wrap; }
+  .swatch { width: 22px; height: 22px; border-radius: 5px; border: 1px solid; box-shadow: 0 1px 2px rgba(0,0,0,0.15); cursor: help; }
+
+  .theme-meta { display: flex; flex-direction: column; gap: 3px; font-size: 10px; font-family: 'SF Mono', Menlo, Consolas, monospace; margin-top: auto; }
+  .theme-chip { display: inline-flex; align-items: center; gap: 6px; }
+  .theme-chip-dot { width: 10px; height: 10px; border-radius: 2px; border: 1px solid; display: inline-block; flex-shrink: 0; }
+
+  .half-cta { font-size: 11px; font-weight: 600; padding: 6px 10px; border-radius: 6px; border: 1px solid; text-align: center; margin-top: 6px; }
+
+  footer { margin-top: 64px; color: var(--page-muted); font-size: 13px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { filter: brightness(1.2); }
+  footer code { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; }
+
+  @media (prefers-color-scheme: light) {
+    :root { --page-bg: #fafafc; --card-border: #e4e5ed; --page-text: #15151c; --page-muted: #60636d; --accent: #4a5cff; }
+    .card-head { background: rgba(0,0,0,0.02); }
+    footer code { background: rgba(0,0,0,0.06); }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Awesome Design MD</h1>
+      <p class="lede">Preview index for every design-system in this repo. Each card shows a split mini-preview — left half uses the light theme's actual background and primary swatches, right half uses the dark theme's. Click either half to open the full preview.</p>
+      <div class="meta">54 systems · generated 2026-04-05T17:22:52.694Z</div>
+    </header>
+    <main class="grid">
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Airbnb</h2>
+        <div class="card-slug">airbnb</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/airbnb/preview.html" style="background:#ffffff;color:#222222">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#ff385c;border-color:rgba(0,0,0,0.12)" title="Rausch Red #ff385c" aria-label="Rausch Red #ff385c"></span><span class="swatch" style="background:#e00b41;border-color:rgba(0,0,0,0.12)" title="Deep Rausch #e00b41" aria-label="Deep Rausch #e00b41"></span><span class="swatch" style="background:#c13515;border-color:rgba(0,0,0,0.12)" title="Error Red #c13515" aria-label="Error Red #c13515"></span><span class="swatch" style="background:#b32505;border-color:rgba(0,0,0,0.12)" title="Error Dark #b32505" aria-label="Error Dark #b32505"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#222222;border-color:rgba(0,0,0,0.12)"></span>fg #222222</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#222222">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/airbnb/preview-dark.html" style="background:#1a1a1a;color:#f0f0f0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#ff385c;border-color:rgba(255,255,255,0.15)" title="Rausch Red #ff385c" aria-label="Rausch Red #ff385c"></span><span class="swatch" style="background:#e00b41;border-color:rgba(255,255,255,0.15)" title="Deep Rausch #e00b41" aria-label="Deep Rausch #e00b41"></span><span class="swatch" style="background:#c13515;border-color:rgba(255,255,255,0.15)" title="Error Red #c13515" aria-label="Error Red #c13515"></span><span class="swatch" style="background:#b32505;border-color:rgba(255,255,255,0.15)" title="Error Dark #b32505" aria-label="Error Dark #b32505"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1a1a;border-color:rgba(255,255,255,0.15)"></span>bg #1a1a1a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f0;border-color:rgba(255,255,255,0.15)"></span>fg #f0f0f0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f0f0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Airtable</h2>
+        <div class="card-slug">airtable</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/airtable/preview.html" style="background:#fff;color:#181d26">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#181d26;border-color:rgba(0,0,0,0.12)" title="Deep Navy #181d26" aria-label="Deep Navy #181d26"></span><span class="swatch" style="background:#1b61c9;border-color:rgba(0,0,0,0.12)" title="Airtable Blue #1b61c9" aria-label="Airtable Blue #1b61c9"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="White #ffffff" aria-label="White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fff;border-color:rgba(0,0,0,0.12)"></span>bg #fff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#181d26;border-color:rgba(0,0,0,0.12)"></span>fg #181d26</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#181d26">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/airtable/preview-dark.html" style="background:#181d26;color:#f0f2f5">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#181d26;border-color:rgba(255,255,255,0.15)" title="Deep Navy #181d26" aria-label="Deep Navy #181d26"></span><span class="swatch" style="background:#1b61c9;border-color:rgba(255,255,255,0.15)" title="Airtable Blue #1b61c9" aria-label="Airtable Blue #1b61c9"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="White #ffffff" aria-label="White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#181d26;border-color:rgba(255,255,255,0.15)"></span>bg #181d26</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f2f5;border-color:rgba(255,255,255,0.15)"></span>fg #f0f2f5</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f2f5">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Apple</h2>
+        <div class="card-slug">apple</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/apple/preview.html" style="background:#ffffff;color:#1d1d1f">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#f5f5f7;border-color:rgba(0,0,0,0.12)" title="Light Gray #f5f5f7" aria-label="Light Gray #f5f5f7"></span><span class="swatch" style="background:#1d1d1f;border-color:rgba(0,0,0,0.12)" title="Near Black #1d1d1f" aria-label="Near Black #1d1d1f"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1d1d1f;border-color:rgba(0,0,0,0.12)"></span>fg #1d1d1f</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1d1d1f">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/apple/preview-dark.html" style="background:#000000;color:#f5f5f7">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#f5f5f7;border-color:rgba(255,255,255,0.15)" title="Light Gray #f5f5f7" aria-label="Light Gray #f5f5f7"></span><span class="swatch" style="background:#1d1d1f;border-color:rgba(255,255,255,0.15)" title="Near Black #1d1d1f" aria-label="Near Black #1d1d1f"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f5f5f7;border-color:rgba(255,255,255,0.15)"></span>fg #f5f5f7</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f5f5f7">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Bmw</h2>
+        <div class="card-slug">bmw</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/bmw/preview.html" style="background:#ffffff;color:#262626">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#1c69d4;border-color:rgba(0,0,0,0.12)" title="BMW Blue #1c69d4" aria-label="BMW Blue #1c69d4"></span><span class="swatch" style="background:#0653b6;border-color:rgba(0,0,0,0.12)" title="BMW Focus Blue #0653b6" aria-label="BMW Focus Blue #0653b6"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#262626;border-color:rgba(0,0,0,0.12)"></span>fg #262626</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#262626">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/bmw/preview-dark.html" style="background:#1a1a1a;color:#e0e0e0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#1c69d4;border-color:rgba(255,255,255,0.15)" title="BMW Blue #1c69d4" aria-label="BMW Blue #1c69d4"></span><span class="swatch" style="background:#0653b6;border-color:rgba(255,255,255,0.15)" title="BMW Focus Blue #0653b6" aria-label="BMW Focus Blue #0653b6"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1a1a;border-color:rgba(255,255,255,0.15)"></span>bg #1a1a1a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e0e0e0;border-color:rgba(255,255,255,0.15)"></span>fg #e0e0e0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e0e0e0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Cal</h2>
+        <div class="card-slug">cal</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/cal/preview.html" style="background:#ffffff;color:#242424">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#242424;border-color:rgba(0,0,0,0.12)" title="Charcoal #242424" aria-label="Charcoal #242424"></span><span class="swatch" style="background:#111111;border-color:rgba(0,0,0,0.12)" title="Midnight #111111" aria-label="Midnight #111111"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="White #ffffff" aria-label="White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#242424;border-color:rgba(0,0,0,0.12)"></span>fg #242424</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#242424">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/cal/preview-dark.html" style="background:#0a0a0a;color:#e8e8e8">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#242424;border-color:rgba(255,255,255,0.15)" title="Charcoal #242424" aria-label="Charcoal #242424"></span><span class="swatch" style="background:#111111;border-color:rgba(255,255,255,0.15)" title="Midnight #111111" aria-label="Midnight #111111"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="White #ffffff" aria-label="White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0a0a;border-color:rgba(255,255,255,0.15)"></span>bg #0a0a0a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8e8e8;border-color:rgba(255,255,255,0.15)"></span>fg #e8e8e8</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8e8e8">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Claude</h2>
+        <div class="card-slug">claude</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/claude/preview.html" style="background:#f5f4ed;color:#141413">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#141413;border-color:rgba(0,0,0,0.12)" title="Anthropic Near Black #141413" aria-label="Anthropic Near Black #141413"></span><span class="swatch" style="background:#c96442;border-color:rgba(0,0,0,0.12)" title="Terracotta Brand #c96442" aria-label="Terracotta Brand #c96442"></span><span class="swatch" style="background:#d97757;border-color:rgba(0,0,0,0.12)" title="Coral Accent #d97757" aria-label="Coral Accent #d97757"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f5f4ed;border-color:rgba(0,0,0,0.12)"></span>bg #f5f4ed</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#141413;border-color:rgba(0,0,0,0.12)"></span>fg #141413</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#141413">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/claude/preview-dark.html" style="background:#141413;color:#faf9f5">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#141413;border-color:rgba(255,255,255,0.15)" title="Anthropic Near Black #141413" aria-label="Anthropic Near Black #141413"></span><span class="swatch" style="background:#c96442;border-color:rgba(255,255,255,0.15)" title="Terracotta Brand #c96442" aria-label="Terracotta Brand #c96442"></span><span class="swatch" style="background:#d97757;border-color:rgba(255,255,255,0.15)" title="Coral Accent #d97757" aria-label="Coral Accent #d97757"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#141413;border-color:rgba(255,255,255,0.15)"></span>bg #141413</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#faf9f5;border-color:rgba(255,255,255,0.15)"></span>fg #faf9f5</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#faf9f5">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Clay</h2>
+        <div class="card-slug">clay</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/clay/preview.html" style="background:#faf9f7;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Clay Black #000000" aria-label="Clay Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#faf9f7;border-color:rgba(0,0,0,0.12)" title="Warm Cream #faf9f7" aria-label="Warm Cream #faf9f7"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#faf9f7;border-color:rgba(0,0,0,0.12)"></span>bg #faf9f7</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/clay/preview-dark.html" style="background:#1a1815;color:#f0ede8">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Clay Black #000000" aria-label="Clay Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#faf9f7;border-color:rgba(255,255,255,0.15)" title="Warm Cream #faf9f7" aria-label="Warm Cream #faf9f7"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1815;border-color:rgba(255,255,255,0.15)"></span>bg #1a1815</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0ede8;border-color:rgba(255,255,255,0.15)"></span>fg #f0ede8</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0ede8">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Clickhouse</h2>
+        <div class="card-slug">clickhouse</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/clickhouse/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#faff69;border-color:rgba(0,0,0,0.12)" title="Neon Volt #faff69" aria-label="Neon Volt #faff69"></span><span class="swatch" style="background:#166534;border-color:rgba(0,0,0,0.12)" title="Forest Green #166534" aria-label="Forest Green #166534"></span><span class="swatch" style="background:#14572f;border-color:rgba(0,0,0,0.12)" title="Dark Forest #14572f" aria-label="Dark Forest #14572f"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/clickhouse/preview-dark.html" style="background:#000000;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#faff69;border-color:rgba(255,255,255,0.15)" title="Neon Volt #faff69" aria-label="Neon Volt #faff69"></span><span class="swatch" style="background:#166534;border-color:rgba(255,255,255,0.15)" title="Forest Green #166534" aria-label="Forest Green #166534"></span><span class="swatch" style="background:#14572f;border-color:rgba(255,255,255,0.15)" title="Dark Forest #14572f" aria-label="Dark Forest #14572f"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Cohere</h2>
+        <div class="card-slug">cohere</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/cohere/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Cohere Black #000000" aria-label="Cohere Black #000000"></span><span class="swatch" style="background:#212121;border-color:rgba(0,0,0,0.12)" title="Near Black #212121" aria-label="Near Black #212121"></span><span class="swatch" style="background:#17171c;border-color:rgba(0,0,0,0.12)" title="Deep Dark #17171c" aria-label="Deep Dark #17171c"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/cohere/preview-dark.html" style="background:#17171c;color:#fafafa">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Cohere Black #000000" aria-label="Cohere Black #000000"></span><span class="swatch" style="background:#212121;border-color:rgba(255,255,255,0.15)" title="Near Black #212121" aria-label="Near Black #212121"></span><span class="swatch" style="background:#17171c;border-color:rgba(255,255,255,0.15)" title="Deep Dark #17171c" aria-label="Deep Dark #17171c"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#17171c;border-color:rgba(255,255,255,0.15)"></span>bg #17171c</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fafafa;border-color:rgba(255,255,255,0.15)"></span>fg #fafafa</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#fafafa">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Coinbase</h2>
+        <div class="card-slug">coinbase</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/coinbase/preview.html" style="background:#fff;color:#0a0b0d">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#0052ff;border-color:rgba(0,0,0,0.12)" title="Coinbase Blue #0052ff" aria-label="Coinbase Blue #0052ff"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#0a0b0d;border-color:rgba(0,0,0,0.12)" title="Near Black #0a0b0d" aria-label="Near Black #0a0b0d"></span><span class="swatch" style="background:#eef0f3;border-color:rgba(0,0,0,0.12)" title="Cool Gray Surface #eef0f3" aria-label="Cool Gray Surface #eef0f3"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fff;border-color:rgba(0,0,0,0.12)"></span>bg #fff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0b0d;border-color:rgba(0,0,0,0.12)"></span>fg #0a0b0d</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#0a0b0d">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/coinbase/preview-dark.html" style="background:#0a0b0d;color:#eef0f3">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#0052ff;border-color:rgba(255,255,255,0.15)" title="Coinbase Blue #0052ff" aria-label="Coinbase Blue #0052ff"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#0a0b0d;border-color:rgba(255,255,255,0.15)" title="Near Black #0a0b0d" aria-label="Near Black #0a0b0d"></span><span class="swatch" style="background:#eef0f3;border-color:rgba(255,255,255,0.15)" title="Cool Gray Surface #eef0f3" aria-label="Cool Gray Surface #eef0f3"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0b0d;border-color:rgba(255,255,255,0.15)"></span>bg #0a0b0d</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#eef0f3;border-color:rgba(255,255,255,0.15)"></span>fg #eef0f3</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#eef0f3">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Composio</h2>
+        <div class="card-slug">composio</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/composio/preview.html" style="background:#0f0f0f;color:#ffffff">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#0007cd;border-color:rgba(0,0,0,0.12)" title="Composio Cobalt #0007cd" aria-label="Composio Cobalt #0007cd"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0f0f0f;border-color:rgba(0,0,0,0.12)"></span>bg #0f0f0f</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#ffffff">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/composio/preview-dark.html" style="background:#000000;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#0007cd;border-color:rgba(255,255,255,0.15)" title="Composio Cobalt #0007cd" aria-label="Composio Cobalt #0007cd"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Cursor</h2>
+        <div class="card-slug">cursor</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/cursor/preview.html" style="background:#f2f1ed;color:#26251e">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#26251e;border-color:rgba(0,0,0,0.12)" title="Cursor Dark #26251e" aria-label="Cursor Dark #26251e"></span><span class="swatch" style="background:#f2f1ed;border-color:rgba(0,0,0,0.12)" title="Cursor Cream #f2f1ed" aria-label="Cursor Cream #f2f1ed"></span><span class="swatch" style="background:#e6e5e0;border-color:rgba(0,0,0,0.12)" title="Cursor Light #e6e5e0" aria-label="Cursor Light #e6e5e0"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="True Black #000000" aria-label="True Black #000000"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f2f1ed;border-color:rgba(0,0,0,0.12)"></span>bg #f2f1ed</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#26251e;border-color:rgba(0,0,0,0.12)"></span>fg #26251e</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#26251e">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/cursor/preview-dark.html" style="background:#1a1915;color:#e6e5e0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#26251e;border-color:rgba(255,255,255,0.15)" title="Cursor Dark #26251e" aria-label="Cursor Dark #26251e"></span><span class="swatch" style="background:#f2f1ed;border-color:rgba(255,255,255,0.15)" title="Cursor Cream #f2f1ed" aria-label="Cursor Cream #f2f1ed"></span><span class="swatch" style="background:#e6e5e0;border-color:rgba(255,255,255,0.15)" title="Cursor Light #e6e5e0" aria-label="Cursor Light #e6e5e0"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="True Black #000000" aria-label="True Black #000000"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1915;border-color:rgba(255,255,255,0.15)"></span>bg #1a1915</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e6e5e0;border-color:rgba(255,255,255,0.15)"></span>fg #e6e5e0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e6e5e0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Elevenlabs</h2>
+        <div class="card-slug">elevenlabs</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/elevenlabs/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#f5f5f5;border-color:rgba(0,0,0,0.12)" title="Light Gray #f5f5f5" aria-label="Light Gray #f5f5f5"></span><span class="swatch" style="background:#f5f2ef;border-color:rgba(0,0,0,0.12)" title="Warm Stone #f5f2ef" aria-label="Warm Stone #f5f2ef"></span><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Black #000000" aria-label="Black #000000"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/elevenlabs/preview-dark.html" style="background:#0a0a0a;color:#f0f0f0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#f5f5f5;border-color:rgba(255,255,255,0.15)" title="Light Gray #f5f5f5" aria-label="Light Gray #f5f5f5"></span><span class="swatch" style="background:#f5f2ef;border-color:rgba(255,255,255,0.15)" title="Warm Stone #f5f2ef" aria-label="Warm Stone #f5f2ef"></span><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Black #000000" aria-label="Black #000000"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0a0a;border-color:rgba(255,255,255,0.15)"></span>bg #0a0a0a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f0;border-color:rgba(255,255,255,0.15)"></span>fg #f0f0f0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f0f0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Expo</h2>
+        <div class="card-slug">expo</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/expo/preview.html" style="background:#f0f0f3;color:#1c2024">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Expo Black #000000" aria-label="Expo Black #000000"></span><span class="swatch" style="background:#1c2024;border-color:rgba(0,0,0,0.12)" title="Near Black #1c2024" aria-label="Near Black #1c2024"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f3;border-color:rgba(0,0,0,0.12)"></span>bg #f0f0f3</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1c2024;border-color:rgba(0,0,0,0.12)"></span>fg #1c2024</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1c2024">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/expo/preview-dark.html" style="background:#171717;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Expo Black #000000" aria-label="Expo Black #000000"></span><span class="swatch" style="background:#1c2024;border-color:rgba(255,255,255,0.15)" title="Near Black #1c2024" aria-label="Near Black #1c2024"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#171717;border-color:rgba(255,255,255,0.15)"></span>bg #171717</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Figma</h2>
+        <div class="card-slug">figma</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/figma/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/figma/preview-dark.html" style="background:#000000;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Framer</h2>
+        <div class="card-slug">framer</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/framer/preview.html" style="background:#000000;color:#ffffff">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#0099ff;border-color:rgba(0,0,0,0.12)" title="Framer Blue #0099ff" aria-label="Framer Blue #0099ff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#ffffff">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/framer/preview-dark.html" style="background:#050508;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#0099ff;border-color:rgba(255,255,255,0.15)" title="Framer Blue #0099ff" aria-label="Framer Blue #0099ff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#050508;border-color:rgba(255,255,255,0.15)"></span>bg #050508</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Hashicorp</h2>
+        <div class="card-slug">hashicorp</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/hashicorp/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Black #000000" aria-label="Black #000000"></span><span class="swatch" style="background:#15181e;border-color:rgba(0,0,0,0.12)" title="Dark Charcoal #15181e" aria-label="Dark Charcoal #15181e"></span><span class="swatch" style="background:#0d0e12;border-color:rgba(0,0,0,0.12)" title="Near Black #0d0e12" aria-label="Near Black #0d0e12"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/hashicorp/preview-dark.html" style="background:#0d0e12;color:#efeff1">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Black #000000" aria-label="Black #000000"></span><span class="swatch" style="background:#15181e;border-color:rgba(255,255,255,0.15)" title="Dark Charcoal #15181e" aria-label="Dark Charcoal #15181e"></span><span class="swatch" style="background:#0d0e12;border-color:rgba(255,255,255,0.15)" title="Near Black #0d0e12" aria-label="Near Black #0d0e12"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0d0e12;border-color:rgba(255,255,255,0.15)"></span>bg #0d0e12</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#efeff1;border-color:rgba(255,255,255,0.15)"></span>fg #efeff1</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#efeff1">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Ibm</h2>
+        <div class="card-slug">ibm</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/ibm/preview.html" style="background:#ffffff;color:#161616">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#0f62fe;border-color:rgba(0,0,0,0.12)" title="IBM Blue 60 #0f62fe" aria-label="IBM Blue 60 #0f62fe"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="White #ffffff" aria-label="White #ffffff"></span><span class="swatch" style="background:#161616;border-color:rgba(0,0,0,0.12)" title="Gray 100 #161616" aria-label="Gray 100 #161616"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#161616;border-color:rgba(0,0,0,0.12)"></span>fg #161616</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#161616">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/ibm/preview-dark.html" style="background:#161616;color:#f4f4f4">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#0f62fe;border-color:rgba(255,255,255,0.15)" title="IBM Blue 60 #0f62fe" aria-label="IBM Blue 60 #0f62fe"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="White #ffffff" aria-label="White #ffffff"></span><span class="swatch" style="background:#161616;border-color:rgba(255,255,255,0.15)" title="Gray 100 #161616" aria-label="Gray 100 #161616"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#161616;border-color:rgba(255,255,255,0.15)"></span>bg #161616</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f4f4f4;border-color:rgba(255,255,255,0.15)"></span>fg #f4f4f4</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f4f4f4">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Intercom</h2>
+        <div class="card-slug">intercom</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/intercom/preview.html" style="background:#faf9f6;color:#111111">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#111111;border-color:rgba(0,0,0,0.12)" title="Off Black #111111" aria-label="Off Black #111111"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#faf9f6;border-color:rgba(0,0,0,0.12)" title="Warm Cream #faf9f6" aria-label="Warm Cream #faf9f6"></span><span class="swatch" style="background:#ff5600;border-color:rgba(0,0,0,0.12)" title="Fin Orange #ff5600" aria-label="Fin Orange #ff5600"></span><span class="swatch" style="background:#fe4c02;border-color:rgba(0,0,0,0.12)" title="Report Orange #fe4c02" aria-label="Report Orange #fe4c02"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#faf9f6;border-color:rgba(0,0,0,0.12)"></span>bg #faf9f6</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#111111;border-color:rgba(0,0,0,0.12)"></span>fg #111111</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#111111">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/intercom/preview-dark.html" style="background:#111111;color:#faf9f6">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#111111;border-color:rgba(255,255,255,0.15)" title="Off Black #111111" aria-label="Off Black #111111"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#faf9f6;border-color:rgba(255,255,255,0.15)" title="Warm Cream #faf9f6" aria-label="Warm Cream #faf9f6"></span><span class="swatch" style="background:#ff5600;border-color:rgba(255,255,255,0.15)" title="Fin Orange #ff5600" aria-label="Fin Orange #ff5600"></span><span class="swatch" style="background:#fe4c02;border-color:rgba(255,255,255,0.15)" title="Report Orange #fe4c02" aria-label="Report Orange #fe4c02"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#111111;border-color:rgba(255,255,255,0.15)"></span>bg #111111</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#faf9f6;border-color:rgba(255,255,255,0.15)"></span>fg #faf9f6</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#faf9f6">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Kraken</h2>
+        <div class="card-slug">kraken</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/kraken/preview.html" style="background:#fff;color:#101114">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#7132f5;border-color:rgba(0,0,0,0.12)" title="Kraken Purple #7132f5" aria-label="Kraken Purple #7132f5"></span><span class="swatch" style="background:#5741d8;border-color:rgba(0,0,0,0.12)" title="Purple Dark #5741d8" aria-label="Purple Dark #5741d8"></span><span class="swatch" style="background:#5b1ecf;border-color:rgba(0,0,0,0.12)" title="Purple Deep #5b1ecf" aria-label="Purple Deep #5b1ecf"></span><span class="swatch" style="background:#101114;border-color:rgba(0,0,0,0.12)" title="Near Black #101114" aria-label="Near Black #101114"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fff;border-color:rgba(0,0,0,0.12)"></span>bg #fff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#101114;border-color:rgba(0,0,0,0.12)"></span>fg #101114</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#101114">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/kraken/preview-dark.html" style="background:#101114;color:#e8e8ec">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#7132f5;border-color:rgba(255,255,255,0.15)" title="Kraken Purple #7132f5" aria-label="Kraken Purple #7132f5"></span><span class="swatch" style="background:#5741d8;border-color:rgba(255,255,255,0.15)" title="Purple Dark #5741d8" aria-label="Purple Dark #5741d8"></span><span class="swatch" style="background:#5b1ecf;border-color:rgba(255,255,255,0.15)" title="Purple Deep #5b1ecf" aria-label="Purple Deep #5b1ecf"></span><span class="swatch" style="background:#101114;border-color:rgba(255,255,255,0.15)" title="Near Black #101114" aria-label="Near Black #101114"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#101114;border-color:rgba(255,255,255,0.15)"></span>bg #101114</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8e8ec;border-color:rgba(255,255,255,0.15)"></span>fg #e8e8ec</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8e8ec">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Linear App</h2>
+        <div class="card-slug">linear.app</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/linear.app/preview.html" style="background:#f7f8f8;color:#1a1a1e">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#5e6ad2;border-color:rgba(0,0,0,0.12)" title="Brand Indigo #5e6ad2" aria-label="Brand Indigo #5e6ad2"></span><span class="swatch" style="background:#7170ff;border-color:rgba(0,0,0,0.12)" title="Accent Violet #7170ff" aria-label="Accent Violet #7170ff"></span><span class="swatch" style="background:#828fff;border-color:rgba(0,0,0,0.12)" title="Accent Hover #828fff" aria-label="Accent Hover #828fff"></span><span class="swatch" style="background:#7a7fad;border-color:rgba(0,0,0,0.12)" title="Security Lavender #7a7fad" aria-label="Security Lavender #7a7fad"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f7f8f8;border-color:rgba(0,0,0,0.12)"></span>bg #f7f8f8</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1a1e;border-color:rgba(0,0,0,0.12)"></span>fg #1a1a1e</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1a1a1e">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/linear.app/preview-dark.html" style="background:#08090a;color:#f7f8f8">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#5e6ad2;border-color:rgba(255,255,255,0.15)" title="Brand Indigo #5e6ad2" aria-label="Brand Indigo #5e6ad2"></span><span class="swatch" style="background:#7170ff;border-color:rgba(255,255,255,0.15)" title="Accent Violet #7170ff" aria-label="Accent Violet #7170ff"></span><span class="swatch" style="background:#828fff;border-color:rgba(255,255,255,0.15)" title="Accent Hover #828fff" aria-label="Accent Hover #828fff"></span><span class="swatch" style="background:#7a7fad;border-color:rgba(255,255,255,0.15)" title="Security Lavender #7a7fad" aria-label="Security Lavender #7a7fad"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#08090a;border-color:rgba(255,255,255,0.15)"></span>bg #08090a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f7f8f8;border-color:rgba(255,255,255,0.15)"></span>fg #f7f8f8</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f7f8f8">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Lovable</h2>
+        <div class="card-slug">lovable</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/lovable/preview.html" style="background:#f7f4ed;color:#1c1c1c">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#f7f4ed;border-color:rgba(0,0,0,0.12)" title="Cream #f7f4ed" aria-label="Cream #f7f4ed"></span><span class="swatch" style="background:#1c1c1c;border-color:rgba(0,0,0,0.12)" title="Charcoal #1c1c1c" aria-label="Charcoal #1c1c1c"></span><span class="swatch" style="background:#fcfbf8;border-color:rgba(0,0,0,0.12)" title="Off-White #fcfbf8" aria-label="Off-White #fcfbf8"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f7f4ed;border-color:rgba(0,0,0,0.12)"></span>bg #f7f4ed</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1c1c1c;border-color:rgba(0,0,0,0.12)"></span>fg #1c1c1c</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1c1c1c">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/lovable/preview-dark.html" style="background:#1a1916;color:#e8e5de">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#f7f4ed;border-color:rgba(255,255,255,0.15)" title="Cream #f7f4ed" aria-label="Cream #f7f4ed"></span><span class="swatch" style="background:#1c1c1c;border-color:rgba(255,255,255,0.15)" title="Charcoal #1c1c1c" aria-label="Charcoal #1c1c1c"></span><span class="swatch" style="background:#fcfbf8;border-color:rgba(255,255,255,0.15)" title="Off-White #fcfbf8" aria-label="Off-White #fcfbf8"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1916;border-color:rgba(255,255,255,0.15)"></span>bg #1a1916</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8e5de;border-color:rgba(255,255,255,0.15)"></span>fg #e8e5de</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8e5de">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Minimax</h2>
+        <div class="card-slug">minimax</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/minimax/preview.html" style="background:#ffffff;color:#222222">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#1456f0;border-color:rgba(0,0,0,0.12)" title="Brand Blue #1456f0" aria-label="Brand Blue #1456f0"></span><span class="swatch" style="background:#3daeff;border-color:rgba(0,0,0,0.12)" title="Sky Blue #3daeff" aria-label="Sky Blue #3daeff"></span><span class="swatch" style="background:#ea5ec1;border-color:rgba(0,0,0,0.12)" title="Brand Pink #ea5ec1" aria-label="Brand Pink #ea5ec1"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#222222;border-color:rgba(0,0,0,0.12)"></span>fg #222222</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#222222">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/minimax/preview-dark.html" style="background:#181e25;color:#f0f2f5">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#1456f0;border-color:rgba(255,255,255,0.15)" title="Brand Blue #1456f0" aria-label="Brand Blue #1456f0"></span><span class="swatch" style="background:#3daeff;border-color:rgba(255,255,255,0.15)" title="Sky Blue #3daeff" aria-label="Sky Blue #3daeff"></span><span class="swatch" style="background:#ea5ec1;border-color:rgba(255,255,255,0.15)" title="Brand Pink #ea5ec1" aria-label="Brand Pink #ea5ec1"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#181e25;border-color:rgba(255,255,255,0.15)"></span>bg #181e25</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f2f5;border-color:rgba(255,255,255,0.15)"></span>fg #f0f2f5</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f2f5">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Mintlify</h2>
+        <div class="card-slug">mintlify</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/mintlify/preview.html" style="background:#ffffff;color:#0d0d0d">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#0d0d0d;border-color:rgba(0,0,0,0.12)" title="Near Black #0d0d0d" aria-label="Near Black #0d0d0d"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#18e299;border-color:rgba(0,0,0,0.12)" title="Brand Green #18e299" aria-label="Brand Green #18e299"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0d0d0d;border-color:rgba(0,0,0,0.12)"></span>fg #0d0d0d</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#0d0d0d">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/mintlify/preview-dark.html" style="background:#0d0d0d;color:#ededed">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#0d0d0d;border-color:rgba(255,255,255,0.15)" title="Near Black #0d0d0d" aria-label="Near Black #0d0d0d"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#18e299;border-color:rgba(255,255,255,0.15)" title="Brand Green #18e299" aria-label="Brand Green #18e299"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0d0d0d;border-color:rgba(255,255,255,0.15)"></span>bg #0d0d0d</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ededed;border-color:rgba(255,255,255,0.15)"></span>fg #ededed</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ededed">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Miro</h2>
+        <div class="card-slug">miro</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/miro/preview.html" style="background:#fff;color:#1c1c1e">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#1c1c1e;border-color:rgba(0,0,0,0.12)" title="Near Black #1c1c1e" aria-label="Near Black #1c1c1e"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="White #ffffff" aria-label="White #ffffff"></span><span class="swatch" style="background:#5b76fe;border-color:rgba(0,0,0,0.12)" title="Blue 450 #5b76fe" aria-label="Blue 450 #5b76fe"></span><span class="swatch" style="background:#2a41b6;border-color:rgba(0,0,0,0.12)" title="Actionable Pressed #2a41b6" aria-label="Actionable Pressed #2a41b6"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fff;border-color:rgba(0,0,0,0.12)"></span>bg #fff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1c1c1e;border-color:rgba(0,0,0,0.12)"></span>fg #1c1c1e</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1c1c1e">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/miro/preview-dark.html" style="background:#1c1c1e;color:#f0f0f2">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#1c1c1e;border-color:rgba(255,255,255,0.15)" title="Near Black #1c1c1e" aria-label="Near Black #1c1c1e"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="White #ffffff" aria-label="White #ffffff"></span><span class="swatch" style="background:#5b76fe;border-color:rgba(255,255,255,0.15)" title="Blue 450 #5b76fe" aria-label="Blue 450 #5b76fe"></span><span class="swatch" style="background:#2a41b6;border-color:rgba(255,255,255,0.15)" title="Actionable Pressed #2a41b6" aria-label="Actionable Pressed #2a41b6"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1c1c1e;border-color:rgba(255,255,255,0.15)"></span>bg #1c1c1e</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f2;border-color:rgba(255,255,255,0.15)"></span>fg #f0f0f2</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f0f2">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Mistral Ai</h2>
+        <div class="card-slug">mistral.ai</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/mistral.ai/preview.html" style="background:#fffaeb;color:#1f1f1f">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#fa520f;border-color:rgba(0,0,0,0.12)" title="Mistral Orange #fa520f" aria-label="Mistral Orange #fa520f"></span><span class="swatch" style="background:#fb6424;border-color:rgba(0,0,0,0.12)" title="Mistral Flame #fb6424" aria-label="Mistral Flame #fb6424"></span><span class="swatch" style="background:#ff8105;border-color:rgba(0,0,0,0.12)" title="Block Orange #ff8105" aria-label="Block Orange #ff8105"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fffaeb;border-color:rgba(0,0,0,0.12)"></span>bg #fffaeb</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1f1f1f;border-color:rgba(0,0,0,0.12)"></span>fg #1f1f1f</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1f1f1f">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/mistral.ai/preview-dark.html" style="background:#1f1f1f;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#fa520f;border-color:rgba(255,255,255,0.15)" title="Mistral Orange #fa520f" aria-label="Mistral Orange #fa520f"></span><span class="swatch" style="background:#fb6424;border-color:rgba(255,255,255,0.15)" title="Mistral Flame #fb6424" aria-label="Mistral Flame #fb6424"></span><span class="swatch" style="background:#ff8105;border-color:rgba(255,255,255,0.15)" title="Block Orange #ff8105" aria-label="Block Orange #ff8105"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1f1f1f;border-color:rgba(255,255,255,0.15)"></span>bg #1f1f1f</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Mongodb</h2>
+        <div class="card-slug">mongodb</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/mongodb/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#001e2b;border-color:rgba(0,0,0,0.12)" title="Forest Black #001e2b" aria-label="Forest Black #001e2b"></span><span class="swatch" style="background:#00ed64;border-color:rgba(0,0,0,0.12)" title="MongoDB Green #00ed64" aria-label="MongoDB Green #00ed64"></span><span class="swatch" style="background:#00684a;border-color:rgba(0,0,0,0.12)" title="Dark Green #00684a" aria-label="Dark Green #00684a"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/mongodb/preview-dark.html" style="background:#001e2b;color:#e8edeb">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#001e2b;border-color:rgba(255,255,255,0.15)" title="Forest Black #001e2b" aria-label="Forest Black #001e2b"></span><span class="swatch" style="background:#00ed64;border-color:rgba(255,255,255,0.15)" title="MongoDB Green #00ed64" aria-label="MongoDB Green #00ed64"></span><span class="swatch" style="background:#00684a;border-color:rgba(255,255,255,0.15)" title="Dark Green #00684a" aria-label="Dark Green #00684a"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#001e2b;border-color:rgba(255,255,255,0.15)"></span>bg #001e2b</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8edeb;border-color:rgba(255,255,255,0.15)"></span>fg #e8edeb</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8edeb">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Notion</h2>
+        <div class="card-slug">notion</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/notion/preview.html" style="background:#ffffff;color:rgba(0,0,0,0.95)">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#0075de;border-color:rgba(0,0,0,0.12)" title="Notion Blue #0075de" aria-label="Notion Blue #0075de"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:rgba(0,0,0,0.95);border-color:rgba(0,0,0,0.12)"></span>fg rgba(0,0,0,0.95)</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:rgba(0,0,0,0.95)">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/notion/preview-dark.html" style="background:#191919;color:rgba(255,255,255,0.92)">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#0075de;border-color:rgba(255,255,255,0.15)" title="Notion Blue #0075de" aria-label="Notion Blue #0075de"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#191919;border-color:rgba(255,255,255,0.15)"></span>bg #191919</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:rgba(255,255,255,0.92);border-color:rgba(255,255,255,0.15)"></span>fg rgba(255,255,255,0.92)</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.92)">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Nvidia</h2>
+        <div class="card-slug">nvidia</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/nvidia/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#76b900;border-color:rgba(0,0,0,0.12)" title="NVIDIA Green #76b900" aria-label="NVIDIA Green #76b900"></span><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="True Black #000000" aria-label="True Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/nvidia/preview-dark.html" style="background:#0a0a0a;color:#e5e5e5">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#76b900;border-color:rgba(255,255,255,0.15)" title="NVIDIA Green #76b900" aria-label="NVIDIA Green #76b900"></span><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="True Black #000000" aria-label="True Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0a0a;border-color:rgba(255,255,255,0.15)"></span>bg #0a0a0a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e5e5e5;border-color:rgba(255,255,255,0.15)"></span>fg #e5e5e5</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e5e5e5">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Ollama</h2>
+        <div class="card-slug">ollama</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/ollama/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#262626;border-color:rgba(0,0,0,0.12)" title="Near Black #262626" aria-label="Near Black #262626"></span><span class="swatch" style="background:#090909;border-color:rgba(0,0,0,0.12)" title="Darkest Surface #090909" aria-label="Darkest Surface #090909"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/ollama/preview-dark.html" style="background:#090909;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#262626;border-color:rgba(255,255,255,0.15)" title="Near Black #262626" aria-label="Near Black #262626"></span><span class="swatch" style="background:#090909;border-color:rgba(255,255,255,0.15)" title="Darkest Surface #090909" aria-label="Darkest Surface #090909"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#090909;border-color:rgba(255,255,255,0.15)"></span>bg #090909</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Opencode Ai</h2>
+        <div class="card-slug">opencode.ai</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/opencode.ai/preview.html" style="background:#fdfcfc;color:#201d1d">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#201d1d;border-color:rgba(0,0,0,0.12)" title="OpenCode Dark #201d1d" aria-label="OpenCode Dark #201d1d"></span><span class="swatch" style="background:#fdfcfc;border-color:rgba(0,0,0,0.12)" title="OpenCode Light #fdfcfc" aria-label="OpenCode Light #fdfcfc"></span><span class="swatch" style="background:#9a9898;border-color:rgba(0,0,0,0.12)" title="Mid Gray #9a9898" aria-label="Mid Gray #9a9898"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fdfcfc;border-color:rgba(0,0,0,0.12)"></span>bg #fdfcfc</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#201d1d;border-color:rgba(0,0,0,0.12)"></span>fg #201d1d</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#201d1d">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/opencode.ai/preview-dark.html" style="background:#201d1d;color:#fdfcfc">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#201d1d;border-color:rgba(255,255,255,0.15)" title="OpenCode Dark #201d1d" aria-label="OpenCode Dark #201d1d"></span><span class="swatch" style="background:#fdfcfc;border-color:rgba(255,255,255,0.15)" title="OpenCode Light #fdfcfc" aria-label="OpenCode Light #fdfcfc"></span><span class="swatch" style="background:#9a9898;border-color:rgba(255,255,255,0.15)" title="Mid Gray #9a9898" aria-label="Mid Gray #9a9898"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#201d1d;border-color:rgba(255,255,255,0.15)"></span>bg #201d1d</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fdfcfc;border-color:rgba(255,255,255,0.15)"></span>fg #fdfcfc</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#fdfcfc">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Pinterest</h2>
+        <div class="card-slug">pinterest</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/pinterest/preview.html" style="background:#ffffff;color:#211922">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#e60023;border-color:rgba(0,0,0,0.12)" title="Pinterest Red #e60023" aria-label="Pinterest Red #e60023"></span><span class="swatch" style="background:#103c25;border-color:rgba(0,0,0,0.12)" title="Green 700 #103c25" aria-label="Green 700 #103c25"></span><span class="swatch" style="background:#0b2819;border-color:rgba(0,0,0,0.12)" title="Green 700 Hover #0b2819" aria-label="Green 700 Hover #0b2819"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#211922;border-color:rgba(0,0,0,0.12)"></span>fg #211922</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#211922">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/pinterest/preview-dark.html" style="background:#1a1916;color:#e8e5de">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#e60023;border-color:rgba(255,255,255,0.15)" title="Pinterest Red #e60023" aria-label="Pinterest Red #e60023"></span><span class="swatch" style="background:#103c25;border-color:rgba(255,255,255,0.15)" title="Green 700 #103c25" aria-label="Green 700 #103c25"></span><span class="swatch" style="background:#0b2819;border-color:rgba(255,255,255,0.15)" title="Green 700 Hover #0b2819" aria-label="Green 700 Hover #0b2819"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1916;border-color:rgba(255,255,255,0.15)"></span>bg #1a1916</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8e5de;border-color:rgba(255,255,255,0.15)"></span>fg #e8e5de</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8e5de">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Posthog</h2>
+        <div class="card-slug">posthog</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/posthog/preview.html" style="background:#fdfdf8;color:#4d4f46">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#4d4f46;border-color:rgba(0,0,0,0.12)" title="Olive Ink #4d4f46" aria-label="Olive Ink #4d4f46"></span><span class="swatch" style="background:#23251d;border-color:rgba(0,0,0,0.12)" title="Deep Olive #23251d" aria-label="Deep Olive #23251d"></span><span class="swatch" style="background:#f54e00;border-color:rgba(0,0,0,0.12)" title="PostHog Orange #f54e00" aria-label="PostHog Orange #f54e00"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fdfdf8;border-color:rgba(0,0,0,0.12)"></span>bg #fdfdf8</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#4d4f46;border-color:rgba(0,0,0,0.12)"></span>fg #4d4f46</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#4d4f46">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/posthog/preview-dark.html" style="background:#151614;color:#e5e7e0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#4d4f46;border-color:rgba(255,255,255,0.15)" title="Olive Ink #4d4f46" aria-label="Olive Ink #4d4f46"></span><span class="swatch" style="background:#23251d;border-color:rgba(255,255,255,0.15)" title="Deep Olive #23251d" aria-label="Deep Olive #23251d"></span><span class="swatch" style="background:#f54e00;border-color:rgba(255,255,255,0.15)" title="PostHog Orange #f54e00" aria-label="PostHog Orange #f54e00"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#151614;border-color:rgba(255,255,255,0.15)"></span>bg #151614</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e5e7e0;border-color:rgba(255,255,255,0.15)"></span>fg #e5e7e0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e5e7e0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Raycast</h2>
+        <div class="card-slug">raycast</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/raycast/preview.html" style="background:#07080a;color:#f9f9f9">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#07080a;border-color:rgba(0,0,0,0.12)" title="Near-Black Blue #07080a" aria-label="Near-Black Blue #07080a"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#ff6363;border-color:rgba(0,0,0,0.12)" title="Raycast Red #ff6363" aria-label="Raycast Red #ff6363"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#07080a;border-color:rgba(0,0,0,0.12)"></span>bg #07080a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f9f9f9;border-color:rgba(0,0,0,0.12)"></span>fg #f9f9f9</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#f9f9f9">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/raycast/preview-dark.html" style="background:#040506;color:#f4f4f6">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#07080a;border-color:rgba(255,255,255,0.15)" title="Near-Black Blue #07080a" aria-label="Near-Black Blue #07080a"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#ff6363;border-color:rgba(255,255,255,0.15)" title="Raycast Red #ff6363" aria-label="Raycast Red #ff6363"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#040506;border-color:rgba(255,255,255,0.15)"></span>bg #040506</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f4f4f6;border-color:rgba(255,255,255,0.15)"></span>fg #f4f4f6</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f4f4f6">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Replicate</h2>
+        <div class="card-slug">replicate</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/replicate/preview.html" style="background:#ffffff;color:#202020">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#202020;border-color:rgba(0,0,0,0.12)" title="Replicate Dark #202020" aria-label="Replicate Dark #202020"></span><span class="swatch" style="background:#ea2804;border-color:rgba(0,0,0,0.12)" title="Replicate Red #ea2804" aria-label="Replicate Red #ea2804"></span><span class="swatch" style="background:#dd4425;border-color:rgba(0,0,0,0.12)" title="Secondary Red #dd4425" aria-label="Secondary Red #dd4425"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#202020;border-color:rgba(0,0,0,0.12)"></span>fg #202020</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#202020">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/replicate/preview-dark.html" style="background:#202020;color:#fcfcfc">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#202020;border-color:rgba(255,255,255,0.15)" title="Replicate Dark #202020" aria-label="Replicate Dark #202020"></span><span class="swatch" style="background:#ea2804;border-color:rgba(255,255,255,0.15)" title="Replicate Red #ea2804" aria-label="Replicate Red #ea2804"></span><span class="swatch" style="background:#dd4425;border-color:rgba(255,255,255,0.15)" title="Secondary Red #dd4425" aria-label="Secondary Red #dd4425"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#202020;border-color:rgba(255,255,255,0.15)"></span>bg #202020</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fcfcfc;border-color:rgba(255,255,255,0.15)"></span>fg #fcfcfc</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#fcfcfc">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Resend</h2>
+        <div class="card-slug">resend</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/resend/preview.html" style="background:#000000;color:#f0f0f0">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Void Black #000000" aria-label="Void Black #000000"></span><span class="swatch" style="background:#f0f0f0;border-color:rgba(0,0,0,0.12)" title="Near White #f0f0f0" aria-label="Near White #f0f0f0"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f0;border-color:rgba(0,0,0,0.12)"></span>fg #f0f0f0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#f0f0f0">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/resend/preview-dark.html" style="background:#050505;color:#f0f0f0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Void Black #000000" aria-label="Void Black #000000"></span><span class="swatch" style="background:#f0f0f0;border-color:rgba(255,255,255,0.15)" title="Near White #f0f0f0" aria-label="Near White #f0f0f0"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#050505;border-color:rgba(255,255,255,0.15)"></span>bg #050505</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f0;border-color:rgba(255,255,255,0.15)"></span>fg #f0f0f0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f0f0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Revolut</h2>
+        <div class="card-slug">revolut</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/revolut/preview.html" style="background:#ffffff;color:#191c1f">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#191c1f;border-color:rgba(0,0,0,0.12)" title="Revolut Dark #191c1f" aria-label="Revolut Dark #191c1f"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#f4f4f4;border-color:rgba(0,0,0,0.12)" title="Light Surface #f4f4f4" aria-label="Light Surface #f4f4f4"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#191c1f;border-color:rgba(0,0,0,0.12)"></span>fg #191c1f</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#191c1f">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/revolut/preview-dark.html" style="background:#0d0e10;color:#f4f4f4">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#191c1f;border-color:rgba(255,255,255,0.15)" title="Revolut Dark #191c1f" aria-label="Revolut Dark #191c1f"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#f4f4f4;border-color:rgba(255,255,255,0.15)" title="Light Surface #f4f4f4" aria-label="Light Surface #f4f4f4"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0d0e10;border-color:rgba(255,255,255,0.15)"></span>bg #0d0e10</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f4f4f4;border-color:rgba(255,255,255,0.15)"></span>fg #f4f4f4</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f4f4f4">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Runwayml</h2>
+        <div class="card-slug">runwayml</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/runwayml/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Runway Black #000000" aria-label="Runway Black #000000"></span><span class="swatch" style="background:#030303;border-color:rgba(0,0,0,0.12)" title="Deep Black #030303" aria-label="Deep Black #030303"></span><span class="swatch" style="background:#1a1a1a;border-color:rgba(0,0,0,0.12)" title="Dark Surface #1a1a1a" aria-label="Dark Surface #1a1a1a"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/runwayml/preview-dark.html" style="background:#000000;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Runway Black #000000" aria-label="Runway Black #000000"></span><span class="swatch" style="background:#030303;border-color:rgba(255,255,255,0.15)" title="Deep Black #030303" aria-label="Deep Black #030303"></span><span class="swatch" style="background:#1a1a1a;border-color:rgba(255,255,255,0.15)" title="Dark Surface #1a1a1a" aria-label="Dark Surface #1a1a1a"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Sanity</h2>
+        <div class="card-slug">sanity</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/sanity/preview.html" style="background:#f7f7f7;color:#0b0b0b">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#0b0b0b;border-color:rgba(0,0,0,0.12)" title="Sanity Black #0b0b0b" aria-label="Sanity Black #0b0b0b"></span><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#f36458;border-color:rgba(0,0,0,0.12)" title="Sanity Red #f36458" aria-label="Sanity Red #f36458"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f7f7f7;border-color:rgba(0,0,0,0.12)"></span>bg #f7f7f7</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0b0b0b;border-color:rgba(0,0,0,0.12)"></span>fg #0b0b0b</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#0b0b0b">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/sanity/preview-dark.html" style="background:#0b0b0b;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#0b0b0b;border-color:rgba(255,255,255,0.15)" title="Sanity Black #0b0b0b" aria-label="Sanity Black #0b0b0b"></span><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Pure Black #000000" aria-label="Pure Black #000000"></span><span class="swatch" style="background:#f36458;border-color:rgba(255,255,255,0.15)" title="Sanity Red #f36458" aria-label="Sanity Red #f36458"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0b0b0b;border-color:rgba(255,255,255,0.15)"></span>bg #0b0b0b</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Sentry</h2>
+        <div class="card-slug">sentry</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/sentry/preview.html" style="background:#1f1633;color:#ffffff">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#1f1633;border-color:rgba(0,0,0,0.12)" title="Deep Purple #1f1633" aria-label="Deep Purple #1f1633"></span><span class="swatch" style="background:#150f23;border-color:rgba(0,0,0,0.12)" title="Darker Purple #150f23" aria-label="Darker Purple #150f23"></span><span class="swatch" style="background:#362d59;border-color:rgba(0,0,0,0.12)" title="Border Purple #362d59" aria-label="Border Purple #362d59"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1f1633;border-color:rgba(0,0,0,0.12)"></span>bg #1f1633</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#ffffff">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/sentry/preview-dark.html" style="background:#150f23;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#1f1633;border-color:rgba(255,255,255,0.15)" title="Deep Purple #1f1633" aria-label="Deep Purple #1f1633"></span><span class="swatch" style="background:#150f23;border-color:rgba(255,255,255,0.15)" title="Darker Purple #150f23" aria-label="Darker Purple #150f23"></span><span class="swatch" style="background:#362d59;border-color:rgba(255,255,255,0.15)" title="Border Purple #362d59" aria-label="Border Purple #362d59"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#150f23;border-color:rgba(255,255,255,0.15)"></span>bg #150f23</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Spacex</h2>
+        <div class="card-slug">spacex</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/spacex/preview.html" style="background:#000000;color:#f0f0fa">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Space Black #000000" aria-label="Space Black #000000"></span><span class="swatch" style="background:#f0f0fa;border-color:rgba(0,0,0,0.12)" title="Spectral White #f0f0fa" aria-label="Spectral White #f0f0fa"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0fa;border-color:rgba(0,0,0,0.12)"></span>fg #f0f0fa</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#f0f0fa">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/spacex/preview-dark.html" style="background:#000000;color:#f0f0fa">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Space Black #000000" aria-label="Space Black #000000"></span><span class="swatch" style="background:#f0f0fa;border-color:rgba(255,255,255,0.15)" title="Spectral White #f0f0fa" aria-label="Spectral White #f0f0fa"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0fa;border-color:rgba(255,255,255,0.15)"></span>fg #f0f0fa</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f0fa">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Spotify</h2>
+        <div class="card-slug">spotify</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/spotify/preview.html" style="background:#121212;color:#ffffff">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#1ed760;border-color:rgba(0,0,0,0.12)" title="Spotify Green #1ed760" aria-label="Spotify Green #1ed760"></span><span class="swatch" style="background:#121212;border-color:rgba(0,0,0,0.12)" title="Near Black #121212" aria-label="Near Black #121212"></span><span class="swatch" style="background:#181818;border-color:rgba(0,0,0,0.12)" title="Dark Surface #181818" aria-label="Dark Surface #181818"></span><span class="swatch" style="background:#1f1f1f;border-color:rgba(0,0,0,0.12)" title="Mid Dark #1f1f1f" aria-label="Mid Dark #1f1f1f"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#121212;border-color:rgba(0,0,0,0.12)"></span>bg #121212</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#ffffff">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/spotify/preview-dark.html" style="background:#0a0a0a;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#1ed760;border-color:rgba(255,255,255,0.15)" title="Spotify Green #1ed760" aria-label="Spotify Green #1ed760"></span><span class="swatch" style="background:#121212;border-color:rgba(255,255,255,0.15)" title="Near Black #121212" aria-label="Near Black #121212"></span><span class="swatch" style="background:#181818;border-color:rgba(255,255,255,0.15)" title="Dark Surface #181818" aria-label="Dark Surface #181818"></span><span class="swatch" style="background:#1f1f1f;border-color:rgba(255,255,255,0.15)" title="Mid Dark #1f1f1f" aria-label="Mid Dark #1f1f1f"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0a0a;border-color:rgba(255,255,255,0.15)"></span>bg #0a0a0a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Stripe</h2>
+        <div class="card-slug">stripe</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/stripe/preview.html" style="background:#ffffff;color:#061b31">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#533afd;border-color:rgba(0,0,0,0.12)" title="Stripe Purple #533afd" aria-label="Stripe Purple #533afd"></span><span class="swatch" style="background:#061b31;border-color:rgba(0,0,0,0.12)" title="Deep Navy #061b31" aria-label="Deep Navy #061b31"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#061b31;border-color:rgba(0,0,0,0.12)"></span>fg #061b31</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#061b31">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/stripe/preview-dark.html" style="background:#0e0f2e;color:#e8ecf0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#533afd;border-color:rgba(255,255,255,0.15)" title="Stripe Purple #533afd" aria-label="Stripe Purple #533afd"></span><span class="swatch" style="background:#061b31;border-color:rgba(255,255,255,0.15)" title="Deep Navy #061b31" aria-label="Deep Navy #061b31"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0e0f2e;border-color:rgba(255,255,255,0.15)"></span>bg #0e0f2e</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8ecf0;border-color:rgba(255,255,255,0.15)"></span>fg #e8ecf0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8ecf0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Supabase</h2>
+        <div class="card-slug">supabase</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/supabase/preview.html" style="background:#171717;color:#fafafa">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#3ecf8e;border-color:rgba(0,0,0,0.12)" title="Supabase Green #3ecf8e" aria-label="Supabase Green #3ecf8e"></span><span class="swatch" style="background:#00c573;border-color:rgba(0,0,0,0.12)" title="Green Link #00c573" aria-label="Green Link #00c573"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#171717;border-color:rgba(0,0,0,0.12)"></span>bg #171717</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fafafa;border-color:rgba(0,0,0,0.12)"></span>fg #fafafa</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#fafafa">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/supabase/preview-dark.html" style="background:#0f0f0f;color:#fafafa">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#3ecf8e;border-color:rgba(255,255,255,0.15)" title="Supabase Green #3ecf8e" aria-label="Supabase Green #3ecf8e"></span><span class="swatch" style="background:#00c573;border-color:rgba(255,255,255,0.15)" title="Green Link #00c573" aria-label="Green Link #00c573"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0f0f0f;border-color:rgba(255,255,255,0.15)"></span>bg #0f0f0f</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fafafa;border-color:rgba(255,255,255,0.15)"></span>fg #fafafa</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#fafafa">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Superhuman</h2>
+        <div class="card-slug">superhuman</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/superhuman/preview.html" style="background:#ffffff;color:#292827">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#1b1938;border-color:rgba(0,0,0,0.12)" title="Mysteria Purple #1b1938" aria-label="Mysteria Purple #1b1938"></span><span class="swatch" style="background:#cbb7fb;border-color:rgba(0,0,0,0.12)" title="Lavender Glow #cbb7fb" aria-label="Lavender Glow #cbb7fb"></span><span class="swatch" style="background:#292827;border-color:rgba(0,0,0,0.12)" title="Charcoal Ink #292827" aria-label="Charcoal Ink #292827"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#292827;border-color:rgba(0,0,0,0.12)"></span>fg #292827</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#292827">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/superhuman/preview-dark.html" style="background:#121111;color:rgba(255,255,255,0.92)">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#1b1938;border-color:rgba(255,255,255,0.15)" title="Mysteria Purple #1b1938" aria-label="Mysteria Purple #1b1938"></span><span class="swatch" style="background:#cbb7fb;border-color:rgba(255,255,255,0.15)" title="Lavender Glow #cbb7fb" aria-label="Lavender Glow #cbb7fb"></span><span class="swatch" style="background:#292827;border-color:rgba(255,255,255,0.15)" title="Charcoal Ink #292827" aria-label="Charcoal Ink #292827"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#121111;border-color:rgba(255,255,255,0.15)"></span>bg #121111</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:rgba(255,255,255,0.92);border-color:rgba(255,255,255,0.15)"></span>fg rgba(255,255,255,0.92)</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.92)">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Together Ai</h2>
+        <div class="card-slug">together.ai</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/together.ai/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#ef2cc1;border-color:rgba(0,0,0,0.12)" title="Brand Magenta #ef2cc1" aria-label="Brand Magenta #ef2cc1"></span><span class="swatch" style="background:#fc4c02;border-color:rgba(0,0,0,0.12)" title="Brand Orange #fc4c02" aria-label="Brand Orange #fc4c02"></span><span class="swatch" style="background:#010120;border-color:rgba(0,0,0,0.12)" title="Dark Blue #010120" aria-label="Dark Blue #010120"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/together.ai/preview-dark.html" style="background:#010120;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#ef2cc1;border-color:rgba(255,255,255,0.15)" title="Brand Magenta #ef2cc1" aria-label="Brand Magenta #ef2cc1"></span><span class="swatch" style="background:#fc4c02;border-color:rgba(255,255,255,0.15)" title="Brand Orange #fc4c02" aria-label="Brand Orange #fc4c02"></span><span class="swatch" style="background:#010120;border-color:rgba(255,255,255,0.15)" title="Dark Blue #010120" aria-label="Dark Blue #010120"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#010120;border-color:rgba(255,255,255,0.15)"></span>bg #010120</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Uber</h2>
+        <div class="card-slug">uber</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/uber/preview.html" style="background:#ffffff;color:#000000">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="Uber Black #000000" aria-label="Uber Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(0,0,0,0.12)"></span>fg #000000</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#000000">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/uber/preview-dark.html" style="background:#000000;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="Uber Black #000000" aria-label="Uber Black #000000"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#000000;border-color:rgba(255,255,255,0.15)"></span>bg #000000</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Vercel</h2>
+        <div class="card-slug">vercel</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/vercel/preview.html" style="background:#ffffff;color:#171717">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#171717;border-color:rgba(0,0,0,0.12)" title="Vercel Black #171717" aria-label="Vercel Black #171717"></span><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#000000;border-color:rgba(0,0,0,0.12)" title="True Black #000000" aria-label="True Black #000000"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#171717;border-color:rgba(0,0,0,0.12)"></span>fg #171717</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#171717">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/vercel/preview-dark.html" style="background:#0a0a0a;color:#ededed">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#171717;border-color:rgba(255,255,255,0.15)" title="Vercel Black #171717" aria-label="Vercel Black #171717"></span><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#000000;border-color:rgba(255,255,255,0.15)" title="True Black #000000" aria-label="True Black #000000"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0a0a0a;border-color:rgba(255,255,255,0.15)"></span>bg #0a0a0a</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ededed;border-color:rgba(255,255,255,0.15)"></span>fg #ededed</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ededed">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Voltagent</h2>
+        <div class="card-slug">voltagent</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/voltagent/preview.html" style="background:#ffffff;color:#101010">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#00d992;border-color:rgba(0,0,0,0.12)" title="Emerald Signal Green #00d992" aria-label="Emerald Signal Green #00d992"></span><span class="swatch" style="background:#2fd6a1;border-color:rgba(0,0,0,0.12)" title="VoltAgent Mint #2fd6a1" aria-label="VoltAgent Mint #2fd6a1"></span><span class="swatch" style="background:#10b981;border-color:rgba(0,0,0,0.12)" title="Tailwind Emerald #10b981" aria-label="Tailwind Emerald #10b981"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#101010;border-color:rgba(0,0,0,0.12)"></span>fg #101010</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#101010">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/voltagent/preview-dark.html" style="background:#050507;color:#f2f2f2">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#00d992;border-color:rgba(255,255,255,0.15)" title="Emerald Signal Green #00d992" aria-label="Emerald Signal Green #00d992"></span><span class="swatch" style="background:#2fd6a1;border-color:rgba(255,255,255,0.15)" title="VoltAgent Mint #2fd6a1" aria-label="VoltAgent Mint #2fd6a1"></span><span class="swatch" style="background:#10b981;border-color:rgba(255,255,255,0.15)" title="Tailwind Emerald #10b981" aria-label="Tailwind Emerald #10b981"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#050507;border-color:rgba(255,255,255,0.15)"></span>bg #050507</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f2f2f2;border-color:rgba(255,255,255,0.15)"></span>fg #f2f2f2</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f2f2f2">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Warp</h2>
+        <div class="card-slug">warp</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/warp/preview.html" style="background:#0e0e0d;color:#faf9f6">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#faf9f6;border-color:rgba(0,0,0,0.12)" title="Warm Parchment #faf9f6" aria-label="Warm Parchment #faf9f6"></span><span class="swatch" style="background:#353534;border-color:rgba(0,0,0,0.12)" title="Earth Gray #353534" aria-label="Earth Gray #353534"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0e0e0d;border-color:rgba(0,0,0,0.12)"></span>bg #0e0e0d</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#faf9f6;border-color:rgba(0,0,0,0.12)"></span>fg #faf9f6</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#faf9f6">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/warp/preview-dark.html" style="background:#080807;color:#f5f4f1">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#faf9f6;border-color:rgba(255,255,255,0.15)" title="Warm Parchment #faf9f6" aria-label="Warm Parchment #faf9f6"></span><span class="swatch" style="background:#353534;border-color:rgba(255,255,255,0.15)" title="Earth Gray #353534" aria-label="Earth Gray #353534"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#080807;border-color:rgba(255,255,255,0.15)"></span>bg #080807</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f5f4f1;border-color:rgba(255,255,255,0.15)"></span>fg #f5f4f1</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f5f4f1">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Webflow</h2>
+        <div class="card-slug">webflow</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/webflow/preview.html" style="background:#fff;color:#080808">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#080808;border-color:rgba(0,0,0,0.12)" title="Near Black #080808" aria-label="Near Black #080808"></span><span class="swatch" style="background:#146ef5;border-color:rgba(0,0,0,0.12)" title="Webflow Blue #146ef5" aria-label="Webflow Blue #146ef5"></span><span class="swatch" style="background:#3b89ff;border-color:rgba(0,0,0,0.12)" title="Blue 400 #3b89ff" aria-label="Blue 400 #3b89ff"></span><span class="swatch" style="background:#006acc;border-color:rgba(0,0,0,0.12)" title="Blue 300 #006acc" aria-label="Blue 300 #006acc"></span><span class="swatch" style="background:#0055d4;border-color:rgba(0,0,0,0.12)" title="Button Hover Blue #0055d4" aria-label="Button Hover Blue #0055d4"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fff;border-color:rgba(0,0,0,0.12)"></span>bg #fff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#080808;border-color:rgba(0,0,0,0.12)"></span>fg #080808</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#080808">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/webflow/preview-dark.html" style="background:#080808;color:#f0f0f0">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#080808;border-color:rgba(255,255,255,0.15)" title="Near Black #080808" aria-label="Near Black #080808"></span><span class="swatch" style="background:#146ef5;border-color:rgba(255,255,255,0.15)" title="Webflow Blue #146ef5" aria-label="Webflow Blue #146ef5"></span><span class="swatch" style="background:#3b89ff;border-color:rgba(255,255,255,0.15)" title="Blue 400 #3b89ff" aria-label="Blue 400 #3b89ff"></span><span class="swatch" style="background:#006acc;border-color:rgba(255,255,255,0.15)" title="Blue 300 #006acc" aria-label="Blue 300 #006acc"></span><span class="swatch" style="background:#0055d4;border-color:rgba(255,255,255,0.15)" title="Button Hover Blue #0055d4" aria-label="Button Hover Blue #0055d4"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#080808;border-color:rgba(255,255,255,0.15)"></span>bg #080808</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0f0f0;border-color:rgba(255,255,255,0.15)"></span>fg #f0f0f0</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0f0f0">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Wise</h2>
+        <div class="card-slug">wise</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/wise/preview.html" style="background:#ffffff;color:#0e0f0c">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#0e0f0c;border-color:rgba(0,0,0,0.12)" title="Near Black #0e0f0c" aria-label="Near Black #0e0f0c"></span><span class="swatch" style="background:#9fe870;border-color:rgba(0,0,0,0.12)" title="Wise Green #9fe870" aria-label="Wise Green #9fe870"></span><span class="swatch" style="background:#163300;border-color:rgba(0,0,0,0.12)" title="Dark Green #163300" aria-label="Dark Green #163300"></span><span class="swatch" style="background:#e2f6d5;border-color:rgba(0,0,0,0.12)" title="Light Mint #e2f6d5" aria-label="Light Mint #e2f6d5"></span><span class="swatch" style="background:#cdffad;border-color:rgba(0,0,0,0.12)" title="Pastel Green #cdffad" aria-label="Pastel Green #cdffad"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0e0f0c;border-color:rgba(0,0,0,0.12)"></span>fg #0e0f0c</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#0e0f0c">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/wise/preview-dark.html" style="background:#0e0f0c;color:#e8ebe6">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#0e0f0c;border-color:rgba(255,255,255,0.15)" title="Near Black #0e0f0c" aria-label="Near Black #0e0f0c"></span><span class="swatch" style="background:#9fe870;border-color:rgba(255,255,255,0.15)" title="Wise Green #9fe870" aria-label="Wise Green #9fe870"></span><span class="swatch" style="background:#163300;border-color:rgba(255,255,255,0.15)" title="Dark Green #163300" aria-label="Dark Green #163300"></span><span class="swatch" style="background:#e2f6d5;border-color:rgba(255,255,255,0.15)" title="Light Mint #e2f6d5" aria-label="Light Mint #e2f6d5"></span><span class="swatch" style="background:#cdffad;border-color:rgba(255,255,255,0.15)" title="Pastel Green #cdffad" aria-label="Pastel Green #cdffad"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#0e0f0c;border-color:rgba(255,255,255,0.15)"></span>bg #0e0f0c</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#e8ebe6;border-color:rgba(255,255,255,0.15)"></span>fg #e8ebe6</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#e8ebe6">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">X Ai</h2>
+        <div class="card-slug">x.ai</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/x.ai/preview.html" style="background:#ffffff;color:#1f2228">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(0,0,0,0.12)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#1f2228;border-color:rgba(0,0,0,0.12)" title="Dark Background #1f2228" aria-label="Dark Background #1f2228"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(0,0,0,0.12)"></span>bg #ffffff</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1f2228;border-color:rgba(0,0,0,0.12)"></span>fg #1f2228</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#1f2228">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/x.ai/preview-dark.html" style="background:#1f2228;color:#ffffff">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#ffffff;border-color:rgba(255,255,255,0.15)" title="Pure White #ffffff" aria-label="Pure White #ffffff"></span><span class="swatch" style="background:#1f2228;border-color:rgba(255,255,255,0.15)" title="Dark Background #1f2228" aria-label="Dark Background #1f2228"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1f2228;border-color:rgba(255,255,255,0.15)"></span>bg #1f2228</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#ffffff;border-color:rgba(255,255,255,0.15)"></span>fg #ffffff</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#ffffff">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2 class="card-title">Zapier</h2>
+        <div class="card-slug">zapier</div>
+      </header>
+      <div class="split">
+        <a class="half" href="design-md/zapier/preview.html" style="background:#fffefb;color:#201515">
+      <div class="half-label" style="color:rgba(0,0,0,0.55)">Light</div>
+      <div class="swatches"><span class="swatch" style="background:#201515;border-color:rgba(0,0,0,0.12)" title="Zapier Black #201515" aria-label="Zapier Black #201515"></span><span class="swatch" style="background:#fffefb;border-color:rgba(0,0,0,0.12)" title="Cream White #fffefb" aria-label="Cream White #fffefb"></span><span class="swatch" style="background:#fffdf9;border-color:rgba(0,0,0,0.12)" title="Off-White #fffdf9" aria-label="Off-White #fffdf9"></span></div>
+      <div class="theme-meta" style="color:rgba(0,0,0,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#fffefb;border-color:rgba(0,0,0,0.12)"></span>bg #fffefb</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#201515;border-color:rgba(0,0,0,0.12)"></span>fg #201515</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(0,0,0,0.12);color:#201515">Open Light →</div>
+    </a>
+        <a class="half" href="design-md/zapier/preview-dark.html" style="background:#1a1412;color:#f0ece6">
+      <div class="half-label" style="color:rgba(255,255,255,0.55)">Dark</div>
+      <div class="swatches"><span class="swatch" style="background:#201515;border-color:rgba(255,255,255,0.15)" title="Zapier Black #201515" aria-label="Zapier Black #201515"></span><span class="swatch" style="background:#fffefb;border-color:rgba(255,255,255,0.15)" title="Cream White #fffefb" aria-label="Cream White #fffefb"></span><span class="swatch" style="background:#fffdf9;border-color:rgba(255,255,255,0.15)" title="Off-White #fffdf9" aria-label="Off-White #fffdf9"></span></div>
+      <div class="theme-meta" style="color:rgba(255,255,255,0.55)">
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#1a1412;border-color:rgba(255,255,255,0.15)"></span>bg #1a1412</span>
+        <span class="theme-chip"><span class="theme-chip-dot" style="background:#f0ece6;border-color:rgba(255,255,255,0.15)"></span>fg #f0ece6</span>
+      </div>
+      <div class="half-cta" style="border-color:rgba(255,255,255,0.15);color:#f0ece6">Open Dark →</div>
+    </a>
+      </div>
+    </article>
+    </main>
+    <footer>
+      Built with <code>scripts/build-index.js</code> · <a href="https://github.com/scottcate/awesome-design-md">source</a>
+    </footer>
+  </div>
+</body>
+</html>

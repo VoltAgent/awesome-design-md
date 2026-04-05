@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(grep -l \"Primary Brand\" /Users/scottcate/code/awesome-design-md/design-md/*/DESIGN.md)"
+    ]
+  }
+}
