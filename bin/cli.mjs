@@ -3,6 +3,8 @@
 import { readdir, readFile, copyFile, access } from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { exec } from "node:child_process";
+import { platform } from "node:os";
 import searchPrompt from "@inquirer/search";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -96,10 +98,36 @@ async function main() {
   const srcDesign = join(designsDir, selected, "DESIGN.md");
   const destDesign = join(cwd, "DESIGN.md");
 
+  // Preview in browser
+  const { default: confirm } = await import("@inquirer/confirm");
+  const wantPreview = await confirm({
+    message: "Open preview in browser before copying?",
+    default: true,
+  });
+
+  if (wantPreview) {
+    const { default: selectPrompt } = await import("@inquirer/select");
+    const theme = await selectPrompt({
+      message: "Which theme?",
+      choices: [
+        { name: "Light", value: "preview.html" },
+        { name: "Dark", value: "preview-dark.html" },
+      ],
+    });
+    const previewPath = join(designsDir, selected, theme);
+    const openCmd =
+      platform() === "darwin"
+        ? "open"
+        : platform() === "win32"
+          ? "start"
+          : "xdg-open";
+    exec(`${openCmd} "${previewPath}"`);
+    console.log(`\n  Opened ${LABELS[selected] || selected} preview in browser.`);
+  }
+
   // Check if DESIGN.md already exists
   try {
     await access(destDesign);
-    const { default: confirm } = await import("@inquirer/confirm");
     const overwrite = await confirm({
       message: "DESIGN.md already exists. Overwrite?",
       default: false,
