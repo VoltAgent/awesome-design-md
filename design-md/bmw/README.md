@@ -10,7 +10,7 @@
 | `preview.html` | Interactive design token catalog (light) |
 | `preview-dark.html` | Interactive design token catalog (dark) |
 
-Use [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/bmw/DESIGN.md) to use as a reference for AI agents (Claude, Cursor, Stitch) to generate UI that looks like the Bmw design language.
+Use [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/bmw/DESIGN.md) to use as a reference for AI agents (Claude, Cursor, Stitch) to generate UI that looks like the BMW design language.
 
 ## Preview
 
