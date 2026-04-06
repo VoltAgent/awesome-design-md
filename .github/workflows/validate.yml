@@ -1,0 +1,22 @@
+name: Validate Collection
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Collection Integrity Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Make validate script executable
+        run: chmod +x scripts/validate.sh
+
+      - name: Run validation
+        run: ./scripts/validate.sh
