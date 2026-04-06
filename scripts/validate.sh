@@ -21,19 +21,19 @@ fi
 
 # ── 2. Entry completeness ─────────────────────────────────────────────────────
 echo "Checking entry completeness..."
-while IFS= read -r -d '' dir; do
+while IFS= read -r dir; do
   site=$(basename "$dir")
-  for required in DESIGN.md preview.html preview-dark.html; do
+  for required in DESIGN.md README.md preview.html preview-dark.html; do
     if [[ ! -f "$dir/$required" ]]; then
       red "  MISSING: design-md/$site/$required"
       ((errors++)) || true
     fi
   done
-done < <(find "$DESIGN_DIR" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
+done < <(find "$DESIGN_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
 
 # ── 3. DESIGN.md schema — all 9 sections present ──────────────────────────────
 echo "Checking DESIGN.md section schema..."
-while IFS= read -r -d '' file; do
+while IFS= read -r file; do
   site=$(basename "$(dirname "$file")")
   for i in $(seq 1 9); do
     if ! grep -q "^## $i\." "$file" 2>/dev/null; then
@@ -41,12 +41,13 @@ while IFS= read -r -d '' file; do
       ((errors++)) || true
     fi
   done
-done < <(find "$DESIGN_DIR" -name "DESIGN.md" -print0 | sort -z)
+done < <(find "$DESIGN_DIR" -name "DESIGN.md" | sort)
 
 # ── 4. README badge count vs actual entry count ───────────────────────────────
 echo "Checking README badge count..."
 actual_count=$(find "$DESIGN_DIR" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
-badge_count=$(grep -oP 'DESIGN\.md%20count-\K[0-9]+' "$README" || echo "0")
+badge_count=$(sed -n 's/.*DESIGN\.md%20count-\([0-9][0-9]*\).*/\1/p' "$README" | head -n 1)
+badge_count=${badge_count:-0}
 
 if [[ "$badge_count" != "$actual_count" ]]; then
   red "  MISMATCH: README badge shows $badge_count but $actual_count directories exist"
@@ -57,18 +58,18 @@ fi
 
 # ── 5. README collection index vs directories ─────────────────────────────────
 echo "Checking README index sync..."
-while IFS= read -r -d '' dir; do
+while IFS= read -r dir; do
   site=$(basename "$dir")
-  if ! grep -q "design-md/$site/" "$README"; then
+  if ! grep -Fq "design-md/$site/" "$README"; then
     yellow "  WARNING: design-md/$site/ not listed in README"
     ((warnings++)) || true
   fi
-done < <(find "$DESIGN_DIR" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
+done < <(find "$DESIGN_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
 
 # ── 6. Preview HTML structure ─────────────────────────────────────────────────
 echo "Checking preview HTML structure..."
 for html_file in preview.html preview-dark.html; do
-  while IFS= read -r -d '' file; do
+  while IFS= read -r file; do
     site=$(basename "$(dirname "$file")")
     if ! grep -qi "<!DOCTYPE" "$file"; then
       yellow "  WARNING: missing DOCTYPE in design-md/$site/$html_file"
@@ -82,7 +83,7 @@ for html_file in preview.html preview-dark.html; do
       yellow "  WARNING: missing viewport in design-md/$site/$html_file"
       ((warnings++)) || true
     fi
-  done < <(find "$DESIGN_DIR" -name "$html_file" -print0 | sort -z)
+  done < <(find "$DESIGN_DIR" -name "$html_file" | sort)
 done
 
 # ── Summary ───────────────────────────────────────────────────────────────────
