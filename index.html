@@ -326,10 +326,6 @@
       return { owner, repo, base: `https://api.github.com/repos/${owner}/${repo}` };
     }
 
-    function getRepoPath(...segments) {
-      return normalizeRepoPath([state.baseDir || '', ...segments].filter(Boolean).join('/'));
-    }
-
     async function detectDesignRoot() {
       const rootContents = await fetchJson(`${REPO.base}/contents`);
       const designMdDir = rootContents.find(item => item.type === 'dir' && item.name.toLowerCase() === 'design-md');
