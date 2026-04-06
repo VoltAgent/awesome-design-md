@@ -28,6 +28,7 @@
 Copy a DESIGN.md into your project, tell your AI agent "build me a page that looks like this" and get pixel-perfect UI that actually matches.
 
 
+- [guardian-agent-prompts](https://github.com/milkomida77/guardian-agent-prompts) - 49 production-tested AGENT.md system prompts for Claude Code multi-agent orchestration. Each agent uses identity blocks, evidence-based quality gates, anti-duplication via task registry, and 30-minute heartbeat monitoring.
 ## What is DESIGN.md?
 
 [DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a new concept introduced by Google Stitch. A plain-text design system document that AI agents read to generate consistent UI.
