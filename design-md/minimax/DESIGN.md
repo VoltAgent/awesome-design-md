@@ -1,4 +1,4 @@
-# Design System: MiniMax
+# Design System Inspiration of MiniMax
 
 ## 1. Visual Theme & Atmosphere
 

@@ -1,4 +1,4 @@
-# Design System: Notion
+# Design System Inspiration of Notion
 
 ## 1. Visual Theme & Atmosphere
 

@@ -1,4 +1,4 @@
-# Design System: Sanity
+# Design System Inspiration of Sanity
 
 ## 1. Visual Theme & Atmosphere
 

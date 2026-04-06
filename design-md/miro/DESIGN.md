@@ -1,4 +1,4 @@
-# Design System: Miro
+# Design System Inspiration of Miro
 
 ## 1. Visual Theme & Atmosphere
 

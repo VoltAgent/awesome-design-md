@@ -1,4 +1,4 @@
-# Design System: Vercel
+# Design System Inspiration of Vercel
 
 ## 1. Visual Theme & Atmosphere
 

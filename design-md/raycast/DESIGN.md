@@ -1,4 +1,4 @@
-# Design System: Raycast
+# Design System Inspiration of Raycast
 
 ## 1. Visual Theme & Atmosphere
 

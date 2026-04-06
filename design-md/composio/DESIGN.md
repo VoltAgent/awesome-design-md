@@ -1,4 +1,4 @@
-# Design System: Composio
+# Design System Inspiration of Composio
 
 ## 1. Visual Theme & Atmosphere
 

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Inspired by Renault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --renault-yellow: #EFDF00;
+    --soft-yellow: #F8EB4C;
+    --renault-blue: #1883FD;
+    --absolute-black: #000000;
+    --pure-white: #FFFFFF;
+    --charcoal: #222222;
+    --pale-silver: #F2F2F2;
+    --warm-gray: #D9D9D6;
+    --border-gray: #D1D1D1;
+    --success-green: #8DC572;
+    --error-rose: #BE6464;
+    --warning-amber: #F0AD4E;
+    --info-blue: #337AB7;
+    --font-main: 'Nunito Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-main);
+    background: var(--pure-white);
+    color: var(--absolute-black);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.40;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: var(--pure-white);
+    min-height: 56px;
+    border-bottom: 1px solid var(--pale-silver);
+  }
+  .nav-brand {
+    font-family: var(--font-main);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--absolute-black);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-main);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--absolute-black);
+    text-decoration: none;
+    padding: 8px 14px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--renault-blue); }
+  .nav-cta {
+    background: var(--absolute-black);
+    color: var(--pure-white) !important;
+    padding: 10px 15px;
+    border-radius: 0;
+    font-family: var(--font-main);
+    font-size: 14.4px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    border: 1px solid var(--absolute-black);
+    cursor: pointer;
+  }
+  .nav-cta:hover { background: var(--charcoal); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px 80px;
+    background: linear-gradient(135deg, #8B1A6E 0%, #5B2D8E 25%, #2E4A9E 50%, #1A7A8E 75%, #1A9E7A 100%);
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 140%;
+    background: radial-gradient(ellipse, rgba(239,223,0,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: var(--font-main);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: normal;
+    color: var(--pure-white);
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+  }
+  .hero .subtitle {
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 40px;
+    line-height: 1.40;
+    position: relative;
+    max-width: 600px;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    position: relative;
+  }
+  .btn-super-primary {
+    background: var(--renault-yellow);
+    color: var(--absolute-black);
+    border: 1px solid var(--renault-yellow);
+    border-radius: 0;
+    padding: 10px 28px;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 46px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-super-primary:hover { background: var(--soft-yellow); }
+  .btn-ghost-white {
+    background: transparent;
+    color: var(--pure-white);
+    border: 1px solid var(--pure-white);
+    border-radius: 0;
+    padding: 10px 28px;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 46px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-ghost-white:hover { background: rgba(255,255,255,0.15); }
+
+  /* SECTIONS */
+  .section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-family: var(--font-main);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--absolute-black);
+    margin-bottom: 8px;
+    line-height: 0.95;
+  }
+  .section-desc {
+    font-family: var(--font-main);
+    font-size: 14px;
+    color: var(--charcoal);
+    margin-bottom: 40px;
+    line-height: 1.40;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--pale-silver);
+    margin: 0 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* COLOR PALETTE */
+  .color-group-label {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--absolute-black);
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .color-swatch { border-radius: 0; overflow: hidden; }
+  .color-swatch .swatch-block { height: 80px; }
+  .color-swatch .swatch-info {
+    padding: 12px;
+    background: var(--pure-white);
+    border: 1px solid var(--pale-silver);
+    border-top: none;
+  }
+  .color-swatch .swatch-name { font-size: 13px; font-weight: 700; color: var(--absolute-black); margin-bottom: 2px; }
+  .color-swatch .swatch-hex { font-size: 12px; color: var(--charcoal); margin-bottom: 4px; font-family: monospace; }
+  .color-swatch .swatch-role { font-size: 11px; color: var(--warm-gray); line-height: 1.3; }
+
+  /* TYPOGRAPHY */
+  .type-sample { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--pale-silver); }
+  .type-sample:last-child { border-bottom: none; }
+  .type-label { font-size: 12px; font-weight: 400; color: var(--warm-gray); margin-top: 8px; }
+
+  /* BUTTONS */
+  .button-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; margin-bottom: 24px; }
+  .button-item { display: flex; flex-direction: column; gap: 8px; }
+  .button-item .btn-label { font-size: 11px; font-weight: 700; color: var(--warm-gray); text-transform: uppercase; }
+  .btn-primary-black {
+    background: var(--absolute-black); color: var(--pure-white); border: 1px solid var(--absolute-black);
+    border-radius: 0; padding: 10px 15px; font-family: var(--font-main); font-size: 14.4px;
+    font-weight: 700; min-height: 46px; min-width: 120px; text-align: center; cursor: pointer;
+    transition: background-color 0.3s; letter-spacing: 0.144px;
+  }
+  .btn-primary-black:hover { background: var(--charcoal); }
+  .btn-yellow {
+    background: var(--renault-yellow); color: var(--absolute-black); border: 1px solid var(--renault-yellow);
+    border-radius: 0; padding: 10px 15px; font-family: var(--font-main); font-size: 14.4px;
+    font-weight: 700; min-height: 46px; min-width: 120px; text-align: center; cursor: pointer;
+    transition: background-color 0.3s; letter-spacing: 0.144px;
+  }
+  .btn-yellow:hover { background: var(--soft-yellow); }
+  .btn-ghost-black {
+    background: transparent; color: var(--absolute-black); border: 1px solid var(--absolute-black);
+    border-radius: 0; padding: 10px 15px; font-family: var(--font-main); font-size: 14.4px;
+    font-weight: 700; min-height: 46px; min-width: 120px; text-align: center; cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; letter-spacing: 0.144px;
+  }
+  .btn-ghost-black:hover { background: var(--absolute-black); color: var(--pure-white); }
+  .btn-ghost-white-2 {
+    background: transparent; color: var(--pure-white); border: 1px solid var(--pure-white);
+    border-radius: 0; padding: 10px 15px; font-family: var(--font-main); font-size: 14.4px;
+    font-weight: 700; min-height: 46px; min-width: 120px; text-align: center; cursor: pointer;
+    transition: background-color 0.3s; letter-spacing: 0.144px;
+  }
+  .btn-ghost-white-2:hover { background: rgba(255,255,255,0.15); }
+  .btn-text-link {
+    background: none; border: none; color: var(--absolute-black); font-family: var(--font-main);
+    font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: color 0.3s; padding: 0;
+  }
+  .btn-text-link:hover { color: var(--renault-blue); }
+  .dark-btn-row {
+    background: var(--absolute-black); padding: 24px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end;
+  }
+  .dark-btn-row .btn-label { color: var(--warm-gray); }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0; }
+  .card {
+    position: relative; overflow: hidden; min-height: 300px; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 24px; background-size: cover; background-position: center;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%;
+    background: linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); pointer-events: none;
+  }
+  .card-heading { font-family: var(--font-main); font-size: 40px; font-weight: 700; color: var(--pure-white); line-height: 0.95; margin-bottom: 8px; position: relative; }
+  .card-text { font-family: var(--font-main); font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.40; position: relative; margin-bottom: 16px; }
+  .card-btn {
+    position: relative; display: inline-flex; align-items: center; background: var(--pure-white);
+    color: var(--absolute-black); border: 1px solid var(--pure-white); border-radius: 0;
+    padding: 10px 15px; font-family: var(--font-main); font-size: 14.4px; font-weight: 700;
+    min-height: 46px; cursor: pointer; text-decoration: none; width: fit-content;
+  }
+
+  /* FORMS */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 700px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label { font-size: 12px; font-weight: 700; color: var(--absolute-black); text-transform: uppercase; }
+  .form-input {
+    font-family: var(--font-main); font-size: 12.8px; color: var(--absolute-black);
+    background: var(--pure-white); border: 1px solid var(--border-gray); border-radius: 50px;
+    padding: 10px 15px; outline: none; transition: border-color 0.3s; line-height: 1.10;
+  }
+  .form-input::placeholder { color: var(--warm-gray); }
+  .form-input:focus { border-color: var(--absolute-black); }
+  .form-input-error { border-color: var(--error-rose); }
+  .form-error-text { font-size: 11px; color: var(--error-rose); }
+  textarea.form-input { resize: vertical; min-height: 100px; border-radius: 8px; }
+
+  /* SPACING */
+  .spacing-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .spacing-box { background: var(--renault-yellow); height: 40px; }
+  .spacing-label { font-family: monospace; font-size: 10px; color: var(--warm-gray); white-space: nowrap; }
+
+  /* RADIUS */
+  .radius-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; }
+  .radius-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .radius-box { width: 80px; height: 80px; background: var(--pale-silver); border: 1px solid var(--border-gray); }
+  .radius-label { font-family: monospace; font-size: 11px; color: var(--charcoal); text-align: center; }
+  .radius-context { font-size: 11px; color: var(--warm-gray); text-align: center; }
+
+  /* ELEVATION */
+  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; padding: 40px; background: var(--pale-silver); }
+  .elevation-card {
+    background: var(--pure-white); padding: 24px; min-height: 120px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .elevation-label { font-size: 14px; font-weight: 700; color: var(--absolute-black); margin-bottom: 4px; }
+  .elevation-desc { font-size: 12px; color: var(--charcoal); line-height: 1.40; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 20px; min-height: 70vh; }
+    .hero h1 { font-size: 32px; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .section { padding: 48px 20px; }
+    .section-title { font-size: 24px; }
+    .color-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .card-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: auto; }
+    .button-row, .dark-btn-row { flex-direction: column; align-items: flex-start; }
+    .elevation-grid { grid-template-columns: 1fr; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">awesome-design-md</a>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#buttons">Buttons</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#forms">Forms</a></li>
+    <li><a href="#spacing">Spacing</a></li>
+    <li><a class="nav-cta" href="#elevation">Explore</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Design System<br>Inspired by Renault</h1>
+  <p class="subtitle">A visual reference generated from DESIGN.md — every color, type rule, and component token documented from Renault's design system.</p>
+  <div class="hero-buttons">
+    <a href="#colors" class="btn-super-primary">Configure</a>
+    <a href="#typography" class="btn-ghost-white">Explore</a>
+  </div>
+</section>
+
+<!-- 1. COLOR PALETTE -->
+<div id="colors" class="section">
+  <h2 class="section-title">Color Palette</h2>
+  <p class="section-desc">Every color extracted from Renault's design system with semantic names, hex values, and functional roles.</p>
+
+  <div class="color-group-label">Primary</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#EFDF00;"></div>
+      <div class="swatch-info"><div class="swatch-name">Renault Yellow</div><div class="swatch-hex">#EFDF00</div><div class="swatch-role">Super-primary CTA, brand accent</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#000000;"></div>
+      <div class="swatch-info"><div class="swatch-name">Absolute Black</div><div class="swatch-hex">#000000</div><div class="swatch-role">Primary button bg, headings, dark sections</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FFFFFF; border:1px solid #D9D9D6;"></div>
+      <div class="swatch-info"><div class="swatch-name">Pure White</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-role">Primary surface, light canvas (--rt-color-white)</div></div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Secondary & Accent</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F8EB4C;"></div>
+      <div class="swatch-info"><div class="swatch-name">Soft Yellow</div><div class="swatch-hex">#F8EB4C</div><div class="swatch-role">Yellow hover/pressed state</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#1883FD;"></div>
+      <div class="swatch-info"><div class="swatch-name">Renault Blue</div><div class="swatch-hex">#1883FD</div><div class="swatch-role">Link hover color across all variants</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#D9D9D6;"></div>
+      <div class="swatch-info"><div class="swatch-name">Warm Gray</div><div class="swatch-hex">#D9D9D6</div><div class="swatch-role">Disabled states, subtle borders</div></div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Surface & Background</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#222222;"></div>
+      <div class="swatch-info"><div class="swatch-name">Charcoal</div><div class="swatch-hex">#222222</div><div class="swatch-role">Secondary dark surface (--rt-color-dark)</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F2F2F2;"></div>
+      <div class="swatch-info"><div class="swatch-name">Pale Silver</div><div class="swatch-hex">#F2F2F2</div><div class="swatch-role">Alternate light surface, card borders</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#D1D1D1;"></div>
+      <div class="swatch-info"><div class="swatch-name">Border Gray</div><div class="swatch-hex">#D1D1D1</div><div class="swatch-role">Input borders, subtle separators</div></div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Semantic</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#8DC572;"></div>
+      <div class="swatch-info"><div class="swatch-name">Success Green</div><div class="swatch-hex">#8DC572</div><div class="swatch-role">Positive status (--rt-color-success)</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#BE6464;"></div>
+      <div class="swatch-info"><div class="swatch-name">Error Rose</div><div class="swatch-hex">#BE6464</div><div class="swatch-role">Validation errors (--rt-color-error)</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F0AD4E;"></div>
+      <div class="swatch-info"><div class="swatch-name">Warning Amber</div><div class="swatch-hex">#F0AD4E</div><div class="swatch-role">Cautionary alerts (--rt-color-warning)</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#337AB7;"></div>
+      <div class="swatch-info"><div class="swatch-name">Info Blue</div><div class="swatch-hex">#337AB7</div><div class="swatch-role">Informational callouts (--rt-color-info)</div></div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 2. TYPOGRAPHY -->
+<div id="typography" class="section">
+  <h2 class="section-title">Typography Scale</h2>
+  <p class="section-desc">NouvelR proprietary typeface — geometric sans-serif with a 28-degree "radical r" cut. Rendered with Nunito Sans as Google Font substitute.</p>
+
+  <div class="type-sample"><div style="font-size:56px;font-weight:700;line-height:0.95;text-transform:uppercase;">Hero Title</div><div class="type-label">Hero Title — 56px / 700 / 0.95 LH / uppercase — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:40px;font-weight:700;line-height:0.95;">Section Heading — Electric Models</div><div class="type-label">Section Heading — 40px / 700 / 0.95 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:32px;font-weight:700;line-height:0.95;">Card Heading — New Scenic</div><div class="type-label">Card Heading — 32px / 700 / 0.95 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:24px;font-weight:700;line-height:0.95;">Subheading — Campaign Offers</div><div class="type-label">Subheading — 24px / 700 / 0.95 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:21.92px;font-weight:600;line-height:1.20;">Module Title — Vehicle Range</div><div class="type-label">Module Title — 21.92px / 600 / 1.20 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:19.2px;font-weight:600;line-height:1.30;">UI Heading — Configuration Options</div><div class="type-label">UI Heading — 19.2px / 600 / 1.30 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:18px;font-weight:700;line-height:1.00;">Emphasis — E-Tech Hybrid</div><div class="type-label">Emphasis — 18px / 700 / 1.00 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:16px;font-weight:700;line-height:1.40;">Body Heading — Performance Details</div><div class="type-label">Body Heading — 16px / 700 / 1.40 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:14px;font-weight:400;line-height:1.40;color:var(--charcoal);">Body Text — The all-new Scenic E-Tech electric delivers a driving experience that combines range, comfort, and advanced technology for everyday journeys.</div><div class="type-label">Body Text — 14px / 400 / 1.40 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:14.4px;font-weight:700;line-height:1.00;letter-spacing:0.144px;">Button Label — Configure</div><div class="type-label">Button Label — 14.4px / 700 / 1.00 LH / 0.144px — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:13px;font-weight:700;line-height:1.50;">Nav Link — Models & Range</div><div class="type-label">Nav Link — 13px / 700 / 1.50 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:12.8px;font-weight:400;line-height:1.10;color:var(--charcoal);">Caption — Photographed at the Renault Design Center</div><div class="type-label">Caption — 12.8px / 400 / 1.10 LH — NouvelR</div></div>
+  <div class="type-sample"><div style="font-size:10px;font-weight:700;line-height:1.45;color:var(--warm-gray);">Micro Text — Legal Disclaimer</div><div class="type-label">Micro Text — 10px / 700 / 1.45 LH — NouvelR</div></div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 3. BUTTONS -->
+<div id="buttons" class="section">
+  <h2 class="section-title">Button Variants</h2>
+  <p class="section-desc">All buttons use zero border-radius — sharp rectangular forms. Four variants cover light and dark contexts.</p>
+
+  <div class="button-row" style="margin-bottom:32px;">
+    <div class="button-item"><span class="btn-label">Super Primary (Yellow)</span><button class="btn-yellow">Configure</button></div>
+    <div class="button-item"><span class="btn-label">Primary (Black)</span><button class="btn-primary-black">Explore</button></div>
+    <div class="button-item"><span class="btn-label">Ghost (Black)</span><button class="btn-ghost-black">Learn More</button></div>
+    <div class="button-item"><span class="btn-label">Text Link</span><a href="#" class="btn-text-link">View Details</a></div>
+  </div>
+
+  <div class="color-group-label">On Dark Background</div>
+  <div class="dark-btn-row">
+    <div class="button-item"><span class="btn-label">Super Primary (Yellow)</span><button class="btn-yellow">Configure</button></div>
+    <div class="button-item"><span class="btn-label">Primary Inverted (White)</span><button style="background:#fff;color:#000;border:1px solid #fff;border-radius:0;padding:10px 15px;font-family:var(--font-main);font-size:14.4px;font-weight:700;min-height:46px;min-width:120px;cursor:pointer;">Explore</button></div>
+    <div class="button-item"><span class="btn-label">Ghost (White)</span><button class="btn-ghost-white-2">Learn More</button></div>
+    <div class="button-item"><span class="btn-label">Text Link</span><a href="#" style="color:#fff;font-size:14px;font-weight:700;font-family:var(--font-main);text-decoration:none;transition:color 0.3s;">View All</a></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 4. CARDS -->
+<div id="cards" class="section">
+  <h2 class="section-title">Card Examples</h2>
+  <p class="section-desc">PromoCards with dark gradient overlays for text legibility over photography. Alternating light and dark modes.</p>
+
+  <div class="card-grid">
+    <div class="card" style="background:linear-gradient(135deg, #5B2D8E 0%, #1A7A8E 100%);">
+      <div class="card-heading">Scenic E-Tech<br>Electric</div>
+      <div class="card-text">The next generation of electric mobility, reimagined.</div>
+      <div class="card-btn">Explore</div>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg, #000 0%, #222 100%);">
+      <div class="card-heading">E-Tech<br>Hybrid</div>
+      <div class="card-text">Intelligent hybrid powertrain for everyday efficiency.</div>
+      <div class="card-btn" style="background:var(--renault-yellow);color:#000;border-color:var(--renault-yellow);">Configure</div>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg, #8B1A6E 0%, #5B2D8E 100%);">
+      <div class="card-heading">Renault<br>Clio</div>
+      <div class="card-text">The iconic city car, now with hybrid technology.</div>
+      <div class="card-btn" style="background:transparent;color:#fff;border-color:#fff;">Learn More</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 5. FORMS -->
+<div id="forms" class="section">
+  <h2 class="section-title">Form Elements</h2>
+  <p class="section-desc">Pill-shaped inputs (50px radius) contrasting with zero-radius buttons. NouvelR 12.8px text.</p>
+
+  <div class="form-grid">
+    <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="Enter first name"></div>
+    <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Enter last name"></div>
+    <div class="form-group"><label class="form-label">Email (Focus State)</label><input type="email" class="form-input" placeholder="email@example.com" style="border-color:#000;"></div>
+    <div class="form-group"><label class="form-label">Phone (Error State)</label><input type="tel" class="form-input form-input-error" value="+90 555"><span class="form-error-text">Please enter a valid phone number</span></div>
+    <div class="form-group full"><label class="form-label">Message</label><textarea class="form-input" placeholder="Write your message..."></textarea></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 6. SPACING -->
+<div id="spacing" class="section">
+  <h2 class="section-title">Spacing Scale</h2>
+  <p class="section-desc">Base unit: 8px. The full spacing scale from Renault's design tokens.</p>
+  <div class="spacing-row">
+    <div class="spacing-item"><div class="spacing-box" style="width:1px;"></div><span class="spacing-label">1px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:4px;"></div><span class="spacing-label">4px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:5px;"></div><span class="spacing-label">5px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:6px;"></div><span class="spacing-label">6px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:8px;"></div><span class="spacing-label">8px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:10px;"></div><span class="spacing-label">10px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:12px;"></div><span class="spacing-label">12px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:15px;"></div><span class="spacing-label">15px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:16px;"></div><span class="spacing-label">16px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:20px;"></div><span class="spacing-label">20px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:24px;"></div><span class="spacing-label">24px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:32px;"></div><span class="spacing-label">32px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:40px;"></div><span class="spacing-label">40px</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 7. BORDER RADIUS -->
+<div id="radius" class="section">
+  <h2 class="section-title">Border Radius Scale</h2>
+  <p class="section-desc">Zero-radius dominates buttons and cards. Pill shapes reserved for inputs only.</p>
+  <div class="radius-row">
+    <div class="radius-item"><div class="radius-box" style="border-radius:0;"></div><span class="radius-label">0px</span><span class="radius-context">Buttons, Cards</span></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:2px;"></div><span class="radius-label">2px</span><span class="radius-context">Small UI</span></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:3px;"></div><span class="radius-label">3px</span><span class="radius-context">Panels, Tabs</span></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:4px;"></div><span class="radius-label">4px</span><span class="radius-context">Labels, Tags</span></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:46px;"></div><span class="radius-label">46px</span><span class="radius-context">Filter Chips</span></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:50px;"></div><span class="radius-label">50px</span><span class="radius-context">Search Input</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 8. ELEVATION -->
+<div id="elevation" class="section">
+  <h2 class="section-title">Elevation & Depth</h2>
+  <p class="section-desc">Seven shadow tokens progressing from subtle hover lifts to dramatic deep panels.</p>
+  <div class="elevation-grid">
+    <div class="elevation-card" style="box-shadow:none;border:1px solid var(--pale-silver);"><div class="elevation-label">Level 0 — Flat</div><div class="elevation-desc">No shadow. Default for PromoCards and buttons.</div></div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0.2) 0px 4px 8px;"><div class="elevation-label">Level 1 — Soft</div><div class="elevation-desc">Card hover states, subtle lift effect.</div></div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0.2) 0px 0px 18px;"><div class="elevation-label">Level 2 — Medium</div><div class="elevation-desc">Floating elements, dropdown menus.</div></div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0) 0px 2px 4px, rgba(50,50,93,0.1) 0px 7px 14px;"><div class="elevation-label">Level 3 — Layered</div><div class="elevation-desc">Compound shadow for elevated cards and modals.</div></div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0.15) 0px 40px 80px;"><div class="elevation-label">Level 4 — Deep</div><div class="elevation-desc">Large floating panels, configurator overlays.</div></div>
+    <div class="elevation-card" style="box-shadow:rgba(0,0,0,0.2) 5px 5px 8px;"><div class="elevation-label">Level 5 — Directional</div><div class="elevation-desc">Offset directional shadow for specific components.</div></div>
+    <div class="elevation-card" style="box-shadow:rgb(199,197,199) 0px 0px 12px 2px;"><div class="elevation-label">Level 6 — Ambient</div><div class="elevation-desc">Warm ambient glow for highlighted elements.</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--absolute-black);padding:40px;text-align:center;margin-top:40px;">
+  <p style="font-size:12px;color:var(--warm-gray);">Generated from DESIGN.md — Renault Design System Tokens</p>
+  <p style="font-size:13px;font-weight:700;color:var(--pure-white);margin-top:8px;">awesome-design-md</p>
+</footer>
+
+</body>
+</html>

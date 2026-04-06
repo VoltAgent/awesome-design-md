@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Inspired by Ferrari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ferrari-red: #DA291C;
+    --dark-red: #B01E0A;
+    --deep-red: #9D2211;
+    --pure-white: #FFFFFF;
+    --absolute-black: #000000;
+    --dark-surface: #303030;
+    --light-gray-surface: #D2D2D2;
+    --near-black: #181818;
+    --dark-gray: #666666;
+    --mid-gray: #8F8F8F;
+    --silver-gray: #969696;
+    --border-gray: #CCCCCC;
+    --border-mid: #909090;
+    --warning-red: #F13A2C;
+    --success-green: #03904A;
+    --info-blue: #4C98B9;
+    --link-blue: #3860BE;
+    --teal-hover: #1EAEDB;
+    --racing-yellow: #FFF200;
+    --modena-yellow: #F6E500;
+    --overlay-dark: hsla(0, 0%, 7%, 0.8);
+    --font-heading: 'DM Sans', Arial, Helvetica, sans-serif;
+    --font-body: 'Barlow Condensed', Arial, Helvetica, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-heading);
+    background: var(--pure-white);
+    color: var(--near-black);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.50;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    background: var(--absolute-black);
+    min-height: 52px;
+  }
+  .nav-brand {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pure-white);
+    text-decoration: none;
+    letter-spacing: 0.13px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pure-white);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--link-blue); }
+  .nav-cta {
+    background: var(--ferrari-red);
+    color: var(--pure-white) !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  .nav-cta:hover { background: var(--dark-red); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px 80px;
+    background: var(--absolute-black);
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(218,41,28,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.20;
+    letter-spacing: normal;
+    color: var(--pure-white);
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero .subtitle {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--silver-gray);
+    margin-bottom: 12px;
+    line-height: 1.50;
+    position: relative;
+  }
+  .hero .label-tag {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    position: relative;
+  }
+  .btn-primary-red {
+    background: var(--ferrari-red);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 2px;
+    padding: 12px 28px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.28px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-primary-red:hover { background: var(--dark-red); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--pure-white);
+    border: 1px solid var(--pure-white);
+    border-radius: 2px;
+    padding: 12px 28px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.28px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-ghost:hover { background: var(--teal-hover); border-color: var(--teal-hover); }
+
+  /* SECTIONS */
+  .section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-dark {
+    background: var(--pure-white);
+  }
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 8px;
+    line-height: 1.20;
+  }
+  .section-desc {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    color: var(--dark-gray);
+    margin-bottom: 40px;
+    line-height: 1.50;
+    letter-spacing: 0.195px;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--light-gray-surface);
+    margin: 0 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 1. COLOR PALETTE */
+  .color-group-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .color-swatch {
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .color-swatch .swatch-block {
+    height: 80px;
+    border-radius: 2px 2px 0 0;
+  }
+  .color-swatch .swatch-info {
+    padding: 12px;
+    background: var(--pure-white);
+    border: 1px solid var(--border-gray);
+    border-top: none;
+    border-radius: 0 0 2px 2px;
+  }
+  .color-swatch .swatch-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 2px;
+  }
+  .color-swatch .swatch-hex {
+    font-size: 12px;
+    color: var(--dark-gray);
+    margin-bottom: 4px;
+    font-family: monospace;
+  }
+  .color-swatch .swatch-role {
+    font-size: 11px;
+    color: var(--mid-gray);
+    line-height: 1.3;
+  }
+
+  /* 2. TYPOGRAPHY */
+  .type-sample {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light-gray-surface);
+  }
+  .type-sample:last-child { border-bottom: none; }
+  .type-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--mid-gray);
+    margin-top: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.27;
+  }
+
+  /* 3. BUTTONS */
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+  .button-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .button-item .btn-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.27;
+  }
+  .btn-white-cta {
+    background: var(--pure-white);
+    color: var(--absolute-black);
+    border: 1px solid var(--absolute-black);
+    border-radius: 2px;
+    padding: 12px 10px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.28px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    min-width: 160px;
+    text-align: center;
+  }
+  .btn-white-cta:hover { background: var(--teal-hover); color: var(--pure-white); border-color: var(--teal-hover); }
+  .btn-red-cta {
+    background: var(--ferrari-red);
+    color: var(--pure-white);
+    border: 1px solid var(--ferrari-red);
+    border-radius: 2px;
+    padding: 12px 10px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.28px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 160px;
+    text-align: center;
+  }
+  .btn-red-cta:hover { background: var(--dark-red); border-color: var(--dark-red); }
+  .btn-ghost-dark {
+    background: transparent;
+    color: var(--pure-white);
+    border: 1px solid var(--pure-white);
+    border-radius: 2px;
+    padding: 12px 10px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.28px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    min-width: 160px;
+    text-align: center;
+  }
+  .btn-ghost-dark:hover { background: var(--teal-hover); border-color: var(--teal-hover); }
+  .btn-text-link {
+    background: none;
+    border: none;
+    color: var(--near-black);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.195px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0;
+  }
+  .btn-text-link:hover { color: var(--link-blue); }
+  .dark-btn-row {
+    background: var(--absolute-black);
+    padding: 24px;
+    border-radius: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+  }
+  .dark-btn-row .btn-label { color: var(--silver-gray); }
+
+  /* 4. CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--pure-white);
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: var(--light-gray-surface);
+  }
+  .card-body { padding: 20px 0; }
+  .card-heading {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.30;
+    margin-bottom: 8px;
+  }
+  .card-caption {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.27;
+    margin-bottom: 8px;
+  }
+  .card-text {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    color: var(--dark-gray);
+    line-height: 1.50;
+  }
+  .card-dark {
+    background: var(--absolute-black);
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .card-dark .card-img { background: var(--dark-surface); }
+  .card-dark .card-body { padding: 20px; }
+  .card-dark .card-heading { color: var(--pure-white); }
+  .card-dark .card-caption { color: var(--silver-gray); }
+  .card-dark .card-text { color: var(--mid-gray); }
+  .card-hover {
+    transition: transform 0.3s;
+  }
+  .card-hover:hover { transform: translateY(-2px); }
+
+  /* 5. FORMS */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 700px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.27;
+  }
+  .form-input {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    color: var(--near-black);
+    background: transparent;
+    border: 1px solid var(--border-gray);
+    border-radius: 2px;
+    padding: 12px 10px;
+    outline: none;
+    transition: border-color 0.3s;
+    line-height: 1.50;
+    letter-spacing: 0.195px;
+  }
+  .form-input::placeholder { color: var(--silver-gray); }
+  .form-input:focus { border-color: var(--ferrari-red); }
+  .form-input-error {
+    border-color: var(--warning-red);
+  }
+  .form-error-text {
+    font-size: 11px;
+    color: var(--warning-red);
+    font-family: var(--font-heading);
+  }
+  textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* 6. SPACING */
+  .spacing-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  .spacing-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .spacing-box {
+    background: var(--ferrari-red);
+    border-radius: 1px;
+    opacity: 0.8;
+    height: 40px;
+  }
+  .spacing-label {
+    font-family: monospace;
+    font-size: 10px;
+    color: var(--mid-gray);
+    white-space: nowrap;
+  }
+
+  /* 7. RADIUS */
+  .radius-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-end;
+  }
+  .radius-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .radius-box {
+    width: 80px;
+    height: 80px;
+    background: var(--light-gray-surface);
+    border: 1px solid var(--border-gray);
+  }
+  .radius-label {
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--mid-gray);
+    text-align: center;
+    line-height: 1.3;
+  }
+  .radius-context {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--silver-gray);
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.27;
+  }
+
+  /* 8. ELEVATION */
+  .elevation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    padding: 40px;
+    background: #F5F5F5;
+    border-radius: 2px;
+  }
+  .elevation-card {
+    background: var(--pure-white);
+    padding: 24px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .elevation-label {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 4px;
+  }
+  .elevation-desc {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    color: var(--mid-gray);
+    line-height: 1.50;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 20px; min-height: 70vh; }
+    .hero h1 { font-size: 28px; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .section { padding: 48px 20px; }
+    .section-title { font-size: 22px; }
+    .color-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .card-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: auto; }
+    .button-row, .dark-btn-row { flex-direction: column; align-items: flex-start; }
+    .elevation-grid { grid-template-columns: 1fr; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">awesome-design-md</a>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#buttons">Buttons</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#forms">Forms</a></li>
+    <li><a href="#spacing">Spacing</a></li>
+    <li><a class="nav-cta" href="#elevation">Explore</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="label-tag">Design Token Catalog</div>
+  <h1>Design System Inspired by Ferrari</h1>
+  <p class="subtitle">A visual reference generated from DESIGN.md — every color, type rule, and component token documented</p>
+  <div class="label-tag">Precision Engineering Meets Editorial Design</div>
+  <div class="hero-buttons">
+    <a href="#colors" class="btn-primary-red">Subscribe</a>
+    <a href="#typography" class="btn-ghost">Configure</a>
+  </div>
+</section>
+
+<!-- 1. COLOR PALETTE -->
+<div id="colors" class="section">
+  <h2 class="section-title">Color Palette</h2>
+  <p class="section-desc">Every color extracted from Ferrari's design system with semantic names, hex values, and functional roles.</p>
+
+  <div class="color-group-label">Primary</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#DA291C;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Ferrari Red</div>
+        <div class="swatch-hex">#DA291C</div>
+        <div class="swatch-role">Primary CTA and brand accent (--f-color-accent-100)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FFFFFF; border:1px solid #D2D2D2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Pure White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-role">Primary surface for editorial panels (--f-color-ui-0)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Secondary &amp; Accent</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#B01E0A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Dark Red</div>
+        <div class="swatch-hex">#B01E0A</div>
+        <div class="swatch-role">Hover/pressed states (--f-color-accent-90)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#9D2211;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Deep Red</div>
+        <div class="swatch-hex">#9D2211</div>
+        <div class="swatch-role">Active states, extra emphasis (--f-color-accent-80)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FFF200;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Racing Yellow</div>
+        <div class="swatch-hex">#FFF200</div>
+        <div class="swatch-role">Heritage racing accent (--f-color-yellow-hypersail)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F6E500;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Modena Yellow</div>
+        <div class="swatch-hex">#F6E500</div>
+        <div class="swatch-role">Secondary heritage accent (--f-color-yellow)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Surface &amp; Background</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#000000;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Absolute Black</div>
+        <div class="swatch-hex">#000000</div>
+        <div class="swatch-role">Hero sections, cinematic backgrounds</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#303030;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Dark Surface</div>
+        <div class="swatch-hex">#303030</div>
+        <div class="swatch-role">Footer, newsletter sections (--f-color-ui-90)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#D2D2D2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Light Gray Surface</div>
+        <div class="swatch-hex">#D2D2D2</div>
+        <div class="swatch-role">Dividers, border treatments (--f-color-ui-20)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Neutrals &amp; Text</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#181818;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Near Black</div>
+        <div class="swatch-hex">#181818</div>
+        <div class="swatch-role">Primary body text on light surfaces</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#666666;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Dark Gray</div>
+        <div class="swatch-hex">#666666</div>
+        <div class="swatch-role">Secondary text, subdued labels (--f-color-black-60)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#8F8F8F;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Mid Gray</div>
+        <div class="swatch-hex">#8F8F8F</div>
+        <div class="swatch-role">Tertiary text, metadata (--f-color-black-50)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#969696;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Silver Gray</div>
+        <div class="swatch-hex">#969696</div>
+        <div class="swatch-role">Placeholder, disabled states (--f-color-black-55)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#CCCCCC;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Border Gray</div>
+        <div class="swatch-hex">#CCCCCC</div>
+        <div class="swatch-role">Input borders, form containers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Semantic</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F13A2C;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Warning Red</div>
+        <div class="swatch-hex">#F13A2C</div>
+        <div class="swatch-role">Accessible warning state (--f-color-accessible-warning)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#03904A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Success Green</div>
+        <div class="swatch-hex">#03904A</div>
+        <div class="swatch-role">Positive status (--f-color-accessible-success)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#4C98B9;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Info Blue</div>
+        <div class="swatch-hex">#4C98B9</div>
+        <div class="swatch-role">Informational callouts (--f-color-accessible-info)</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#3860BE;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Link Hover Blue</div>
+        <div class="swatch-hex">#3860BE</div>
+        <div class="swatch-role">Interactive hover state for text links</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#1EAEDB;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Teal</div>
+        <div class="swatch-hex">#1EAEDB</div>
+        <div class="swatch-role">Button hover state</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 2. TYPOGRAPHY -->
+<div id="typography" class="section">
+  <h2 class="section-title">Typography Scale</h2>
+  <p class="section-desc">FerrariSans for headings and editorial content, Body-Font for labels and captions. Rendered with DM Sans and Barlow Condensed as Google Font substitutes.</p>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:26px;font-weight:500;line-height:1.20;color:var(--near-black);">Section Title — The Art of Engineering</div>
+    <div class="type-label">Section Title — 26px / 500 / 1.20 LH / normal — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:24px;font-weight:400;line-height:normal;color:var(--near-black);">Card Heading — Concept Revealed</div>
+    <div class="type-label">Card Heading — 24px / 400 / normal LH / normal — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:18px;font-weight:700;line-height:1.20;color:var(--near-black);">Subheading — Maranello Edition</div>
+    <div class="type-label">Subheading — 18px / 700 / 1.20 LH / normal — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:16px;font-weight:500;line-height:1.40;letter-spacing:0.08px;color:var(--near-black);">UI Heading — Vehicle Configuration</div>
+    <div class="type-label">UI Heading — 16px / 500 / 1.40 LH / 0.08px — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:16px;font-weight:700;line-height:1.30;color:var(--near-black);">Body Bold — Performance Specifications</div>
+    <div class="type-label">Body Bold — 16px / 700 / 1.30 LH / normal — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:16px;font-weight:400;line-height:normal;letter-spacing:1.28px;color:var(--near-black);">Button Label — Configure</div>
+    <div class="type-label">Button Label — 16px / 400 / normal LH / 1.28px — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:14.4px;font-weight:700;line-height:1.00;color:var(--near-black);">Small Button — Discover More</div>
+    <div class="type-label">Small Button — 14.4px / 700 / 1.00 LH / normal — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:13px;font-weight:600;line-height:1.20;letter-spacing:0.13px;color:var(--near-black);">Nav Link — Models &amp; Range</div>
+    <div class="type-label">Nav Link — 13px / 600 / 1.20 LH / 0.13px — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:13px;font-weight:400;line-height:1.50;letter-spacing:0.195px;color:var(--dark-gray);">Caption — Photographed at the Fiorano test circuit during the annual event, showcasing the latest innovations in motorsport technology.</div>
+    <div class="type-label">Caption — 13px / 400 / 1.50 LH / 0.195px — FerrariSans/Body-Font</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-heading);font-size:12px;font-weight:700;line-height:1.00;letter-spacing:0.96px;color:var(--near-black);">Micro Button</div>
+    <div class="type-label">Micro Button — 12px / 700 / 1.00 LH / 0.96px — FerrariSans</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-body);font-size:12px;font-weight:400;line-height:1.27;letter-spacing:1px;text-transform:uppercase;color:var(--mid-gray);">Label Upper — Motorsport Heritage</div>
+    <div class="type-label">Label Upper — 12px / 400 / 1.27 LH / 1px / uppercase — Body-Font</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family:var(--font-body);font-size:11px;font-weight:400;line-height:1.27;letter-spacing:1px;text-transform:uppercase;color:var(--mid-gray);">Micro Label — Racing Division</div>
+    <div class="type-label">Micro Label — 11px / 400 / 1.27 LH / 1px / uppercase — Body-Font</div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 3. BUTTONS -->
+<div id="buttons" class="section">
+  <h2 class="section-title">Button Variants</h2>
+  <p class="section-desc">All button variants from the design system. Ferrari's CTA philosophy: architecture, not decoration.</p>
+
+  <div class="button-row" style="margin-bottom:32px;">
+    <div class="button-item">
+      <span class="btn-label">Primary CTA (White)</span>
+      <button class="btn-white-cta">Configure</button>
+    </div>
+    <div class="button-item">
+      <span class="btn-label">Subscribe CTA (Red)</span>
+      <button class="btn-red-cta">Subscribe</button>
+    </div>
+    <div class="button-item">
+      <span class="btn-label">Text Link</span>
+      <a href="#" class="btn-text-link">View Details</a>
+    </div>
+  </div>
+
+  <div class="color-group-label">On Dark Background</div>
+  <div class="dark-btn-row">
+    <div class="button-item">
+      <span class="btn-label">Ghost Button (White Border)</span>
+      <button class="btn-ghost-dark">Explore</button>
+    </div>
+    <div class="button-item">
+      <span class="btn-label">Subscribe CTA (Red)</span>
+      <button class="btn-red-cta">Subscribe</button>
+    </div>
+    <div class="button-item">
+      <span class="btn-label">Text Link (White)</span>
+      <a href="#" style="color:var(--pure-white);font-size:13px;font-family:var(--font-heading);text-decoration:underline;transition:color 0.3s;">View All</a>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 4. CARDS -->
+<div id="cards" class="section">
+  <h2 class="section-title">Card Examples</h2>
+  <p class="section-desc">Editorial cards and dark cinematic cards — the two primary container treatments.</p>
+
+  <div class="card-grid">
+    <div class="card card-hover">
+      <div class="card-img" style="background:linear-gradient(135deg, #D2D2D2 0%, #F5F5F5 100%);"></div>
+      <div class="card-body">
+        <div class="card-caption">Motorsport</div>
+        <div class="card-heading">Championship Season Highlights</div>
+        <div class="card-text">A curated look back at the defining moments from this season's racing campaign across Formula 1 and endurance events.</div>
+      </div>
+    </div>
+
+    <div class="card-dark card-hover">
+      <div class="card-img" style="background:linear-gradient(135deg, #000000 0%, #303030 100%);"></div>
+      <div class="card-body">
+        <div class="card-caption">Concept</div>
+        <div class="card-heading">Vision GT Unveiled</div>
+        <div class="card-text">The latest concept from the Maranello design studio merges aerodynamic precision with sculptural beauty.</div>
+      </div>
+    </div>
+
+    <div class="card card-hover">
+      <div class="card-img" style="background:linear-gradient(135deg, #DA291C 0%, #9D2211 100%);"></div>
+      <div class="card-body">
+        <div class="card-caption">Heritage</div>
+        <div class="card-heading">Celebrating 75 Years of Excellence</div>
+        <div class="card-text">From the 125 S to the SF-23 — tracing the evolution of engineering artistry that defines the Prancing Horse.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 5. FORMS -->
+<div id="forms" class="section">
+  <h2 class="section-title">Form Elements</h2>
+  <p class="section-desc">Input fields, labels, and states — following Ferrari's transparent-background input treatment with precise 2px radius.</p>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-input" placeholder="Enter first name">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-input" placeholder="Enter last name">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email (Focus State)</label>
+      <input type="email" class="form-input" placeholder="email@example.com" style="border-color:#DA291C;">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone (Error State)</label>
+      <input type="tel" class="form-input form-input-error" placeholder="Invalid number" value="+1 555">
+      <span class="form-error-text">Please enter a valid phone number</span>
+    </div>
+    <div class="form-group full">
+      <label class="form-label">Message</label>
+      <textarea class="form-input" placeholder="Write your message here..."></textarea>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 6. SPACING -->
+<div id="spacing" class="section">
+  <h2 class="section-title">Spacing Scale</h2>
+  <p class="section-desc">Base unit: 8px. The full spacing scale extracted from Ferrari's design tokens.</p>
+
+  <div class="spacing-row">
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:1px;"></div>
+      <span class="spacing-label">1px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:2px;"></div>
+      <span class="spacing-label">2px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:4px;"></div>
+      <span class="spacing-label">4px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:5px;"></div>
+      <span class="spacing-label">5px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:6px;"></div>
+      <span class="spacing-label">6px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:9px;"></div>
+      <span class="spacing-label">9px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:10px;"></div>
+      <span class="spacing-label">10px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:12px;"></div>
+      <span class="spacing-label">12px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:13px;"></div>
+      <span class="spacing-label">13px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:15px;"></div>
+      <span class="spacing-label">15px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:16px;"></div>
+      <span class="spacing-label">16px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:19px;"></div>
+      <span class="spacing-label">19px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:20px;"></div>
+      <span class="spacing-label">20px</span>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-box" style="width:25px;"></div>
+      <span class="spacing-label">25px</span>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 7. BORDER RADIUS -->
+<div id="radius" class="section">
+  <h2 class="section-title">Border Radius Scale</h2>
+  <p class="section-desc">Ferrari's precision engineering aesthetic demands near-zero border-radius. The 2px default is razor-sharp.</p>
+
+  <div class="radius-row">
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:1px;"></div>
+      <span class="radius-label">1px</span>
+      <span class="radius-context">Inline Elements</span>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:2px;"></div>
+      <span class="radius-label">2px</span>
+      <span class="radius-context">Buttons, Inputs</span>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:8px;"></div>
+      <span class="radius-label">8px</span>
+      <span class="radius-context">Dialogs, Modals</span>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:50%;"></div>
+      <span class="radius-label">50%</span>
+      <span class="radius-context">Dots, Avatars</span>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 8. ELEVATION -->
+<div id="elevation" class="section">
+  <h2 class="section-title">Elevation &amp; Depth</h2>
+  <p class="section-desc">Ferrari communicates hierarchy through surface color contrast and photography, not shadows. The single shadow token is a 1-pixel whisper.</p>
+
+  <div class="elevation-grid">
+    <div class="elevation-card" style="box-shadow:none; border:1px solid #D2D2D2;">
+      <div class="elevation-label">Level 0 — Flat</div>
+      <div class="elevation-desc">No shadow, no border. Default for all content sections and cards.</div>
+    </div>
+    <div class="elevation-card" style="box-shadow:rgb(153,153,153) 1px 1px 1px 0px;">
+      <div class="elevation-label">Level 1 — Subtle</div>
+      <div class="elevation-desc">1px whisper shadow. Rare — cookie consent dialogs and dropdown menus.</div>
+    </div>
+    <div class="elevation-card" style="background:rgba(18,18,18,0.95); color:var(--pure-white);">
+      <div class="elevation-label" style="color:var(--pure-white);">Level 2 — Overlay</div>
+      <div class="elevation-desc" style="color:var(--silver-gray);">hsla(0,0%,7%,0.8) backdrop. Modal overlays and image captions.</div>
+    </div>
+    <div class="elevation-card" style="box-shadow:none; border:1px solid #CCCCCC;">
+      <div class="elevation-label">Level 3 — Border</div>
+      <div class="elevation-desc">1px solid #CCCCCC. Input fields and form containers — depth through delineation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--dark-surface);padding:40px;text-align:center;margin-top:40px;">
+  <p style="font-family:var(--font-body);font-size:12px;color:var(--silver-gray);letter-spacing:1px;text-transform:uppercase;">Generated from DESIGN.md — Ferrari Design System Tokens</p>
+  <p style="font-family:var(--font-heading);font-size:13px;color:var(--mid-gray);margin-top:8px;">awesome-design-md</p>
+</footer>
+
+</body>
+</html>

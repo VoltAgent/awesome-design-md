@@ -1,4 +1,4 @@
-# Design System: BMW
+# Design System Inspiration of BMW
 
 ## 1. Visual Theme & Atmosphere
 

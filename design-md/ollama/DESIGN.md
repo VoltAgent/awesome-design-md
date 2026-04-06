@@ -1,4 +1,4 @@
-# Design System: Ollama
+# Design System Inspiration of Ollama
 
 ## 1. Visual Theme & Atmosphere
 

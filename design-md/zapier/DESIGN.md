@@ -1,4 +1,4 @@
-# Design System: Zapier
+# Design System Inspiration of Zapier
 
 ## 1. Visual Theme & Atmosphere
 

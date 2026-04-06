@@ -1,4 +1,4 @@
-# Design System: OpenCode
+# Design System Inspiration of OpenCode
 
 ## 1. Visual Theme & Atmosphere
 

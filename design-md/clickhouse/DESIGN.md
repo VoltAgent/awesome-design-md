@@ -1,4 +1,4 @@
-# Design System: ClickHouse
+# Design System Inspiration of ClickHouse
 
 ## 1. Visual Theme & Atmosphere
 

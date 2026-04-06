@@ -1,4 +1,4 @@
-# Design System: Webflow
+# Design System Inspiration of Webflow
 
 ## 1. Visual Theme & Atmosphere
 

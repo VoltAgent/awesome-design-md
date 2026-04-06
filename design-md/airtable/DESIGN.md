@@ -1,4 +1,4 @@
-# Design System: Airtable
+# Design System Inspiration of Airtable
 
 ## 1. Visual Theme & Atmosphere
 

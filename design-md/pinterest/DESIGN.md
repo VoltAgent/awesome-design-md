@@ -1,4 +1,4 @@
-# Design System: Pinterest
+# Design System Inspiration of Pinterest
 
 ## 1. Visual Theme & Atmosphere
 

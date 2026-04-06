@@ -1,4 +1,4 @@
-# Design System: ElevenLabs
+# Design System Inspiration of ElevenLabs
 
 ## 1. Visual Theme & Atmosphere
 

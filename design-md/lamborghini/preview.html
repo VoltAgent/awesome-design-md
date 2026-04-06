@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Inspired by Lamborghini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lambo-gold: #FFC000;
+    --dark-gold: #917300;
+    --gold-text: #FFCE3E;
+    --pure-white: #FFFFFF;
+    --absolute-black: #000000;
+    --charcoal: #202020;
+    --dark-iron: #181818;
+    --graphite: #494949;
+    --ash: #7D7D7D;
+    --steel: #969696;
+    --slate: #666666;
+    --mist: #E6E6E6;
+    --near-white: #F8F8F8;
+    --cyan-pulse: #29ABE2;
+    --link-blue: #3860BE;
+    --teal-action: #1EAEDB;
+    --font-primary: 'Roboto', Helvetica Neue, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font-primary);
+    background: var(--absolute-black);
+    color: var(--pure-white);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.50;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: var(--absolute-black);
+    border-bottom: 1px solid var(--charcoal);
+  }
+  .nav-brand {
+    font-size: 13px; font-weight: 500; color: var(--pure-white);
+    text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+  .nav-links a {
+    font-size: 14px; font-weight: 400; color: var(--pure-white);
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.2px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--link-blue); }
+  .nav-cta {
+    background: var(--lambo-gold); color: var(--absolute-black);
+    padding: 12px 24px; border-radius: 0; font-size: 14px; font-weight: 500;
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.2px;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--dark-gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 80px 40px;
+    background: var(--absolute-black); text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(255,192,0,0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-size: 80px; font-weight: 400; line-height: 0.92;
+    letter-spacing: normal; color: var(--pure-white); text-transform: uppercase;
+    margin-bottom: 16px; position: relative;
+  }
+  .hero .subtitle {
+    font-size: 16px; font-weight: 300; color: var(--ash);
+    margin-bottom: 40px; text-transform: uppercase; letter-spacing: 0.2px;
+  }
+  .hero-buttons { display: flex; gap: 16px; position: relative; }
+  .btn-gold {
+    background: var(--lambo-gold); color: var(--absolute-black);
+    border: none; border-radius: 0; padding: 16px 32px;
+    font-family: var(--font-primary); font-size: 16px; font-weight: 400;
+    cursor: pointer; text-decoration: none; text-transform: uppercase;
+    transition: background 0.3s;
+  }
+  .btn-gold:hover { background: var(--dark-gold); }
+  .btn-ghost {
+    background: transparent; color: var(--pure-white);
+    border: 1px solid var(--pure-white); border-radius: 0;
+    padding: 16px 32px; font-family: var(--font-primary);
+    font-size: 14.4px; font-weight: 300; opacity: 0.5;
+    cursor: pointer; text-decoration: none; text-transform: uppercase;
+    letter-spacing: 0.2px; transition: background 0.3s, opacity 0.3s;
+  }
+  .btn-ghost:hover { background: var(--teal-action); opacity: 0.7; }
+
+  /* SECTIONS */
+  .section {
+    padding: 80px 40px; max-width: 1200px; margin: 0 auto;
+  }
+  .section-title {
+    font-size: 40px; font-weight: 400; color: var(--pure-white);
+    margin-bottom: 8px; text-transform: uppercase; line-height: 1.15;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--ash); margin-bottom: 40px; line-height: 1.50;
+  }
+  .section-divider {
+    border: none; border-top: 1px solid var(--charcoal);
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  /* COLORS */
+  .color-group-label {
+    font-size: 12px; font-weight: 500; color: var(--steel);
+    margin-bottom: 16px; margin-top: 24px; text-transform: uppercase;
+    letter-spacing: 0.96px;
+  }
+  .color-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px; margin-bottom: 32px;
+  }
+  .color-swatch { overflow: hidden; }
+  .color-swatch .swatch-block { height: 80px; }
+  .color-swatch .swatch-info {
+    padding: 12px; background: var(--charcoal);
+    border: 1px solid var(--graphite); border-top: none;
+  }
+  .color-swatch .swatch-name { font-size: 13px; font-weight: 500; color: var(--pure-white); margin-bottom: 2px; }
+  .color-swatch .swatch-hex { font-size: 12px; color: var(--ash); margin-bottom: 4px; font-family: monospace; }
+  .color-swatch .swatch-role { font-size: 11px; color: var(--steel); line-height: 1.3; }
+
+  /* TYPOGRAPHY */
+  .type-sample { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--charcoal); }
+  .type-sample:last-child { border-bottom: none; }
+  .type-label { font-size: 12px; color: var(--ash); margin-top: 8px; font-family: monospace; text-transform: none; }
+
+  /* BUTTONS */
+  .button-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 16px; }
+  .btn-white { background: var(--pure-white); color: var(--charcoal); border: none; border-radius: 0; padding: 16px 32px; font-family: var(--font-primary); font-size: 14.4px; font-weight: 400; cursor: pointer; text-transform: uppercase; }
+  .btn-black { background: var(--absolute-black); color: var(--pure-white); border: 1px solid var(--pure-white); border-radius: 0; padding: 16px 32px; font-family: var(--font-primary); font-size: 14.4px; font-weight: 400; cursor: pointer; text-transform: uppercase; }
+  .btn-gray { background: var(--steel); color: var(--charcoal); border: none; border-radius: 0; padding: 12px 24px; font-family: var(--font-primary); font-size: 13px; font-weight: 500; cursor: pointer; text-transform: uppercase; letter-spacing: 0.13px; }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .card { background: var(--charcoal); overflow: hidden; }
+  .card-image { height: 200px; background: var(--dark-iron); display: flex; align-items: center; justify-content: center; }
+  .card-image-placeholder { font-size: 48px; font-weight: 400; color: var(--graphite); text-transform: uppercase; }
+  .card-body { padding: 24px; }
+  .card-title { font-size: 27px; font-weight: 400; color: var(--pure-white); margin-bottom: 8px; text-transform: uppercase; line-height: 1.37; }
+  .card-desc { font-size: 16px; color: var(--ash); line-height: 1.50; margin-bottom: 16px; }
+  .card-link { font-size: 14px; color: var(--pure-white); text-decoration: underline; text-transform: uppercase; letter-spacing: 0.2px; transition: color 0.3s; }
+  .card-link:hover { color: var(--link-blue); }
+
+  /* FORMS */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-size: 12px; font-weight: 500; color: var(--steel); text-transform: uppercase; letter-spacing: 0.96px; }
+  .form-input {
+    font-family: var(--font-primary); font-size: 16px; color: var(--pure-white);
+    background: var(--dark-iron); border: 1px solid var(--graphite);
+    border-radius: 0; padding: 12px 16px; min-height: 48px; outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-input::placeholder { color: var(--ash); }
+  .form-input:focus { border-color: var(--lambo-gold); }
+  .form-input.error { border-color: #E74C3C; }
+  .form-textarea {
+    font-family: var(--font-primary); font-size: 16px; color: var(--pure-white);
+    background: var(--dark-iron); border: 1px solid var(--graphite);
+    border-radius: 0; padding: 12px 16px; min-height: 100px; outline: none;
+    resize: vertical; transition: border-color 0.3s;
+  }
+  .form-textarea::placeholder { color: var(--ash); }
+  .form-textarea:focus { border-color: var(--lambo-gold); }
+
+  /* SPACING */
+  .spacing-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .spacing-box { height: 32px; background: var(--lambo-gold); opacity: 0.6; }
+  .spacing-label { font-size: 12px; color: var(--ash); font-family: monospace; min-width: 80px; }
+
+  /* RADIUS */
+  .radius-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  .radius-item { text-align: center; }
+  .radius-box { width: 80px; height: 80px; background: var(--charcoal); border: 2px solid var(--graphite); margin-bottom: 8px; }
+  .radius-value { font-size: 12px; font-weight: 500; color: var(--pure-white); font-family: monospace; }
+  .radius-context { font-size: 11px; color: var(--ash); }
+
+  /* ELEVATION */
+  .elevation-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  .elevation-card { width: 200px; padding: 24px; text-align: center; }
+  .elevation-name { font-size: 13px; font-weight: 500; color: var(--pure-white); margin-bottom: 4px; }
+  .elevation-desc { font-size: 11px; color: var(--ash); }
+
+  footer { padding: 40px; text-align: center; border-top: 1px solid var(--charcoal); }
+  footer p { font-size: 12px; color: var(--ash); text-transform: uppercase; letter-spacing: 0.96px; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 40px; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .color-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-grid { grid-template-columns: 1fr; }
+    .card-grid { grid-template-columns: 1fr; }
+    nav { padding: 12px 20px; }
+    .section { padding: 60px 20px; }
+    .nav-links { display: none; }
+    .section-title { font-size: 27px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">awesome-design-md</span>
+  <ul class="nav-links">
+    <li><a href="#">Models</a></li>
+    <li><a href="#">Motorsport</a></li>
+    <li><a href="#">Ownership</a></li>
+    <li><a href="#">Discover</a></li>
+    <li><a href="#" class="nav-cta">Configure</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Design System Inspired by Lamborghini</h1>
+  <p class="subtitle">A visual catalog generated from DESIGN.md — darkness, gold, and uncompromising angles.</p>
+  <div class="hero-buttons">
+    <a href="#" class="btn-gold">Discover More</a>
+    <a href="#" class="btn-ghost">View Models</a>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Color Palette</h2>
+  <p class="section-desc">Monochrome darkness punctuated by Lamborghini Gold. The only chromatic color in the system.</p>
+
+  <div class="color-group-label">Primary</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="swatch-block" style="background:#FFC000;"></div><div class="swatch-info"><div class="swatch-name">Lamborghini Gold</div><div class="swatch-hex">#FFC000</div><div class="swatch-role">Primary CTA accent</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#FFFFFF;"></div><div class="swatch-info"><div class="swatch-name">Pure White</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-role">Text, logo, nav elements</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#917300;"></div><div class="swatch-info"><div class="swatch-name">Dark Gold</div><div class="swatch-hex">#917300</div><div class="swatch-role">Gold hover/pressed state</div></div></div>
+  </div>
+
+  <div class="color-group-label">Surface & Background</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="swatch-block" style="background:#000000; border:1px solid #202020;"></div><div class="swatch-info"><div class="swatch-name">Absolute Black</div><div class="swatch-hex">#000000</div><div class="swatch-role">Page background, deepest layer</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#181818;"></div><div class="swatch-info"><div class="swatch-name">Dark Iron</div><div class="swatch-hex">#181818</div><div class="swatch-role">Footer, deep sections</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#202020;"></div><div class="swatch-info"><div class="swatch-name">Charcoal</div><div class="swatch-hex">#202020</div><div class="swatch-role">Cards, elevated panels</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#F8F8F8;"></div><div class="swatch-info"><div class="swatch-name">Near White</div><div class="swatch-hex">#F8F8F8</div><div class="swatch-role">Rare light-mode surface</div></div></div>
+  </div>
+
+  <div class="color-group-label">Neutrals & Text</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="swatch-block" style="background:#494949;"></div><div class="swatch-info"><div class="swatch-name">Graphite</div><div class="swatch-hex">#494949</div><div class="swatch-role">Text on light surfaces</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#7D7D7D;"></div><div class="swatch-info"><div class="swatch-name">Ash</div><div class="swatch-hex">#7D7D7D</div><div class="swatch-role">Muted text, metadata</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#969696;"></div><div class="swatch-info"><div class="swatch-name">Steel</div><div class="swatch-hex">#969696</div><div class="swatch-role">Disabled text, badges</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#E6E6E6;"></div><div class="swatch-info"><div class="swatch-name">Mist</div><div class="swatch-hex">#E6E6E6</div><div class="swatch-role">Light gray containers</div></div></div>
+  </div>
+
+  <div class="color-group-label">Semantic & Accent</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="swatch-block" style="background:#29ABE2;"></div><div class="swatch-info"><div class="swatch-name">Cyan Pulse</div><div class="swatch-hex">#29ABE2</div><div class="swatch-role">Informational accent</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#3860BE;"></div><div class="swatch-info"><div class="swatch-name">Link Blue</div><div class="swatch-hex">#3860BE</div><div class="swatch-role">Link hover state</div></div></div>
+    <div class="color-swatch"><div class="swatch-block" style="background:#1EAEDB;"></div><div class="swatch-info"><div class="swatch-name">Teal Action</div><div class="swatch-hex">#1EAEDB</div><div class="swatch-role">Ghost button hover</div></div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Typography Scale</h2>
+  <p class="section-desc">LamboType for everything — shown with Roboto as the closest available fallback. All display text is uppercase.</p>
+
+  <div class="type-sample"><div style="font-size:80px;font-weight:400;line-height:0.92;text-transform:uppercase;color:var(--pure-white);">TEMERARIO</div><div class="type-label">Hero Display — 120px→80px / 400 / 0.92 LH / uppercase / LamboType</div></div>
+  <div class="type-sample"><div style="font-size:54px;font-weight:400;line-height:1.19;text-transform:uppercase;color:var(--pure-white);">YOU CAN'T HIDE</div><div class="type-label">Section Title — 54px / 400 / 1.19 LH / uppercase</div></div>
+  <div class="type-sample"><div style="font-size:40px;font-weight:400;line-height:1.15;text-transform:uppercase;color:var(--pure-white);">DEALER LOCATOR</div><div class="type-label">Sub-section — 40px / 400 / 1.15 LH / uppercase</div></div>
+  <div class="type-sample"><div style="font-size:27px;font-weight:400;line-height:1.37;text-transform:uppercase;color:var(--pure-white);">NEWS LAMBORGHINI WORLD</div><div class="type-label">Feature Heading — 27px / 400 / 1.37 LH / uppercase</div></div>
+  <div class="type-sample"><div style="font-size:18px;font-weight:400;line-height:1.56;color:var(--pure-white);">The arena of emotions. Where power meets precision, and every detail tells a story of relentless innovation.</div><div class="type-label">Body Large — 18px / 400 / 1.56 LH / mixed case</div></div>
+  <div class="type-sample"><div style="font-size:16px;font-weight:400;line-height:1.50;color:var(--ash);">Standard paragraph text for descriptions, captions, and secondary content throughout the interface.</div><div class="type-label">Body — 16px / 400 / 1.50 LH</div></div>
+  <div class="type-sample"><div style="font-size:12px;font-weight:500;line-height:1.83;text-transform:uppercase;letter-spacing:0.96px;color:var(--steel);">LABEL &nbsp; BADGE &nbsp; MICRO</div><div class="type-label">Label — 12px / 500 / 1.83 LH / uppercase / +0.96px tracking</div></div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Button Variants</h2>
+  <p class="section-desc">Zero border-radius. Sharp, angular rectangles. Gold for primary, ghost for secondary.</p>
+
+  <div class="button-row"><a href="#" class="btn-gold">Discover More</a><span style="font-size:12px;color:var(--ash);font-family:monospace;">Gold Accent — bg #FFC000, 0px radius, 24px padding</span></div>
+  <div class="button-row"><a href="#" class="btn-ghost">View Models</a><span style="font-size:12px;color:var(--ash);font-family:monospace;">Ghost — transparent, white border, 50% opacity</span></div>
+  <div class="button-row"><a href="#" class="btn-white">Configure</a><span style="font-size:12px;color:var(--ash);font-family:monospace;">White Filled — bg #FFFFFF, text #202020</span></div>
+  <div class="button-row"><a href="#" class="btn-black">Explore</a><span style="font-size:12px;color:var(--ash);font-family:monospace;">Black — bg #000000, white border</span></div>
+  <div class="button-row"><a href="#" class="btn-gray">Details</a><span style="font-size:12px;color:var(--ash);font-family:monospace;">Gray — bg #969696, 13px, compact</span></div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Card Examples</h2>
+  <p class="section-desc">Sharp-edged cards on charcoal surfaces. No radius, no shadow — just surface color shifts.</p>
+
+  <div class="card-grid">
+    <div class="card"><div class="card-image"><span class="card-image-placeholder">T</span></div><div class="card-body"><div class="card-title">Temerario</div><div class="card-desc">The new V8 hybrid super sports car. Uncompromising power meets visionary design.</div><a href="#" class="card-link">Discover</a></div></div>
+    <div class="card"><div class="card-image"><span class="card-image-placeholder">R</span></div><div class="card-body"><div class="card-title">Revuelto</div><div class="card-desc">The first V12 hybrid plug-in HPEV. A new era of Lamborghini performance.</div><a href="#" class="card-link">Discover</a></div></div>
+    <div class="card"><div class="card-image"><span class="card-image-placeholder">U</span></div><div class="card-body"><div class="card-title">Urus SE</div><div class="card-desc">The world's first Super SUV. Beyond the concept of luxury.</div><a href="#" class="card-link">Discover</a></div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Form Elements</h2>
+  <p class="section-desc">Sharp-edged inputs on dark backgrounds. Focus triggers gold border.</p>
+
+  <div class="form-grid">
+    <div class="form-group"><label class="form-label">Default Input</label><input class="form-input" type="text" placeholder="Enter your name"></div>
+    <div class="form-group"><label class="form-label">Focus Input</label><input class="form-input" type="text" placeholder="Focused" style="border-color:var(--lambo-gold);"></div>
+    <div class="form-group"><label class="form-label">Error Input</label><input class="form-input error" type="text" value="Invalid entry"></div>
+    <div class="form-group"><label class="form-label">Textarea</label><textarea class="form-textarea" placeholder="Your message..."></textarea></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Spacing Scale</h2>
+  <p class="section-desc">8px base unit with a comprehensive scale from 2px to 56px.</p>
+
+  <div class="spacing-row"><div class="spacing-label">4px</div><div class="spacing-box" style="width:16px;"></div><span style="font-size:11px;color:var(--ash);">Fine adjustments</span></div>
+  <div class="spacing-row"><div class="spacing-label">8px</div><div class="spacing-box" style="width:32px;"></div><span style="font-size:11px;color:var(--ash);">Base unit</span></div>
+  <div class="spacing-row"><div class="spacing-label">16px</div><div class="spacing-box" style="width:64px;"></div><span style="font-size:11px;color:var(--ash);">Ghost button padding, card gap</span></div>
+  <div class="spacing-row"><div class="spacing-label">24px</div><div class="spacing-box" style="width:96px;"></div><span style="font-size:11px;color:var(--ash);">Gold CTA padding, card body</span></div>
+  <div class="spacing-row"><div class="spacing-label">40px</div><div class="spacing-box" style="width:160px;"></div><span style="font-size:11px;color:var(--ash);">Section horizontal padding</span></div>
+  <div class="spacing-row"><div class="spacing-label">56px</div><div class="spacing-box" style="width:224px;"></div><span style="font-size:11px;color:var(--ash);">Section vertical padding</span></div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section">
+  <h2 class="section-title">Border Radius Scale</h2>
+  <p class="section-desc">Almost entirely zero. Sharp angles are fundamental to the Lamborghini DNA.</p>
+
+  <div class="radius-row">
+    <div class="radius-item"><div class="radius-box" style="border-radius:0px;"></div><div class="radius-value">0px</div><div class="radius-context">Everything (default)</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:2px;"></div><div class="radius-value">2px</div><div class="radius-context">Badges, close buttons</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:20px;"></div><div class="radius-value">20px</div><div class="radius-context">Toggle switches only</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" style="background:var(--dark-iron);max-width:100%;padding:80px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 class="section-title">Elevation & Depth</h2>
+    <p class="section-desc">No shadows — depth through surface color layering. Lighter = closer.</p>
+    <div class="elevation-row">
+      <div class="elevation-card" style="background:var(--absolute-black);border:1px solid var(--charcoal);"><div class="elevation-name">Level 0 — Abyss</div><div class="elevation-desc">#000000 flat black</div></div>
+      <div class="elevation-card" style="background:var(--dark-iron);border:1px solid var(--graphite);"><div class="elevation-name">Level 1 — Surface</div><div class="elevation-desc">#181818 elevated</div></div>
+      <div class="elevation-card" style="background:var(--charcoal);border:1px solid var(--graphite);"><div class="elevation-name">Level 2 — Panel</div><div class="elevation-desc">#202020 cards/panels</div></div>
+      <div class="elevation-card" style="background:rgba(0,0,0,0.7);border:1px solid var(--charcoal);"><div class="elevation-name">Level 3 — Overlay</div><div class="elevation-desc">rgba(0,0,0,0.7)</div></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>Design System Inspired by Lamborghini — Generated from DESIGN.md by awesome-design-md</p></footer>
+
+</body>
+</html>

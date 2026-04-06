@@ -1,4 +1,4 @@
-# Design System: Replicate
+# Design System Inspiration of Replicate
 
 ## 1. Visual Theme & Atmosphere
 

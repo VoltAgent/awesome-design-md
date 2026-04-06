@@ -1,4 +1,4 @@
-# Design System: Coinbase
+# Design System Inspiration of Coinbase
 
 ## 1. Visual Theme & Atmosphere
 

@@ -1,4 +1,4 @@
-# Design System: MongoDB
+# Design System Inspiration of MongoDB
 
 ## 1. Visual Theme & Atmosphere
 

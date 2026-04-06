@@ -1,4 +1,4 @@
-# Design System: Superhuman
+# Design System Inspiration of Superhuman
 
 ## 1. Visual Theme & Atmosphere
 

@@ -1,6 +1,6 @@
 # Bmw Inspired Design System
 
-[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/bmw/DESIGN.md) extracted from the public [bmw](https://bmw.com/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
+[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/bmw/DESIGN.md) extracted from the public [BMW](https://bmw.com/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
 
 ## Files
 

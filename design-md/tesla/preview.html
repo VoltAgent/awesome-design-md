@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Inspired by Tesla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --electric-blue: #3E6AE1;
+    --pure-white: #FFFFFF;
+    --carbon-dark: #171A20;
+    --graphite: #393C41;
+    --pewter: #5C5E62;
+    --silver-fog: #8E8E8E;
+    --cloud-gray: #EEEEEE;
+    --pale-silver: #D0D1D2;
+    --light-ash: #F4F4F4;
+    --frosted-glass: rgba(255,255,255,0.75);
+    --overlay: rgba(128,128,128,0.65);
+    --subtle-shadow: rgba(0,0,0,0.05);
+    --font-display: 'Inter', -apple-system, Arial, sans-serif;
+    --font-text: 'Inter', -apple-system, Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-text);
+    background: var(--pure-white);
+    color: var(--graphite);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: var(--pure-white);
+    min-height: 56px;
+  }
+  .nav-brand {
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    text-decoration: none;
+    padding: 4px 16px;
+    border-radius: 4px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.33s, background-color 0.33s;
+  }
+  .nav-links a:hover { background: var(--light-ash); }
+  .nav-cta {
+    background: var(--electric-blue);
+    color: var(--pure-white) !important;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.33s;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav-cta:hover { background: #3560CC; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 40px 60px;
+    background: linear-gradient(180deg, #c8d6e5 0%, #dfe6ed 30%, #f0f0f0 70%, #e8e8e8 100%);
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(transparent, rgba(200,200,200,0.3));
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48px;
+    letter-spacing: normal;
+    color: var(--carbon-dark);
+    margin-bottom: 8px;
+  }
+  .hero .subtitle {
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--graphite);
+    margin-bottom: 32px;
+    line-height: 20px;
+  }
+  .hero .promo {
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--electric-blue);
+    margin-bottom: 24px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .btn-primary {
+    background: var(--electric-blue);
+    color: var(--pure-white);
+    border: 3px solid transparent;
+    border-radius: 4px;
+    padding: 4px 24px;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 40px;
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.33s, background-color 0.33s, color 0.33s, box-shadow 0.25s;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: #3560CC; }
+  .btn-secondary {
+    background: var(--pure-white);
+    color: var(--graphite);
+    border: 3px solid transparent;
+    border-radius: 4px;
+    padding: 4px 24px;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 40px;
+    min-width: 160px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.33s, background-color 0.33s, color 0.33s, box-shadow 0.25s;
+    text-decoration: none;
+  }
+  .btn-secondary:hover { background: var(--light-ash); }
+
+  /* SECTIONS */
+  .section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .section-desc {
+    font-family: var(--font-text);
+    font-size: 14px;
+    color: var(--pewter);
+    margin-bottom: 40px;
+    line-height: 20px;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--cloud-gray);
+    margin: 0 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 1. COLOR PALETTE */
+  .color-group-label {
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .color-swatch {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .color-swatch .swatch-block {
+    height: 80px;
+    border-radius: 4px 4px 0 0;
+  }
+  .color-swatch .swatch-info {
+    padding: 12px;
+    background: var(--pure-white);
+    border: 1px solid var(--cloud-gray);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+  .color-swatch .swatch-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    margin-bottom: 2px;
+  }
+  .color-swatch .swatch-hex {
+    font-size: 12px;
+    color: var(--pewter);
+    margin-bottom: 4px;
+    font-family: monospace;
+  }
+  .color-swatch .swatch-role {
+    font-size: 11px;
+    color: var(--silver-fog);
+    line-height: 1.3;
+  }
+
+  /* 2. TYPOGRAPHY */
+  .type-sample {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--cloud-gray);
+  }
+  .type-sample:last-child { border-bottom: none; }
+  .type-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--silver-fog);
+    margin-top: 8px;
+    font-family: monospace;
+  }
+
+  /* 3. BUTTONS */
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .btn-nav {
+    background: transparent;
+    color: var(--carbon-dark);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 16px;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.33s, background-color 0.33s;
+  }
+  .btn-nav:hover { background: var(--light-ash); }
+  .btn-text-link {
+    background: none;
+    border: none;
+    color: var(--pewter);
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: box-shadow 0.33s, color 0.33s;
+    text-decoration: none;
+  }
+  .btn-text-link:hover {
+    box-shadow: 0 1px 0 var(--pewter);
+  }
+
+  /* 4. CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .card {
+    background: var(--pure-white);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: background-color 0.33s;
+  }
+  .card-image {
+    height: 200px;
+    background: var(--light-ash);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-image-placeholder {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--pale-silver);
+    font-family: var(--font-display);
+  }
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    margin-bottom: 8px;
+    font-family: var(--font-text);
+  }
+  .card-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+  .card-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--pewter);
+    text-decoration: none;
+    transition: box-shadow 0.33s, color 0.33s;
+  }
+  .card-links a:hover { box-shadow: 0 1px 0 var(--pewter); }
+
+  .card-category {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    height: 180px;
+    display: flex;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .card-category .cat-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--pure-white);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 5. FORMS */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+  }
+  .form-input {
+    font-family: var(--font-text);
+    font-size: 14px;
+    color: var(--carbon-dark);
+    background: var(--pure-white);
+    border: 1px solid var(--pale-silver);
+    border-radius: 4px;
+    padding: 10px 12px;
+    min-height: 40px;
+    outline: none;
+    transition: border-color 0.33s;
+  }
+  .form-input::placeholder { color: var(--silver-fog); }
+  .form-input:focus { border-color: var(--electric-blue); }
+  .form-input.error { border-color: #E74C3C; }
+  .form-textarea {
+    font-family: var(--font-text);
+    font-size: 14px;
+    color: var(--carbon-dark);
+    background: var(--pure-white);
+    border: 1px solid var(--pale-silver);
+    border-radius: 4px;
+    padding: 10px 12px;
+    min-height: 100px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.33s;
+  }
+  .form-textarea::placeholder { color: var(--silver-fog); }
+  .form-textarea:focus { border-color: var(--electric-blue); }
+
+  /* 6. SPACING */
+  .spacing-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .spacing-box {
+    height: 32px;
+    background: var(--electric-blue);
+    border-radius: 4px;
+    opacity: 0.7;
+  }
+  .spacing-label {
+    font-size: 12px;
+    color: var(--pewter);
+    font-family: monospace;
+    min-width: 80px;
+  }
+
+  /* 7. RADIUS */
+  .radius-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .radius-item {
+    text-align: center;
+  }
+  .radius-box {
+    width: 80px;
+    height: 80px;
+    background: var(--light-ash);
+    border: 2px solid var(--pale-silver);
+    margin-bottom: 8px;
+  }
+  .radius-value {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    font-family: monospace;
+  }
+  .radius-context {
+    font-size: 11px;
+    color: var(--silver-fog);
+  }
+
+  /* 8. ELEVATION */
+  .elevation-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .elevation-card {
+    width: 200px;
+    padding: 24px;
+    border-radius: 4px;
+    text-align: center;
+    background: var(--pure-white);
+  }
+  .elevation-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--carbon-dark);
+    margin-bottom: 4px;
+  }
+  .elevation-desc {
+    font-size: 11px;
+    color: var(--pewter);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid var(--cloud-gray);
+  }
+  footer p {
+    font-size: 12px;
+    color: var(--silver-fog);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 28px; line-height: 36px; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { min-width: 240px; }
+    .color-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-grid { grid-template-columns: 1fr; }
+    .card-grid { grid-template-columns: 1fr; }
+    nav { padding: 12px 20px; }
+    .section { padding: 60px 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">awesome-design-md</span>
+  <ul class="nav-links">
+    <li><a href="#">Vehicles</a></li>
+    <li><a href="#">Energy</a></li>
+    <li><a href="#">Charging</a></li>
+    <li><a href="#">Discover</a></li>
+    <li><a href="#" class="nav-cta">Shop</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Design System Inspired by Tesla</h1>
+  <p class="promo">Photography-first. Interface-invisible.</p>
+  <p class="subtitle">A visual catalog generated from DESIGN.md — every token, every value, every design decision.</p>
+  <div class="hero-buttons">
+    <a href="#" class="btn-primary">Order Now</a>
+    <a href="#" class="btn-secondary">View Inventory</a>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 1. COLOR PALETTE -->
+<section class="section">
+  <h2 class="section-title">Color Palette</h2>
+  <p class="section-desc">Tesla's palette is almost ascetic — one blue, three grays, and white. Every surface is monochrome to let photography dominate.</p>
+
+  <div class="color-group-label">Primary</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #3E6AE1;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Electric Blue</div>
+        <div class="swatch-hex">#3E6AE1</div>
+        <div class="swatch-role">Primary CTA buttons — the only chromatic color</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #FFFFFF; border: 1px solid #EEEEEE;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Pure White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-role">Background, surfaces, secondary buttons</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Surface & Background</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #F4F4F4;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Light Ash</div>
+        <div class="swatch-hex">#F4F4F4</div>
+        <div class="swatch-role">Alternate surface, hover states</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #171A20;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Carbon Dark</div>
+        <div class="swatch-hex">#171A20</div>
+        <div class="swatch-role">Dark surface, hero overlays</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: rgba(255,255,255,0.75); border: 1px solid #D0D1D2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Frosted Glass</div>
+        <div class="swatch-hex">rgba(255,255,255,0.75)</div>
+        <div class="swatch-role">Nav backdrop-filter on scroll</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Neutrals & Text</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #171A20;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Carbon Dark</div>
+        <div class="swatch-hex">#171A20</div>
+        <div class="swatch-role">Headings, navigation text</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #393C41;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Graphite</div>
+        <div class="swatch-hex">#393C41</div>
+        <div class="swatch-role">Body text, secondary content</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #5C5E62;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Pewter</div>
+        <div class="swatch-hex">#5C5E62</div>
+        <div class="swatch-role">Tertiary text, sub-links</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #8E8E8E;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Silver Fog</div>
+        <div class="swatch-hex">#8E8E8E</div>
+        <div class="swatch-role">Placeholders, disabled states</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #EEEEEE;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Cloud Gray</div>
+        <div class="swatch-hex">#EEEEEE</div>
+        <div class="swatch-role">Borders, divider lines</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background: #D0D1D2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Pale Silver</div>
+        <div class="swatch-hex">#D0D1D2</div>
+        <div class="swatch-role">UI borders, delineation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 2. TYPOGRAPHY -->
+<section class="section">
+  <h2 class="section-title">Typography Scale</h2>
+  <p class="section-desc">Universal Sans Display for heroes, Universal Sans Text for everything else. Only weights 400 and 500. Shown with Inter as the closest available Google Font substitute.</p>
+
+  <div class="type-sample">
+    <div style="font-family: var(--font-display); font-size: 40px; font-weight: 500; line-height: 48px; color: var(--carbon-dark);">Model Y</div>
+    <div class="type-label">Hero Title — 40px / 500 / 48px line-height / Universal Sans Display</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family: var(--font-text); font-size: 22px; font-weight: 400; line-height: 20px; color: var(--pure-white); background: var(--carbon-dark); padding: 12px 16px; border-radius: 4px; display: inline-block;">0% APR Available</div>
+    <div class="type-label">Promo Text — 22px / 400 / Universal Sans Text / white on dark</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family: var(--font-text); font-size: 17px; font-weight: 500; line-height: 20px; color: var(--carbon-dark);">Model 3</div>
+    <div class="type-label">Product Name — 17px / 500 / 20px line-height / Universal Sans Text</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family: var(--font-text); font-size: 14px; font-weight: 500; line-height: 16.8px; color: var(--carbon-dark);">Vehicles &nbsp; Energy &nbsp; Charging &nbsp; Discover &nbsp; Shop</div>
+    <div class="type-label">Nav Item — 14px / 500 / 16.8px line-height / Universal Sans Text</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family: var(--font-text); font-size: 14px; font-weight: 400; line-height: 20px; color: var(--graphite);">Tesla's website is an exercise in radical subtraction — a digital showroom where the product is everything and the interface is almost nothing.</div>
+    <div class="type-label">Body Text — 14px / 400 / 20px line-height / Universal Sans Text</div>
+  </div>
+
+  <div class="type-sample">
+    <div style="font-family: var(--font-text); font-size: 14px; font-weight: 400; line-height: 20px; color: var(--pewter);">Learn &nbsp;&nbsp; Order &nbsp;&nbsp; Experience</div>
+    <div class="type-label">Sub-link — 14px / 400 / 20px line-height / Pewter (#5C5E62)</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 3. BUTTONS -->
+<section class="section">
+  <h2 class="section-title">Button Variants</h2>
+  <p class="section-desc">Barely-rounded rectangles (4px radius). One blue for primary, white for secondary, transparent for nav. No pill shapes, no outlines.</p>
+
+  <div class="button-row">
+    <a href="#" class="btn-primary">Order Now</a>
+    <span style="font-size:12px; color:var(--silver-fog); font-family:monospace;">Primary — bg #3E6AE1, 4px radius, 40px height, 200px width</span>
+  </div>
+  <div class="button-row">
+    <a href="#" class="btn-secondary">View Inventory</a>
+    <span style="font-size:12px; color:var(--silver-fog); font-family:monospace;">Secondary — bg #FFFFFF, 4px radius, 40px height, 160px width</span>
+  </div>
+  <div class="button-row">
+    <button class="btn-nav">Vehicles</button>
+    <button class="btn-nav">Energy</button>
+    <button class="btn-nav">Charging</button>
+    <span style="font-size:12px; color:var(--silver-fog); font-family:monospace;">Nav — transparent bg, 4px radius, 32px height</span>
+  </div>
+  <div class="button-row">
+    <a href="#" class="btn-text-link">Learn</a>
+    <a href="#" class="btn-text-link">Order</a>
+    <a href="#" class="btn-text-link">Experience</a>
+    <span style="font-size:12px; color:var(--silver-fog); font-family:monospace;">Text Link — no bg, Pewter #5C5E62, underline on hover</span>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 4. CARDS -->
+<section class="section">
+  <h2 class="section-title">Card Examples</h2>
+  <p class="section-desc">Vehicle cards with no borders or shadows. Category cards with full-bleed photography and 12px radius.</p>
+
+  <div class="color-group-label">Vehicle Cards (Navigation Panel)</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-image">
+        <span class="card-image-placeholder">S</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Model S</div>
+        <div class="card-links">
+          <a href="#">Learn</a>
+          <a href="#">Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <span class="card-image-placeholder">3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Model 3</div>
+        <div class="card-links">
+          <a href="#">Learn</a>
+          <a href="#">Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <span class="card-image-placeholder">Y</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Model Y</div>
+        <div class="card-links">
+          <a href="#">Learn</a>
+          <a href="#">Order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group-label">Category Cards (Homepage)</div>
+  <div style="display:grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 32px;">
+    <div class="card-category" style="background: linear-gradient(135deg, #2c3e50, #4a6741);">
+      <span class="cat-label">Sport Sedan</span>
+    </div>
+    <div class="card-category" style="background: linear-gradient(135deg, #34495e, #2c6e49);">
+      <span class="cat-label">Midsize SUV</span>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 5. FORMS -->
+<section class="section">
+  <h2 class="section-title">Form Elements</h2>
+  <p class="section-desc">Minimal input styling with 4px radius and Pale Silver borders. Focus state triggers Electric Blue border.</p>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label class="form-label">Default Input</label>
+      <input class="form-input" type="text" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Focus Input</label>
+      <input class="form-input" type="text" placeholder="Focused state" style="border-color: var(--electric-blue);">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Error Input</label>
+      <input class="form-input error" type="text" placeholder="Error state" value="Invalid entry">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Textarea</label>
+      <textarea class="form-textarea" placeholder="Ask a question..."></textarea>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 6. SPACING -->
+<section class="section">
+  <h2 class="section-title">Spacing Scale</h2>
+  <p class="section-desc">8px base unit. Extremely restrained spacing tokens — precision over variety.</p>
+
+  <div class="spacing-row">
+    <div class="spacing-label">4px</div>
+    <div class="spacing-box" style="width: 16px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Button inner padding</span>
+  </div>
+  <div class="spacing-row">
+    <div class="spacing-label">8px</div>
+    <div class="spacing-box" style="width: 32px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Base unit, nav item gap</span>
+  </div>
+  <div class="spacing-row">
+    <div class="spacing-label">16px</div>
+    <div class="spacing-box" style="width: 64px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Nav item horizontal padding, card gap</span>
+  </div>
+  <div class="spacing-row">
+    <div class="spacing-label">24px</div>
+    <div class="spacing-box" style="width: 96px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Button horizontal padding, category card inner padding</span>
+  </div>
+  <div class="spacing-row">
+    <div class="spacing-label">40px</div>
+    <div class="spacing-box" style="width: 160px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Section horizontal padding, nav horizontal padding</span>
+  </div>
+  <div class="spacing-row">
+    <div class="spacing-label">80px</div>
+    <div class="spacing-box" style="width: 320px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Section vertical padding</span>
+  </div>
+  <div class="spacing-row">
+    <div class="spacing-label">100vh</div>
+    <div class="spacing-box" style="width: 480px;"></div>
+    <span style="font-size:11px; color:var(--silver-fog);">Hero section height — one message per screen</span>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 7. BORDER RADIUS -->
+<section class="section">
+  <h2 class="section-title">Border Radius Scale</h2>
+  <p class="section-desc">Sharp and precise. Only 4px for buttons and 12px for category cards.</p>
+
+  <div class="radius-row">
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius: 0px;"></div>
+      <div class="radius-value">0px</div>
+      <div class="radius-context">Default (most elements)</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius: 4px;"></div>
+      <div class="radius-value">4px</div>
+      <div class="radius-context">Buttons, inputs</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius: 12px;"></div>
+      <div class="radius-value">12px</div>
+      <div class="radius-context">Category cards</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius: 50%;"></div>
+      <div class="radius-value">50%</div>
+      <div class="radius-context">Carousel dots</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- 8. ELEVATION -->
+<section class="section" style="background: var(--light-ash); margin: 0 auto; max-width: 100%; padding: 80px 40px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 class="section-title">Elevation & Depth</h2>
+    <p class="section-desc">Tesla avoids shadows entirely. Depth comes from opacity-based layering and photography-as-depth.</p>
+
+    <div class="elevation-row">
+      <div class="elevation-card" style="border: 1px solid var(--cloud-gray);">
+        <div class="elevation-name">Level 0 — Flat</div>
+        <div class="elevation-desc">No shadow, no border. Default for all elements.</div>
+      </div>
+      <div class="elevation-card" style="background: rgba(255,255,255,0.75); border: 1px solid var(--pale-silver); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+        <div class="elevation-name">Level 1 — Frost</div>
+        <div class="elevation-desc">Frosted glass. Navigation on scroll.</div>
+      </div>
+      <div class="elevation-card" style="background: rgba(128,128,128,0.65); color: white;">
+        <div class="elevation-name" style="color: white;">Level 2 — Overlay</div>
+        <div class="elevation-desc" style="color: rgba(255,255,255,0.8);">Modal overlays, popups.</div>
+      </div>
+      <div class="elevation-card" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--cloud-gray);">
+        <div class="elevation-name">Level 3 — Subtle</div>
+        <div class="elevation-desc">Minimal shadow hints on rare hover states.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="color: var(--silver-fog); font-size: 12px;">Design System Inspired by Tesla — Generated from DESIGN.md by awesome-design-md</p>
+</footer>
+
+</body>
+</html>

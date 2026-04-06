@@ -1,4 +1,4 @@
-# Design System: Clay
+# Design System Inspiration of Clay
 
 ## 1. Visual Theme & Atmosphere
 

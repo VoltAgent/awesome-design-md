@@ -1,6 +1,6 @@
 # Mongodb Inspired Design System
 
-[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/mongodb/DESIGN.md) extracted from the public [mongodb](https://mongodb.com/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
+[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/mongodb/DESIGN.md) extracted from the public [MongoDB](https://mongodb.com/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
 
 ## Files
 

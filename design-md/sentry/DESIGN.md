@@ -1,4 +1,4 @@
-# Design System: Sentry
+# Design System Inspiration of Sentry
 
 ## 1. Visual Theme & Atmosphere
 

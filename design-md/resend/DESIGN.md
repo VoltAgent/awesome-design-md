@@ -1,4 +1,4 @@
-# Design System: Resend
+# Design System Inspiration of Resend
 
 ## 1. Visual Theme & Atmosphere
 

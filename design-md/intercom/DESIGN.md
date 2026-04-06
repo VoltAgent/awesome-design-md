@@ -1,4 +1,4 @@
-# Design System: Intercom
+# Design System Inspiration of Intercom
 
 ## 1. Visual Theme & Atmosphere
 

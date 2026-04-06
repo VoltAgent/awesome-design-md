@@ -1,4 +1,4 @@
-# Design System: Figma
+# Design System Inspiration of Figma
 
 ## 1. Visual Theme & Atmosphere
 

@@ -16,7 +16,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-56-10b981?style=classic)
+![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-59-10b981?style=classic)
 [![Last Update](https://img.shields.io/github/last-commit/VoltAgent/awesome-design-md?label=Last%20update&style=classic)](https://github.com/VoltAgent/awesome-design-md)
 [![Discord](https://img.shields.io/discord/1361559153780195478.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://s.voltagent.dev/discord)
 
@@ -147,12 +147,19 @@ Each site includes:
 
 - [**Airbnb**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/airbnb/) - Travel marketplace. Warm coral accent, photography-driven, rounded UI
 - [**Apple**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/apple/) - Consumer electronics. Premium white space, SF Pro, cinematic imagery
-- [**BMW**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/bmw/) - Luxury automotive. Dark premium surfaces, precise German engineering aesthetic
 - [**IBM**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/ibm/) - Enterprise technology. Carbon design system, structured blue palette
 - [**NVIDIA**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/nvidia/) - GPU computing. Green-black energy, technical power aesthetic
 - [**SpaceX**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/spacex/) - Space technology. Stark black and white, full-bleed imagery, futuristic
 - [**Spotify**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/spotify/) - Music streaming. Vibrant green on dark, bold type, album-art-driven
 - [**Uber**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/uber/) - Mobility platform. Bold black and white, tight type, urban energy
+
+### Car Brands
+
+- [**BMW**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/bmw/) - Luxury automotive. Dark premium surfaces, precise German engineering aesthetic
+- [**Ferrari**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/ferrari/) - Luxury automotive. Chiaroscuro black-white editorial, Ferrari Red with extreme sparseness
+- [**Lamborghini**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/lamborghini/) - Luxury automotive. True black cathedral, gold accent, LamboType custom Neo-Grotesk
+- [**Renault**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/renault/) - French automotive. Vivid aurora gradients, NouvelR proprietary typeface, zero-radius buttons
+- [**Tesla**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/tesla/) - Electric vehicles. Radical subtraction, cinematic full-viewport photography, Universal Sans
 
 
 

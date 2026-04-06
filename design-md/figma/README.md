@@ -1,6 +1,6 @@
 # Figma Inspired Design System
 
-[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/figma/DESIGN.md) extracted from the public [figma](https://figma.com/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
+[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/figma/DESIGN.md) extracted from the public [Figma](https://figma.com/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
 
 ## Files
 

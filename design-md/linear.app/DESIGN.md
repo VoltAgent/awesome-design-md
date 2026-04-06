@@ -1,4 +1,4 @@
-# Design System: Linear
+# Design System Inspiration of Linear
 
 ## 1. Visual Theme & Atmosphere
 

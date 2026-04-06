@@ -1,4 +1,4 @@
-# Design System: Mintlify
+# Design System Inspiration of Mintlify
 
 ## 1. Visual Theme & Atmosphere
 

@@ -1,4 +1,4 @@
-# Design System: Mistral AI
+# Design System Inspiration of Mistral AI
 
 ## 1. Visual Theme & Atmosphere
 

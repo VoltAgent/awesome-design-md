@@ -1,4 +1,4 @@
-# Design System: NVIDIA
+# Design System Inspiration of NVIDIA
 
 ## 1. Visual Theme & Atmosphere
 

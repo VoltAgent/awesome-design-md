@@ -1,4 +1,4 @@
-# Design System: Warp
+# Design System Inspiration of Warp
 
 ## 1. Visual Theme & Atmosphere
 

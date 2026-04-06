@@ -1,4 +1,4 @@
-# Design System: Apple
+# Design System Inspiration of Apple
 
 ## 1. Visual Theme & Atmosphere
 

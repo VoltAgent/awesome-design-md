@@ -1,4 +1,4 @@
-# Design System: Stripe
+# Design System Inspiration of Stripe
 
 ## 1. Visual Theme & Atmosphere
 

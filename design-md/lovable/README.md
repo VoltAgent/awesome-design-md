@@ -1,6 +1,6 @@
 # Lovable Inspired Design System
 
-[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/lovable/DESIGN.md) extracted from the public [lovable](https://lovable.dev/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
+[DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/lovable/DESIGN.md) extracted from the public [Lovable](https://lovable.dev/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
 
 ## Files
 

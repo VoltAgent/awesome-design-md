@@ -1,4 +1,4 @@
-# Design System: Revolut
+# Design System Inspiration of Revolut
 
 ## 1. Visual Theme & Atmosphere
 

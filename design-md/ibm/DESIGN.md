@@ -1,4 +1,4 @@
-# Design System: IBM
+# Design System Inspiration of IBM
 
 ## 1. Visual Theme & Atmosphere
 
