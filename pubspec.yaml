@@ -1,0 +1,9 @@
+name: awesome_design_md
+
+depends_on:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
