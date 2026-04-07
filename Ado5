@@ -1,0 +1,29 @@
+package com.example.designapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.TextView
+import java.text.SimpleDateFormat
+import java.util.*
+
+class MainActivity : AppCompatActivity() {
+    
+    private lateinit var timeTextView: TextView
+    private val updateHandler = android.os.Handler(android.os.Looper.getMainLooper())
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        timeTextView = findViewById(R.id.timeTextView)
+        updateTime()
+    }
+    
+    private fun updateTime() {
+        val sdf = SimpleDateFormat("HH:mm:ss", Locale.US)
+        val currentTime = sdf.format(Date())
+        timeTextView.text = currentTime
+        
+        updateHandler.postDelayed({ updateTime() }, 1000)
+    }
+}
