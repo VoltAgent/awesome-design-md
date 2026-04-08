@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Preview: Samsung (Light)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --light-gray: #f4f4f4;
+    --electric-blue: #0072ea;
+    --brand-blue: #1428a0;
+    --text-primary: #000000;
+    --text-sec: #767676;
+    --text-ter: #a1a1a1;
+    --card-bg-light: #ffffff;
+    --card-bg-alt: #f4f4f4;
+    --font-display: 'Samsung Sharp Sans', 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-text: 'SamsungOne', 'Inter', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --radius-pill: 999px;
+    --radius-card: 20px;
+    --radius-ui: 8px;
+    --shadow-soft: 0px 8px 24px rgba(0,0,0,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--white);
+    color: var(--text-primary);
+    font-family: var(--font-text);
+    font-size: 16px; font-weight: 400; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 72px;
+    background: var(--white);
+    border-bottom: 1px solid #ebebeb;
+  }
+  .nav-brand { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.5px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 600; color: var(--black); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a:hover::after { content: ''; position: absolute; bottom: -26px; left: 0; width: 100%; height: 2px; background: var(--black); }
+  .nav-cta {
+    display: inline-block; background: var(--black); color: var(--white);
+    padding: 8px 20px; border-radius: var(--radius-pill); font-size: 14px; font-weight: 700;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #333333; }
+
+  /* HERO */
+  .hero { padding: 100px 40px; text-align: center; background: var(--light-gray); }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: 56px; font-weight: 700; line-height: 1.15;
+    color: var(--black); margin-bottom: 24px; letter-spacing: -0.5px;
+  }
+  .hero p { font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--text-sec); max-width: 650px; margin: 0 auto 40px; }
+  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block; background: var(--black); color: var(--white);
+    padding: 12px 28px; border-radius: var(--radius-pill); border: none;
+    font-family: var(--font-text); font-size: 16px; font-weight: 700;
+    text-decoration: none; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #333333; }
+  .btn-outline {
+    display: inline-block; background: transparent; color: var(--black);
+    padding: 10px 26px; border-radius: var(--radius-pill);
+    border: 2px solid var(--black);
+    font-family: var(--font-text); font-size: 16px; font-weight: 700;
+    text-decoration: none; cursor: pointer; transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+
+  /* SECTIONS */
+  .section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-family: var(--font-text); font-size: 14px; font-weight: 700; color: var(--electric-blue); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+  .section-title { font-family: var(--font-display); font-size: 40px; font-weight: 700; line-height: 1.20; margin-bottom: 40px; letter-spacing: -0.5px; }
+
+  /* FULL WIDTH BLOCKS */
+  .bg-black { background: var(--black); color: var(--white); }
+  .bg-black .section-title, .bg-black .text-styled { color: var(--white); }
+  .bg-black .text-sec { color: var(--text-ter); }
+  
+  .bg-gray { background: var(--light-gray); }
+
+  /* COLORS */
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .color-swatch { border-radius: var(--radius-ui); overflow: hidden; background: #ffffff; box-shadow: 0 0 0 1px #ebebeb; }
+  .color-swatch-block { height: 80px; width: 100%; border-bottom: 1px solid #ebebeb; }
+  .color-swatch-info { padding: 12px 16px; }
+  .color-swatch-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--black); }
+  .color-swatch-hex { font-size: 12px; color: var(--text-sec); font-family: monospace; }
+  .color-group-label { font-size: 18px; font-weight: 700; margin: 32px 0 16px; border-bottom: 2px solid var(--black); padding-bottom: 8px; display: inline-block; }
+
+  /* TYPOGRAPHY */
+  .type-sample { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #ebebeb; }
+  .type-sample:last-child { border-bottom: none; }
+  .type-meta { font-family: monospace; font-size: 12px; font-weight: 400; color: var(--text-sec); margin-top: 12px; }
+
+  /* BUTTONS */
+  .button-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .button-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .button-label { font-size: 12px; font-weight: 700; color: var(--text-sec); text-transform: uppercase; }
+  .text-link {
+    font-size: 16px; font-weight: 700; color: var(--black); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; position: relative;
+  }
+  .text-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: var(--black); transition: height 0.2s, bottom 0.2s; }
+  .text-link:hover::after { height: 4px; bottom: -4px; }
+  
+  .text-link-blue { color: var(--electric-blue); }
+  .text-link-blue::after { background: var(--electric-blue); }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+  .card { background: var(--card-bg-light); border-radius: var(--radius-card); padding: 48px 32px; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+  .card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 12px; }
+  .card p { font-size: 16px; color: var(--text-sec); margin-bottom: 24px; }
+  
+  .card-gray { background: var(--card-bg-alt); }
+
+  /* FORMS */
+  .form-group { margin-bottom: 24px; max-width: 480px; }
+  .form-label { display: block; font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+  .form-input {
+    width: 100%; background: var(--card-bg-alt); color: var(--black);
+    border: 1px solid transparent; padding: 14px 16px; border-radius: var(--radius-ui);
+    font-family: var(--font-text); font-size: 16px; outline: none; transition: border-color 0.2s, background 0.2s;
+  }
+  .form-input:focus { border-color: var(--electric-blue); background: var(--white); box-shadow: 0 0 0 1px var(--electric-blue); }
+  
+  /* RADIUS */
+  .radius-row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .radius-item { text-align: center; }
+  .radius-box { width: 80px; height: 80px; background: var(--black); margin-bottom: 12px; }
+  
+  .footer { padding: 40px; text-align: center; background: var(--white); border-top: 1px solid #ebebeb; font-size: 14px; color: var(--text-sec); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="#">Samsung UI</a>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#cards">Structural</a></li>
+  </ul>
+  <a class="nav-cta" href="#">Pre-order</a>
+</nav>
+
+<section class="hero">
+  <div class="section-label" style="color:var(--text-sec); margin-bottom:20px;">Design System Overview</div>
+  <h1>Bold, expansive, and<br>highly structured.</h1>
+  <p>A design token preview approximating the dynamic, high-contrast, block-based UI architecture used by Samsung.</p>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="#">Explore Guidelines</a>
+    <a class="btn-outline" href="#">View Components</a>
+  </div>
+</section>
+
+<section class="section" id="colors">
+  <div class="section-label">Foundation</div>
+  <h2 class="section-title">Color System</h2>
+
+  <div class="color-group-label">Core Neutrals</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:var(--black)"></div><div class="color-swatch-info"><div class="color-swatch-name">Pure Black</div><div class="color-swatch-hex">#000000</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:var(--white)"></div><div class="color-swatch-info"><div class="color-swatch-name">Pure White</div><div class="color-swatch-hex">#ffffff</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:var(--light-gray)"></div><div class="color-swatch-info"><div class="color-swatch-name">Light Gray</div><div class="color-swatch-hex">#f4f4f4</div></div></div>
+  </div>
+
+  <div class="color-group-label">Brand & Accent</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:var(--electric-blue)"></div><div class="color-swatch-info"><div class="color-swatch-name">Electric Blue (UI)</div><div class="color-swatch-hex">#0072ea</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:var(--brand-blue)"></div><div class="color-swatch-info"><div class="color-swatch-name">Samsung Blue</div><div class="color-swatch-hex">#1428a0</div></div></div>
+  </div>
+
+  <div class="color-group-label">Text</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:var(--text-sec)"></div><div class="color-swatch-info"><div class="color-swatch-name">Text Secondary</div><div class="color-swatch-hex">#767676</div></div></div>
+  </div>
+</section>
+
+<section class="section bg-gray" id="typography">
+  <div class="section-label">Typography</div>
+  <h2 class="section-title">Scale & Hierarchy</h2>
+
+  <div class="type-sample"><div style="font-family:var(--font-display); font-size:56px; font-weight:700; line-height:1.15; letter-spacing:-0.5px;">Display Hero 56</div><div class="type-meta">Samsung Sharp Sans (Montserrat) - 56px / 700 / 1.15</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-display); font-size:40px; font-weight:700; line-height:1.20; letter-spacing:-0.5px;">Section Title 40</div><div class="type-meta">Samsung Sharp Sans (Montserrat) - 40px / 700 / 1.20</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-display); font-size:24px; font-weight:700; line-height:1.25;">Card Title 24</div><div class="type-meta">Samsung Sharp Sans (Montserrat) - 24px / 700 / 1.25</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-text); font-size:20px; font-weight:600; line-height:1.30; color:var(--text-sec);">Sub-heading 20</div><div class="type-meta">SamsungOne (Inter) - 20px / 600 / 1.30</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-text); font-size:16px; font-weight:400; line-height:1.50;">Body text 16. Designed to establish a balance between structural strength and seamless readability across all digital touchpoints.</div><div class="type-meta">SamsungOne (Inter) - 16px / 400 / 1.50</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-text); font-size:14px; font-weight:700; line-height:1.40;">LABEL & BUTTON 14</div><div class="type-meta">SamsungOne (Inter) - 14px / 700 / 1.40</div></div>
+</section>
+
+<section class="section" id="components">
+  <div class="section-label">Interactive</div>
+  <h2 class="section-title">Buttons & CTAs</h2>
+  
+  <div class="button-row" style="margin-bottom:48px;">
+    <div class="button-item"><button class="btn-primary">Buy now</button><div class="button-label">Primary Black</div></div>
+    <div class="button-item"><button class="btn-outline">Learn more</button><div class="button-label">Outline</div></div>
+    <div class="button-item"><a href="#" class="text-link">Learn more <span>></span></a><div class="button-label">Text Link (Hover Bold Underline)</div></div>
+    <div class="button-item"><a href="#" class="text-link text-link-blue">See offers <span>></span></a><div class="button-label">Text Link (Blue)</div></div>
+  </div>
+
+  <h2 class="section-title" style="margin-top: 64px;">Inputs</h2>
+  <div class="form-group">
+    <label class="form-label">Email Address</label>
+    <input type="email" class="form-input" placeholder="Enter your email">
+  </div>
+</section>
+
+<div class="bg-black">
+  <section class="section" id="dark-context">
+    <div class="section-label" style="color:var(--text-ter);">Immersive</div>
+    <h2 class="section-title">Dark Mode & Elevations</h2>
+    
+    <div class="button-row" style="margin-bottom: 48px;">
+      <div class="button-item">
+        <button class="btn-primary" style="background:var(--white); color:var(--black);">Pre-order</button>
+        <div class="button-label" style="color:var(--text-ter);">Primary White</div>
+      </div>
+      <div class="button-item">
+        <a href="#" class="text-link" style="color:var(--white);">Watch film <span>></span></a>
+        <div class="button-label" style="color:var(--text-ter);">Dark Context Link</div>
+      </div>
+    </div>
+    
+    <div class="card-grid">
+      <div class="card" style="background:#1c1c1c; border: 1px solid #333;">
+        <h3 style="color:var(--white);">Galaxy Core</h3>
+        <p style="color:var(--text-ter);">Experience the ultimate performance with advanced chipset technologies.</p>
+        <button class="btn-primary" style="background:var(--white); color:var(--black); margin-top:auto;">Discover</button>
+      </div>
+      <div class="card" style="background:#1c1c1c; border: 1px solid #333;">
+        <h3 style="color:var(--white);">SmartThings</h3>
+        <p style="color:var(--text-ter);">Connect your entire home ecosystem seamlessly.</p>
+        <a href="#" class="text-link" style="color:var(--white); margin-top:auto;">Learn more <span>></span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section bg-gray" id="cards">
+  <div class="section-label">Structural</div>
+  <h2 class="section-title">Card Grids (20px Radius)</h2>
+  
+  <div class="card-grid">
+    <div class="card card-gray" style="background:var(--white);">
+      <h3>Smartphones</h3>
+      <p>The iconic series that redefines what a mobile device can do.</p>
+      <button class="btn-primary" style="margin-top:auto;">Shop</button>
+    </div>
+    <div class="card card-gray" style="background:var(--white);">
+      <h3>TV & AV</h3>
+      <p>Breathtaking visual experiences powered by Neo QLED technology.</p>
+      <button class="btn-primary" style="margin-top:auto;">Shop</button>
+    </div>
+    <div class="card card-gray" style="background:var(--white);">
+      <h3>Appliances</h3>
+      <p>Intelligent home solutions designed for your lifestyle.</p>
+      <button class="btn-primary" style="margin-top:auto;">Shop</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  Inspired by Samsung's digital design language. Created for awesome-design-md.
+</footer>
+
+</body>
+</html>
