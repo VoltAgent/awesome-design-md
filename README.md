@@ -69,9 +69,96 @@ Each site includes:
 
 ### How to Use
 
+The easiest way to use this collection is through the interactive TUI package [`@fce/design-md`](https://www.npmjs.com/package/@fce/design-md).
 
-1. Copy a site's `DESIGN.md` into your project root
-2. Tell your AI agent to use it.
+### Quick Start
+
+Run it without installing:
+
+```bash
+npx @fce/design-md
+```
+
+```bash
+pnpm dlx @fce/design-md
+```
+
+Install it globally and use the short command:
+
+```bash
+npm install -g @fce/design-md
+design-md
+```
+
+### Why use the TUI package
+
+- No manual copying from GitHub folders
+- Interactive selection instead of remembering long commands
+- Downloads files directly from the latest `design-md/` folders in this repository
+- Newly added resources in this project become selectable as the collection grows
+
+### What the CLI does
+
+1. Starts an interactive TUI
+2. Lets you choose `Chinese` or `English`
+3. Lets you choose one of three TUI modes shown in the menu:
+   - single design
+   - select all
+   - custom multi-select
+4. Fetches site folders from this repository's `design-md/` directory
+5. Downloads the selected `DESIGN.md` files into your project
+6. Lets your AI use the corresponding site's `DESIGN.md`
+
+### Terminal Preview
+
+```text
+$ npx @fce/design-md
+
+  +----------------------------------------------------------+
+  |   ____            _                    __  ___     __     |
+  |  / __ \___  _____(_)___ _____        /  |/  /____/ /     |
+  | / / / / _ \/ ___/ / __ `/ __ \______/ /|_/ / __  /      |
+  |/ /_/ /  __(__  ) / /_/ / / / /_____/ /  / / /_/ /       |
+  |\____/\___/____/_/\__, /_/ /_/     /_/  /_/\__,_/        |
+  |                  /____/                 design-md        |
+  +----------------------------------------------------------+
+
+* Select language / 选择语言
+* Choose download mode
+* Select one or more design folders
+* Confirm download
+o Download completed
+o Success
+```
+
+### TUI Flow
+
+```mermaid
+flowchart TD
+    A["Run npx @fce/design-md"] --> B["Choose language"]
+    B --> C["Choose mode"]
+    C --> D["Single design"]
+    C --> E["Select all"]
+    C --> F["Custom multi-select"]
+    D --> G["Select site"]
+    E --> H["Fetch all available sites"]
+    F --> I["Multi-select sites"]
+    G --> J["Confirm download"]
+    H --> J
+    I --> J
+    J --> K["Download DESIGN.md files"]
+    K --> L["Use the corresponding DESIGN.md with your AI"]
+```
+
+### Output
+
+- Single selection:
+  - `./DESIGN.md`
+  - `./design-md/<site>/DESIGN.md`
+- Multiple selections:
+  - `./design-md/<site>/DESIGN.md`
+
+After that, tell your AI agent to use the corresponding `DESIGN.md`.
 
 
 ## Request a DESIGN.md
