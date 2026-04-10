@@ -171,6 +171,35 @@ Each site includes:
 1. Copy a site's `DESIGN.md` into your project root
 2. Tell your AI agent to use it.
 
+### Claude Code Skill (One-Command Install)
+
+If you use [Claude Code](https://docs.anthropic.com/en/docs/claude-code), you can install the `/design-md` skill to browse and apply any style directly from your terminal.
+
+**Install:**
+
+```bash
+git clone https://github.com/VoltAgent/awesome-design-md.git
+cd awesome-design-md
+./install-skill.sh
+```
+
+Or manually copy the skill file:
+
+```bash
+mkdir -p ~/.claude/skills/design-md
+cp skills/claude-code/SKILL.md ~/.claude/skills/design-md/SKILL.md
+```
+
+**Usage in Claude Code:**
+
+```
+/design-md              # browse styles interactively
+/design-md vercel       # apply Vercel's design system
+/design-md stripe       # apply Stripe's design system
+```
+
+The skill fetches the DESIGN.md from [getdesign.md](https://getdesign.md) and saves it to your project root. Then just tell Claude to build UI using that design system.
+
 
 ## Contributing
 
