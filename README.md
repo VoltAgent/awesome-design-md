@@ -90,6 +90,7 @@ You can [request a DESIGN.md](https://getdesign.md/request) for specific website
 ### Productivity & SaaS
 
 - [**Cal.com**](https://getdesign.md/cal/design-md) - Open-source scheduling. Clean neutral UI, developer-oriented simplicity
+- [**Google Cloud & Workspace**](./design-md/google/DESIGN.md) - Enterprise Google. Material-based, flat, data-dense, Google Blue accent
 - [**Intercom**](https://getdesign.md/intercom/design-md) - Customer messaging. Friendly blue palette, conversational UI patterns
 - [**Linear**](https://getdesign.md/linear.app/design-md) - Project management for engineers. Ultra-minimal, precise, purple accent
 - [**Mintlify**](https://getdesign.md/mintlify/design-md) - Documentation platform. Clean, green-accented, reading-optimized
