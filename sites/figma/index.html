@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Ellis — Creative Director & Design Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --glass-dark: rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.14px;
+      color: var(--black);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.14px;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline 1px; }
+    .nav-links a:focus { outline: dashed 2px var(--black); outline-offset: 2px; }
+    .btn-nav {
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.14px;
+      text-decoration: none;
+    }
+    .btn-nav:focus { outline: dashed 2px var(--black); outline-offset: 3px; }
+
+    /* ── HERO ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      padding: 72px 48px;
+    }
+    .hero-left { flex: 1.1; }
+
+    .role-label {
+      font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.54px;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .display-name {
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -1.72px;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.45;
+      letter-spacing: -0.26px;
+      color: var(--black);
+      max-width: 340px;
+      margin-bottom: 36px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.14px;
+      text-decoration: none;
+    }
+    .btn-primary:focus { outline: dashed 2px var(--black); outline-offset: 3px; }
+    .btn-secondary {
+      background: var(--glass-dark);
+      color: var(--black);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.14px;
+      text-decoration: none;
+    }
+    .btn-secondary:focus { outline: dashed 2px var(--black); outline-offset: 3px; }
+
+    /* ── PROJECT GRID ── */
+    .hero-right {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .proj-card {
+      border-radius: 8px;
+      height: 190px;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+      overflow: hidden;
+    }
+    .proj-label {
+      font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.54px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .proj-1 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+    .proj-2 { background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%); }
+    .proj-3 { background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%); }
+    .proj-4 { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+    .proj-4 .proj-label { color: rgba(0, 0, 0, 0.65); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: -0.1px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: -0.1px;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: rgba(255, 255, 255, 0.9); }
+    .footer-links a:focus { outline: dashed 2px rgba(255, 255, 255, 0.5); outline-offset: 2px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 48px 24px;
+        gap: 40px;
+      }
+      .hero-left, .hero-right { flex: none; width: 100%; }
+      .display-name { font-size: 48px; letter-spacing: -1px; }
+      .tagline { max-width: 100%; }
+      .proj-card { height: 130px; }
+      footer { padding: 16px 24px; flex-wrap: wrap; gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .display-name { font-size: 40px; letter-spacing: -0.8px; }
+      .tagline { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-logo">JE</span>
+    <ul class="nav-links">
+      <li><a href="#">Work</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Writing</a></li>
+    </ul>
+    <a href="#" class="btn-nav">Contact</a>
+  </nav>
+
+  <main class="hero">
+    <div class="hero-left">
+      <p class="role-label">Creative Director · Design Engineer</p>
+      <h1 class="display-name">Jordan<br>Ellis</h1>
+      <p class="tagline">I design systems that think and build interfaces that feel inevitable.</p>
+      <div class="btn-row">
+        <a href="#" class="btn-primary">View Work</a>
+        <a href="#" class="btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-right" aria-label="Selected projects">
+      <div class="proj-card proj-1"><span class="proj-label">Design Systems</span></div>
+      <div class="proj-card proj-2"><span class="proj-label">Motion UI</span></div>
+      <div class="proj-card proj-3"><span class="proj-label">Brand Identity</span></div>
+      <div class="proj-card proj-4"><span class="proj-label">Engineering</span></div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-copy">Jordan Ellis — 2026</span>
+    <ul class="footer-links">
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">Dribbble</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
