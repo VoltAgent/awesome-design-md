@@ -14,6 +14,12 @@
 </div>
 
 <div align="center">
+    English | <a href="i18n/README-zh-traditional.md">繁體中文</a> | <a href="i18n/README-zh-bsc.md">简体中文</a>
+</div>
+
+<br />
+
+<div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 ![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-68-10b981?style=classic)
