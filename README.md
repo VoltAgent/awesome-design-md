@@ -173,9 +173,28 @@ Each site includes:
 
 ### How to Use
 
+This repository is now a curated index. The live `DESIGN.md` files are fetched through the official `getdesign` CLI.
 
-1. Copy a site's `DESIGN.md` into your project root
-2. Tell your AI agent to use it.
+1. Browse all available design slugs:
+
+```bash
+npx getdesign@latest list
+```
+
+2. Download one `DESIGN.md` directly into your project:
+
+```bash
+npx getdesign@latest add vercel --out ./DESIGN.md
+```
+
+3. If you want a small searchable wrapper from this repo, use the helper script:
+
+```bash
+node scripts/getdesign-catalog.mjs search stripe
+node scripts/getdesign-catalog.mjs download stripe --dest ./DESIGN.md
+```
+
+4. Tell your AI agent to use the downloaded `DESIGN.md`.
 
 
 ## Contributing
