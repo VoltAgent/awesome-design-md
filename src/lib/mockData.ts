@@ -16,12 +16,24 @@ export const mockTeamMembers: TeamMember[] = [
     avatar: 'https://i.pravatar.cc/150?img=1',
     position: '高级前端工程师',
     healthScore: 65,
+    mentalHealthScores: {
+      overall: 65,
+      depressionRisk: 65,
+      anxietyRisk: 55,
+      burnoutRisk: 70,
+      stressLevel: 60,
+      wellBeingScore: 45,
+      trend: 'declining',
+      baselineDeviation: 25
+    },
     scores: {
-      workHours: 55,
-      codeQuality: 75,
-      taskProgress: 60,
-      meetingEfficiency: 70,
-      collaboration: 65
+      timePattern: 55,
+      communication: 60,
+      interaction: 65,
+      task: 70,
+      socialNetwork: 55,
+      emotional: 50,
+      spatial: 60
     },
     lastCommit: new Date(Date.now() - 3600000 * 8),
     hasAlert: true,
@@ -33,12 +45,24 @@ export const mockTeamMembers: TeamMember[] = [
     avatar: 'https://i.pravatar.cc/150?img=2',
     position: '产品经理',
     healthScore: 88,
+    mentalHealthScores: {
+      overall: 88,
+      depressionRisk: 20,
+      anxietyRisk: 25,
+      burnoutRisk: 15,
+      stressLevel: 30,
+      wellBeingScore: 85,
+      trend: 'stable',
+      baselineDeviation: 10
+    },
     scores: {
-      workHours: 90,
-      codeQuality: 0,
-      taskProgress: 92,
-      meetingEfficiency: 85,
-      collaboration: 85
+      timePattern: 90,
+      communication: 92,
+      interaction: 85,
+      task: 88,
+      socialNetwork: 90,
+      emotional: 85,
+      spatial: 90
     },
     lastCommit: new Date(Date.now() - 3600000 * 2),
     hasAlert: false
@@ -49,12 +73,24 @@ export const mockTeamMembers: TeamMember[] = [
     avatar: 'https://i.pravatar.cc/150?img=3',
     position: '后端架构师',
     healthScore: 55,
+    mentalHealthScores: {
+      overall: 55,
+      depressionRisk: 80,
+      anxietyRisk: 75,
+      burnoutRisk: 85,
+      stressLevel: 90,
+      wellBeingScore: 30,
+      trend: 'declining',
+      baselineDeviation: 40
+    },
     scores: {
-      workHours: 40,
-      codeQuality: 70,
-      taskProgress: 50,
-      meetingEfficiency: 65,
-      collaboration: 50
+      timePattern: 40,
+      communication: 35,
+      interaction: 45,
+      task: 50,
+      socialNetwork: 30,
+      emotional: 25,
+      spatial: 40
     },
     lastCommit: new Date(Date.now() - 3600000 * 36),
     hasAlert: true,
@@ -66,12 +102,24 @@ export const mockTeamMembers: TeamMember[] = [
     avatar: 'https://i.pravatar.cc/150?img=4',
     position: 'UI设计师',
     healthScore: 92,
+    mentalHealthScores: {
+      overall: 92,
+      depressionRisk: 15,
+      anxietyRisk: 10,
+      burnoutRisk: 12,
+      stressLevel: 20,
+      wellBeingScore: 90,
+      trend: 'improving',
+      baselineDeviation: 5
+    },
     scores: {
-      workHours: 95,
-      codeQuality: 0,
-      taskProgress: 90,
-      meetingEfficiency: 92,
-      collaboration: 90
+      timePattern: 95,
+      communication: 90,
+      interaction: 92,
+      task: 88,
+      socialNetwork: 95,
+      emotional: 90,
+      spatial: 95
     },
     lastCommit: new Date(Date.now() - 3600000 * 1),
     hasAlert: false
@@ -82,12 +130,24 @@ export const mockTeamMembers: TeamMember[] = [
     avatar: 'https://i.pravatar.cc/150?img=5',
     position: '全栈开发工程师',
     healthScore: 78,
+    mentalHealthScores: {
+      overall: 78,
+      depressionRisk: 35,
+      anxietyRisk: 30,
+      burnoutRisk: 40,
+      stressLevel: 45,
+      wellBeingScore: 70,
+      trend: 'stable',
+      baselineDeviation: 15
+    },
     scores: {
-      workHours: 80,
-      codeQuality: 85,
-      taskProgress: 75,
-      meetingEfficiency: 70,
-      collaboration: 80
+      timePattern: 80,
+      communication: 75,
+      interaction: 85,
+      task: 78,
+      socialNetwork: 70,
+      emotional: 65,
+      spatial: 75
     },
     lastCommit: new Date(Date.now() - 3600000 * 6),
     hasAlert: false
@@ -98,12 +158,24 @@ export const mockTeamMembers: TeamMember[] = [
     avatar: 'https://i.pravatar.cc/150?img=6',
     position: '测试工程师',
     healthScore: 85,
+    mentalHealthScores: {
+      overall: 85,
+      depressionRisk: 25,
+      anxietyRisk: 20,
+      burnoutRisk: 22,
+      stressLevel: 30,
+      wellBeingScore: 80,
+      trend: 'stable',
+      baselineDeviation: 8
+    },
     scores: {
-      workHours: 90,
-      codeQuality: 0,
-      taskProgress: 82,
-      meetingEfficiency: 80,
-      collaboration: 88
+      timePattern: 85,
+      communication: 80,
+      interaction: 82,
+      task: 90,
+      socialNetwork: 85,
+      emotional: 75,
+      spatial: 85
     },
     lastCommit: new Date(Date.now() - 3600000 * 3),
     hasAlert: false

@@ -14,7 +14,7 @@ import {
   generateSuggestions 
 } from '../lib/mockData';
 import { Suggestion } from '../types';
-import { ArrowLeft, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, AlertTriangle, Activity, Heart, Brain, AlertCircle, Smile } from 'lucide-react';
 
 export function MemberDetail() {
   const { id } = useParams();
@@ -72,28 +72,48 @@ export function MemberDetail() {
             
             <div className="grid grid-cols-2 gap-4 mt-8 w-full">
               <div className="text-center">
-                <div className="text-lg font-semibold" style={{ color: member.scores.workHours >= 80 ? '#4db6ac' : member.scores.workHours >= 60 ? '#ff9800' : '#f44336' }}>
-                  {member.scores.workHours}
+                <div className="text-lg font-semibold" style={{ color: member.scores.timePattern >= 80 ? '#4db6ac' : member.scores.timePattern >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.timePattern}
                 </div>
-                <div className="text-xs text-gray-500">工作时长</div>
+                <div className="text-xs text-gray-500">时间模式</div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-semibold" style={{ color: member.scores.codeQuality >= 80 ? '#4db6ac' : member.scores.codeQuality >= 60 ? '#ff9800' : '#f44336' }}>
-                  {member.scores.codeQuality}
+                <div className="text-lg font-semibold" style={{ color: member.scores.communication >= 80 ? '#4db6ac' : member.scores.communication >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.communication}
                 </div>
-                <div className="text-xs text-gray-500">代码质量</div>
+                <div className="text-xs text-gray-500">沟通模式</div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-semibold" style={{ color: member.scores.taskProgress >= 80 ? '#4db6ac' : member.scores.taskProgress >= 60 ? '#ff9800' : '#f44336' }}>
-                  {member.scores.taskProgress}
+                <div className="text-lg font-semibold" style={{ color: member.scores.interaction >= 80 ? '#4db6ac' : member.scores.interaction >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.interaction}
                 </div>
-                <div className="text-xs text-gray-500">任务进度</div>
+                <div className="text-xs text-gray-500">交互行为</div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-semibold" style={{ color: member.scores.meetingEfficiency >= 80 ? '#4db6ac' : member.scores.meetingEfficiency >= 60 ? '#ff9800' : '#f44336' }}>
-                  {member.scores.meetingEfficiency}
+                <div className="text-lg font-semibold" style={{ color: member.scores.task >= 80 ? '#4db6ac' : member.scores.task >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.task}
                 </div>
-                <div className="text-xs text-gray-500">会议效率</div>
+                <div className="text-xs text-gray-500">任务效率</div>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-4 mt-4 w-full">
+              <div className="text-center">
+                <div className="text-lg font-semibold" style={{ color: member.scores.socialNetwork >= 80 ? '#4db6ac' : member.scores.socialNetwork >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.socialNetwork}
+                </div>
+                <div className="text-xs text-gray-500">社交网络</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-semibold" style={{ color: member.scores.emotional >= 80 ? '#4db6ac' : member.scores.emotional >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.emotional}
+                </div>
+                <div className="text-xs text-gray-500">情感状态</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-semibold" style={{ color: member.scores.spatial >= 80 ? '#4db6ac' : member.scores.spatial >= 60 ? '#ff9800' : '#f44336' }}>
+                  {member.scores.spatial}
+                </div>
+                <div className="text-xs text-gray-500">空间行为</div>
               </div>
             </div>
           </CardContent>
@@ -106,6 +126,59 @@ export function MemberDetail() {
           </CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader title="心理健康状态" subtitle="基于行为数据的心理健康评估" />
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <div className="text-center p-4 border border-gray-200 rounded-lg">
+              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <Heart size={20} className="text-blue-600" />
+              </div>
+              <div className="text-2xl font-bold" style={{ color: member.mentalHealthScores.depressionRisk >= 70 ? '#f44336' : member.mentalHealthScores.depressionRisk >= 50 ? '#ff9800' : '#4db6ac' }}>
+                {member.mentalHealthScores.depressionRisk}
+              </div>
+              <div className="text-xs text-gray-500">抑郁风险</div>
+            </div>
+            <div className="text-center p-4 border border-gray-200 rounded-lg">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <Brain size={20} className="text-purple-600" />
+              </div>
+              <div className="text-2xl font-bold" style={{ color: member.mentalHealthScores.anxietyRisk >= 70 ? '#f44336' : member.mentalHealthScores.anxietyRisk >= 50 ? '#ff9800' : '#4db6ac' }}>
+                {member.mentalHealthScores.anxietyRisk}
+              </div>
+              <div className="text-xs text-gray-500">焦虑风险</div>
+            </div>
+            <div className="text-center p-4 border border-gray-200 rounded-lg">
+              <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <AlertCircle size={20} className="text-orange-600" />
+              </div>
+              <div className="text-2xl font-bold" style={{ color: member.mentalHealthScores.burnoutRisk >= 70 ? '#f44336' : member.mentalHealthScores.burnoutRisk >= 50 ? '#ff9800' : '#4db6ac' }}>
+                {member.mentalHealthScores.burnoutRisk}
+              </div>
+              <div className="text-xs text-gray-500">倦怠风险</div>
+            </div>
+            <div className="text-center p-4 border border-gray-200 rounded-lg">
+              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <Activity size={20} className="text-red-600" />
+              </div>
+              <div className="text-2xl font-bold" style={{ color: member.mentalHealthScores.stressLevel >= 70 ? '#f44336' : member.mentalHealthScores.stressLevel >= 50 ? '#ff9800' : '#4db6ac' }}>
+                {member.mentalHealthScores.stressLevel}
+              </div>
+              <div className="text-xs text-gray-500">压力水平</div>
+            </div>
+            <div className="text-center p-4 border border-gray-200 rounded-lg">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <Smile size={20} className="text-green-600" />
+              </div>
+              <div className="text-2xl font-bold" style={{ color: member.mentalHealthScores.wellBeingScore >= 70 ? '#4db6ac' : member.mentalHealthScores.wellBeingScore >= 50 ? '#ff9800' : '#f44336' }}>
+                {member.mentalHealthScores.wellBeingScore}
+              </div>
+              <div className="text-xs text-gray-500">幸福感</div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>

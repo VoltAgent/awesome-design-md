@@ -4,12 +4,24 @@ export interface TeamMember {
   avatar: string;
   position: string;
   healthScore: number;
+  mentalHealthScores: {
+    overall: number;
+    depressionRisk: number;
+    anxietyRisk: number;
+    burnoutRisk: number;
+    stressLevel: number;
+    wellBeingScore: number;
+    trend: 'improving' | 'declining' | 'stable';
+    baselineDeviation: number;
+  };
   scores: {
-    workHours: number;
-    codeQuality: number;
-    taskProgress: number;
-    meetingEfficiency: number;
-    collaboration: number;
+    timePattern: number;
+    communication: number;
+    interaction: number;
+    task: number;
+    socialNetwork: number;
+    emotional: number;
+    spatial: number;
   };
   lastCommit: Date;
   hasAlert: boolean;

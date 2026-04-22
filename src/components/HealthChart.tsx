@@ -123,32 +123,36 @@ export function WorkPatternChart({ data }: WorkPatternChartProps) {
 
 interface RadarScoreChartProps {
   scores: {
-    workHours: number;
-    codeQuality: number;
-    taskProgress: number;
-    meetingEfficiency: number;
-    collaboration: number;
+    timePattern: number;
+    communication: number;
+    interaction: number;
+    task: number;
+    socialNetwork: number;
+    emotional: number;
+    spatial: number;
   };
 }
 
 export function RadarScoreChart({ scores }: RadarScoreChartProps) {
   const chartData = [
-    { subject: '工作时长', A: scores.workHours, fullMark: 100 },
-    { subject: '代码质量', A: scores.codeQuality, fullMark: 100 },
-    { subject: '任务进度', A: scores.taskProgress, fullMark: 100 },
-    { subject: '会议效率', A: scores.meetingEfficiency, fullMark: 100 },
-    { subject: '协作程度', A: scores.collaboration, fullMark: 100 }
+    { subject: '时间模式', A: scores.timePattern, fullMark: 100 },
+    { subject: '沟通模式', A: scores.communication, fullMark: 100 },
+    { subject: '交互行为', A: scores.interaction, fullMark: 100 },
+    { subject: '任务效率', A: scores.task, fullMark: 100 },
+    { subject: '社交网络', A: scores.socialNetwork, fullMark: 100 },
+    { subject: '情感状态', A: scores.emotional, fullMark: 100 },
+    { subject: '空间行为', A: scores.spatial, fullMark: 100 }
   ];
 
   return (
-    <div className="h-72">
+    <div className="h-80">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={chartData}>
           <PolarGrid stroke="#e5e7eb" />
           <PolarAngleAxis 
             dataKey="subject" 
             stroke="#6b7280" 
-            fontSize={12} 
+            fontSize={11} 
           />
           <PolarRadiusAxis 
             stroke="#6b7280" 
