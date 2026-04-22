@@ -14,7 +14,8 @@ import {
   generateSuggestions 
 } from '../lib/mockData';
 import { Suggestion } from '../types';
-import { ArrowLeft, AlertTriangle, Activity, Heart, Brain, AlertCircle, Smile } from 'lucide-react';
+import { generateMockMBTIAnalysis } from '../lib/mbtiAnalyzer';
+import { ArrowLeft, AlertTriangle, Activity, Heart, Brain, AlertCircle, Smile, Users, BarChart2, Lightbulb } from 'lucide-react';
 
 export function MemberDetail() {
   const { id } = useParams();
@@ -27,6 +28,7 @@ export function MemberDetail() {
   const healthHistory = generateHealthHistory(memberId);
   const workPattern = generateWorkPattern(memberId);
   const suggestions = generateSuggestions(memberId);
+  const mbtiAnalysis = generateMockMBTIAnalysis(memberId);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
@@ -235,6 +237,92 @@ export function MemberDetail() {
                 </div>
               </div>
             ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader title="MBTI人格分析" subtitle="基于行为数据的人格类型评估" />
+        <CardContent>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <Brain size={32} className="text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">{mbtiAnalysis.mbtiType}</h3>
+                  <p className="text-gray-600">{mbtiAnalysis.description}</p>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-medium text-gray-800 mb-2">行为模式</h4>
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="bg-gray-50 p-3 rounded-lg text-center">
+                      <div className="text-sm font-medium">工作时间</div>
+                      <div className="text-xs text-gray-600">{mbtiAnalysis.behavioralPatterns.workHours}</div>
+                    </div>
+                    <div className="bg-gray-50 p-3 rounded-lg text-center">
+                      <div className="text-sm font-medium">沟通频率</div>
+                      <div className="text-xs text-gray-600">{mbtiAnalysis.behavioralPatterns.communication}</div>
+                    </div>
+                    <div className="bg-gray-50 p-3 rounded-lg text-center">
+                      <div className="text-sm font-medium">任务处理</div>
+                      <div className="text-xs text-gray-600">{mbtiAnalysis.behavioralPatterns.taskHandling}</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-medium text-gray-800 mb-2">沟通风格</h4>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-sm font-medium mb-2">{mbtiAnalysis.communicationStyle.style}</div>
+                    <div className="text-xs text-gray-600 mb-2">优势: {mbtiAnalysis.communicationStyle.strengths.join('、')}</div>
+                    <div className="text-xs text-gray-600">改进空间: {mbtiAnalysis.communicationStyle.areasForImprovement.join('、')}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-medium text-gray-800 mb-4">工作偏好</h4>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-700">首选环境</span>
+                  <span className="font-medium">{mbtiAnalysis.workPreferences.preferredEnvironment}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-700">协作风格</span>
+                  <span className="font-medium">{mbtiAnalysis.workPreferences.collaborationStyle}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-700">决策方式</span>
+                  <span className="font-medium">{mbtiAnalysis.workPreferences.decisionMaking}</span>
+                </div>
+              </div>
+              
+              <h4 className="font-medium text-gray-800 mb-2">职业建议</h4>
+              <ul className="space-y-2 mb-6">
+                {mbtiAnalysis.careerAdvice.map((advice, index) => (
+                  <li key={index} className="flex items-start text-sm text-gray-700">
+                    <Lightbulb size={16} className="text-amber-500 mr-2 mt-0.5 flex-shrink-0" />
+                    {advice}
+                  </li>
+                ))}
+              </ul>
+              
+              <h4 className="font-medium text-gray-800 mb-2">团队贡献</h4>
+              <ul className="space-y-2">
+                {mbtiAnalysis.teamContribution.map((contribution, index) => (
+                  <li key={index} className="flex items-start text-sm text-gray-700">
+                    <Users size={16} className="text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+                    {contribution}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </CardContent>
       </Card>

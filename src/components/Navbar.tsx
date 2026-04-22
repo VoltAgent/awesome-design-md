@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Users, BarChart3, FileText, Settings, Calendar } from 'lucide-react';
+import { Home, Users, BarChart3, FileText, Settings, Calendar, Brain } from 'lucide-react';
 
 export function Navbar() {
   const location = useLocation();
@@ -14,6 +14,7 @@ export function Navbar() {
     { path: '/', label: '仪表盘', icon: Home },
     { path: '/project/1', label: '项目分析', icon: BarChart3 },
     { path: '/team', label: '团队协作', icon: Users },
+    { path: '/mbti', label: 'MBTI分析', icon: Brain },
     { path: '/reports', label: '报告中心', icon: FileText },
     { path: '/daily', label: '日报系统', icon: Calendar },
     { path: '/settings', label: '设置', icon: Settings },

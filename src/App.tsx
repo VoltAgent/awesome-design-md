@@ -7,6 +7,7 @@ import { TeamPage } from "@/pages/TeamPage";
 import { ReportsPage } from "@/pages/ReportsPage";
 import { SettingsPage } from "@/pages/SettingsPage";
 import { DailyReport } from "@/pages/DailyReport";
+import { MBTIPage } from "@/pages/MBTIPage";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/daily" element={<DailyReport />} />
+            <Route path="/mbti" element={<MBTIPage />} />
           </Routes>
         </main>
       </div>
