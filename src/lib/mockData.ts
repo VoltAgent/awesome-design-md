@@ -6,7 +6,10 @@ import {
   Activity,
   TeamOverview,
   Suggestion,
-  WorkPattern
+  WorkPattern,
+  DailyReport,
+  Report,
+  Setting
 } from '../types';
 
 export const mockTeamMembers: TeamMember[] = [
@@ -373,5 +376,163 @@ export const generateWorkPattern = (memberId: number): WorkPattern => {
     avgWorkHours: 8,
     meetingPercentage: 25,
     commitFrequency: 3
+  };
+};
+
+export const mockDailyReports: DailyReport[] = [
+  {
+    id: 1,
+    memberId: 1,
+    memberName: '张伟',
+    content: '完成了登录模块的重构代码，修复了样式问题',
+    aiSummary: '张伟今天完成了登录模块重构工作',
+    date: new Date(Date.now() - 86400000 * 0),
+    mood: 'neutral'
+  },
+  {
+    id: 2,
+    memberId: 2,
+    memberName: '李娜',
+    content: '整理了产品需求文档，组织了周会',
+    aiSummary: '李娜完成了需求文档整理并主持了周会',
+    date: new Date(Date.now() - 86400000 * 0),
+    mood: 'good'
+  },
+  {
+    id: 3,
+    memberId: 4,
+    memberName: '刘芳',
+    content: '完成了新功能的UI设计稿',
+    aiSummary: '刘芳完成了UI设计工作',
+    date: new Date(Date.now() - 86400000 * 0),
+    mood: 'good'
+  },
+  {
+    id: 4,
+    memberId: 1,
+    memberName: '张伟',
+    content: '实现了数据缓存的优化功能',
+    aiSummary: '张伟优化了数据缓存系统',
+    date: new Date(Date.now() - 86400000 * 1),
+    mood: 'neutral'
+  },
+  {
+    id: 5,
+    memberId: 6,
+    memberName: '赵静',
+    content: '完成了API接口的测试用例',
+    aiSummary: '赵静编写了API测试用例',
+    date: new Date(Date.now() - 86400000 * 1),
+    mood: 'good'
+  },
+  {
+    id: 6,
+    memberId: 2,
+    memberName: '李娜',
+    content: '与客户进行了需求沟通会议',
+    aiSummary: '李娜完成了客户需求沟通',
+    date: new Date(Date.now() - 86400000 * 2),
+    mood: 'good'
+  }
+];
+
+export const mockReports: Report[] = [
+  {
+    id: 1,
+    title: '团队健康周报 - 第1期',
+    type: 'weekly',
+    date: new Date(Date.now() - 86400000 * 7),
+    overallScore: 77,
+    summary: '团队整体健康度良好，但有个别成员需要关注'
+  },
+  {
+    id: 2,
+    title: '项目进度报告',
+    type: 'project',
+    date: new Date(Date.now() - 86400000 * 3),
+    overallScore: 65,
+    summary: '项目整体进度达到65%，需要关注Alpha版本里程碑'
+  },
+  {
+    id: 3,
+    title: '团队MBTI分析报告',
+    type: 'mbti',
+    date: new Date(Date.now() - 86400000 * 10),
+    overallScore: 75,
+    summary: '团队MBTI类型分布多样，具有良好的互补性'
+  }
+];
+
+export const mockSettings: Setting[] = [
+  {
+    id: 1,
+    key: 'alert_work_hours',
+    name: '工作时间异常预警',
+    description: '当检测到异常工作时间时发送预警',
+    value: true,
+    category: 'notifications'
+  },
+  {
+    id: 2,
+    key: 'alert_overtime',
+    name: '加班预警',
+    description: '当加班时间超过阈值时发送预警',
+    value: true,
+    category: 'notifications'
+  },
+  {
+    id: 3,
+    key: 'auto_summary',
+    name: 'AI自动总结',
+    description: '自动生成每日工作摘要',
+    value: true,
+    category: 'ai'
+  },
+  {
+    id: 4,
+    key: 'theme',
+    name: '主题',
+    description: '界面主题设置',
+    value: 'light',
+    category: 'display'
+  },
+  {
+    id: 5,
+    key: 'datasource_git',
+    name: 'Git数据集成',
+    description: '启用Git数据收集',
+    value: true,
+    category: 'datasources'
+  },
+  {
+    id: 6,
+    key: 'datasource_jira',
+    name: 'Jira数据集成',
+    description: '启用Jira数据收集',
+    value: false,
+    category: 'datasources'
+  }
+];
+
+export const generateInteractionData = () => {
+  return [
+    { from: '张伟', to: '李娜', weight: 5 },
+    { from: '张伟', to: '王强', weight: 3 },
+    { from: '李娜', to: '刘芳', weight: 4 },
+    { from: '李娜', to: '张伟', weight: 3 },
+    { from: '王强', to: '张伟', weight: 2 },
+    { from: '刘芳', to: '赵静', weight: 3 },
+    { from: '赵静', to: '李娜', weight: 2 },
+    { from: '陈明', to: '张伟', weight: 2 },
+    { from: '陈明', to: '王强', weight: 2 }
+  ];
+};
+
+export const generateTeamStats = () => {
+  return {
+    avgHealthScore: 77,
+    avgMeetingHours: 2.5,
+    avgCommitCount: 25,
+    taskCompletionRate: 85
   };
 };

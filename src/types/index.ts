@@ -103,3 +103,31 @@ export interface WorkPattern {
   meetingPercentage: number;
   commitFrequency: number;
 }
+
+export interface DailyReport {
+  id: number;
+  memberId: number;
+  memberName: string;
+  content: string;
+  aiSummary: string;
+  date: Date;
+  mood: 'good' | 'neutral' | 'bad';
+}
+
+export interface Report {
+  id: number;
+  title: string;
+  type: 'weekly' | 'project' | 'mbti';
+  date: Date;
+  overallScore: number;
+  summary: string;
+}
+
+export interface Setting {
+  id: number;
+  key: string;
+  name: string;
+  description: string;
+  value: boolean | string | number;
+  category: 'notifications' | 'ai' | 'display' | 'datasources';
+}
