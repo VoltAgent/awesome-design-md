@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropbox Design System Preview (Dark)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dropbox-blue: #0061FE;
+            --graphite: #1E1919;
+            --coconut: #F7F5F2;
+            --white: #FFFFFF;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --spacing-base: 8px;
+            --text-secondary: #999;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--graphite);
+            color: var(--white);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(30, 25, 25, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #333;
+            padding: 16px 40px;
+            display: flex;
+            gap: 24px;
+            z-index: 100;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        section {
+            margin-bottom: 120px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 48px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 16px;
+        }
+
+        .section-num {
+            font-family: monospace;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h1, h2, h3 {
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: 56px; line-height: 1.1; }
+        h2 { font-size: 32px; line-height: 1.2; }
+        h3 { font-size: 24px; line-height: 1.3; }
+
+        .type-spec {
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        /* Color Grid */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 32px;
+        }
+
+        .color-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .swatch {
+            height: 160px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .color-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .color-role {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .color-meta {
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Component Rows */
+        .comp-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: flex-start;
+        }
+
+        .comp-item {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comp-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        /* Elements */
+        .btn {
+            padding: 16px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.15s ease-out;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary { background: var(--dropbox-blue); color: var(--white); }
+        .btn-secondary { background: transparent; color: var(--white); border: 1px solid var(--white); }
+        .btn-ghost { background: transparent; color: var(--dropbox-blue); padding-left: 0; padding-right: 0; }
+
+        .card {
+            background-color: rgba(255,255,255,0.05);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            width: 400px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#colors">01 / COLORS</a>
+        <a href="#typography">02 / TYPOGRAPHY</a>
+        <a href="#components">03 / COMPONENTS</a>
+    </nav>
+
+    <div class="container">
+        <header style="margin-bottom: 100px;">
+            <h1 style="font-size: 80px; margin-bottom: 24px;">Dropbox Dark</h1>
+            <p style="font-size: 24px; color: var(--text-secondary); max-width: 700px;">A high-contrast, structured design system optimized for creative utility and clarity.</p>
+        </header>
+
+        <section id="colors">
+            <div class="section-header">
+                <span class="section-num">01 /</span>
+                <span class="section-title">Colors</span>
+            </div>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="swatch" style="background: var(--dropbox-blue);"></div>
+                    <div class="color-info">
+                        <span class="color-role">Primary Accent</span>
+                        <span class="color-meta">#0061FE / Dropbox Blue</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="swatch" style="background: var(--graphite);"></div>
+                    <div class="color-info">
+                        <span class="color-role">Primary Text</span>
+                        <span class="color-meta">#1E1919 / Graphite</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="swatch" style="background: var(--coconut);"></div>
+                    <div class="color-info">
+                        <span class="color-role">Surface Secondary</span>
+                        <span class="color-meta">#F7F5F2 / Coconut</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography">
+            <div class="section-header">
+                <span class="section-num">02 /</span>
+                <span class="section-title">Typography</span>
+            </div>
+            
+            <div class="type-sample">
+                <h1>The world needs your creative energy.</h1>
+                <span class="type-spec">Display H1 — 56px / 800 / 1.1 / -0.02em / Sharp Grotesk</span>
+            </div>
+
+            <div class="type-sample">
+                <h2>Collaborate with anyone, anywhere.</h2>
+                <span class="type-spec">Heading H2 — 32px / 700 / 1.2 / -0.01em / Sharp Grotesk</span>
+            </div>
+
+            <div class="type-sample">
+                <p style="font-size: 18px; margin:0;">Bring your files together in one central place.</p>
+                <span class="type-spec">Body Large — 18px / 400 / 1.5 / Normal / Atlas Grotesk</span>
+            </div>
+        </section>
+
+        <section id="components">
+            <div class="section-header">
+                <span class="section-num">03 /</span>
+                <span class="section-title">Core Components</span>
+            </div>
+
+            <div class="comp-row" style="margin-bottom: 64px;">
+                <div class="comp-item">
+                    <span class="comp-label">Primary Button</span>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+                <div class="comp-item">
+                    <span class="comp-label">Secondary Outline (Dark)</span>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="comp-item">
+                    <span class="comp-label">Ghost Action</span>
+                    <button class="btn btn-ghost">View Details →</button>
+                </div>
+            </div>
+
+            <div class="comp-row">
+                <div class="comp-item">
+                    <span class="comp-label">Inverted Card</span>
+                    <div class="card">
+                        <h3 style="margin-bottom: 16px;">Work better together</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px;">Share any file, big or small, with anyone, even if they don’t have a Dropbox account.</p>
+                        <a href="#" style="color: var(--dropbox-blue); font-weight: 600; text-decoration: none;">See integrations →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
