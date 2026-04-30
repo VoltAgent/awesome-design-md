@@ -30,6 +30,16 @@ Copy a DESIGN.md into your project, tell your AI agent "build me a page that loo
 
 ## What is DESIGN.md?
 
+## OpenClaw Monitor
+
+> Real-time AI Agent Monitoring Dashboard for OpenClaw
+
+**GitHub:** [flik2002/openclaw-monitor](https://github.com/flik2002/openclaw-monitor) ⭐
+
+![Dashboard](https://raw.githubusercontent.com/flik2002/openclaw-monitor/main/Openclaw%20Monitor.jpg)
+
+
+
 [DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a new concept introduced by Google Stitch. A plain-text design system document that AI agents read to generate consistent UI.
 
 It's just a markdown file. No Figma exports, no JSON schemas, no special tooling. Drop it into your project root and any AI coding agent or Google Stitch instantly understands how your UI should look. Markdown is the format LLMs read best, so there's nothing to parse or configure.
