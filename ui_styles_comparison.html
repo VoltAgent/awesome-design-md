@@ -1,0 +1,2741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Matrix | Generative UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --global-bg: #f8f9fa; --grid-gap: 32px; }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            background: var(--global-bg); color: #333333;
+            margin: 0; padding: 60px 40px; 
+            background-image: radial-gradient(circle at top, #ffffff 0%, #f0f2f5 100%);
+            min-height: 100vh;
+        }
+        .header-title { text-align: center; color: #111; margin-bottom: 10px; font-weight: 300; letter-spacing: -0.02em; font-size: 2.5rem; }
+        .header-subtitle { text-align: center; color: #666; margin-bottom: 60px; font-weight: 400; max-width: 600px; margin-inline: auto; line-height: 1.6; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--grid-gap); max-width: 1600px; margin: 0 auto; }
+        .system-card { 
+            border-radius: 16px; background: #0b0c10; border: 1px solid rgba(0,0,0,0.06);
+            color: #d8dde6;
+            padding: 24px; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .system-card:hover { 
+            transform: translateY(-8px) scale(1.01); box-shadow: 0 25px 50px rgba(0,0,0,0.2), 0 0 40px rgba(60, 110, 255, 0.1); 
+            border-color: rgba(255,255,255,0.1); z-index: 10;
+        }
+        .sys-title { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px; margin-bottom: 24px; }
+        .sys-meta { font-size: 0.7rem; font-family: monospace; color: rgba(255,255,255,0.4); text-transform: none; }
+        .preview-canvas { border-radius: 12px; padding: 32px 24px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 16px; box-shadow: inset 0 2px 20px rgba(0,0,0,0.2); min-height: 200px; }
+        .obj-heading { margin: 0 0 4px 0; font-weight: 700; color: inherit; }
+        .obj-body { margin: 0; font-size: 0.85rem; line-height: 1.6; opacity: 0.8; }
+        .obj-input { width: 100%; border: 1px solid; border-radius: inherit; padding: 10px 16px; font-size: 0.85rem; background: transparent; outline: none; opacity: 0.7; margin-top: 8px; backdrop-filter: blur(4px); }
+        .obj-btn { padding: 12px 24px; cursor: pointer; border: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.02em; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s; margin-top: auto; align-self: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .obj-btn:hover { filter: brightness(1.15); transform: translateY(-1px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+        .tokens-dock { display: flex; gap: 10px; margin-top: 24px; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.08); }
+        .color-dot { width: 24px; height: 24px; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.1); position: relative; cursor: crosshair; }
+        .color-dot::after { content: attr(data-hex); position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 9px; font-family: monospace; color: rgba(255,255,255,0.6); opacity: 0; transition: opacity 0.2s; background: #000; padding: 2px 4px; border-radius: 4px; }
+        .color-dot:hover::after { opacity: 1; z-index: 100; }
+            /* 自动生成的样式类 - 修复内联样式警告 */
+        .custom-style-0 {
+            color: #ff385c
+        }
+
+        .bg-color-222222 {
+            background-color: #222222; color: #111111; border-radius: 8px
+        }
+
+        .custom-style-1 {
+            font-family: 'Inter', sans-serif; letter-spacing: -0.03em;
+        }
+
+        .custom-style-2 {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-3 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 8px
+        }
+
+        .bg-color-ff385c {
+            background-color: #ff385c; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-222222 {
+            background: #222222;
+        }
+
+        .bg-color-222222 {
+            background: #222222; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ff385c {
+            background: #ff385c; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-4 {
+            color: #1b61c9
+        }
+
+        .bg-color-181d26 {
+            background-color: #181d26; color: #111111; border-radius: 16px
+        }
+
+        .custom-style-5 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 16px
+        }
+
+        .bg-color-1b61c9 {
+            background-color: #1b61c9; color: #fff; border-radius: 16px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-181d26 {
+            background: #181d26;
+        }
+
+        .bg-color-121212 {
+            background: #121212; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-1b61c9 {
+            background: #1b61c9; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-6 {
+            color: #0071e3
+        }
+
+        .bg-color-f5f5f7 {
+            background-color: #f5f5f7; color: #111111; border-radius: 8px
+        }
+
+        .bg-color-0071e3 {
+            background-color: #0071e3; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-f5f5f7 {
+            background: #f5f5f7;
+        }
+
+        .bg-color-000000 {
+            background: #000000; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-0071e3 {
+            background: #0071e3; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-7 {
+            color: #1c69d4
+        }
+
+        .bg-color-ffffff {
+            background-color: #ffffff; color: #111111; border-radius: 8px
+        }
+
+        .bg-color-1c69d4 {
+            background-color: #1c69d4; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-ffffff {
+            background: #ffffff;
+        }
+
+        .bg-color-262626 {
+            background: #262626; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-1c69d4 {
+            background: #1c69d4; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-8 {
+            color: #242424
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(19, 19, 22, 0.7); color: #111111; border-radius: 2px
+        }
+
+        .custom-style-9 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 2px
+        }
+
+        .bg-color-242424 {
+            background-color: #242424; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-10 {
+            background: rgba(19, 19, 22, 0.7);
+        }
+
+        .bg-color-242424 {
+            background: #242424; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-11 {
+            color: #c96442
+        }
+
+        .bg-color-e8e6dc {
+            background-color: #e8e6dc; color: #111111; border-radius: 8px
+        }
+
+        .bg-color-c96442 {
+            background-color: #c96442; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-e8e6dc {
+            background: #e8e6dc;
+        }
+
+        .bg-color-141413 {
+            background: #141413; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-c96442 {
+            background: #c96442; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-12 {
+            color: #078a52
+        }
+
+        .bg-color-faf9f7 {
+            background-color: #faf9f7; color: #111111; border-radius: 24px
+        }
+
+        .custom-style-13 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 24px
+        }
+
+        .bg-color-078a52 {
+            background-color: #078a52; color: #fff; border-radius: 24px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-faf9f7 {
+            background: #faf9f7;
+        }
+
+        .bg-color-078a52 {
+            background: #078a52; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-14 {
+            color: #faff69
+        }
+
+        .bg-color-000000 {
+            background-color: #000000; color: #111111; border-radius: 4px
+        }
+
+        .custom-style-15 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 4px
+        }
+
+        .bg-color-faff69 {
+            background-color: #faff69; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-000000 {
+            background: #000000;
+        }
+
+        .bg-color-faff69 {
+            background: #faff69; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-16 {
+            color: #1863dc
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(255, 255, 255, 0); color: #111111; border-radius: 22px
+        }
+
+        .custom-style-17 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 22px
+        }
+
+        .bg-color-1863dc {
+            background-color: #1863dc; color: #fff; border-radius: 22px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-18 {
+            background: rgba(255, 255, 255, 0);
+        }
+
+        .bg-color-d9d9dd {
+            background: #d9d9dd; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-1863dc {
+            background: #1863dc; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-19 {
+            color: #0052ff
+        }
+
+        .bg-color-eef0f3 {
+            background-color: #eef0f3; color: #111111; border-radius: 56px
+        }
+
+        .custom-style-20 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 56px
+        }
+
+        .bg-color-0052ff {
+            background-color: #0052ff; color: #fff; border-radius: 56px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-eef0f3 {
+            background: #eef0f3;
+        }
+
+        .bg-color-0a0b0d {
+            background: #0a0b0d; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-0052ff {
+            background: #0052ff; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-21 {
+            color: #ffffff
+        }
+
+        .bg-color-ffffff {
+            background-color: #ffffff; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-ffffff {
+            background-color: #ffffff; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-0f0f0f {
+            background: #0f0f0f; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ffffff {
+            background: #ffffff; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-22 {
+            color: #f54e00
+        }
+
+        .bg-color-e6e5e0 {
+            background-color: #e6e5e0; color: #111111; border-radius: 8px
+        }
+
+        .bg-color-f54e00 {
+            background-color: #f54e00; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-e6e5e0 {
+            background: #e6e5e0;
+        }
+
+        .bg-color-e6e5e0 {
+            background: #e6e5e0; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-f54e00 {
+            background: #f54e00; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-23 {
+            color: #0066cc
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(245,242,239,0.8); color: #111111; border-radius: 9999px
+        }
+
+        .custom-style-24 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 9999px
+        }
+
+        .bg-color-0066cc {
+            background-color: #0066cc; color: #fff; border-radius: 9999px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-25 {
+            background: rgba(245,242,239,0.8);
+        }
+
+        .bg-color-0066cc {
+            background: #0066cc; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-26 {
+            color: #000000
+        }
+
+        .bg-color-60646c {
+            background-color: #60646c; color: #111111; border-radius: 6px
+        }
+
+        .custom-style-27 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 6px
+        }
+
+        .bg-color-000000 {
+            background-color: #000000; color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-60646c {
+            background: #60646c;
+        }
+
+        .custom-style-28 {
+            color: #303030
+        }
+
+        .bg-color-FFFFFF {
+            background-color: #FFFFFF; color: #111111; border-radius: 2px
+        }
+
+        .bg-color-303030 {
+            background-color: #303030; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-FFFFFF {
+            background: #FFFFFF;
+        }
+
+        .bg-color-303030 {
+            background: #303030; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-000000 {
+            background-color: #000000; color: #111111; border-radius: 2px
+        }
+
+        .bg-color-0066cc {
+            background-color: #0066cc; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-29 {
+            color: #0099ff
+        }
+
+        .bg-color-000000 {
+            background-color: #000000; color: #111111; border-radius: 10px
+        }
+
+        .custom-style-30 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 10px
+        }
+
+        .bg-color-0099ff {
+            background-color: #0099ff; color: #fff; border-radius: 10px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-0099ff {
+            background: #0099ff; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-31 {
+            color: #7b42bc
+        }
+
+        .bg-color-15181e {
+            background-color: #15181e; color: #111111; border-radius: 2px
+        }
+
+        .bg-color-7b42bc {
+            background-color: #7b42bc; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-15181e {
+            background: #15181e;
+        }
+
+        .bg-color-7b42bc {
+            background: #7b42bc; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-32 {
+            color: #0f62fe
+        }
+
+        .bg-color-161616 {
+            background-color: #161616; color: #111111; border-radius: 0px
+        }
+
+        .custom-style-33 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 0px
+        }
+
+        .bg-color-0f62fe {
+            background-color: #0f62fe; color: #fff; border-radius: 0px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-161616 {
+            background: #161616;
+        }
+
+        .bg-color-161616 {
+            background: #161616; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-0f62fe {
+            background: #0f62fe; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-34 {
+            color: #dedbd6
+        }
+
+        .bg-color-111111 {
+            background-color: #111111; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-dedbd6 {
+            background-color: #dedbd6; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-111111 {
+            background: #111111;
+        }
+
+        .bg-color-111111 {
+            background: #111111; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-dedbd6 {
+            background: #dedbd6; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-35 {
+            color: #7132f5
+        }
+
+        .bg-color-7132f5 {
+            background-color: #7132f5; color: #111111; border-radius: 12px
+        }
+
+        .custom-style-36 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 12px
+        }
+
+        .bg-color-7132f5 {
+            background-color: #7132f5; color: #fff; border-radius: 12px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-7132f5 {
+            background: #7132f5;
+        }
+
+        .bg-color-101114 {
+            background: #101114; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-7132f5 {
+            background: #7132f5; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-37 {
+            color: #FFC000
+        }
+
+        .bg-color-FFC000 {
+            background-color: #FFC000; color: #111111; border-radius: 0px
+        }
+
+        .bg-color-FFC000 {
+            background-color: #FFC000; color: #fff; border-radius: 0px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-FFC000 {
+            background: #FFC000;
+        }
+
+        .bg-color-FFC000 {
+            background: #FFC000; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-38 {
+            color: #5e6ad2
+        }
+
+        .bg-color-5e6ad2 {
+            background-color: #5e6ad2; color: #111111; border-radius: 6px
+        }
+
+        .bg-color-5e6ad2 {
+            background-color: #5e6ad2; color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-5e6ad2 {
+            background: #5e6ad2;
+        }
+
+        .bg-color-08090a {
+            background: #08090a; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-5e6ad2 {
+            background: #5e6ad2; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-39 {
+            color: #1c1c1c
+        }
+
+        .bg-color-f7f4ed {
+            background-color: #f7f4ed; color: #111111; border-radius: 9999px
+        }
+
+        .bg-color-1c1c1c {
+            background-color: #1c1c1c; color: #fff; border-radius: 9999px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-f7f4ed {
+            background: #f7f4ed;
+        }
+
+        .bg-color-1c1c1c {
+            background: #1c1c1c; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ffffff {
+            background-color: #ffffff; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-40 {
+            color: #18E299
+        }
+
+        .bg-color-0d0d0d {
+            background-color: #0d0d0d; color: #111111; border-radius: 9999px
+        }
+
+        .bg-color-18E299 {
+            background-color: #18E299; color: #fff; border-radius: 9999px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-0d0d0d {
+            background: #0d0d0d;
+        }
+
+        .bg-color-0d0d0d {
+            background: #0d0d0d; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-18E299 {
+            background: #18E299; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-41 {
+            color: #1c1c1e
+        }
+
+        .bg-color-c7cad5 {
+            background-color: #c7cad5; color: #111111; border-radius: 8px
+        }
+
+        .bg-color-1c1c1e {
+            background-color: #1c1c1e; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-c7cad5 {
+            background: #c7cad5;
+        }
+
+        .bg-color-1c1c1e {
+            background: #1c1c1e; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-42 {
+            color: #fa520f
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(127, 99, 21, ...); color: #111111; border-radius: 8px
+        }
+
+        .bg-color-fa520f {
+            background-color: #fa520f; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-43 {
+            background: rgba(127, 99, 21, ...);
+        }
+
+        .bg-color-1f1f1f {
+            background: #1f1f1f; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-fa520f {
+            background: #fa520f; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-44 {
+            color: #b8c4c2
+        }
+
+        .bg-color-001e2b {
+            background-color: #001e2b; color: #111111; border-radius: 100px
+        }
+
+        .custom-style-45 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 100px
+        }
+
+        .bg-color-b8c4c2 {
+            background-color: #b8c4c2; color: #fff; border-radius: 100px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-001e2b {
+            background: #001e2b;
+        }
+
+        .bg-color-001e2b {
+            background: #001e2b; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-b8c4c2 {
+            background: #b8c4c2; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-46 {
+            color: #0075de
+        }
+
+        .bg-color-f2f9ff {
+            background-color: #f2f9ff; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-0075de {
+            background-color: #0075de; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-f2f9ff {
+            background: #f2f9ff;
+        }
+
+        .bg-color-f6f5f4 {
+            background: #f6f5f4; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-0075de {
+            background: #0075de; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-47 {
+            color: #76b900
+        }
+
+        .bg-color-76b900 {
+            background-color: #76b900; color: #111111; border-radius: 2px
+        }
+
+        .bg-color-76b900 {
+            background-color: #76b900; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-76b900 {
+            background: #76b900;
+        }
+
+        .bg-color-76b900 {
+            background: #76b900; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-e5e5e5 {
+            background-color: #e5e5e5; color: #111111; border-radius: 12px
+        }
+
+        .bg-color-000000 {
+            background-color: #000000; color: #fff; border-radius: 12px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-e5e5e5 {
+            background: #e5e5e5;
+        }
+
+        .custom-style-48 {
+            color: #007aff
+        }
+
+        .bg-color-201d1d {
+            background-color: #201d1d; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-007aff {
+            background-color: #007aff; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-201d1d {
+            background: #201d1d;
+        }
+
+        .bg-color-201d1d {
+            background: #201d1d; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-007aff {
+            background: #007aff; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-49 {
+            color: #91918c
+        }
+
+        .bg-color-e60023 {
+            background-color: #e60023; color: #111111; border-radius: 12px
+        }
+
+        .bg-color-91918c {
+            background-color: #91918c; color: #fff; border-radius: 12px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-e60023 {
+            background: #e60023;
+        }
+
+        .bg-color-211922 {
+            background: #211922; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-91918c {
+            background: #91918c; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-50 {
+            color: #bfc1b7
+        }
+
+        .bg-color-fdfdf8 {
+            background-color: #fdfdf8; color: #111111; border-radius: 10px
+        }
+
+        .bg-color-bfc1b7 {
+            background-color: #bfc1b7; color: #fff; border-radius: 10px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-fdfdf8 {
+            background: #fdfdf8;
+        }
+
+        .bg-color-1e1f23 {
+            background: #1e1f23; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-bfc1b7 {
+            background: #bfc1b7; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-51 {
+            color: #FF6363
+        }
+
+        .bg-color-07080a {
+            background-color: #07080a; color: #111111; border-radius: 0px
+        }
+
+        .bg-color-FF6363 {
+            background-color: #FF6363; color: #fff; border-radius: 0px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-07080a {
+            background: #07080a;
+        }
+
+        .bg-color-07080a {
+            background: #07080a; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-FF6363 {
+            background: #FF6363; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-52 {
+            color: #EFDF00
+        }
+
+        .bg-color-EFDF00 {
+            background-color: #EFDF00; color: #111111; border-radius: 0px
+        }
+
+        .bg-color-EFDF00 {
+            background-color: #EFDF00; color: #fff; border-radius: 0px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-EFDF00 {
+            background: #EFDF00;
+        }
+
+        .bg-color-EFDF00 {
+            background: #EFDF00; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-53 {
+            color: #ea2804
+        }
+
+        .bg-color-202020 {
+            background-color: #202020; color: #111111; border-radius: 9999px
+        }
+
+        .bg-color-ea2804 {
+            background-color: #ea2804; color: #fff; border-radius: 9999px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-202020 {
+            background: #202020;
+        }
+
+        .bg-color-202020 {
+            background: #202020; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ea2804 {
+            background: #ea2804; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-54 {
+            color: #ff801f
+        }
+
+        .bg-color-f0f0f0 {
+            background-color: #f0f0f0; color: #111111; border-radius: 9999px
+        }
+
+        .bg-color-ff801f {
+            background-color: #ff801f; color: #fff; border-radius: 9999px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-f0f0f0 {
+            background: #f0f0f0;
+        }
+
+        .bg-color-ff801f {
+            background: #ff801f; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-55 {
+            color: #494fdf
+        }
+
+        .bg-color-191c1f {
+            background-color: #191c1f; color: #111111; border-radius: 2px
+        }
+
+        .bg-color-494fdf {
+            background-color: #494fdf; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-191c1f {
+            background: #191c1f;
+        }
+
+        .bg-color-191c1f {
+            background: #191c1f; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-494fdf {
+            background: #494fdf; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-56 {
+            color: #27272a
+        }
+
+        .bg-color-1a1a1a {
+            background-color: #1a1a1a; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-27272a {
+            background-color: #27272a; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-1a1a1a {
+            background: #1a1a1a;
+        }
+
+        .bg-color-27272a {
+            background: #27272a; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-57 {
+            color: #0b0b0b
+        }
+
+        .bg-color-f36458 {
+            background-color: #f36458; color: #111111; border-radius: 6px
+        }
+
+        .bg-color-0b0b0b {
+            background-color: #0b0b0b; color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-f36458 {
+            background: #f36458;
+        }
+
+        .bg-color-0b0b0b {
+            background: #0b0b0b; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-58 {
+            color: #c2ef4e
+        }
+
+        .bg-color-1f1633 {
+            background-color: #1f1633; color: #111111; border-radius: 13px
+        }
+
+        .custom-style-59 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 13px
+        }
+
+        .bg-color-c2ef4e {
+            background-color: #c2ef4e; color: #fff; border-radius: 13px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-1f1633 {
+            background: #1f1633;
+        }
+
+        .bg-color-1f1633 {
+            background: #1f1633; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-c2ef4e {
+            background: #c2ef4e; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(240, 240, 250, 0.1); color: #111111; border-radius: 32px
+        }
+
+        .custom-style-60 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 32px
+        }
+
+        .bg-color-0066cc {
+            background-color: #0066cc; color: #fff; border-radius: 32px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-61 {
+            background: rgba(240, 240, 250, 0.1);
+        }
+
+        .custom-style-62 {
+            color: #1ed760
+        }
+
+        .bg-color-1f1f1f {
+            background-color: #1f1f1f; color: #111111; border-radius: 500px
+        }
+
+        .custom-style-63 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 500px
+        }
+
+        .bg-color-1ed760 {
+            background-color: #1ed760; color: #fff; border-radius: 500px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-1f1f1f {
+            background: #1f1f1f;
+        }
+
+        .bg-color-1ed760 {
+            background: #1ed760; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-64 {
+            color: #533afd
+        }
+
+        .bg-color-533afd {
+            background-color: #533afd; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-533afd {
+            background-color: #533afd; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-533afd {
+            background: #533afd;
+        }
+
+        .bg-color-533afd {
+            background: #533afd; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-65 {
+            color: #3ecf8e
+        }
+
+        .bg-color-0f0f0f {
+            background-color: #0f0f0f; color: #111111; border-radius: 6px
+        }
+
+        .bg-color-3ecf8e {
+            background-color: #3ecf8e; color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-0f0f0f {
+            background: #0f0f0f;
+        }
+
+        .bg-color-3ecf8e {
+            background: #3ecf8e; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-66 {
+            color: #cbb7fb
+        }
+
+        .bg-color-292827 {
+            background-color: #292827; color: #111111; border-radius: 8px
+        }
+
+        .bg-color-cbb7fb {
+            background-color: #cbb7fb; color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-292827 {
+            background: #292827;
+        }
+
+        .bg-color-292827 {
+            background: #292827; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-cbb7fb {
+            background: #cbb7fb; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-67 {
+            color: #3E6AE1
+        }
+
+        .bg-color-3E6AE1 {
+            background-color: #3E6AE1; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-3E6AE1 {
+            background-color: #3E6AE1; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-3E6AE1 {
+            background: #3E6AE1;
+        }
+
+        .bg-color-171A20 {
+            background: #171A20; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-3E6AE1 {
+            background: #3E6AE1; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-68 {
+            color: #ef2cc1
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(255, 255, 255, 0.12); color: #111111; border-radius: 4px
+        }
+
+        .bg-color-ef2cc1 {
+            background-color: #ef2cc1; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-69 {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .bg-color-010120 {
+            background: #010120; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ef2cc1 {
+            background: #ef2cc1; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-70 {
+            color: #0000ee
+        }
+
+        .bg-color-000000 {
+            background-color: #000000; color: #111111; border-radius: 999px
+        }
+
+        .custom-style-71 {
+            border-color: rgba(0,0,0,0.2); color: #111111; border-radius: 999px
+        }
+
+        .bg-color-0000ee {
+            background-color: #0000ee; color: #fff; border-radius: 999px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-0000ee {
+            background: #0000ee; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-72 {
+            color: #ff5b4f
+        }
+
+        .bg-color-ebf5ff {
+            background-color: #ebf5ff; color: #111111; border-radius: 6px
+        }
+
+        .bg-color-ff5b4f {
+            background-color: #ff5b4f; color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-ebf5ff {
+            background: #ebf5ff;
+        }
+
+        .bg-color-171717 {
+            background: #171717; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ff5b4f {
+            background: #ff5b4f; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-73 {
+            color: #00d992
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(0, 0, 0, 0.2); color: #111111; border-radius: 6px
+        }
+
+        .bg-color-00d992 {
+            background-color: #00d992; color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-74 {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .bg-color-050507 {
+            background: #050507; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-00d992 {
+            background: #00d992; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-75 {
+            color: #faf9f6
+        }
+
+        .bg-color-afaeac {
+            background-color: #afaeac; color: #111111; border-radius: 10px
+        }
+
+        .bg-color-faf9f6 {
+            background-color: #faf9f6; color: #fff; border-radius: 10px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-afaeac {
+            background: #afaeac;
+        }
+
+        .bg-color-faf9f6 {
+            background: #faf9f6; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-76 {
+            color: #146ef5
+        }
+
+        .bg-color-ffffff {
+            background-color: #ffffff; color: #111111; border-radius: 2px
+        }
+
+        .bg-color-146ef5 {
+            background-color: #146ef5; color: #fff; border-radius: 2px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-080808 {
+            background: #080808; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-146ef5 {
+            background: #146ef5; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-77 {
+            color: #0e0f0c
+        }
+
+        .bg-color-111111 {
+            background-color: rgba(56,200,255,0.10); color: #111111; border-radius: 9999px
+        }
+
+        .bg-color-0e0f0c {
+            background-color: #0e0f0c; color: #fff; border-radius: 9999px; font-family: 'Inter', sans-serif;
+        }
+
+        .custom-style-78 {
+            background: rgba(56,200,255,0.10);
+        }
+
+        .bg-color-0e0f0c {
+            background: #0e0f0c; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-79 {
+            color: #1f2228
+        }
+
+        .bg-color-1f2228 {
+            background-color: #1f2228; color: #111111; border-radius: 0px
+        }
+
+        .bg-color-1f2228 {
+            background-color: #1f2228; color: #fff; border-radius: 0px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-1f2228 {
+            background: #1f2228;
+        }
+
+        .bg-color-1f2228 {
+            background: #1f2228; border-color: rgba(255,255,255,0.2);
+        }
+
+        .custom-style-80 {
+            color: #ff4f00
+        }
+
+        .bg-color-ff4f00 {
+            background-color: #ff4f00; color: #111111; border-radius: 4px
+        }
+
+        .bg-color-ff4f00 {
+            background-color: #ff4f00; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif;
+        }
+
+        .bg-color-ff4f00 {
+            background: #ff4f00;
+        }
+
+        .bg-color-201515 {
+            background: #201515; border-color: rgba(255,255,255,0.2);
+        }
+
+        .bg-color-ff4f00 {
+            background: #ff4f00; border-color: rgba(255,255,255,0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="header-title">Computed Design Systems Matrix</h1>
+    <p class="header-subtitle">Extracting structural attributes beyond simple color palettes: interpreting typography scales, distinct CTA tones, and border-radii from plain text markdown to generate unique UI components.</p>
+    <div class="grid">
+
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-0">airbnb</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-222222">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ff385c">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-222222" data-hex="#222222"></div>
+                <div class="color-dot" class="bg-color-222222" data-hex="#222222"></div>
+                <div class="color-dot" class="bg-color-ff385c" data-hex="#ff385c"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-4">airtable</span>
+                <span class="sys-meta">R: 16px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-181d26">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-5" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1b61c9">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-181d26" data-hex="#181d26"></div>
+                <div class="color-dot" class="bg-color-121212" data-hex="#121212"></div>
+                <div class="color-dot" class="bg-color-1b61c9" data-hex="#1b61c9"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-6">apple</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-f5f5f7">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0071e3">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-f5f5f7" data-hex="#f5f5f7"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-0071e3" data-hex="#0071e3"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-7">bmw</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-ffffff">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1c69d4">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-ffffff" data-hex="#ffffff"></div>
+                <div class="color-dot" class="bg-color-262626" data-hex="#262626"></div>
+                <div class="color-dot" class="bg-color-1c69d4" data-hex="#1c69d4"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-8">cal</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-242424">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-10" data-hex="rgba(19, 19, 22, 0.7)"></div>
+                <div class="color-dot" class="bg-color-242424" data-hex="#242424"></div>
+                <div class="color-dot" class="bg-color-242424" data-hex="#242424"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-11">claude</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-e8e6dc">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-c96442">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-e8e6dc" data-hex="#e8e6dc"></div>
+                <div class="color-dot" class="bg-color-141413" data-hex="#141413"></div>
+                <div class="color-dot" class="bg-color-c96442" data-hex="#c96442"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-12">clay</span>
+                <span class="sys-meta">R: 24px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-faf9f7">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-13" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-078a52">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-faf9f7" data-hex="#faf9f7"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-078a52" data-hex="#078a52"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-14">clickhouse</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-000000">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-faff69">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-faff69" data-hex="#faff69"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-16">cohere</span>
+                <span class="sys-meta">R: 22px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-17" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1863dc">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-18" data-hex="rgba(255, 255, 255, 0)"></div>
+                <div class="color-dot" class="bg-color-d9d9dd" data-hex="#d9d9dd"></div>
+                <div class="color-dot" class="bg-color-1863dc" data-hex="#1863dc"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-19">coinbase</span>
+                <span class="sys-meta">R: 56px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-eef0f3">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-20" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0052ff">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-eef0f3" data-hex="#eef0f3"></div>
+                <div class="color-dot" class="bg-color-0a0b0d" data-hex="#0a0b0d"></div>
+                <div class="color-dot" class="bg-color-0052ff" data-hex="#0052ff"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-21">composio</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-ffffff">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ffffff">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-ffffff" data-hex="#ffffff"></div>
+                <div class="color-dot" class="bg-color-0f0f0f" data-hex="#0f0f0f"></div>
+                <div class="color-dot" class="bg-color-ffffff" data-hex="#ffffff"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-22">cursor</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-e6e5e0">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-f54e00">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-e6e5e0" data-hex="#e6e5e0"></div>
+                <div class="color-dot" class="bg-color-e6e5e0" data-hex="#e6e5e0"></div>
+                <div class="color-dot" class="bg-color-f54e00" data-hex="#f54e00"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-23">elevenlabs</span>
+                <span class="sys-meta">R: 9999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-24" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0066cc">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-25" data-hex="rgba(245,242,239,0.8)"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-0066cc" data-hex="#0066cc"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-26">expo</span>
+                <span class="sys-meta">R: 6px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-60646c">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-27" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-000000">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-60646c" data-hex="#60646c"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-28">ferrari</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-FFFFFF">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-303030">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-FFFFFF" data-hex="#FFFFFF"></div>
+                <div class="color-dot" class="bg-color-303030" data-hex="#303030"></div>
+                <div class="color-dot" class="bg-color-303030" data-hex="#303030"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-23">figma</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-000000">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0066cc">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-0066cc" data-hex="#0066cc"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-29">framer</span>
+                <span class="sys-meta">R: 10px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-000000">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-30" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0099ff">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-0099ff" data-hex="#0099ff"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-31">hashicorp</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-15181e">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-7b42bc">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-15181e" data-hex="#15181e"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-7b42bc" data-hex="#7b42bc"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-32">ibm</span>
+                <span class="sys-meta">R: 0px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-161616">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-33" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0f62fe">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-161616" data-hex="#161616"></div>
+                <div class="color-dot" class="bg-color-161616" data-hex="#161616"></div>
+                <div class="color-dot" class="bg-color-0f62fe" data-hex="#0f62fe"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-34">intercom</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-dedbd6">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-111111" data-hex="#111111"></div>
+                <div class="color-dot" class="bg-color-111111" data-hex="#111111"></div>
+                <div class="color-dot" class="bg-color-dedbd6" data-hex="#dedbd6"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-35">kraken</span>
+                <span class="sys-meta">R: 12px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-7132f5">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-36" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-7132f5">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-7132f5" data-hex="#7132f5"></div>
+                <div class="color-dot" class="bg-color-101114" data-hex="#101114"></div>
+                <div class="color-dot" class="bg-color-7132f5" data-hex="#7132f5"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-37">lamborghini</span>
+                <span class="sys-meta">R: 0px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-FFC000">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-33" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-FFC000">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-FFC000" data-hex="#FFC000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-FFC000" data-hex="#FFC000"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-38">linear.app</span>
+                <span class="sys-meta">R: 6px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-5e6ad2">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-27" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-5e6ad2">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-5e6ad2" data-hex="#5e6ad2"></div>
+                <div class="color-dot" class="bg-color-08090a" data-hex="#08090a"></div>
+                <div class="color-dot" class="bg-color-5e6ad2" data-hex="#5e6ad2"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-39">lovable</span>
+                <span class="sys-meta">R: 9999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-f7f4ed">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-24" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1c1c1c">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-f7f4ed" data-hex="#f7f4ed"></div>
+                <div class="color-dot" class="bg-color-1c1c1c" data-hex="#1c1c1c"></div>
+                <div class="color-dot" class="bg-color-1c1c1c" data-hex="#1c1c1c"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-21">minimax</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-ffffff">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ffffff">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-ffffff" data-hex="#ffffff"></div>
+                <div class="color-dot" class="bg-color-222222" data-hex="#222222"></div>
+                <div class="color-dot" class="bg-color-ffffff" data-hex="#ffffff"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-40">mintlify</span>
+                <span class="sys-meta">R: 9999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-0d0d0d">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-24" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-18E299">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-0d0d0d" data-hex="#0d0d0d"></div>
+                <div class="color-dot" class="bg-color-0d0d0d" data-hex="#0d0d0d"></div>
+                <div class="color-dot" class="bg-color-18E299" data-hex="#18E299"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-41">miro</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-c7cad5">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1c1c1e">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-c7cad5" data-hex="#c7cad5"></div>
+                <div class="color-dot" class="bg-color-1c1c1e" data-hex="#1c1c1e"></div>
+                <div class="color-dot" class="bg-color-1c1c1e" data-hex="#1c1c1e"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-42">mistral.ai</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-fa520f">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-43" data-hex="rgba(127, 99, 21, ...)"></div>
+                <div class="color-dot" class="bg-color-1f1f1f" data-hex="#1f1f1f"></div>
+                <div class="color-dot" class="bg-color-fa520f" data-hex="#fa520f"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-44">mongodb</span>
+                <span class="sys-meta">R: 100px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-001e2b">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-45" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-b8c4c2">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-001e2b" data-hex="#001e2b"></div>
+                <div class="color-dot" class="bg-color-001e2b" data-hex="#001e2b"></div>
+                <div class="color-dot" class="bg-color-b8c4c2" data-hex="#b8c4c2"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-46">notion</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-f2f9ff">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0075de">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-f2f9ff" data-hex="#f2f9ff"></div>
+                <div class="color-dot" class="bg-color-f6f5f4" data-hex="#f6f5f4"></div>
+                <div class="color-dot" class="bg-color-0075de" data-hex="#0075de"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-47">nvidia</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-76b900">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-76b900">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-76b900" data-hex="#76b900"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-76b900" data-hex="#76b900"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-26">ollama</span>
+                <span class="sys-meta">R: 12px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-e5e5e5">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-36" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-000000">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-e5e5e5" data-hex="#e5e5e5"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-48">opencode.ai</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-201d1d">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-007aff">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-201d1d" data-hex="#201d1d"></div>
+                <div class="color-dot" class="bg-color-201d1d" data-hex="#201d1d"></div>
+                <div class="color-dot" class="bg-color-007aff" data-hex="#007aff"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-49">pinterest</span>
+                <span class="sys-meta">R: 12px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-e60023">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-36" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-91918c">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-e60023" data-hex="#e60023"></div>
+                <div class="color-dot" class="bg-color-211922" data-hex="#211922"></div>
+                <div class="color-dot" class="bg-color-91918c" data-hex="#91918c"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-50">posthog</span>
+                <span class="sys-meta">R: 10px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-fdfdf8">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-30" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-bfc1b7">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-fdfdf8" data-hex="#fdfdf8"></div>
+                <div class="color-dot" class="bg-color-1e1f23" data-hex="#1e1f23"></div>
+                <div class="color-dot" class="bg-color-bfc1b7" data-hex="#bfc1b7"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-51">raycast</span>
+                <span class="sys-meta">R: 0px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-07080a">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-33" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-FF6363">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-07080a" data-hex="#07080a"></div>
+                <div class="color-dot" class="bg-color-07080a" data-hex="#07080a"></div>
+                <div class="color-dot" class="bg-color-FF6363" data-hex="#FF6363"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-52">renault</span>
+                <span class="sys-meta">R: 0px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-EFDF00">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-33" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-EFDF00">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-EFDF00" data-hex="#EFDF00"></div>
+                <div class="color-dot" class="bg-color-EFDF00" data-hex="#EFDF00"></div>
+                <div class="color-dot" class="bg-color-EFDF00" data-hex="#EFDF00"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-53">replicate</span>
+                <span class="sys-meta">R: 9999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-202020">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-24" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ea2804">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-202020" data-hex="#202020"></div>
+                <div class="color-dot" class="bg-color-202020" data-hex="#202020"></div>
+                <div class="color-dot" class="bg-color-ea2804" data-hex="#ea2804"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-54">resend</span>
+                <span class="sys-meta">R: 9999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-f0f0f0">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-24" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ff801f">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-f0f0f0" data-hex="#f0f0f0"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-ff801f" data-hex="#ff801f"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-55">revolut</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-191c1f">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-494fdf">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-191c1f" data-hex="#191c1f"></div>
+                <div class="color-dot" class="bg-color-191c1f" data-hex="#191c1f"></div>
+                <div class="color-dot" class="bg-color-494fdf" data-hex="#494fdf"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-56">runwayml</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-1a1a1a">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-27272a">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-1a1a1a" data-hex="#1a1a1a"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-27272a" data-hex="#27272a"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-57">sanity</span>
+                <span class="sys-meta">R: 6px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-f36458">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-27" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0b0b0b">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-f36458" data-hex="#f36458"></div>
+                <div class="color-dot" class="bg-color-0b0b0b" data-hex="#0b0b0b"></div>
+                <div class="color-dot" class="bg-color-0b0b0b" data-hex="#0b0b0b"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-58">sentry</span>
+                <span class="sys-meta">R: 13px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-1f1633">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-59" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-c2ef4e">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-1f1633" data-hex="#1f1633"></div>
+                <div class="color-dot" class="bg-color-1f1633" data-hex="#1f1633"></div>
+                <div class="color-dot" class="bg-color-c2ef4e" data-hex="#c2ef4e"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-23">spacex</span>
+                <span class="sys-meta">R: 32px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-60" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0066cc">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-61" data-hex="rgba(240, 240, 250, 0.1)"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-0066cc" data-hex="#0066cc"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-62">spotify</span>
+                <span class="sys-meta">R: 500px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-1f1f1f">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-63" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1ed760">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-1f1f1f" data-hex="#1f1f1f"></div>
+                <div class="color-dot" class="bg-color-121212" data-hex="#121212"></div>
+                <div class="color-dot" class="bg-color-1ed760" data-hex="#1ed760"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-64">stripe</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-533afd">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-533afd">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-533afd" data-hex="#533afd"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-533afd" data-hex="#533afd"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-65">supabase</span>
+                <span class="sys-meta">R: 6px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-0f0f0f">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-27" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-3ecf8e">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-0f0f0f" data-hex="#0f0f0f"></div>
+                <div class="color-dot" class="bg-color-0f0f0f" data-hex="#0f0f0f"></div>
+                <div class="color-dot" class="bg-color-3ecf8e" data-hex="#3ecf8e"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-66">superhuman</span>
+                <span class="sys-meta">R: 8px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-292827">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-3" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-cbb7fb">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-292827" data-hex="#292827"></div>
+                <div class="color-dot" class="bg-color-292827" data-hex="#292827"></div>
+                <div class="color-dot" class="bg-color-cbb7fb" data-hex="#cbb7fb"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-67">tesla</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-3E6AE1">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-3E6AE1">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-3E6AE1" data-hex="#3E6AE1"></div>
+                <div class="color-dot" class="bg-color-171A20" data-hex="#171A20"></div>
+                <div class="color-dot" class="bg-color-3E6AE1" data-hex="#3E6AE1"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-68">together.ai</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ef2cc1">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-69" data-hex="rgba(255, 255, 255, 0.12)"></div>
+                <div class="color-dot" class="bg-color-010120" data-hex="#010120"></div>
+                <div class="color-dot" class="bg-color-ef2cc1" data-hex="#ef2cc1"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-70">uber</span>
+                <span class="sys-meta">R: 999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-000000">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-71" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0000ee">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-000000" data-hex="#000000"></div>
+                <div class="color-dot" class="bg-color-0000ee" data-hex="#0000ee"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-72">vercel</span>
+                <span class="sys-meta">R: 6px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-ebf5ff">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-27" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ff5b4f">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-ebf5ff" data-hex="#ebf5ff"></div>
+                <div class="color-dot" class="bg-color-171717" data-hex="#171717"></div>
+                <div class="color-dot" class="bg-color-ff5b4f" data-hex="#ff5b4f"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-73">voltagent</span>
+                <span class="sys-meta">R: 6px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-27" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-00d992">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-74" data-hex="rgba(0, 0, 0, 0.2)"></div>
+                <div class="color-dot" class="bg-color-050507" data-hex="#050507"></div>
+                <div class="color-dot" class="bg-color-00d992" data-hex="#00d992"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-75">warp</span>
+                <span class="sys-meta">R: 10px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-afaeac">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-30" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-faf9f6">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-afaeac" data-hex="#afaeac"></div>
+                <div class="color-dot" class="bg-color-faf9f6" data-hex="#faf9f6"></div>
+                <div class="color-dot" class="bg-color-faf9f6" data-hex="#faf9f6"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-76">webflow</span>
+                <span class="sys-meta">R: 2px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-ffffff">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-9" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-146ef5">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-ffffff" data-hex="#ffffff"></div>
+                <div class="color-dot" class="bg-color-080808" data-hex="#080808"></div>
+                <div class="color-dot" class="bg-color-146ef5" data-hex="#146ef5"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-77">wise</span>
+                <span class="sys-meta">R: 9999px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-111111">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-24" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-0e0f0c">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="custom-style-78" data-hex="rgba(56,200,255,0.10)"></div>
+                <div class="color-dot" class="bg-color-0e0f0c" data-hex="#0e0f0c"></div>
+                <div class="color-dot" class="bg-color-0e0f0c" data-hex="#0e0f0c"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-79">x.ai</span>
+                <span class="sys-meta">R: 0px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-1f2228">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-33" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-1f2228">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-1f2228" data-hex="#1f2228"></div>
+                <div class="color-dot" class="bg-color-1f2228" data-hex="#1f2228"></div>
+                <div class="color-dot" class="bg-color-1f2228" data-hex="#1f2228"></div>
+            </div>
+        </div>
+        
+        <div class="system-card">
+            <div class="sys-title">
+                <span class="custom-style-80">zapier</span>
+                <span class="sys-meta">R: 4px | F: Inter</span>
+            </div>
+            
+            <div class="preview-canvas" class="bg-color-ff4f00">
+                <h3 class="obj-heading" class="custom-style-1">Build faster.</h3>
+                <p class="obj-body" class="custom-style-2">Deploy at the speed of thought. Advanced infrastructure designed for the modern web environment.</p>
+                
+                <input type="text" class="obj-input" class="custom-style-15" placeholder="Enter workspace..." disabled />
+                
+                <button class="obj-btn" class="bg-color-ff4f00">
+                    Get Started ->
+                </button>
+            </div>
+            
+            <div class="tokens-dock">
+                <div class="color-dot" class="bg-color-ff4f00" data-hex="#ff4f00"></div>
+                <div class="color-dot" class="bg-color-201515" data-hex="#201515"></div>
+                <div class="color-dot" class="bg-color-ff4f00" data-hex="#ff4f00"></div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

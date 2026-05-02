@@ -1,0 +1,8 @@
+{
+  "css.lint.validProperties": [],
+  "css.lint.boxModel": "ignore",
+  "css.lint.fontFaceProperties": "ignore",
+  "html.validate.styles": false,
+  "edge-devtools.webhint": false,
+  "edge-devtools.mirrorEditing": false
+}
