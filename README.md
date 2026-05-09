@@ -149,10 +149,9 @@ Become a Sponsor [1M+ view] — your logo here and get listed on [getdesign.md](
 - [**Renault**](https://getdesign.md/renault/design-md) - French automotive. Vivid aurora gradients, NouvelR proprietary typeface, zero-radius buttons
 - [**Tesla**](https://getdesign.md/tesla/design-md) - Electric vehicles. Radical subtraction, cinematic full-viewport photography, Universal Sans
 
-
 ## What's Inside Each DESIGN.md
 
-Every file follows the [Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/format/) with extended sections:
+Every file follows the [Stitch DESIGN.md specification](https://stitch.withgoogle.com/docs/design-md/specification) with extended sections:
 
 | # | Section | What it captures |
 |---|---------|-----------------|
@@ -176,10 +175,8 @@ Each site includes:
 
 ### How to Use
 
-
 1. Copy a site's `DESIGN.md` into your project root
 2. Tell your AI agent to use it.
-
 
 ## Contributing
 
@@ -189,7 +186,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - **Report issues**: Let us know if something looks off
 
 Before opening a PR, please [open an issue](https://github.com/VoltAgent/awesome-design-md/issues) first to discuss your idea and get feedback from maintainers.
-
 
 ## License
 
