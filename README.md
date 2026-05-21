@@ -166,14 +166,6 @@ Every file follows the [Stitch DESIGN.md format](https://stitch.withgoogle.com/d
 | 8 | Responsive Behavior | Breakpoints, touch targets, collapsing strategy |
 | 9 | Agent Prompt Guide | Quick color reference, ready-to-use prompts |
 
-Each site includes:
-
-| File | Purpose |
-|------|---------|
-| `DESIGN.md` | The design system (what agents read) |
-| `preview.html` | Visual catalog showing color swatches, type scale, buttons, cards |
-| `preview-dark.html` | Same catalog with dark surfaces |
-
 ### How to Use
 
 
