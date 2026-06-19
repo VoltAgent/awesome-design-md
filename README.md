@@ -1,5 +1,6 @@
+
 <a href="https://github.com/VoltAgent/voltagent">
-     <img width="1500"  alt="claude-skills" src="https://github.com/user-attachments/assets/d012a0d2-cec3-4630-ba5e-acc339dbe6cf" />
+     <img width="1500"  alt="claude-skills" src="https://cdn.voltagent.dev/awesome-repo/logo.json.svg" />
 </a>
 
 
@@ -7,7 +8,7 @@
 <br/>
 
 <div align="center">
-    <strong>Curated collection of DESIGN.md files inspired by developer focused websites.</strong>
+    <strong>Curated collection of DESIGN.md analysis by developer focused websites.</strong>
     <br />
     <br />
 
@@ -25,7 +26,9 @@
 
 # Awesome DESIGN.md
 
-Copy a DESIGN.md into your project, tell your AI agent "build me a page that looks like this" and get pixel-perfect UI that actually matches.
+Copy a DESIGN.md into your project, tell your AI agent “build me a page that looks like this,” and generate high-quality UI that stays visually consistent with the design language.
+
+Built with real design depth — including analyzed patterns, tokens, and rules — for high-quality UI generation, not surface-level outputs.
 
 
 ## What is DESIGN.md?
@@ -45,9 +48,40 @@ It's just a markdown file. No Figma exports, no JSON schemas, no special tooling
 
 You can [request a DESIGN.md](https://getdesign.md/request) for specific website, including private requests delivered exclusively to you.
 
-## Sponsors ❤️
+## AI Design + Build Ecosystem Tools
 
-Become a Sponsor [1M+ view] — your logo here and get listed on [getdesign.md](https://getdesign.md/)
+
+<br/>
+
+<a href="https://launchkit.getdesign.md/">
+<img src="https://cdn.voltagent.dev/awesome-repo/launchkit-banner-3.png" alt="launchkit"  /><br/>
+</a>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="100%">
+
+<h4>👉 Feature your product alongside the developers, designers, and vibecoders shipping UI with AI coding agents and web builders.</h4>
+
+<sub>Ranked #150 globally on GitHub. A community resource used by developers, designers, and vibecoders.</sub>
+
+<a href="https://sponsors.voltagent.dev/#awesome-design-md"><img src="https://img.shields.io/badge/📩_Become_a_Sponsor-Contact_Us-blue?style=for-the-badge&logoColor=white" alt="Become a Sponsor" /></a>
+
+
+</td>
+</tr>
+</table>
+
+</div>
+
+
+
+
+
 
 ## Collection
 
@@ -149,10 +183,17 @@ Become a Sponsor [1M+ view] — your logo here and get listed on [getdesign.md](
 - [**Renault**](https://getdesign.md/renault/design-md) - French automotive. Vivid aurora gradients, NouvelR proprietary typeface, zero-radius buttons
 - [**Tesla**](https://getdesign.md/tesla/design-md) - Electric vehicles. Radical subtraction, cinematic full-viewport photography, Universal Sans
 
+### Retro Web · DESIGN.md Nostalgia
+
+A Saturday series — DESIGN.md files extracted from the web of the 1990s. Drop one in and tell your AI agent to build a period-accurate vintage UI.
+
+- [**Dell (1996)**](https://getdesign.md/dell-1996/design-md) - Catalog-era enterprise web. Literal black page frame, flat color-block "ribbon cards", chunky Helvetica-Black titles over Times Roman body, and hand-cut GIF stickers (NEW! bursts, award seals, beveled product photos).
+- [**Nintendo.com (2001)**](https://getdesign.md/nintendo-2001/design-md) - Y2K "console chrome" web. Brushed-periwinkle beveled metal panels, a halftone-dotted carbon nav glowing amber, outlined Arial-Black box-art wordmarks over circuit-board hero fields, and a pixel Mario welcome bubble.
+
 
 ## What's Inside Each DESIGN.md
 
-Every file follows the [Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/format/) with extended sections:
+Every file follows the [Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/specification/) with extended sections:
 
 | # | Section | What it captures |
 |---|---------|-----------------|
