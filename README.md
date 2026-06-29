@@ -17,7 +17,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-73-10b981?style=classic)
+![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-74-10b981?style=classic)
 [![Last Update](https://img.shields.io/github/last-commit/VoltAgent/awesome-design-md?label=Last%20update&style=classic)](https://github.com/VoltAgent/awesome-design-md)
 [![Discord](https://img.shields.io/discord/1361559153780195478.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://s.voltagent.dev/discord)
 
@@ -129,6 +129,7 @@ You can [request a DESIGN.md](https://getdesign.md/request) for specific website
 - [**Mintlify**](https://getdesign.md/mintlify/design-md) - Documentation platform. Clean, green-accented, reading-optimized
 - [**Notion**](https://getdesign.md/notion/design-md) - All-in-one workspace. Warm minimalism, serif headings, soft surfaces
 - [**Resend**](https://getdesign.md/resend/design-md) - Email API for developers. Minimal dark theme, monospace accents
+- [**Slack**](https://getdesign.md/slack/design-md) - Team communication platform. Deep aubergine primary, cream-lavender hero gradients, pill CTAs
 - [**Zapier**](https://getdesign.md/zapier/design-md) - Automation platform. Warm orange, friendly illustration-driven
 
 ### Design & Creative Tools
@@ -207,13 +208,14 @@ Every file follows the [Stitch DESIGN.md format](https://stitch.withgoogle.com/d
 | 8 | Responsive Behavior | Breakpoints, touch targets, collapsing strategy |
 | 9 | Agent Prompt Guide | Quick color reference, ready-to-use prompts |
 
-Each site includes:
+Each site folder includes:
 
 | File | Purpose |
 |------|---------|
 | `DESIGN.md` | The design system (what agents read) |
-| `preview.html` | Visual catalog showing color swatches, type scale, buttons, cards |
-| `preview-dark.html` | Same catalog with dark surfaces |
+| `README.md` | Quick overview with a link to previews and downloads on getdesign.md |
+
+Interactive previews (light/dark color swatches, type scale, buttons, cards) are available for every site on [getdesign.md](https://getdesign.md).
 
 ### How to Use
 

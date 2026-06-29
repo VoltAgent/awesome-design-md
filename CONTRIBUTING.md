@@ -11,14 +11,11 @@ This repository is a curated collection of DESIGN.md files extracted from popula
 If you notice issues with an existing file:
 
 1. **Open an issue first** to describe what you'd like to change and get feedback from maintainers
-2. Open the site's `DESIGN.md`
-3. Compare against the live site
-4. Fix incorrect hex values, missing tokens, or weak descriptions
-5. Update the `preview.html` and `preview-dark.html` if your changes affect displayed tokens
-6. Open a PR with before/after rationale
+2. Reference the affected site's `DESIGN.md`
+3. Compare it against the live site
+4. Describe the incorrect hex values, missing tokens, or weak descriptions you found
 
-
-We cannot accept DESIGN.md pull requests to maintain the quality of the existing collection.
+To maintain the quality and consistency of the collection, fixes are applied by maintainers based on accepted issues. Please report problems through issues rather than opening DESIGN.md pull requests.
 
 ## License
 
