@@ -174,7 +174,7 @@ function hexLuminance(color) {
 
 function cssValue(value, tokens, fallback = "") {
   const resolved = resolveReferences(String(value ?? ""), tokens).trim();
-  return resolved.includes("{") ? fallback : resolved;
+  return resolved && !resolved.includes("{") ? resolved : fallback;
 }
 
 function colorSwatch(name, value) {
@@ -232,21 +232,72 @@ export function renderPreview(document, sourcePath) {
   const typography = isObject(data.typography) ? data.typography : {};
   const components = isObject(data.components) ? data.components : {};
   const rounded = isObject(data.rounded) ? data.rounded : {};
+  const spacing = isObject(data.spacing) ? data.spacing : {};
   const canvas = firstString(colors, ["canvas", "canvas-light", "surface", "surface-light"], "#ffffff");
   const isDark = hexLuminance(canvas) < 0.25;
   const ink = firstString(colors, isDark ? ["on-dark", "ink", "primary", "body"] : ["ink", "body-strong", "primary", "on-dark"], isDark ? "#ffffff" : "#111111");
   const body = firstString(colors, ["body", "muted", "ink"], ink);
+  const muted = firstString(colors, ["muted", "body", "ink"], body);
   const surface = firstString(colors, isDark ? ["surface-card", "surface-elevated", "surface", "canvas"] : ["surface-card", "surface-soft", "surface", "canvas"], canvas);
+  const surfaceDark = firstString(colors, ["surface-dark", "canvas-dark", "surface-deep", "canvas-deep", "surface-card", "canvas"], isDark ? surface : "#181715");
+  const surfaceDarkSoft = firstString(colors, ["surface-dark-soft", "surface-dark-elevated", "surface-elevated", "surface-card", "canvas"], surfaceDark);
+  const onDark = firstString(colors, ["on-dark", "on-primary", "canvas", "ink"], "#ffffff");
   const hairline = firstString(colors, ["hairline", "border", "hairline-soft", "surface-strong"], isDark ? "#333333" : "#dddddd");
   const primary = firstString(colors, ["primary", "brand", "accent", "link"], ink);
+  const primaryActive = firstString(colors, ["primary-active", "primary-deep", "primary-dark", "primary"], primary);
+  const onPrimary = firstString(colors, ["on-primary", "on-dark", "canvas", "ink"], "#ffffff");
   const radius = firstString(rounded, ["md", "lg", "sm", "full", "none"], "8px");
-  const fallbackFamily = firstString(typography["body-md"], ["fontFamily"], "ui-sans-serif, system-ui, sans-serif");
-  const description = String(data.description ?? "No description supplied.");
-  const defaults = { surface, ink, hairline, radius };
+  const display = isObject(typography["display-xl"])
+    ? typography["display-xl"]
+    : Object.values(typography).find((style) => isObject(style) && /display|heading/i.test(String(style.fontFamily ?? ""))) ?? {};
+  const text = isObject(typography["body-md"])
+    ? typography["body-md"]
+    : Object.values(typography).find((style) => isObject(style)) ?? {};
+  const displayFamily = cssValue(display.fontFamily, data, "Georgia, serif");
+  const textFamily = cssValue(text.fontFamily, data, "ui-sans-serif, system-ui, sans-serif");
+  const monoFamily = cssValue(typography.code?.fontFamily, data, "ui-monospace, SFMono-Regular, Menlo, monospace");
   const title = String(data.name ?? sourcePath.replace(/\/DESIGN\.md$/, ""));
-  const swatches = Object.entries(colors).map(([name, value]) => colorSwatch(name, String(value))).join("\n");
-  const typeRows = Object.entries(typography).map(([name, style]) => typographySample(name, style, data, fallbackFamily)).join("\n");
-  const componentRows = Object.entries(components).map(([name, style]) => componentSample(name, style, data, defaults)).join("\n");
+  const brandName = title.replace(/[-_]+design[-_]+analysis$/i, "").replace(/[-_]+/g, " ").trim() || title;
+  const description = String(data.description ?? "A design system with a documented visual language.").replace(/\s+/g, " ");
+  const colorEntries = Object.entries(colors).filter(([, value]) => typeof value === "string");
+  const tokenGroups = [
+    ["Brand & accent", colorEntries.filter(([name]) => /primary|brand|accent|link|success|warning|error|red|blue|green|yellow|orange|purple|coral|teal/i.test(name))],
+    ["Surfaces", colorEntries.filter(([name]) => /canvas|surface|background|card|elevated|soft|deep|frame/i.test(name))],
+    ["Typography & borders", colorEntries.filter(([name]) => /ink|body|muted|on-|hairline|border|text/i.test(name))],
+  ].filter(([, entries]) => entries.length);
+  const grouped = new Set(tokenGroups.flatMap(([, entries]) => entries.map(([name]) => name)));
+  if (colorEntries.some(([name]) => !grouped.has(name))) tokenGroups.push(["Additional tokens", colorEntries.filter(([name]) => !grouped.has(name))]);
+  const heroDisplayStyle = [
+    `font-family:${displayFamily}`,
+    `font-size:clamp(44px, 6vw, ${cssValue(display.fontSize, data, "72px")})`,
+    `font-weight:${cssValue(display.fontWeight, data, "500")}`,
+    `line-height:${cssValue(display.lineHeight, data, "1.05")}`,
+    `letter-spacing:${cssValue(display.letterSpacing, data, "-1.5px")}`,
+  ].join(";");
+  const renderGroup = ([groupName, entries]) => `<div class="palette-group"><h3>${escapeHtml(groupName)}</h3><div class="palette-grid">${entries.map(([name, value]) => `<article class="swatch"><div class="swatch-color" style="background:${escapeHtml(COLOR_VALUE.test(value) ? value : surface)}"></div><div class="swatch-meta"><strong>${escapeHtml(name)}</strong><code>${escapeHtml(value)}</code><p>Semantic ${escapeHtml(name.replaceAll("-", " "))} token.</p></div></article>`).join("")}</div></div>`;
+  const typeRows = Object.entries(typography).filter(([, style]) => isObject(style)).map(([name, style]) => {
+    const sampleStyle = [
+      `font-family:${cssValue(style.fontFamily, data, textFamily)}`,
+      `font-size:clamp(16px, 3vw, ${cssValue(style.fontSize, data, "20px")})`,
+      `font-weight:${cssValue(style.fontWeight, data, "400")}`,
+      `line-height:${cssValue(style.lineHeight, data, "1.3")}`,
+      `letter-spacing:${cssValue(style.letterSpacing, data, "normal")}`,
+    ].join(";");
+    const sample = /code/i.test(name) ? "createDesignSystem({ preview: true })" : /display|heading/i.test(name) ? `Make ${brandName} unmistakable` : /button/i.test(name) ? `Explore ${brandName}` : "A design language, rendered with intent.";
+    return `<div class="type-row"><div class="type-meta"><strong>${escapeHtml(name)}</strong><span>${escapeHtml(`${style.fontSize ?? "16px"} / ${style.fontWeight ?? "400"} / ${style.lineHeight ?? "1.4"}`)}</span></div><div class="type-sample" style="${escapeHtml(sampleStyle)}">${escapeHtml(sample)}</div></div>`;
+  }).join("");
+  const componentRows = Object.entries(components).filter(([, style]) => isObject(style)).slice(0, 12).map(([name, component]) => {
+    const background = cssValue(component.backgroundColor, data, surface);
+    const color = cssValue(component.textColor ?? component.color, data, ink);
+    const componentRadius = cssValue(component.rounded, data, radius);
+    const padding = cssValue(component.padding, data, "12px 18px");
+    const border = cssValue(component.border, data, background === canvas ? `1px solid ${hairline}` : "none");
+    const label = name.replaceAll("-", " ");
+    return `<article class="component-card"><div class="component-stage" style="background:${escapeHtml(surface)}"><button style="background:${escapeHtml(background)};color:${escapeHtml(color)};border:${escapeHtml(border)};border-radius:${escapeHtml(componentRadius)};padding:${escapeHtml(padding)};font:inherit;min-height:${escapeHtml(cssValue(component.height, data, "auto"))}">${escapeHtml(label)} →</button></div><div class="component-meta"><strong>${escapeHtml(name)}</strong><code>${escapeHtml(background)}</code></div></article>`;
+  }).join("");
+  const featureCards = Object.entries(components).filter(([, style]) => isObject(style)).slice(0, 3).map(([name, component], index) => `<article class="feature-card"><span class="feature-number">0${index + 1}</span><h3>${escapeHtml(name.replaceAll("-", " "))}</h3><p>${escapeHtml(`${brandName} uses this component recipe to keep its visual grammar consistent.`)}</p><span>${escapeHtml(cssValue(component.backgroundColor, data, surface))}</span></article>`).join("");
+  const spacingRows = Object.entries(spacing).filter(([, value]) => typeof value === "string").slice(0, 10).map(([name, value]) => `<div class="scale-item"><div class="scale-bar" style="width:min(${escapeHtml(value)}, 100%)"></div><span>${escapeHtml(name)}</span><code>${escapeHtml(value)}</code></div>`).join("");
+  const radiusRows = Object.entries(rounded).filter(([, value]) => typeof value === "string").slice(0, 8).map(([name, value]) => `<div class="radius-item" style="border-radius:${escapeHtml(value)}"><span>${escapeHtml(name)}</span><code>${escapeHtml(value)}</code></div>`).join("");
 
   return `<!doctype html>
 <html lang="en">
@@ -254,57 +305,45 @@ export function renderPreview(document, sourcePath) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="${isDark ? "dark" : "light"}">
-  <title>${escapeHtml(title)} — Design preview</title>
+  <title>Design System Analysis of ${escapeHtml(brandName)} — Preview</title>
   <style>
-    :root { color-scheme: ${isDark ? "dark" : "light"}; --canvas:${escapeHtml(canvas)}; --ink:${escapeHtml(ink)}; --body:${escapeHtml(body)}; --surface:${escapeHtml(surface)}; --hairline:${escapeHtml(hairline)}; --primary:${escapeHtml(primary)}; --radius:${escapeHtml(radius)}; --type:${escapeHtml(fallbackFamily)}; }
-    * { box-sizing:border-box; }
-    html { background:var(--canvas); }
-    body { margin:0; background:var(--canvas); color:var(--ink); font-family:var(--type); font-size:16px; line-height:1.5; }
-    button { cursor:pointer; }
-    .shell { width:min(1200px, calc(100% - 48px)); margin:0 auto; }
-    .masthead { padding:72px 0 54px; border-bottom:1px solid var(--hairline); }
-    .eyebrow, code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .eyebrow { display:block; margin-bottom:20px; color:var(--body); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
-    h1 { max-width:900px; margin:0; color:var(--ink); font-size:clamp(42px, 7vw, 96px); letter-spacing:-.055em; line-height:.94; }
-    .summary { max-width:760px; margin:28px 0 0; color:var(--body); font-size:clamp(18px, 2.5vw, 24px); }
-    .signal { display:flex; align-items:center; gap:10px; margin-top:32px; color:var(--body); font-size:13px; }
-    .signal__dot { width:11px; height:11px; border-radius:50%; background:var(--primary); box-shadow:0 0 0 5px color-mix(in srgb, var(--primary) 18%, transparent); }
-    section { padding:56px 0; border-bottom:1px solid var(--hairline); }
-    h2 { margin:0 0 24px; color:var(--ink); font-size:13px; letter-spacing:.13em; text-transform:uppercase; }
-    .swatches { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); border:1px solid var(--hairline); border-radius:var(--radius); overflow:hidden; }
-    .swatch { min-width:0; border-right:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
-    .swatch__color { height:92px; }
-    .swatch__copy, .component__meta { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; }
-    .swatch strong, .component strong { font-size:13px; overflow-wrap:anywhere; }
-    code { color:var(--body); font-size:11px; overflow-wrap:anywhere; }
-    .type-list { border-top:1px solid var(--hairline); }
-    .type-row { display:grid; grid-template-columns:minmax(150px, .28fr) 1fr; gap:24px; align-items:center; border-bottom:1px solid var(--hairline); padding:22px 0; }
-    .type-row__meta { display:grid; gap:4px; }
-    .type-row p { margin:0; color:var(--ink); overflow-wrap:anywhere; }
-    .components { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px; }
-    .component { overflow:hidden; border:1px solid var(--hairline); border-radius:var(--radius); background:var(--surface); }
-    .component__preview { display:flex; min-height:132px; align-items:center; justify-content:center; padding:24px; background:color-mix(in srgb, var(--surface) 86%, var(--canvas)); }
-    .component__preview > * { max-width:100%; text-transform:capitalize; }
-    .component__meta { border-top:1px solid var(--hairline); background:var(--canvas); }
-    footer { display:flex; justify-content:space-between; gap:20px; padding:32px 0 56px; color:var(--body); font-size:13px; }
-    .catalog-link { color:var(--ink); font-size:12px; letter-spacing:.1em; text-transform:uppercase; text-decoration-thickness:1px; text-underline-offset:4px; }
-    @media (max-width:640px) { .shell { width:min(100% - 32px, 1200px); } .masthead { padding:48px 0 36px; } section { padding:40px 0; } .type-row { grid-template-columns:1fr; gap:12px; } footer { display:block; } }
+    :root { color-scheme:${isDark ? "dark" : "light"}; --canvas:${escapeHtml(canvas)}; --ink:${escapeHtml(ink)}; --body:${escapeHtml(body)}; --muted:${escapeHtml(muted)}; --surface:${escapeHtml(surface)}; --surface-dark:${escapeHtml(surfaceDark)}; --surface-dark-soft:${escapeHtml(surfaceDarkSoft)}; --on-dark:${escapeHtml(onDark)}; --hairline:${escapeHtml(hairline)}; --primary:${escapeHtml(primary)}; --primary-active:${escapeHtml(primaryActive)}; --on-primary:${escapeHtml(onPrimary)}; --radius:${escapeHtml(radius)}; --display:${escapeHtml(displayFamily)}; --text:${escapeHtml(textFamily)}; --mono:${escapeHtml(monoFamily)}; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; background:var(--canvas); } body { margin:0; background:var(--canvas); color:var(--body); font:15px/1.55 var(--text); } button,input { font:inherit; } button { cursor:pointer; } a { color:inherit; }
+    .nav { position:sticky; top:0; z-index:10; height:64px; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:0 max(24px, calc((100vw - 1200px) / 2)); border-bottom:1px solid var(--hairline); background:color-mix(in srgb, var(--canvas) 94%, transparent); backdrop-filter:blur(12px); }
+    .brand { color:var(--ink); font:500 22px/1 var(--display); text-decoration:none; white-space:nowrap; } .nav-links { display:flex; gap:28px; align-items:center; } .nav-links a { color:var(--ink); font-size:13px; font-weight:600; text-decoration:none; } .nav-cta { border:0; border-radius:var(--radius); padding:10px 16px; background:var(--primary); color:var(--on-primary); font-weight:600; white-space:nowrap; }
+    .hero { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:clamp(36px, 6vw, 88px); width:min(1280px, calc(100% - 64px)); min-height:620px; margin:0 auto; padding:84px 16px; } .eyebrow,.section-label { display:block; margin-bottom:14px; color:var(--muted); font:600 11px/1.4 var(--text); letter-spacing:.14em; text-transform:uppercase; } h1 { max-width:720px; margin:0; color:var(--ink); } .hero-copy > p { max-width:590px; margin:24px 0 32px; font-size:18px; } .hero-actions { display:flex; flex-wrap:wrap; gap:12px; } .button-primary,.button-secondary { min-height:42px; padding:11px 18px; border-radius:var(--radius); font-weight:600; } .button-primary { border:0; background:var(--primary); color:var(--on-primary); } .button-secondary { border:1px solid var(--hairline); background:var(--canvas); color:var(--ink); }
+    .product-window { min-height:360px; padding:20px; border-radius:calc(var(--radius) * 1.5); background:var(--surface-dark); color:var(--on-dark); box-shadow:0 24px 70px color-mix(in srgb, var(--ink) 12%, transparent); } .window-bar { display:flex; gap:7px; padding:2px 0 17px; } .window-bar span { width:10px; height:10px; border-radius:50%; background:#ff5f57; } .window-bar span:nth-child(2) { background:#ffbd2e; } .window-bar span:nth-child(3) { background:#28c840; } .product-window pre { margin:0; min-height:296px; padding:22px; overflow:auto; border-radius:calc(var(--radius) * .75); background:var(--surface-dark-soft); color:var(--on-dark); font:13px/1.75 var(--mono); } .code-muted { color:color-mix(in srgb, var(--on-dark) 58%, transparent); } .code-accent { color:var(--primary); }
+    section { width:min(1200px, calc(100% - 64px)); margin:0 auto; padding:88px 0; border-top:1px solid var(--hairline); } h2 { margin:0 0 15px; color:var(--ink); font:400 clamp(34px, 4.5vw, 54px)/1.08 var(--display); letter-spacing:-.035em; } .section-intro { max-width:720px; margin:0 0 42px; font-size:16px; }
+    .palette-group + .palette-group { margin-top:48px; } .palette-group h3,.feature-card h3 { margin:0 0 18px; color:var(--ink); font:400 24px/1.2 var(--display); } .palette-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px; } .swatch { overflow:hidden; border:1px solid var(--hairline); border-radius:calc(var(--radius) * 1.25); background:var(--canvas); } .swatch-color { height:94px; } .swatch-meta { padding:13px 14px 16px; } .swatch-meta strong { display:block; color:var(--ink); font-size:13px; } code { color:var(--muted); font:11px/1.5 var(--mono); } .swatch-meta p { min-height:37px; margin:8px 0 0; font-size:12px; }
+    .type-list { border-top:1px solid var(--hairline); } .type-row { display:grid; grid-template-columns:250px 1fr; gap:32px; align-items:baseline; padding:23px 0; border-bottom:1px solid var(--hairline); } .type-meta strong { display:block; color:var(--ink); font-size:13px; } .type-meta span { color:var(--muted); font-size:12px; } .type-sample { color:var(--ink); overflow-wrap:anywhere; }
+    .component-grid,.feature-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:18px; } .component-card { overflow:hidden; border:1px solid var(--hairline); border-radius:calc(var(--radius) * 1.25); background:var(--canvas); } .component-stage { display:flex; min-height:138px; align-items:center; justify-content:center; padding:24px; } .component-stage button { max-width:100%; overflow:hidden; text-transform:capitalize; } .component-meta { display:flex; justify-content:space-between; gap:12px; padding:13px 15px; border-top:1px solid var(--hairline); } .component-meta strong { color:var(--ink); font-size:13px; overflow-wrap:anywhere; }
+    .feature-grid { margin-top:20px; } .feature-card { min-height:248px; padding:30px; border-radius:calc(var(--radius) * 1.25); background:var(--surface); } .feature-number { display:block; margin-bottom:44px; color:var(--primary); font:12px var(--mono); } .feature-card p { margin:0 0 21px; font-size:14px; } .feature-card > span:last-child { color:var(--muted); font:11px var(--mono); }
+    .callout { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:end; margin-top:46px; padding:clamp(32px, 6vw, 64px); border-radius:calc(var(--radius) * 1.5); background:var(--primary); color:var(--on-primary); } .callout h3 { max-width:640px; margin:0 0 13px; font:400 clamp(30px, 4vw, 48px)/1.1 var(--display); } .callout p { max-width:620px; margin:0; } .callout button { min-width:150px; padding:12px 17px; border:0; border-radius:var(--radius); background:var(--canvas); color:var(--ink); font-weight:600; }
+    .scale-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px; } .scale-item { padding:16px; border:1px solid var(--hairline); border-radius:var(--radius); } .scale-bar { height:9px; max-width:100%; margin-bottom:18px; border-radius:999px; background:var(--primary); } .scale-item span,.scale-item code { display:block; } .radius-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(128px, 1fr)); gap:16px; } .radius-item { display:flex; min-height:108px; flex-direction:column; justify-content:end; padding:14px; border:1px solid var(--hairline); background:var(--surface); color:var(--ink); }
+    .responsive-table { width:100%; border-collapse:collapse; color:var(--body); text-align:left; } .responsive-table th,.responsive-table td { padding:15px; border-bottom:1px solid var(--hairline); vertical-align:top; } .responsive-table th { color:var(--ink); font-size:12px; text-transform:uppercase; letter-spacing:.08em; } .responsive-table td { font-size:14px; } .responsive-table td:first-child { color:var(--ink); font-weight:600; }
+    footer { margin-top:38px; padding:64px max(24px, calc((100vw - 1200px) / 2)); background:var(--surface-dark); color:var(--on-dark); } .footer-grid { display:grid; grid-template-columns:2fr repeat(3, 1fr); gap:32px; } .footer-brand { font:400 30px/1 var(--display); } .footer-grid strong { display:block; margin-bottom:12px; color:var(--on-dark); font-size:13px; } .footer-grid span { display:block; color:color-mix(in srgb, var(--on-dark) 62%, transparent); font-size:13px; line-height:1.8; } .footer-credit { margin-top:48px; padding-top:18px; border-top:1px solid color-mix(in srgb, var(--on-dark) 13%, transparent); color:color-mix(in srgb, var(--on-dark) 55%, transparent); font-size:12px; }
+    @media (max-width:780px) { .nav { padding:0 20px; } .nav-links { display:none; } .hero { grid-template-columns:1fr; width:min(100% - 40px, 620px); min-height:auto; padding:56px 0; } .product-window { min-height:260px; } .product-window pre { min-height:210px; } section { width:min(100% - 40px, 620px); padding:60px 0; } .type-row { grid-template-columns:1fr; gap:12px; } .callout { grid-template-columns:1fr; } .callout button { width:100%; } .footer-grid { grid-template-columns:1fr 1fr; } }
   </style>
 </head>
 <body>
-  <main class="shell">
-    <header class="masthead">
-      <span class="eyebrow">Compiled DESIGN.md preview</span>
-      <h1>${escapeHtml(title)}</h1>
-      <p class="summary">${escapeHtml(description)}</p>
-      <div class="signal"><span class="signal__dot"></span><span>${escapeHtml(sourcePath)}</span></div>
-      <a class="catalog-link" href="../../preview/">All design previews</a>
-    </header>
-    <section aria-labelledby="palette"><h2 id="palette">Palette · ${Object.keys(colors).length} tokens</h2><div class="swatches">${swatches || "<p>No color tokens defined.</p>"}</div></section>
-    <section aria-labelledby="type"><h2 id="type">Typography · ${Object.keys(typography).length} styles</h2><div class="type-list">${typeRows || "<p>No typography tokens defined.</p>"}</div></section>
-    <section aria-labelledby="components"><h2 id="components">Components · ${Object.keys(components).length} recipes</h2><div class="components">${componentRows || "<p>No component recipes defined.</p>"}</div></section>
-    <footer><span>Generated from DESIGN.md. Do not edit this file directly.</span><span>${escapeHtml(sourcePath)}</span></footer>
+  <nav class="nav"><a class="brand" href="#top">${escapeHtml(brandName)}</a><div class="nav-links"><a href="#colors">Colors</a><a href="#typography">Typography</a><a href="#components">Components</a><a href="#responsive">Responsive</a></div><a href="../../preview/" class="nav-cta">All previews</a></nav>
+  <main id="top">
+    <header class="hero"><div class="hero-copy"><span class="eyebrow">Design system analysis</span><h1 style="${escapeHtml(heroDisplayStyle)}">Design System Analysis of ${escapeHtml(brandName)}</h1><p>${escapeHtml(description)}</p><div class="hero-actions"><button class="button-primary">Explore ${escapeHtml(brandName)}</button><button class="button-secondary">Read the system</button></div></div><div class="product-window" aria-label="Design system code example"><div class="window-bar"><span></span><span></span><span></span></div><pre><span class="code-muted">// ${escapeHtml(brandName)} visual language</span>
+<span class="code-accent">const</span> system = createDesignSystem({
+  canvas: <span class="code-accent">"${escapeHtml(canvas)}"</span>,
+  accent: <span class="code-accent">"${escapeHtml(primary)}"</span>,
+  typography: <span class="code-accent">"${escapeHtml(displayFamily.split(",")[0])}"</span>,
+  components: ${Object.keys(components).length}
+});
+
+render(system, <span class="code-accent">"with intent"</span>);</pre></div></header>
+    <section id="colors"><span class="section-label">01 — Color palette</span><h2>${escapeHtml(brandName)} in color</h2><p class="section-intro">A role-based palette derived directly from the document. Brand, surface, and type tokens stay separate so their hierarchy reads immediately.</p>${tokenGroups.map(renderGroup).join("")}</section>
+    <section id="typography"><span class="section-label">02 — Typography</span><h2>Voice, rhythm, and scale</h2><p class="section-intro">Display and body styles render from the document’s defined families, weights, tracking, and line heights.</p><div class="type-list">${typeRows || "<p>No typography styles supplied.</p>"}</div></section>
+    <section id="components"><span class="section-label">03 — Components</span><h2>Interactive grammar</h2><p class="section-intro">Live component recipes: declared fill, text, border, radius, padding, and height are applied without a hand-authored site template.</p><div class="component-grid">${componentRows || "<p>No component recipes supplied.</p>"}</div><div class="feature-grid">${featureCards}</div><div class="callout"><div><h3>Make every surface feel like ${escapeHtml(brandName)}</h3><p>The preview combines the source document’s palette, type hierarchy, and component constraints into one coherent visual system.</p></div><button>Use DESIGN.md</button></div></section>
+    <section><span class="section-label">04 — Spatial system</span><h2>Spacing and geometry</h2><div class="scale-grid">${spacingRows || "<p>No spacing scale supplied.</p>"}</div><div class="radius-grid" style="margin-top:24px">${radiusRows || "<p>No radius scale supplied.</p>"}</div></section>
+    <section id="responsive"><span class="section-label">05 — Responsive behavior</span><h2>Designed to compress, not shrink</h2><table class="responsive-table"><thead><tr><th>Viewport</th><th>Width</th><th>Preview behavior</th></tr></thead><tbody><tr><td>Mobile</td><td>&lt; 768px</td><td>Single-column hero, hidden section links, stacked cards, and full-width calls to action.</td></tr><tr><td>Tablet</td><td>768–1024px</td><td>Multi-column token grids tighten while type remains legible and hierarchy stays intact.</td></tr><tr><td>Desktop</td><td>&gt; 1024px</td><td>Full navigation, two-column hero, expansive palette grid, and side-by-side component specimens.</td></tr></tbody></table></section>
   </main>
+  <footer><div class="footer-grid"><div><div class="footer-brand">${escapeHtml(brandName)}</div><span>Compiled directly from DESIGN.md.</span></div><div><strong>Tokens</strong><span>${colorEntries.length} color roles</span><span>${Object.keys(typography).length} type styles</span></div><div><strong>Recipes</strong><span>${Object.keys(components).length} components</span><span>${Object.keys(spacing).length} spacing values</span></div><div><strong>Source</strong><span>${escapeHtml(sourcePath)}</span><span>Generated locally</span></div></div><div class="footer-credit">Generated preview — edit DESIGN.md, then run the named preview command again.</div></footer>
 </body>
 </html>`;
 }

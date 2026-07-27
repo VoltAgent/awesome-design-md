@@ -39,7 +39,9 @@ components:
   const preview = renderPreview(document, "design-md/example/DESIGN.md");
   assert.match(preview, /background:#ff5500/);
   assert.match(preview, /border-radius:8px/);
-  assert.match(preview, /Palette · 3 tokens/);
+  assert.match(preview, /Design System Analysis of Example system/);
+  assert.match(preview, /Interactive grammar/);
+  assert.match(preview, /Responsive behavior/);
 });
 
 test("normalizes prose-only DESIGN.md files into a usable token catalog", () => {
