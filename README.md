@@ -213,13 +213,30 @@ Each site includes:
 |------|---------|
 | `DESIGN.md` | The design system (what agents read) |
 | `preview.html` | Visual catalog showing color swatches, type scale, buttons, cards |
-| `preview-dark.html` | Same catalog with dark surfaces |
 
 ### How to Use
 
 
 1. Copy a site's `DESIGN.md` into your project root
 2. Tell your AI agent to use it.
+
+### Preview Locally
+
+The repository can compile every `DESIGN.md` into a same-directory `preview.html` token catalog. It supports the collection's structured YAML front matter and legacy prose-only documents.
+
+```bash
+npm run preview
+```
+
+Open [http://127.0.0.1:4173/preview/](http://127.0.0.1:4173/preview/) to choose a design. The server rebuilds previews on startup. To regenerate files without starting a server, run `npm run preview:build`.
+
+Preview one design directly by directory name:
+
+```bash
+npm run preview -- bmw-m
+```
+
+This generates only `design-md/bmw-m/preview.html` and prints its direct URL: [http://127.0.0.1:4173/design-md/bmw-m/preview.html](http://127.0.0.1:4173/design-md/bmw-m/preview.html). Replace `bmw-m` with any folder under `design-md/`. Use `npm run preview:build -- bmw-m` to generate it without starting the server.
 
 
 ## Contributing

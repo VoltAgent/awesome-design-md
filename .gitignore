@@ -1,1 +1,6 @@
 .DS_Store
+
+# Generated design previews
+design-md/**/preview.html
+design-md/**/preview-dark.html
+preview/
