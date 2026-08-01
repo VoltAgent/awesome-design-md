@@ -186,7 +186,7 @@ Stop building from a blank page. [LaunchKit](https://launchkit.getdesign.md/) gi
 
 ### Gaming & Entertainment
 
-- [**Hypergryph**](https://getdesign.md/hypergryph/design-md) - Game studio ecosystem (Arknights, Endfield, Monster Siren, Terra Historicus). Dark-industrial tactical UI language with cinematic media framing and cyan/yellow signal accents.
+- [**Hypergryph**](https://getdesign.md/hypergryph/design-md) - Game studio ecosystem. Full-viewport industrial compositions, mechanical multilingual type, and sub-brand signal palettes spanning lime, cyan, hazard yellow, ice blue, and crimson
 
 ### Automotive
 

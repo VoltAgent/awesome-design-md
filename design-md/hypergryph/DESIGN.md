@@ -1,115 +1,100 @@
 ---
 version: alpha
-name: Hypergryph-Inspired-design-analysis
-description: An inspired interpretation of Hypergryph's cross-site design language (hypergryph.com, Arknights CN/Global, Endfield, Monster Siren Records, Terra Historicus) — a dark-industrial system where black and gunmetal carry structure, cyan and hazard-yellow carry state and intent, and cinematic media surfaces are constrained by strict modular geometry.
+name: Hypergryph-inspired-design-analysis
+description: |
+  A cross-brand analysis of Hypergryph's corporate, game, music, and comic sites. The shared language is industrial and cinematic rather than uniformly dark: full-viewport media, hard rules, mechanical Latin display faces, CJK-first text, and compact interface labels remain constant while each property owns a signal palette — corporate lime, Arknights cyan, Endfield hazard yellow, Monster Siren ice cyan, and Terra Historicus crimson or yellow.
 
 colors:
-  primary-cyan: "#18d1ff"
-  primary-cyan-deep: "#06bbff"
-  primary-cyan-soft: "#a0edff"
-  signal-yellow: "#fffa00"
-  signal-yellow-soft: "#f3ff00"
-  signal-neon-green: "#00ffa2"
-  signal-magenta: "#ff1aac"
-  signal-crimson: "#b0243b"
-  canvas: "#000000"
-  canvas-deep: "#0b0d10"
-  canvas-soft: "#191919"
-  canvas-panel: "#1d1f20"
-  surface-elev: "#242424"
-  surface-muted: "#35373c"
-  steel-600: "#585858"
-  steel-500: "#696969"
-  steel-400: "#929292"
-  steel-300: "#ababab"
-  steel-200: "#c6c9ce"
-  steel-100: "#d4d8dd"
-  ink: "#ffffff"
-  ink-soft: "#e6e6e6"
-  ink-muted: "#b2b2b2"
-  hairline: "#2e3238"
-  hairline-soft: "#434343"
-  on-primary: "#000000"
+  canvas-black: "#000000"
+  canvas-ink: "#09090b"
+  canvas-graphite: "#191919"
+  panel-arknights: "#1d1f20"
+  panel-raised: "#242424"
+  steel-dark: "#35373c"
+  steel-mid: "#585858"
+  steel-text: "#c6c9ce"
+  paper: "#ffffff"
+  paper-soft: "#f7f7f7"
+  paper-muted: "#e5e5e5"
+  ink-dark: "#191919"
+  ink-light: "#ffffff"
+  ink-muted-dark: "#999999"
+  corporate-lime: "#f3ff00"
+  arknights-cyan: "#18d1ff"
+  arknights-cyan-deep: "#06bbff"
+  siren-ice: "#a0edff"
+  endfield-yellow: "#fffa00"
+  endfield-green: "#00ffa2"
+  endfield-magenta: "#ff1aac"
+  comic-crimson: "#b0243b"
 
 typography:
-  display-xxl:
-    fontFamily: "Bender-Bold, Geometos, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
+  display-mechanical:
+    fontFamily: "Novecentosanswide-Bold, Bender-Bold, Geometos, sans-serif"
     fontSize: 112px
     fontWeight: 700
-    lineHeight: 1.0
-    letterSpacing: 0
-  display-xl:
-    fontFamily: "Bender-Bold, Geometos, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
-    fontSize: 80px
-    fontWeight: 700
-    lineHeight: 1.0
-    letterSpacing: 0
-  display-lg:
-    fontFamily: "Bender-Bold, Novecentosanswide-Bold, 'Source Han Sans', system-ui, sans-serif"
-    fontSize: 56px
+    lineHeight: 0.95
+    letterSpacing: -0.04em
+  display-cinematic:
+    fontFamily: "Gilroy-Light, Oswald-Medium, Novecentosanswide-Medium, sans-serif"
+    fontSize: 96px
+    fontWeight: 300
+    lineHeight: 1
+    letterSpacing: -0.03em
+  display-editorial:
+    fontFamily: "SourceHanSerifCN-Heavy, 'Source Han Serif SC', serif"
+    fontSize: 64px
+    fontWeight: 900
+    lineHeight: 1.05
+    letterSpacing: -0.04em
+  heading-xl:
+    fontFamily: "SourceHanSans-Bold, SansBold, 'Noto Sans CJK SC', sans-serif"
+    fontSize: 48px
     fontWeight: 700
     lineHeight: 1.05
-    letterSpacing: 0
-  display-md:
-    fontFamily: "SourceHanSans-Bold, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
-    fontSize: 40px
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: 0
+    letterSpacing: -0.02em
   heading-lg:
-    fontFamily: "SourceHanSans-Bold, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
+    fontFamily: "SourceHanSans-Bold, SansBold, 'Noto Sans CJK SC', sans-serif"
     fontSize: 32px
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: 0
   heading-md:
-    fontFamily: "SansBold, SourceHanSans-Bold, 'Source Han Sans', system-ui, sans-serif"
+    fontFamily: "SourceHanSans-Bold, SansBold, 'Noto Sans CJK SC', sans-serif"
     fontSize: 24px
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: 0
-  heading-sm:
-    fontFamily: "SansMedium, SourceHanSans-Medium, 'Source Han Sans', system-ui, sans-serif"
-    fontSize: 20px
-    fontWeight: 500
-    lineHeight: 1.25
-    letterSpacing: 0
   body-lg:
-    fontFamily: "SansRegular, SourceHanSans-Regular, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
+    fontFamily: "SourceHanSans-Regular, SansRegular, 'Noto Sans CJK SC', sans-serif"
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: 0
   body-md:
-    fontFamily: "SansRegular, SourceHanSans-Regular, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
+    fontFamily: "SourceHanSans-Regular, SansRegular, 'Noto Sans CJK SC', sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: 0
-  body-sm:
-    fontFamily: "SansRegular, SourceHanSans-Regular, 'Source Han Sans', 'Noto Sans CJK SC', system-ui, sans-serif"
-    fontSize: 14px
-    fontWeight: 400
-    lineHeight: 1.55
-    letterSpacing: 0
-  label-ui:
-    fontFamily: "Oswald-Medium, Novecentosanswide-DemiBold, SourceHanSans-Medium, system-ui, sans-serif"
+  label-industrial:
+    fontFamily: "Bender-Regular, Gilroy-Medium, Novecentosanswide-Medium, sans-serif"
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.2
-    letterSpacing: 0.08em
-  button-md:
-    fontFamily: "SansMedium, SourceHanSans-Medium, 'Source Han Sans', system-ui, sans-serif"
-    fontSize: 16px
-    fontWeight: 500
-    lineHeight: 1.1
-    letterSpacing: 0.02em
+    letterSpacing: 0.06em
+  label-condensed:
+    fontFamily: "Oswald-Medium, Novecentosanswide-DemiBold, sans-serif"
+    fontSize: 14px
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: 0.04em
   caption:
-    fontFamily: "SansRegular, SourceHanSans-Regular, 'Source Han Sans', system-ui, sans-serif"
+    fontFamily: "Bender-Regular, SourceHanSans-Regular, 'Noto Sans CJK SC', sans-serif"
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.4
-    letterSpacing: 0
+    letterSpacing: 0.02em
 
 rounded:
   none: 0px
@@ -117,9 +102,7 @@ rounded:
   sm: 4px
   md: 6px
   lg: 8px
-  xl: 12px
-  xxl: 16px
-  pill: 9999px
+  full: 9999px
   circle: 50%
 
 spacing:
@@ -130,408 +113,285 @@ spacing:
   lg: 16px
   xl: 24px
   xxl: 32px
-  3xl: 40px
-  4xl: 48px
-  5xl: 64px
-  6xl: 80px
-  7xl: 112px
+  3xl: 48px
+  4xl: 64px
+  5xl: 80px
+  section: 96px
 
 components:
-  page-shell:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
+  page-shell-dark:
+    backgroundColor: "{colors.canvas-black}"
+    textColor: "{colors.ink-light}"
     typography: "{typography.body-md}"
-    padding: "{spacing.4xl} {spacing.xl}"
-  section-industrial:
-    backgroundColor: "{colors.canvas-soft}"
-    textColor: "{colors.ink}"
+  page-shell-light:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-dark}"
     typography: "{typography.body-md}"
-    padding: "{spacing.5xl} {spacing.xl}"
-  nav-bar-dark:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label-ui}"
-    borderColor: "{colors.hairline}"
+  header-glass:
+    backgroundColor: "rgba(51,51,51,0.88)"
+    textColor: "{colors.ink-light}"
+    typography: "{typography.body-md}"
     rounded: "{rounded.none}"
+    height: 72px
     padding: "{spacing.md} {spacing.xl}"
   nav-link:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink-soft}"
-    typography: "{typography.label-ui}"
+    backgroundColor: transparent
+    textColor: "{colors.ink-light}"
+    typography: "{typography.label-condensed}"
     rounded: "{rounded.none}"
-    padding: "{spacing.xs} {spacing.sm}"
-  nav-link-active:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-cyan}"
-    typography: "{typography.label-ui}"
+    padding: "{spacing.sm} {spacing.md}"
+  panel-overlay-black:
+    backgroundColor: "rgba(0,0,0,0.88)"
+    textColor: "{colors.ink-light}"
+    typography: "{typography.body-md}"
     rounded: "{rounded.none}"
-    padding: "{spacing.xs} {spacing.sm}"
-  button-primary-cyan:
-    backgroundColor: "{colors.primary-cyan}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.md} {spacing.xl}"
-  button-primary-yellow:
-    backgroundColor: "{colors.signal-yellow}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.md} {spacing.xl}"
-  button-outline-dark:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.steel-500}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.md} {spacing.xl}"
-  button-ghost:
-    backgroundColor: "rgba(255,255,255,0.04)"
-    textColor: "{colors.ink-soft}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.md} {spacing.xl}"
-  hero-cinematic:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.display-xl}"
+    padding: "{spacing.lg}"
+  button-arknights:
+    backgroundColor: "{colors.arknights-cyan}"
+    textColor: "{colors.canvas-black}"
+    typography: "{typography.label-industrial}"
     rounded: "{rounded.none}"
-    padding: "{spacing.6xl} {spacing.xl}"
-  hero-video-frame:
-    backgroundColor: "{colors.canvas-panel}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.hairline-soft}"
+    padding: "{spacing.md} {spacing.xl}"
+  button-endfield:
+    backgroundColor: "{colors.canvas-graphite}"
+    textColor: "{colors.ink-light}"
+    borderColor: "{colors.endfield-yellow}"
+    typography: "{typography.label-industrial}"
+    rounded: "{rounded.xs}"
+    padding: "{spacing.md} {spacing.xl}"
+  section-title-rail:
+    backgroundColor: "{colors.endfield-yellow}"
+    textColor: "{colors.ink-dark}"
+    typography: "{typography.heading-xl}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.sm} {spacing.xl}"
+  loading-rail:
+    backgroundColor: "{colors.canvas-graphite}"
+    textColor: "{colors.steel-text}"
+    borderColor: "{colors.steel-mid}"
     typography: "{typography.caption}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.md}"
-  tactical-overlay-chip:
-    backgroundColor: "rgba(0,0,0,0.68)"
-    textColor: "{colors.primary-cyan-soft}"
-    borderColor: "{colors.primary-cyan}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.pill}"
-    padding: "{spacing.xs} {spacing.sm}"
-  card-ops:
-    backgroundColor: "{colors.surface-elev}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.hairline}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.sm} 0"
+  cinematic-hero:
+    backgroundColor: "{colors.canvas-black}"
+    textColor: "{colors.ink-light}"
+    typography: "{typography.display-mechanical}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.section} {spacing.xl}"
+  operator-profile:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-dark}"
+    borderColor: "{colors.endfield-yellow}"
     typography: "{typography.body-md}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.none}"
     padding: "{spacing.xl}"
-  card-lore:
-    backgroundColor: "{colors.canvas-panel}"
-    textColor: "{colors.ink-soft}"
-    borderColor: "{colors.hairline}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  card-music:
-    backgroundColor: "{colors.canvas-soft}"
-    textColor: "{colors.steel-100}"
-    borderColor: "{colors.steel-500}"
+  music-track-row:
+    backgroundColor: "{colors.canvas-ink}"
+    textColor: "{colors.steel-text}"
     typography: "{typography.body-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  card-comic-cover:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.signal-crimson}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.xl}"
-    padding: "{spacing.sm}"
-  modal-sheet:
-    backgroundColor: "{colors.surface-elev}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.steel-500}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.xxl}"
-    padding: "{spacing.xl}"
-  form-input-dark:
-    backgroundColor: "{colors.canvas-soft}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.steel-500}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.sm}"
+    rounded: "{rounded.none}"
     padding: "{spacing.md} {spacing.lg}"
-  status-pill-live:
-    backgroundColor: "{colors.signal-neon-green}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.pill}"
-    padding: "{spacing.xs} {spacing.md}"
-  status-pill-alert:
-    backgroundColor: "{colors.signal-magenta}"
-    textColor: "{colors.ink}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.pill}"
-    padding: "{spacing.xs} {spacing.md}"
-  footer-dark:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink-muted}"
-    borderColor: "{colors.hairline}"
+    activeColor: "{colors.siren-ice}"
+  comic-franchise-card:
+    backgroundColor: "{colors.canvas-graphite}"
+    textColor: "{colors.ink-light}"
+    typography: "{typography.heading-lg}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.sm}"
+    accentColor: "{colors.comic-crimson}"
+  metadata-tag-dark:
+    backgroundColor: "{colors.canvas-graphite}"
+    textColor: "{colors.ink-light}"
+    typography: "{typography.label-industrial}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.xs} {spacing.sm}"
+  metadata-tag-signal:
+    backgroundColor: "{colors.endfield-yellow}"
+    textColor: "{colors.ink-dark}"
+    typography: "{typography.label-industrial}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.xs} {spacing.sm}"
+  footer-technical:
+    backgroundColor: "{colors.canvas-graphite}"
+    textColor: "{colors.ink-muted-dark}"
+    borderColor: "{colors.steel-dark}"
     typography: "{typography.caption}"
     rounded: "{rounded.none}"
-    padding: "{spacing.3xl} {spacing.xl}"
-
-  # ─── Examples (illustrative) — kit-mirror demonstration surfaces ───
-  ex-pricing-tier:
-    description: "Default pricing tier uses tactical dark card chrome with cyan metadata."
-    backgroundColor: "{colors.surface-elev}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.hairline}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  ex-pricing-tier-featured:
-    description: "Featured pricing tier receives signal-yellow action strip and stronger border."
-    backgroundColor: "{colors.canvas-panel}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.signal-yellow}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  ex-product-selector:
-    description: "Game mode selector: segmented tabs with cyan-active rule and low-contrast inactive text."
-    backgroundColor: "{colors.canvas-soft}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.sm}"
-  ex-cart-drawer:
-    description: "Purchase/pack summary panel with hard dark surfaces and compact utility rows."
-    backgroundColor: "{colors.canvas-panel}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-    item-divider: "{colors.hairline}"
-  ex-app-shell-row:
-    description: "In-app sidebar row with active cyan edge marker and muted baseline text."
-    backgroundColor: "{colors.canvas}"
-    activeIndicator: "{colors.primary-cyan}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.sm} {spacing.md}"
-  ex-data-table-cell:
-    description: "Tactical data table cell with compressed labels and steel dividers."
-    headerBackground: "{colors.canvas-soft}"
-    headerTypography: "{typography.label-ui}"
-    bodyTypography: "{typography.body-sm}"
-    cellPadding: "{spacing.sm} {spacing.md}"
-    rowBorder: "{colors.hairline}"
-  ex-auth-form-card:
-    description: "Login/register surface in dark shell with subtle steel edge."
-    backgroundColor: "{colors.surface-elev}"
-    rounded: "{rounded.xl}"
-    padding: "{spacing.xl}"
-  ex-modal-card:
-    description: "System modal with rounded frame and heavy backdrop."
-    backgroundColor: "{colors.surface-elev}"
-    rounded: "{rounded.xxl}"
-    padding: "{spacing.xl}"
-  ex-empty-state-card:
-    description: "Lore-empty state with muted copy and optional cyan action button."
-    backgroundColor: "{colors.canvas-panel}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xxl}"
-    captionTypography: "{typography.body-sm}"
-  ex-toast:
-    description: "Compact toast with colored state strip and high readability."
-    backgroundColor: "{colors.canvas-soft}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm} {spacing.md}"
-    typography: "{typography.body-sm}"
+    padding: "{spacing.xxl} {spacing.xl}"
 
 ---
 
 ## Overview
 
-Hypergryph's public web ecosystem is not one site but a coherent **franchise design platform** spanning corporate, game, music, and comic surfaces:
+Hypergryph's public web presence is a family of art-directed properties rather than a single reusable website theme:
 
 - Corporate: `https://www.hypergryph.com/`
 - Arknights CN: `https://ak.hypergryph.com/`
-- Arknights Endfield: `https://endfield.hypergryph.com/`
+- Arknights: Endfield: `https://endfield.hypergryph.com/`
 - Monster Siren Records: `https://monster-siren.hypergryph.com/`
 - Terra Historicus: `https://comic.hypergryph.com/`
 - Arknights Global: `https://www.arknights.global/`
 
-The core system is dark-native. Black (`{colors.canvas}`) and deep graphite (`{colors.canvas-soft}` / `{colors.canvas-panel}`) are treated as the default medium rather than a "dark mode variant". Accent color is semantic: cyan for tactical interaction and information (`{colors.primary-cyan}`), yellow for urgency and major calls-to-action (`{colors.signal-yellow}`), and occasional high-energy pink/green for event states (`{colors.signal-magenta}`, `{colors.signal-neon-green}`).
+The common system is **industrial composition**: full-viewport artwork or video, thin rules, loading rails, compact metadata, hard-edged panels, and a deliberate mix of CJK text with mechanical Latin display faces. Darkness is an important shared medium, but not an absolute rule. Endfield alternates black cinematic states with white editorial sections and large yellow structures; comic detail surfaces also introduce light reading areas.
 
-Visual language fuses game HUD grammar with premium cinematic marketing: segmented frames, dense overlays, label-first navigation, hard surface boundaries, and high-resolution media heroes. The result feels engineered and narrative at the same time: interface chrome from tactical UI, pacing from film trailer landing pages.
+Color works as a **sub-brand slot**, not one universal accent. Lime identifies the corporate site, cyan identifies Arknights, ice cyan identifies Monster Siren, yellow drives Endfield, and crimson/yellow distinguish the two Historicus properties. Preserve that separation when adapting the system.
 
-**Key Characteristics:**
-- Dark industrial shells are default and persistent across all sub-brands.
-- Cyan/yellow are functional signals, not decoration.
-- Type system is multilingual and utility-heavy (`Source Han Sans` + `Bender`/`Geometos`/`Novecento` families).
-- Geometry stays strict: low radius, angular composition, modular blocks.
-- Media is hero-grade (large banners, cinematic video, character art) but framed by disciplined UI scaffolding.
+## Observed Property Variants
+
+| Property | Surface and accent | Type and composition |
+|---|---|---|
+| Hypergryph Corporate | Charcoal and black overlays; lime `#f3ff00` for hover and short rules | Source Han Sans with Geometos/Bender; 72px blurred desktop header; floating information plates over a monochrome full-viewport carousel |
+| Arknights CN | Black, `#1d1f20`, `#242424`; cyan `#18d1ff` for active controls and progress | Source Han Sans, Bender, Oswald, Novecento; oversized numeric/display layers, thin grid lines, operator profiles, modular media navigation |
+| Arknights: Endfield | White and `#191919`; hazard yellow `#fffa00`; controlled magenta/green strips | Sans aliases for localized CJK, Gilroy, Novecento, Space Grotesk; clipped blocks, striped technical fills, giant hollow type, 4K-class video media |
+| Monster Siren Records | Near-black `#09090b`, steel gray, ice cyan `#a0edff` | Geometos/Bender and Source Han Sans **plus Source Han Serif** for editorial titles; waveform/loading motifs and persistent player controls |
+| Terra Historicus | Dark gateway with large image cards; crimson `#b0243b` and yellow franchise accents; light detail surfaces | Source Han Sans, Geometos, Gilroy ExtraBold; image-first navigation, hard color corners, separate portrait/landscape compositions |
+| Arknights Global | Black-and-white HUD grid with restrained cyan branding | Oswald, Noto Sans CJK, Bender, and Novecento; condensed navigation, thin white rules, fixed edge utilities |
+
+The Global site shares the franchise vocabulary, but it is not a pixel-for-pixel localization of the current CN implementation. Treat it as a sibling surface with the same typographic and tactical ingredients.
 
 ## Colors
 
-### Core Structural Palette
-- **Canvas Black** (`{colors.canvas}` — `#000000`): global base.
-- **Deep Charcoal** (`{colors.canvas-deep}` — `#0b0d10`): section underlayer.
-- **Panel Charcoal** (`{colors.canvas-panel}` — `#1d1f20`): card and shell interiors.
-- **Elevated Dark** (`{colors.surface-elev}` — `#242424`): raised utility surfaces.
-- **Industrial Gray** (`{colors.surface-muted}` — `#35373c`): muted rails and control strips.
+### Structural Surfaces
 
-### Signal Palette
-- **Tactical Cyan** (`{colors.primary-cyan}` — `#18d1ff`): active nav, interaction focus, data highlight.
-- **Deep Cyan** (`{colors.primary-cyan-deep}` — `#06bbff`): pressed/hover states and denser callouts.
-- **Cyan Soft** (`{colors.primary-cyan-soft}` — `#a0edff`): overlays and readable thin labels.
-- **Hazard Yellow** (`{colors.signal-yellow}` — `#fffa00`): key CTA, chapter callouts, urgency.
-- **Signal Lime** (`{colors.signal-yellow-soft}` — `#f3ff00`): supporting yellow highlight.
-- **Neon Green** (`{colors.signal-neon-green}` — `#00ffa2`): success/live marker.
-- **Signal Magenta** (`{colors.signal-magenta}` — `#ff1aac`): event/special state.
-- **Crimson Story Accent** (`{colors.signal-crimson}` — `#b0243b`): comic/arc branding cue.
+- Use `{colors.canvas-black}`, `{colors.canvas-ink}`, and `{colors.canvas-graphite}` for cinematic shells, loaders, and media-first chapters.
+- Use `{colors.paper}` and `{colors.paper-soft}` for Endfield information sections and comic reading surfaces.
+- Build depth with hard value steps and opacity overlays before adding shadows.
+- Keep primary text binary: white on dark, near-black on light. Steel grays carry metadata and secondary controls.
 
-### Text + Lines
-- **White Ink** (`{colors.ink}` — `#ffffff`): high-contrast headline and controls.
-- **Soft White** (`{colors.ink-soft}` — `#e6e6e6`): body text on dark surfaces.
-- **Muted Ink** (`{colors.ink-muted}` — `#b2b2b2`): supporting metadata.
-- **Steel Scale** (`{colors.steel-100}` to `{colors.steel-600}`): separators, labels, secondary controls.
-- **Hairline** (`{colors.hairline}` — `#2e3238`): primary border logic.
+### Sub-brand Signals
+
+- **Corporate lime** (`{colors.corporate-lime}`): hover states, tiny grids, and short underline rules.
+- **Arknights cyan** (`{colors.arknights-cyan}`): selected navigation, progress, active tabs, and key actions.
+- **Monster Siren ice** (`{colors.siren-ice}`): playback state, waveform progress, active tracks, and loading feedback.
+- **Endfield yellow** (`{colors.endfield-yellow}`): structural bands, active navigation, clipped button edges, and section transitions.
+- **Endfield magenta/green** (`{colors.endfield-magenta}`, `{colors.endfield-green}`): paired data stripes and operator markers, not general-purpose success/error colors.
+- **Comic crimson** (`{colors.comic-crimson}`): Terra Historicus identity and card framing; the Talos-II sibling uses yellow.
+
+Do not combine every accent on one screen. The exception is Endfield's intentional magenta–green–yellow stripe sequence, used as a narrow technical marker rather than ambient decoration.
 
 ## Typography
 
-Hypergryph's typography is a **hybrid multilingual utility stack**:
+### Pairing Logic
 
-1. **CJK body backbone**: Source Han Sans variants (`Regular/Medium/Bold`) for dense Chinese UI copy and stable cross-device legibility.
-2. **Display/mechanical layer**: Bender, Geometos, and Novecento-style families for tactical, game-facing, and chapter headings.
-3. **Localized alternates**: Oswald/Gilroy style utility faces in English and Endfield event surfaces.
+1. Use Source Han Sans or Noto Sans CJK for functional CJK copy and dense interface text.
+2. Use Bender, Oswald, Geometos, Novecento, or Gilroy for Latin labels, chapter numbers, URLs, and display layers.
+3. Use Source Han Serif only for Monster Siren's editorial titles and descriptive passages; it is a deliberate tonal exception.
+4. Keep display text compact and graphic. Very large words often act as background structure, not conventional headings.
 
-| Token | Size | Weight | Line Height | Role |
-|---|---:|---:|---:|---|
-| `{typography.display-xxl}` | 112px | 700 | 1.0 | Hero cinematic title frames. |
-| `{typography.display-xl}` | 80px | 700 | 1.0 | Main launch title tier. |
-| `{typography.display-lg}` | 56px | 700 | 1.05 | Page chapter headlines. |
-| `{typography.display-md}` | 40px | 700 | 1.1 | Feature section landmarks. |
-| `{typography.heading-lg}` | 32px | 700 | 1.15 | Card group headers. |
-| `{typography.heading-md}` | 24px | 700 | 1.2 | Content block titles. |
-| `{typography.heading-sm}` | 20px | 500 | 1.25 | Subheaders. |
-| `{typography.body-lg}` | 18px | 400 | 1.55 | Intro copy. |
-| `{typography.body-md}` | 16px | 400 | 1.6 | Standard body text. |
-| `{typography.body-sm}` | 14px | 400 | 1.55 | Secondary detail. |
-| `{typography.label-ui}` | 14px | 500 | 1.2 | Upper-utility labels/nav tags. |
-| `{typography.caption}` | 12px | 400 | 1.4 | Meta/time/state details. |
+### Scale
 
-### Typographic Principles
-- Keep display families for **titles and tactical markers only**.
-- Use Source Han Sans variants for all paragraph and functional UI text.
-- Avoid decorative italics and script behavior; voice is **precise, mission-like, cinematic**.
-- Let spacing and contrast create hierarchy before color overload.
+- `{typography.display-mechanical}` represents Arknights' 7rem display tier and the ecosystem's oversized industrial lettering.
+- `{typography.display-cinematic}` suits Endfield character codes and scene titles.
+- `{typography.display-editorial}` is reserved for Monster Siren's literary title moments.
+- `{typography.heading-xl}` through `{typography.body-md}` carry readable localized content.
+- `{typography.label-industrial}` and `{typography.caption}` carry indices, dates, URLs, progress, and system-like metadata.
+
+The live sites often scale the root font with viewport or orientation. Preserve the hierarchy rather than freezing desktop display values on smaller screens.
 
 ## Layout
 
-### Spatial Grammar
-- Grid is modular, with strong horizontal bands and card clusters.
-- Common shell density: 1200–1440 px centered content zone with dark full-bleed background.
-- Vertical rhythm uses larger jumps (`{spacing.4xl}` to `{spacing.7xl}`) between narrative chapters.
-- Utility rows and metadata lanes stay compact (`{spacing.xs}` to `{spacing.md}`).
+### Viewport Staging
 
-### Media-First Framing
-- Hero regions reserve substantial viewport depth for artwork/video.
-- Interactive overlays are anchored to corners or baseline rails instead of free-floating.
-- Decorative noise is controlled: lines, dots, and markers should explain structure, not just decorate.
+- Treat the viewport as a composed scene. Corporate and the entertainment gateways fit major states into one screen instead of relying on a conventional long marketing page.
+- Anchor controls to rails, corners, and image edges. Avoid arbitrary floating pills.
+- Let artwork dominate, but constrain text inside opaque or high-contrast overlays.
+- Use asymmetry deliberately: a large media field can be balanced by a narrow operator panel, project card, or metadata column.
 
-### Composition Behavior
-- Desktop: cinematic hero + tactical side modules.
-- Tablet: modules reflow into stacked chapter blocks while preserving priority order.
-- Mobile: simplified overlays, tighter card spacing, larger tap areas, retained dark contrast.
+### Grid and Rules
 
-## Elevation & Depth
-
-| Level | Treatment | Usage |
-|---|---|---|
-| Level 0 | Flat black/charcoal fill | Page shell and chapter backdrops. |
-| Level 1 | 1px hairline border | Default card and nav segmentation. |
-| Level 2 | Low-contrast shadow + brighter edge | Active cards and modals. |
-| Level 3 | Heavy cinematic overlay (`rgba(0,0,0,0.65+)`) | Video hero captions and tactical HUD overlays. |
-
-Depth in this system is less about soft shadows and more about **layer contracts**: hard borders, overlay opacity, and selective accent edges.
-
-## Shapes
-
-| Token | Value | Role |
-|---|---:|---|
-| `{rounded.none}` | 0px | Rails, tactical slabs, chapter strips. |
-| `{rounded.xs}` | 2px | Micro chips and icon housings. |
-| `{rounded.sm}` | 4px | Buttons and compact controls. |
-| `{rounded.md}` | 6px | Inputs and compact media frames. |
-| `{rounded.lg}` | 8px | Standard cards. |
-| `{rounded.xl}` | 12px | Feature/media cards. |
-| `{rounded.xxl}` | 16px | Dialog and high-elevation surfaces. |
-| `{rounded.pill}` | 9999px | Status pills only. |
-| `{rounded.circle}` | 50% | Circular icon treatment. |
-
-Default profile is angular-to-tight. Large rounding should be rare and purposeful.
+- Use 1px lines to establish axes, progress, and alignment.
+- Prefer rectangular panels and clipped corners over soft cards.
+- Build hierarchy through scale jumps: micro metadata beside very large titles or character art.
+- Use stripes, dot fields, waveform marks, and oversized type only when they support navigation, loading, audio, or world-building.
 
 ## Components
 
 ### Navigation
-- **`nav-bar-dark`**: black shell + thin divider + uppercase utility label style.
-- **`nav-link-active`**: cyan emphasis, no noisy underline stacks.
 
-### Actions
-- **`button-primary-cyan`**: tactical primary for information paths.
-- **`button-primary-yellow`**: major progression and event promotion.
-- **`button-outline-dark`**: neutral route with steel border.
+- **`header-glass`** mirrors the corporate desktop bar: 72px tall, blurred charcoal, white text. Reduce it to roughly 56px on narrow screens.
+- **`nav-link`** is condensed or mechanical. Give active states the current property's signal color rather than a universal brand color.
+- Fixed side utilities and edge rails are appropriate for game marketing surfaces; standard centered nav is not mandatory.
 
-### Surfaces
-- **`card-ops`**: functional information card with tight hierarchy.
-- **`card-lore`**: narrative panel with slightly softer text contrast.
-- **`card-music`**: restrained gallery card (Monster Siren style).
-- **`card-comic-cover`**: image-forward frame with crimson edge signal.
+### Media and State
 
-### Media + Overlays
-- **`hero-video-frame`**: cinematic viewport with bounded frame.
-- **`tactical-overlay-chip`**: compact HUD-like metadata chip.
+- **`cinematic-hero`** is a full-bleed image or video stage with content-aware overlays.
+- **`loading-rail`** exposes progress as part of the experience. It combines a thin line, percentage, property name, and URL/technical metadata.
+- Video should use a poster or designed loading state, preserve crop intent, and offer a motion-reduced fallback.
 
-### Form + Feedback
-- **`form-input-dark`**: muted dark input with solid readability.
-- **`status-pill-live`** and **`status-pill-alert`**: event-state micro signals.
+### Content Modules
 
-### Footer
-- **`footer-dark`**: low-energy closing band with muted metadata tone.
+- **`panel-overlay-black`** places compact corporate information over artwork without softening the composition.
+- **`operator-profile`** combines character art, large names/codes, technical tags, and readable descriptive copy.
+- **`music-track-row`** uses ice cyan only for the active track or playback control.
+- **`comic-franchise-card`** is image-forward; title art overlaps the image and a narrow color edge identifies the franchise.
+- **`metadata-tag-dark`** and **`metadata-tag-signal`** create hard contrast for category labels and selected state.
+
+Avoid adding pricing cards, carts, dashboard tables, generic toasts, or SaaS authentication surfaces unless the product genuinely needs them. They are not defining patterns in the reference sites.
+
+## Motion
+
+- Use restrained transitions for navigation and content controls, generally around 200–500ms.
+- Reserve long cinematic sequences for initial loading, hero playback, and chapter changes.
+- Favor horizontal carousel movement, line growth, mask/clip reveals, and subtle scale over springy card motion.
+- Current Endfield assets include 4K-class desktop video. Treat resolution as media quality, not permission to autoplay large files without adaptive delivery.
+- Respect `prefers-reduced-motion`: replace autoplay or layered reveals with a strong poster frame and immediate readable content.
+
+## Responsive Behavior
+
+The ecosystem is strongly **orientation-driven**. Several sites use portrait/landscape branches rather than only conventional width breakpoints.
+
+### Portrait
+
+- Stack Corporate's overlay panels and project media into a vertical reading sequence.
+- Move corner metadata into inline rails beneath media.
+- Crop artwork intentionally; do not squeeze a desktop composition into the viewport.
+- Reduce giant display layers aggressively while keeping labels and body copy readable.
+- Use property-specific portrait assets where available.
+
+### Landscape
+
+- Preserve full-viewport staging, side utilities, and asymmetrical media/text balance.
+- Keep thin alignment rules visible across the composition.
+- Allow large display type and character art to overlap structural regions without covering controls.
+
+Monster Siren's current mobile presentation retains a wide, art-directed canvas in places. Do not copy that overflow by default; use a dedicated portrait composition unless deliberate horizontal exploration is part of the experience.
+
+## Accessibility
+
+- Keep body copy at 16px or larger even when metadata becomes very small.
+- Never rely on accent color alone; pair active states with a rule, fill, icon, index, or text change.
+- Supply text alternatives for image-based title art and labels.
+- Ensure black overlay panels remain readable over changing video and carousel frames.
+- Keep essential navigation available before heavy media has loaded.
+- Provide keyboard focus with the current sub-brand accent and sufficient contrast.
 
 ## Do's and Don'ts
 
 ### Do
-1. Keep dark surfaces as the baseline medium, not an alternate mode.
-2. Use cyan and yellow for clear interaction semantics.
-3. Preserve multilingual readability with Source Han Sans for body/interface copy.
-4. Frame cinematic assets with strong structure (borders, overlays, rails).
-5. Maintain card modularity and strict vertical rhythm between story chapters.
+
+1. Start with industrial structure: rails, hard panels, image crops, and typographic contrast.
+2. Select exactly one sub-brand signal palette for the surface being designed.
+3. Pair mechanical Latin display type with a CJK-capable text family.
+4. Make loading, playback, progress, and selection states part of the visual language.
+5. Art-direct portrait and landscape separately.
 
 ### Don't
-1. Don't convert the system into bright SaaS-white layouts.
-2. Don't introduce soft pastel gradients as default background language.
-3. Don't over-round controls; this language is mechanical, not bubbly.
-4. Don't use accent colors as ambient decoration across every element.
-5. Don't let hero media obscure action labels or navigation clarity.
 
-## Responsive Behavior
+1. Don't describe the entire ecosystem as a single cyan-and-yellow dark theme.
+2. Don't turn the system into rounded, shadow-heavy SaaS cards.
+3. Don't scatter neon accents as decoration without state or identity meaning.
+4. Don't place fine white text directly on uncontrolled media.
+5. Don't reproduce cinematic motion without performance and reduced-motion fallbacks.
 
-### Breakpoints
+## Adaptation Recipe
 
-| Range | Behavior |
-|---|---|
-| `< 768px` | Single-column flow, compressed overlays, 16px+ body text, larger touch targets. |
-| `768px – 1199px` | Two-column modular blocks, reduced hero crop depth, preserved chapter order. |
-| `>= 1200px` | Full cinematic composition: hero + tactical side/support modules. |
+1. Choose a surface mode: cinematic dark, editorial light, or an intentional alternation of both.
+2. Choose one identity accent: lime, cyan, ice cyan, yellow, or crimson.
+3. Establish a multilingual type pair plus one mechanical display face.
+4. Build a full-viewport hero, loading/progress rail, active navigation state, media/content module, and technical footer.
+5. Design landscape and portrait compositions independently, then validate intermediate widths.
+6. Add texture and motion only after hierarchy, contrast, and media loading behavior work.
 
-### Mobile-Specific Rules
-- Keep title scale dramatic but bounded (`display-xxl` should downshift to `display-md/lg` tiers).
-- Convert corner overlays into inline chips under hero media.
-- Preserve contrast between card boundaries and background at all times.
+Prompt seed for coding and design agents:
 
-### Interaction Density
-- Buttons and action strips should remain easy to identify against dark surfaces.
-- Meta text can shrink, but active state affordances (cyan/yellow) must stay visually obvious.
-
-## Iteration Guide
-
-When adapting this system for another product:
-
-1. **Lock the shell first**: establish black/charcoal hierarchy before introducing any accent.
-2. **Map accent semantics**: cyan = tactical interaction, yellow = major action, magenta/green = event status.
-3. **Choose one display family + one body family** with multilingual support.
-4. **Build five primitives early**: nav bar, CTA button, tactical card, cinematic hero frame, status chip.
-5. **Stress-test with three content modes**: data-heavy panel, narrative longform section, and media-first hero.
-
-Prompt seed for coding/design agents:
-
-> "Build a dark-industrial game-studio marketing page inspired by Hypergryph: black and graphite base, cyan tactical interaction accents, hazard-yellow primary moments, modular card rails, multilingual Source Han Sans body text, and cinematic media sections framed by strict geometric UI overlays."
+> Build a Hypergryph-inspired entertainment surface with full-viewport art direction, hard industrial geometry, thin alignment rails, mechanical Latin display type paired with CJK-ready body text, compact technical metadata, and one sub-brand signal accent. Use cinematic dark and editorial light surfaces intentionally; avoid generic rounded SaaS cards and decorative neon overload.
