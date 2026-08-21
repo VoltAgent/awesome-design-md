@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Preview: Tabbit (Light)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1d1d1f;
+    --ink-deep: #111111;
+    --white: #ffffff;
+    --cream: #fffdf9;
+    --blush: #FBF1EC;
+    --gray-200: #f2f2f2;
+    --orange: #F3A04C;
+    --orange-deep: #E58522;
+    --violet: #8B5CF6;
+    --emerald: #10B981;
+    --coral: #F17C67;
+    --muted: #9ca3af;
+    --text-secondary: rgba(17,17,17,0.76);
+    --text-tertiary: rgba(17,17,17,0.45);
+    --border-subtle: rgba(17,17,17,0.06);
+    --border-default: rgba(17,17,17,0.10);
+    --border-strong: rgba(17,17,17,0.14);
+    --border-accent: rgba(243,160,76,0.30);
+    --shadow-card: rgba(0,0,0,0.08) 0px 8px 24px;
+    --shadow-ambient: rgba(0,0,0,0.04) 0px 2px 8px;
+    --shadow-heavy: rgba(0,0,0,0.35) 0px 24px 60px;
+    --shadow-focus: 0 0 0 3px rgba(243,160,76,0.30);
+    --font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Helvetica Neue', sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--white); color: var(--ink); font-family: var(--font); font-size: 16px; font-weight: 400; line-height: 1.50; -webkit-font-smoothing: antialiased; }
+
+  .nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }
+  .nav-brand { font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { display: inline-block; background: var(--orange); color: var(--white); padding: 10px 20px; border-radius: 9999px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.15s; }
+  .nav-cta:hover { background: var(--orange-deep); }
+
+  .hero { padding: 120px 32px 96px; text-align: center; max-width: 960px; margin: 0 auto; }
+  .hero h1 { font-size: 80px; font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 24px; }
+  .hero h1 .accent { color: var(--orange); }
+  .hero p { font-size: 20px; font-weight: 400; line-height: 1.50; color: var(--text-secondary); max-width: 640px; margin: 0 auto 40px; }
+  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { display: inline-block; background: var(--orange); color: var(--white); padding: 12px 24px; border-radius: 9999px; border: none; font-family: var(--font); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background 0.15s; }
+  .btn-primary:hover { background: var(--orange-deep); }
+  .btn-ink { display: inline-block; background: var(--ink-deep); color: var(--white); padding: 12px 24px; border-radius: 9999px; border: none; font-family: var(--font); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+  .btn-ink:hover { opacity: 0.88; }
+  .btn-surface { display: inline-block; background: var(--blush); color: var(--ink); padding: 10px 20px; border-radius: 9999px; border: 1px solid var(--border-subtle); font-family: var(--font); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background 0.15s; }
+  .btn-surface:hover { background: var(--cream); }
+  .btn-ghost { display: inline-block; background: transparent; color: var(--text-secondary); padding: 8px 16px; border-radius: 9999px; border: none; font-family: var(--font); font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer; transition: color 0.15s; }
+  .btn-ghost:hover { color: var(--orange); }
+
+  .section { padding: 80px 32px; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-family: var(--font); font-size: 12px; font-weight: 600; color: var(--orange-deep); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 2px; }
+  .section-title { font-size: 38px; font-weight: 600; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 40px; }
+  .section-divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .color-swatch { border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); background: var(--white); }
+  .color-swatch-block { height: 80px; width: 100%; }
+  .color-swatch-info { padding: 12px 14px; }
+  .color-swatch-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; letter-spacing: -0.025em; }
+  .color-swatch-hex { font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono); }
+  .color-swatch-role { font-size: 11px; color: var(--text-tertiary); margin-top: 4px; }
+  .color-group-label { font-size: 15px; font-weight: 600; color: var(--text-secondary); margin: 24px 0 12px; }
+
+  .type-sample { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-subtle); }
+  .type-sample:last-child { border-bottom: none; }
+  .type-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); margin-top: 10px; }
+
+  .button-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .button-item { text-align: center; }
+  .button-label { font-size: 12px; font-weight: 500; color: var(--text-tertiary); margin-top: 10px; }
+
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .pill-utility { background: rgba(16,185,129,0.20); color: #0f9f6f; }
+  .pill-taste { background: rgba(139,92,246,0.20); color: #7c4ff0; }
+  .pill-handle { background: rgba(243,160,76,0.08); color: var(--orange-deep); font-family: var(--font-mono); text-transform: none; letter-spacing: 0; font-weight: 500; padding: 3px 10px; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .skill-card { background: var(--blush); border-radius: 20px; padding: 24px; border: 1px solid var(--border-subtle); transition: box-shadow 0.2s; }
+  .skill-card:hover { box-shadow: var(--shadow-card); }
+  .skill-card .pill { margin-bottom: 14px; }
+  .skill-card h3 { font-size: 22px; font-weight: 600; line-height: 1.30; letter-spacing: -0.025em; margin-bottom: 8px; }
+  .skill-card p { font-size: 16px; font-weight: 400; line-height: 1.50; color: var(--text-secondary); margin-bottom: 16px; }
+
+  .feature-card { background: var(--cream); border-radius: 24px; padding: 32px; border: 1px solid var(--border-subtle); }
+  .feature-card h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 10px; }
+  .feature-card p { font-size: 17px; color: var(--text-secondary); line-height: 1.50; }
+
+  .browser-mock { background: linear-gradient(180deg, var(--white), var(--cream)); border-radius: 28px; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-heavy); padding: 16px; max-width: 720px; margin: 0 auto; }
+  .browser-bar { display: flex; align-items: center; gap: 12px; padding: 8px 12px 16px; }
+  .traffic { display: flex; gap: 6px; }
+  .traffic span { width: 11px; height: 11px; border-radius: 50%; }
+  .omnibox { flex: 1; background: var(--blush); border-radius: 9999px; padding: 8px 16px; font-size: 13px; color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+  .browser-body { background: var(--white); border-radius: 16px; border: 1px solid var(--border-subtle); padding: 32px; text-align: center; }
+  .browser-body h4 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+  .browser-body p { font-size: 15px; color: var(--text-secondary); }
+
+  .form-group { margin-bottom: 24px; max-width: 420px; }
+  .form-label { display: block; font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+  .form-input { width: 100%; background: var(--white); color: var(--ink); border: 1px solid var(--border-default); padding: 12px 16px; border-radius: 12px; font-family: var(--font); font-size: 15px; outline: none; transition: border-color 0.15s, box-shadow 0.15s; }
+  .form-input:focus { border-color: var(--border-accent); box-shadow: var(--shadow-focus); }
+  .form-input--focus { border-color: var(--border-accent); box-shadow: var(--shadow-focus); }
+  .form-input--error { border-color: var(--coral); }
+  .form-state-label { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
+
+  .spacing-row { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .spacing-item { text-align: center; }
+  .spacing-block { background: var(--orange); border-radius: 4px; margin-bottom: 6px; height: 32px; }
+  .spacing-value { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--text-tertiary); }
+
+  .radius-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+  .radius-item { text-align: center; }
+  .radius-box { width: 72px; height: 72px; background: var(--ink-deep); margin-bottom: 8px; }
+  .radius-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--text-tertiary); }
+  .radius-context { font-size: 10px; color: var(--text-tertiary); }
+
+  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .elevation-card { background: var(--white); border-radius: 16px; padding: 24px; text-align: center; }
+  .elevation-label { font-size: 14px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 6px; }
+  .elevation-desc { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+
+  .footer { padding: 48px 32px; text-align: center; border-top: 1px solid var(--border-subtle); font-size: 15px; color: var(--text-secondary); background: var(--cream); }
+  .footer a { color: var(--orange-deep); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 38px; }
+    .nav-links { display: none; }
+    .section { padding: 48px 20px; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="#">Tabbit</a>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#buttons">Buttons</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#forms">Forms</a></li>
+    <li><a href="#spacing">Spacing</a></li>
+  </ul>
+  <a class="nav-cta" href="#">Try Tabbit for Free</a>
+</nav>
+
+<section class="hero">
+  <h1>Tabs think.<br>Sites wake. <span class="accent">Your Web.</span></h1>
+  <p>Tabbit is an AI-native browser that turns tabs into teammates -- reading pages, running tasks across websites, and keeping your context.</p>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="#">Try Tabbit for Free</a>
+    <a class="btn-ink" href="#">Download</a>
+  </div>
+</section>
+
+<hr class="section-divider">
+<section class="section" id="colors">
+  <div class="section-label">01 / Colors</div>
+  <h2 class="section-title">Color Palette</h2>
+
+  <div class="color-group-label">Primary</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#1d1d1f"></div><div class="color-swatch-info"><div class="color-swatch-name">Tabbit Black</div><div class="color-swatch-hex">#1d1d1f</div><div class="color-swatch-role">Primary text</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#ffffff; border-bottom:1px solid rgba(17,17,17,0.06)"></div><div class="color-swatch-info"><div class="color-swatch-name">Tabbit White</div><div class="color-swatch-hex">#ffffff</div><div class="color-swatch-role">Page background</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#111111"></div><div class="color-swatch-info"><div class="color-swatch-name">Tabbit Ink</div><div class="color-swatch-hex">#111111</div><div class="color-swatch-role">Dark surface</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#fffdf9"></div><div class="color-swatch-info"><div class="color-swatch-name">Warm Cream</div><div class="color-swatch-hex">#fffdf9</div><div class="color-swatch-role">Gradient endpoint</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#FBF1EC"></div><div class="color-swatch-info"><div class="color-swatch-name">Blush Cream</div><div class="color-swatch-hex">#FBF1EC</div><div class="color-swatch-role">Card surfaces</div></div></div>
+  </div>
+
+  <div class="color-group-label">Accent</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#F3A04C"></div><div class="color-swatch-info"><div class="color-swatch-name">Tabbit Orange</div><div class="color-swatch-hex">#F3A04C</div><div class="color-swatch-role">Brand accent</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#E58522"></div><div class="color-swatch-info"><div class="color-swatch-name">Deep Orange</div><div class="color-swatch-hex">#E58522</div><div class="color-swatch-role">Pressed / hover</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#8B5CF6"></div><div class="color-swatch-info"><div class="color-swatch-name">Violet</div><div class="color-swatch-hex">#8B5CF6</div><div class="color-swatch-role">Taste category</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#10B981"></div><div class="color-swatch-info"><div class="color-swatch-name">Emerald</div><div class="color-swatch-hex">#10B981</div><div class="color-swatch-role">Utility / success</div></div></div>
+  </div>
+
+  <div class="color-group-label">Tinted Fills</div>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="color-swatch-block" style="background:rgba(243,160,76,0.08)"></div><div class="color-swatch-info"><div class="color-swatch-name">Orange Fill</div><div class="color-swatch-hex">rgba(243,160,76,.08)</div><div class="color-swatch-role">Handle pills</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:rgba(139,92,246,0.20)"></div><div class="color-swatch-info"><div class="color-swatch-name">Violet Fill</div><div class="color-swatch-hex">rgba(139,92,246,.20)</div><div class="color-swatch-role">Taste pills</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:rgba(16,185,129,0.20)"></div><div class="color-swatch-info"><div class="color-swatch-name">Emerald Fill</div><div class="color-swatch-hex">rgba(16,185,129,.20)</div><div class="color-swatch-role">Utility pills</div></div></div>
+    <div class="color-swatch"><div class="color-swatch-block" style="background:#9ca3af"></div><div class="color-swatch-info"><div class="color-swatch-name">Muted</div><div class="color-swatch-hex">#9ca3af</div><div class="color-swatch-role">Strikethrough, captions</div></div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="typography">
+  <div class="section-label">02 / Typography</div>
+  <h2 class="section-title">Typography Scale</h2>
+  <div class="type-sample"><div style="font-size:80px; font-weight:700; line-height:1.05; letter-spacing:-0.025em;">Tabs think.</div><div class="type-meta">Display Hero -- 80px / 700 / 1.05 / -0.025em / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:48px; font-weight:700; line-height:1.10; letter-spacing:-0.025em;">Sites wake.</div><div class="type-meta">Display Large -- 48px / 700 / 1.10 / -0.025em / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:38px; font-weight:600; line-height:1.15; letter-spacing:-0.025em;">Your Agentic Web</div><div class="type-meta">Section Heading -- 38px / 600 / 1.15 / -0.025em / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:34px; font-weight:600; line-height:1.20; letter-spacing:-0.025em;">Multi-agent, now with skills</div><div class="type-meta">Sub-heading -- 34px / 600 / 1.20 / -0.025em / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:24px; font-weight:600; line-height:1.25; letter-spacing:-0.025em;">Every SOTA model. Day one.</div><div class="type-meta">Title Large -- 24px / 600 / 1.25 / -0.025em / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:22px; font-weight:600; line-height:1.30;">Triage Feed</div><div class="type-meta">Title -- 22px / 600 / 1.30 / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:20px; font-weight:400; line-height:1.50;">Skim 47 uploads. Surface the 3 worth your time, ranked by what you actually watched through.</div><div class="type-meta">Body Large -- 20px / 400 / 1.50 / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:17px; font-weight:400; line-height:1.50;">Tabbit is an AI-native browser that turns tabs into teammates.</div><div class="type-meta">Body -- 17px / 400 / 1.50 / Montserrat</div></div>
+  <div class="type-sample"><div style="font-size:15px; font-weight:500; line-height:1.40;">Try Tabbit for Free</div><div class="type-meta">Label -- 15px / 500 / 1.40 / Montserrat (button text)</div></div>
+  <div class="type-sample"><div style="font-size:12px; font-weight:600; line-height:1.20; letter-spacing:2px; text-transform:uppercase;">UTILITY</div><div class="type-meta">Eyebrow -- 12px / 600 / uppercase / 2px / Montserrat</div></div>
+  <div class="type-sample"><div style="font-family:var(--font-mono); font-size:12px; font-weight:500;">@feed-trim</div><div class="type-meta">Mono Handle -- 12px / 500 / ui-monospace</div></div>
+</section>
+<hr class="section-divider">
+
+<section class="section" id="buttons">
+  <div class="section-label">03 / Buttons</div>
+  <h2 class="section-title">Button Variants</h2>
+  <div class="button-row">
+    <div class="button-item"><a class="btn-primary" href="#">Try Tabbit for Free</a><div class="button-label">Primary Orange</div></div>
+    <div class="button-item"><a class="btn-ink" href="#">Download</a><div class="button-label">Secondary Ink</div></div>
+    <div class="button-item"><a class="btn-surface" href="#">Learn More</a><div class="button-label">Surface Cream</div></div>
+    <div class="button-item"><a class="btn-ghost" href="#">Dismiss</a><div class="button-label">Ghost</div></div>
+  </div>
+  <div style="margin-top:32px;" class="button-row">
+    <div class="button-item"><span class="pill pill-utility">Utility</span><div class="button-label">Utility Pill</div></div>
+    <div class="button-item"><span class="pill pill-taste">Taste</span><div class="button-label">Taste Pill</div></div>
+    <div class="button-item"><span class="pill pill-handle">@feed-trim</span><div class="button-label">Skill Handle</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="cards">
+  <div class="section-label">04 / Cards</div>
+  <h2 class="section-title">Skill Cards</h2>
+  <div class="card-grid">
+    <div class="skill-card">
+      <span class="pill pill-utility">Utility</span>
+      <h3>Triage Feed</h3>
+      <p>Skim 47 uploads. Surface the 3 worth your time, ranked by what you actually watched through.</p>
+      <span class="pill pill-handle">@feed-trim</span>
+    </div>
+    <div class="skill-card">
+      <span class="pill pill-taste">Taste</span>
+      <h3>Real Comments</h3>
+      <p>Find the substantive disagreements under any video. Skip the top-voted noise.</p>
+      <span class="pill pill-handle">@discourse-mine</span>
+    </div>
+    <div class="skill-card">
+      <span class="pill pill-utility">Utility</span>
+      <h3>Explain PR</h3>
+      <p>47-file PR? Tabbit reads the diff and explains in plain English -- repo-aware.</p>
+      <span class="pill pill-handle">@pr-read</span>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;" class="card-grid">
+    <div class="feature-card">
+      <h3>Context, not just tabs</h3>
+      <p>PDFs, bookmarks, HTML elements, tab graves. Every bit on your desktop. Whatever you bring in -- pages, screenshots, highlights, local files.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Multi-agent, now with skills</h3>
+      <p>Research reads papers. Operator runs crawlers. Writer drafts. Analyst crunches data. Each loaded with the right Skills.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;" class="browser-mock">
+    <div class="browser-bar">
+      <div class="traffic"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+      <div class="omnibox">tabbit.ai/agent</div>
+    </div>
+    <div class="browser-body">
+      <h4>Your Agentic Web</h4>
+      <p>107,763 users across 20+ countries trust and made it their own.</p>
+    </div>
+  </div>
+</section>
+<hr class="section-divider">
+
+<section class="section" id="forms">
+  <div class="section-label">05 / Forms</div>
+  <h2 class="section-title">Form Elements</h2>
+  <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="text" placeholder="you@example.com"><div class="form-state-label">Default (10% ink border)</div></div>
+  <div class="form-group"><label class="form-label">Omnibox query</label><input class="form-input form-input--focus" type="text" value="summarize this page"><div class="form-state-label">Focus (orange ring)</div></div>
+  <div class="form-group"><label class="form-label">Invalid skill handle</label><input class="form-input form-input--error" type="text" value="bad handle"><div class="form-state-label">Error (coral border)</div></div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="spacing">
+  <div class="section-label">06 / Spacing</div>
+  <h2 class="section-title">Spacing Scale</h2>
+  <div class="spacing-row">
+    <div class="spacing-item"><div class="spacing-block" style="width:4px"></div><div class="spacing-value">4</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:8px"></div><div class="spacing-value">8</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:12px"></div><div class="spacing-value">12</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:16px"></div><div class="spacing-value">16</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:20px"></div><div class="spacing-value">20</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:24px"></div><div class="spacing-value">24</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:32px"></div><div class="spacing-value">32</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:48px"></div><div class="spacing-value">48</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:64px"></div><div class="spacing-value">64</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width:96px"></div><div class="spacing-value">96</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="radius">
+  <div class="section-label">07 / Radius</div>
+  <h2 class="section-title">Border Radius Scale</h2>
+  <div class="radius-row">
+    <div class="radius-item"><div class="radius-box" style="border-radius:4px"></div><div class="radius-label">4px</div><div class="radius-context">Micro</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:12px"></div><div class="radius-label">12px</div><div class="radius-context">Inputs</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:16px"></div><div class="radius-label">16px</div><div class="radius-context">Cards</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:20px"></div><div class="radius-label">20px</div><div class="radius-context">Featured</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:24px"></div><div class="radius-label">24px</div><div class="radius-context">Feature cards</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:28px"></div><div class="radius-label">28px</div><div class="radius-context">Hero mockups</div></div>
+    <div class="radius-item"><div class="radius-box" style="border-radius:9999px"></div><div class="radius-label">9999px</div><div class="radius-context">Pills</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" id="elevation">
+  <div class="section-label">08 / Elevation</div>
+  <h2 class="section-title">Elevation &amp; Depth</h2>
+  <div class="elevation-grid">
+    <div class="elevation-card" style="border: 1px solid var(--border-subtle);"><div class="elevation-label">Level 0: Flat</div><div class="elevation-desc">No shadow</div></div>
+    <div class="elevation-card" style="border: 1px solid var(--border-default);"><div class="elevation-label">Level 1: Border</div><div class="elevation-desc">6-10% ink</div></div>
+    <div class="elevation-card" style="box-shadow: var(--shadow-ambient);"><div class="elevation-label">Level 2: Ambient</div><div class="elevation-desc">Subtle float</div></div>
+    <div class="elevation-card" style="box-shadow: var(--shadow-card);"><div class="elevation-label">Level 3: Card</div><div class="elevation-desc">Hover lift</div></div>
+    <div class="elevation-card" style="box-shadow: var(--shadow-heavy);"><div class="elevation-label">Level 4: Heavy</div><div class="elevation-desc">Hero mockup</div></div>
+    <div class="elevation-card" style="box-shadow: var(--shadow-focus); border: 1px solid var(--border-accent);"><div class="elevation-label">Focus</div><div class="elevation-desc">Orange ring</div></div>
+  </div>
+</section>
+
+<footer class="footer">
+  Generated from <a href="https://tabbit.ai/">tabbit.ai</a> DESIGN.md -- awesome-design-md
+</footer>
+
+</body>
+</html>
