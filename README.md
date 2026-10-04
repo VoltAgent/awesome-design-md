@@ -229,8 +229,7 @@ Each site includes:
 | File | Purpose |
 |------|---------|
 | `DESIGN.md` | The design system (what agents read) |
-| `preview.html` | Visual catalog showing color swatches, type scale, buttons, cards |
-| `preview-dark.html` | Same catalog with dark surfaces |
+| `README.md` | Quick reference and link to preview on getdesign.md |
 
 ### How to Use
 
