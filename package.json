@@ -1,0 +1,47 @@
+{
+  "name": "awesome-design-md",
+  "version": "1.0.0",
+  "description": "74+ curated brand design systems as an AI agent skill and CLI for generating consistent UI",
+  "main": "scripts/design-cli.cjs",
+  "bin": {
+    "design-cli": "./scripts/design-cli.cjs",
+    "awesome-design-md": "./scripts/design-cli.cjs",
+    "design-md": "./scripts/design-cli.cjs"
+  },
+  "scripts": {
+    "start": "node scripts/design-cli.cjs",
+    "catalog:generate": "node scripts/generate-catalog.cjs",
+    "install-skill": "node scripts/install-skill.cjs",
+    "test": "node --test tests/**/*.test.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VoltAgent/awesome-design-md.git"
+  },
+  "keywords": [
+    "design-system",
+    "agent-skills",
+    "gemini-cli",
+    "claude-code",
+    "cursor",
+    "design-tokens",
+    "ui",
+    "ai-agent",
+    "design-md"
+  ],
+  "author": "VoltAgent",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "SKILL.md",
+    "SPEC.md",
+    "README.md",
+    "LICENSE",
+    "references",
+    "scripts",
+    "design-md",
+    "commands"
+  ]
+}

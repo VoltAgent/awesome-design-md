@@ -17,7 +17,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-73-10b981?style=classic)
+![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-74-10b981?style=classic)
 [![Last Update](https://img.shields.io/github/last-commit/VoltAgent/awesome-design-md?label=Last%20update&style=classic)](https://github.com/VoltAgent/awesome-design-md)
 [![Discord](https://img.shields.io/discord/1361559153780195478.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://s.voltagent.dev/discord)
 [![Official MCP Servers](https://img.shields.io/badge/Official-MCP%20Servers-c2410c?style=classic&logo=github&logoColor=white&labelColor=24292f)](https://github.com/VoltAgent/official-mcp-servers)
@@ -44,6 +44,115 @@ It's just a markdown file. No Figma exports, no JSON schemas, no special tooling
 | `DESIGN.md` | Design agents | How the project should look and feel |
 
 **This repo provides ready-to-use DESIGN.md files** extracted from real websites. 
+
+## ⚡ Quick Start: Turnkey AI Agent Skill & CLI
+
+Use this entire collection directly in your AI coding assistant (**Gemini CLI**, **Claude Code**, **Cursor**, **Codex**, **OpenCode**, **Antigravity**) or use the standalone zero-dependency CLI to inspect and apply styles in seconds.
+
+### 1-Click Skill & Slash Command Installation
+
+Install the skill and `/design-md` slash command globally into your AI coding assistant:
+
+```bash
+# Auto-detect and install to your active AI agent environments (~/.gemini, ~/.claude, ~/.agents)
+npm run install-skill
+
+# Or target specific assistants:
+node scripts/install-skill.cjs --gemini     # Gemini CLI (~/.gemini/skills & ~/.gemini/commands)
+node scripts/install-skill.cjs --claude     # Claude Code (~/.claude/skills & ~/.claude/commands)
+node scripts/install-skill.cjs --agents     # Universal Agent Standard (~/.agents)
+node scripts/install-skill.cjs --local      # Local repository only (./.gemini & ./.agents)
+node scripts/install-skill.cjs --all        # All global agent environments
+
+# For local development (symlinks instead of copying so edits reflect live):
+node scripts/install-skill.cjs --gemini --link
+```
+
+#### What Gets Installed:
+| Environment | Skill Location | Slash Command Location |
+| :--- | :--- | :--- |
+| **Gemini CLI** | `~/.gemini/skills/awesome-design-md/` | `~/.gemini/commands/design-md.toml` |
+| **Claude Code** | `~/.claude/skills/awesome-design-md/` | `~/.claude/commands/design-md.md` |
+| **Universal Agents** | `~/.agents/skills/awesome-design-md/` | `~/.agents/commands/design-md.md` |
+
+#### Post-Installation Activation:
+1. In your **Gemini CLI** interactive session, run:
+   ```bash
+   /commands reload    # Reloads slash commands (registers /design-md)
+   /skills reload      # Hot-reloads active skills
+   ```
+2. Test the command:
+   ```bash
+   /design-md apple
+   ```
+
+### 🚀 Slash Command: `/design-md <brand>` (Instant UI Slicing Reference)
+
+Once installed, simply type `/design-md <brand>` in **Gemini CLI** or **Claude Code**:
+
+```bash
+# Load brand design system reference
+/design-md apple
+/design-md linear
+/design-md stripe
+
+# Load reference and immediately slice a UI component
+/design-md apple tolong slicing hero section dan navbar
+/design-md linear buatkan pricing table card component
+/design-md stripe buatkan checkout payment form
+```
+
+**How the AI Agent executes UI Slicing:**
+1. **Brand Resolution**: Resolves names & aliases (`apple`, `linear` &rarr; `linear.app`, `mistral` &rarr; `mistral.ai`, `x` &rarr; `x.ai`, `dell` &rarr; `dell-1996`, `nintendo` &rarr; `nintendo-2001`, `stripe`, `vercel`, `supabase`, etc.).
+2. **Loads the Guide**: Reads the authentic specification from `design-md/<brand>/DESIGN.md` (or runs `node scripts/design-cli.cjs slice <brand>`).
+3. **Extracts Exact Tokens**:
+   - **Canvas & Surface Tiering**: Root background (`--canvas`), card/dialog tiers (`--surface-1..4`).
+   - **Interactive Accents**: Signature CTA accent (`--primary`), hover/focus rings.
+   - **Hairline Borders**: 1px borders (`--hairline`), dividers (`--divider-soft`).
+   - **Typography Hierarchy**: Font fallbacks, display headline scale, negative letter-spacing tracking, tabular numerals.
+   - **Component Specs**: Button variants (primary, secondary, ghost), corner radii (pill vs squircle vs sharp), paddings, and elevation.
+4. **Slices Frontend Code**: Faithfully produces the requested component (React, Tailwind, HTML/CSS, Vue, Svelte) reflecting authentic brand craftsmanship.
+5. **Persists Standard (Optional)**: Copies to `./DESIGN.md` if establishing project-wide styling standards.
+
+### Zero-Dependency CLI
+
+Browse, search, inspect tokens, and copy `DESIGN.md` directly into your project:
+
+```bash
+# Generate AI-ready UI slicing reference & tokens
+node scripts/design-cli.cjs slice apple
+node scripts/design-cli.cjs slice linear
+node scripts/design-cli.cjs slice stripe --json
+
+# Interactive picker menu
+node scripts/design-cli.cjs
+
+# List design systems (with filters)
+node scripts/design-cli.cjs list
+node scripts/design-cli.cjs list --category "FinTech"
+node scripts/design-cli.cjs list --dark
+
+# Search by keyword or vibe
+node scripts/design-cli.cjs search "dark craft"
+
+# Inspect tokens & typography for a brand
+node scripts/design-cli.cjs info stripe
+
+# Apply DESIGN.md to your project root
+node scripts/design-cli.cjs apply linear.app --dest ./DESIGN.md
+
+# Export tokens to CSS variables or Tailwind
+node scripts/design-cli.cjs export-css vercel --dest styles/tokens.css
+node scripts/design-cli.cjs export-tailwind claude
+```
+
+### Using with AI Agents
+
+Once installed, simply ask your agent in plain English:
+- *"Give me a dark craft developer tools UI style for this app."*
+- *"Style this project using the Linear design system."*
+- *"Extract the color tokens and typography for Stripe into CSS variables."*
+- *"Build a landing page matching the Claude aesthetic."*
 
 ## Request a DESIGN.md
 

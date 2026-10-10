@@ -1,0 +1,29 @@
+---
+description: Load a brand design system (e.g., /design-md apple, /design-md linear) as a reference for UI slicing and component styling
+---
+
+You are acting with the `awesome-design-md` skill.
+The user has invoked the `/design-md` command with arguments: $ARGUMENTS
+
+Your task is to load the requested brand's design system and use its guidelines, tokens, and aesthetic rules as the active design reference for UI slicing and frontend development.
+
+Step-by-step workflow:
+1. Brand Identification:
+   - Identify the requested brand from: $ARGUMENTS (e.g. apple, linear, stripe, vercel, supabase, figma, etc.).
+   - Handle common aliases gracefully (e.g. 'linear' -> 'linear.app', 'mistral' -> 'mistral.ai', 'x' -> 'x.ai', 'dell' -> 'dell-1996', 'nintendo' -> 'nintendo-2001').
+   - If no brand is specified or it is unrecognized, list available categories and suggest 3-5 popular brands to choose from.
+
+2. Load Design Reference:
+   - Activate the `awesome-design-md` skill if not already active.
+   - Locate and read the brand's specification file at `design-md/<brand-id>/DESIGN.md` (or inspect it using the skill's bundled resources or CLI: `node scripts/design-cli.cjs slice <brand-id>`).
+   - Extract the core design tokens:
+     * Color palette: Canvas background, Surface tiers, Primary interactive accent, Hairline border color, Body/Ink text colors.
+     * Typography hierarchy: Font families, headline sizes & tracking (letter spacing), body copy line-heights.
+     * Component specs: Button styles (primary, secondary, ghost), border radii (pill vs squircle vs sharp), elevation/shadows, and input states.
+     * Brand craft principles: Philosophy, do's and don'ts.
+
+3. Activate Reference & Execute UI Slicing:
+   - Present a concise summary of the loaded brand design language (Colors, Typography, Key Component styling).
+   - If the user included specific UI slicing instructions (e.g. '/design-md apple tolong slicing hero section dan navbar'), immediately generate the frontend code (React, HTML/CSS, Tailwind, Vue, etc.) faithfully applying the brand's exact design tokens and aesthetic rules.
+   - If no component was requested yet, confirm that the brand design system is loaded as the active reference, and ask the user what screen, component, or layout they want to slice.
+   - If the user asks to save the design system to their workspace, copy the file to `./DESIGN.md`.
