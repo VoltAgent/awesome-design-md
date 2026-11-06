@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi" data-theme="light" data-cs-element="tho" data-cs-style="liquid-glass">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CyberSkill Design System — Light Preview (Umber &amp; Ochre)</title>
+  <style>
+    :root {
+      --cs-bg-page: #FFFDF8;
+      --cs-bg-panel: #FFFFFF;
+      --cs-bg-raised: #FBF4E9;
+      --cs-text-primary: #45210E;
+      --cs-text-secondary: #3F2D21;
+      --cs-accent: #F4BA17;
+      --cs-accent-strong: #5E3F00;
+      --cs-accent-on-strong: #FFFDF8;
+      --cs-border: #E7D9C6;
+      --cs-radius-md: 8px;
+      --cs-radius-lg: 14px;
+      --cs-radius-full: 9999px;
+      --cs-shadow-md: 0 8px 24px -4px rgba(69, 33, 14, 0.10), 0 2px 6px -1px rgba(69, 33, 14, 0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+      background: var(--cs-bg-page);
+      color: var(--cs-text-primary);
+      line-height: 1.5;
+      padding: 48px 24px;
+    }
+    .container { max-width: 1120px; margin: 0 auto; display: grid; gap: 32px; }
+    .hero {
+      background: #45210E;
+      color: #FFFDF8;
+      border-radius: var(--cs-radius-lg);
+      padding: 48px;
+      box-shadow: var(--cs-shadow-md);
+      display: grid;
+      gap: 16px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cs-accent);
+    }
+    h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .subtitle { color: #F5EFE6; max-width: 65ch; font-size: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .card {
+      background: var(--cs-bg-panel);
+      border: 1px solid var(--cs-border);
+      border-radius: var(--cs-radius-lg);
+      padding: 24px;
+      box-shadow: var(--cs-shadow-md);
+      display: grid;
+      gap: 12px;
+    }
+    .card--featured {
+      background: var(--cs-bg-raised);
+      border: 2px solid var(--cs-accent);
+    }
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 4px 12px;
+      border-radius: var(--cs-radius-full);
+      background: var(--cs-accent-strong);
+      color: var(--cs-accent-on-strong);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 20px;
+      border-radius: var(--cs-radius-md);
+      background: #45210E;
+      color: #FFFDF8;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">CyberSkill Global Design System · v2.3.0</span>
+      <h1>Turn Your Will Into Real — Hiện Thực Hoá Ý Chí</h1>
+      <p class="subtitle">Vietnamese-first, multi-axis enterprise design system (Theme × Element [Ngũ Hành] × Language × Style [Liquid Glass]) anchored on Umber #45210E and Ochre #F4BA17 with APCA Lc ≥ 75 body contrast.</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <span class="badge">Foundations · 397 Tokens</span>
+        <h2>Warm Earth Palette</h2>
+        <p>Alabaster #FFFDF8 page canvas, #FFFFFF panels, #FBF4E9 raised surfaces, and 15 Ngũ Hành elemental packs (Kim · Mộc · Thủy · Hỏa · Thổ).</p>
+        <a class="btn" href="#tokens">Explore Tokens</a>
+      </article>
+      <article class="card card--featured">
+        <span class="badge">Featured · 125 Exports &amp; 85 Templates</span>
+        <h2>Dual-Runtime Architecture</h2>
+        <p>Zero-build static HTML (.cs-* classes + styles.css) and compiled ESM React components (@cyberskill/design) with 38 Vietnamese A4 bilingual instruments.</p>
+        <a class="btn" href="#components">Inspect Components</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

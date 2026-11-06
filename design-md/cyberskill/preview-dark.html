@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi" data-theme="dark" data-cs-element="tho" data-cs-style="liquid-glass">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CyberSkill Design System — Dark Preview (Espresso &amp; Ochre)</title>
+  <style>
+    :root {
+      --cs-bg-page: #1A1108;
+      --cs-bg-panel: #26190E;
+      --cs-bg-raised: #332214;
+      --cs-text-primary: #F5EFE6;
+      --cs-text-secondary: #D4C4B0;
+      --cs-accent: #F4BA17;
+      --cs-accent-strong: #F4BA17;
+      --cs-accent-on-strong: #1A1108;
+      --cs-border: #4A3321;
+      --cs-radius-md: 8px;
+      --cs-radius-lg: 14px;
+      --cs-radius-full: 9999px;
+      --cs-shadow-md: 0 12px 32px -4px rgba(0, 0, 0, 0.48);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+      background: var(--cs-bg-page);
+      color: var(--cs-text-primary);
+      line-height: 1.5;
+      padding: 48px 24px;
+    }
+    .container { max-width: 1120px; margin: 0 auto; display: grid; gap: 32px; }
+    .hero {
+      background: var(--cs-bg-panel);
+      border: 1px solid var(--cs-border);
+      border-radius: var(--cs-radius-lg);
+      padding: 48px;
+      box-shadow: var(--cs-shadow-md);
+      display: grid;
+      gap: 16px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cs-accent);
+    }
+    h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .subtitle { color: var(--cs-text-secondary); max-width: 65ch; font-size: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .card {
+      background: var(--cs-bg-panel);
+      border: 1px solid var(--cs-border);
+      border-radius: var(--cs-radius-lg);
+      padding: 24px;
+      box-shadow: var(--cs-shadow-md);
+      display: grid;
+      gap: 12px;
+    }
+    .card--featured {
+      background: var(--cs-bg-raised);
+      border: 2px solid var(--cs-accent);
+    }
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 4px 12px;
+      border-radius: var(--cs-radius-full);
+      background: var(--cs-accent-strong);
+      color: var(--cs-accent-on-strong);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 20px;
+      border-radius: var(--cs-radius-md);
+      background: var(--cs-accent);
+      color: #1A1108;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">CyberSkill Global Design System · v2.3.0 (Dark Mode)</span>
+      <h1>Turn Your Will Into Real — Hiện Thực Hoá Ý Chí</h1>
+      <p class="subtitle">Deep Espresso #1A1108 canvas with warm gold particle light, Ochre #F4BA17 interactive accents, and Liquid Glass surfaces.</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <span class="badge">Foundations · 256 Modes</span>
+        <h2>Espresso &amp; Gold Polarity</h2>
+        <p>Every surface, border, and scrim adapts across Light, Dark, and High-Contrast modes with zero APCA failures.</p>
+        <a class="btn" href="#tokens">Explore Tokens</a>
+      </article>
+      <article class="card card--featured">
+        <span class="badge">Featured · Stitch + Analytical v3</span>
+        <h2>Agent-Native Open-Spec</h2>
+        <p>Complete Stitch 9-Section + Analytical Open-Spec v3 with 10 canonical ex-* component recipes and Vietnamese-first localization.</p>
+        <a class="btn" href="#components">Inspect Components</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

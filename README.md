@@ -137,6 +137,7 @@ You can [request a DESIGN.md](https://getdesign.md/request) for specific website
 
 - [**Airtable**](https://getdesign.md/airtable/design-md) - Spreadsheet-database hybrid. Colorful, friendly, structured data aesthetic
 - [**Clay**](https://getdesign.md/clay/design-md) - Creative agency. Organic shapes, soft gradients, art-directed layout
+- [**CyberSkill**](./design-md/cyberskill/DESIGN.md) - Enterprise design system and AI studio. Warm Umber and Ochre palette, Vietnamese-first typography, five-element theming, Liquid Glass surfaces
 - [**Figma**](https://getdesign.md/figma/design-md) - Collaborative design tool. Vibrant multi-color, playful yet professional
 - [**Framer**](https://getdesign.md/framer/design-md) - Website builder. Bold black and blue, motion-first, design-forward
 - [**Miro**](https://getdesign.md/miro/design-md) - Visual collaboration. Bright yellow accent, infinite canvas aesthetic
