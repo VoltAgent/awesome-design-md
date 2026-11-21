@@ -99,6 +99,7 @@ You can [request a DESIGN.md](https://getdesign.md/request) for specific website
 - [**Together AI**](https://getdesign.md/together.ai/design-md) - Open-source AI infrastructure. Technical, blueprint-style design
 - [**VoltAgent**](https://getdesign.md/voltagent/design-md) - AI agent framework. Void-black canvas, emerald accent, terminal-native
 - [**xAI**](https://getdesign.md/x.ai/design-md) - Elon Musk's AI lab. Stark monochrome, futuristic minimalism
+- [Agents Universe](https://github.com/agents-universe/agents-universe) - Shared AI agents and digital teammates with project-context memory.
 
 ### Developer Tools & IDEs
 
